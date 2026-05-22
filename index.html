@@ -22,24 +22,25 @@
   --border:      rgba(212,132,154,0.18);
 }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body {
+html, body {
   font-family:'Jost',sans-serif;
   background:var(--petal-light);
   color:var(--text-dark);
   min-height:100vh;
-  padding-bottom:110px;
   overflow-x:hidden;
 }
+body { padding-bottom:110px; }
+body.locked { overflow:hidden; }
 
 /* ── HEADER ── */
 .header {
-  background:linear-gradient(160deg, #f7c5d0 0%, #eea0b8 50%, #d98aa5 100%);
+  background:linear-gradient(160deg,#f7c5d0 0%,#eea0b8 50%,#d98aa5 100%);
   padding:22px 20px 26px;
   position:relative; overflow:hidden;
 }
 .header::before {
   content:''; position:absolute; inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .header-top {
   display:flex; align-items:center; gap:12px;
@@ -49,21 +50,15 @@ body {
   width:46px; height:46px;
   background:rgba(255,255,255,0.3);
   backdrop-filter:blur(10px);
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,0.5);
+  border-radius:16px; border:1px solid rgba(255,255,255,0.5);
   display:flex; align-items:center; justify-content:center;
   font-size:22px; flex-shrink:0;
 }
-.brand-name {
-  font-family:'Cormorant Garamond',serif;
-  font-size:26px; font-weight:700;
-  color:#fff; letter-spacing:0.5px;
-}
-.brand-sub { font-size:12px; color:rgba(255,255,255,0.8); font-weight:400; letter-spacing:1px; text-transform:uppercase; }
+.brand-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:#fff; letter-spacing:0.5px; }
+.brand-sub  { font-size:12px; color:rgba(255,255,255,0.8); font-weight:400; letter-spacing:1px; text-transform:uppercase; }
 .cart-btn {
   margin-left:auto; position:relative;
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.25); backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,0.4);
   border-radius:14px; width:46px; height:46px;
   display:flex; align-items:center; justify-content:center;
@@ -78,30 +73,23 @@ body {
 }
 .search-bar {
   position:relative; z-index:1;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.3); backdrop-filter:blur(10px);
   border:1px solid rgba(255,255,255,0.45);
-  border-radius:16px;
-  display:flex; align-items:center;
+  border-radius:16px; display:flex; align-items:center;
   padding:12px 16px; gap:10px;
 }
 .search-bar input {
   background:none; border:none; outline:none;
-  color:#fff; font-size:14px; font-family:'Jost',sans-serif;
-  width:100%; font-weight:500;
+  color:#fff; font-size:14px; font-family:'Jost',sans-serif; width:100%; font-weight:500;
 }
 .search-bar input::placeholder { color:rgba(255,255,255,0.7); }
 
 /* ── CATEGORIES ── */
 .section-label {
   font-size:11px; font-weight:600; color:var(--text-soft);
-  letter-spacing:2px; text-transform:uppercase;
-  padding:20px 20px 10px;
+  letter-spacing:2px; text-transform:uppercase; padding:20px 20px 10px;
 }
-.categories-scroll {
-  display:flex; gap:8px; padding:0 20px 4px;
-  overflow-x:auto; scrollbar-width:none;
-}
+.categories-scroll { display:flex; gap:8px; padding:0 20px 4px; overflow-x:auto; scrollbar-width:none; }
 .categories-scroll::-webkit-scrollbar { display:none; }
 .cat-chip {
   display:flex; align-items:center; gap:6px;
@@ -118,81 +106,54 @@ body {
 }
 
 /* ── PRODUCTS GRID ── */
-.products-grid {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:14px; padding:10px 20px;
-}
+.products-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:10px 20px; }
 .product-card {
   background:var(--card-bg); border-radius:22px; overflow:hidden;
   box-shadow:0 2px 16px rgba(180,100,130,0.1);
-  border:1px solid var(--border);
-  cursor:pointer; transition:transform 0.2s;
+  border:1px solid var(--border); cursor:pointer; transition:transform 0.2s;
 }
 .product-card:active { transform:scale(0.97); }
 .product-thumb {
   width:100%; height:120px;
   display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
-  background:var(--petal);
+  position:relative; overflow:hidden; background:var(--petal);
 }
-.product-thumb img {
-  width:100%; height:100%; object-fit:cover;
-}
-.product-thumb .fallback-emoji {
-  font-size:48px; position:relative; z-index:1;
-}
+.product-thumb img { width:100%; height:100%; object-fit:cover; }
+.product-thumb .fallback-emoji { font-size:48px; position:relative; z-index:1; }
 
-/* Price overlay */
 .price-overlay {
-  position:absolute;
-  bottom:0; left:0; right:0; z-index:3;
-  background:linear-gradient(to top, rgba(58,26,38,0.65) 0%, transparent 100%);
+  position:absolute; bottom:0; left:0; right:0; z-index:3;
+  background:linear-gradient(to top,rgba(58,26,38,0.65) 0%,transparent 100%);
   padding:20px 10px 8px;
   display:flex; align-items:flex-end; justify-content:space-between;
 }
-.price-overlay-amount {
-  font-family:'Cormorant Garamond',serif;
-  font-size:16px; font-weight:700; color:#fff;
-  line-height:1;
-}
+.price-overlay-amount { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:700; color:#fff; line-height:1; }
 .price-overlay-amount small { font-size:10px; font-weight:400; opacity:0.85; }
 .price-overlay-add {
   width:28px; height:28px;
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.25); backdrop-filter:blur(8px);
   border:1.5px solid rgba(255,255,255,0.5);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:17px; color:#fff; cursor:pointer;
-  flex-shrink:0; line-height:1;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:17px; line-height:1; color:#fff; cursor:pointer; flex-shrink:0;
   transition:all 0.18s;
 }
 .price-overlay-add:active { transform:scale(0.85); }
-.price-overlay-add.added {
-  background:rgba(255,255,255,0.9);
-  color:var(--blush-dark);
-  border-color:transparent;
-}
+.price-overlay-add.added { background:rgba(255,255,255,0.92); color:var(--blush-dark); border-color:transparent; font-size:14px; }
 
 .product-info { padding:10px 12px 13px; }
 .product-name { font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3; margin-bottom:2px; }
-.product-cat  { font-size:11px; color:var(--text-soft); font-weight:500; letter-spacing:0.3px; }
+.product-cat  { font-size:11px; color:var(--text-soft); font-weight:500; }
 
-/* ══════════════════════════════════
-   PRODUCT DETAIL MODAL
-══════════════════════════════════ */
+/* ══════ DETAIL MODAL ══════ */
 .detail-overlay {
   position:fixed; inset:0;
-  background:rgba(58,26,38,0.5);
-  backdrop-filter:blur(8px);
+  background:rgba(58,26,38,0.5); backdrop-filter:blur(8px);
   z-index:200; opacity:0; pointer-events:none; transition:opacity 0.3s;
 }
 .detail-overlay.visible { opacity:1; pointer-events:all; }
-
 .detail-modal {
   position:fixed; bottom:0; left:0; right:0;
-  background:var(--cream);
-  border-radius:28px 28px 0 0;
+  background:var(--cream); border-radius:28px 28px 0 0;
   z-index:201; max-height:90vh;
   display:flex; flex-direction:column;
   transform:translateY(100%);
@@ -201,136 +162,69 @@ body {
 }
 .detail-modal.open { transform:translateY(0); }
 
-/* Swiper */
-.swiper-wrap {
-  position:relative; width:100%; height:270px;
-  overflow:hidden; flex-shrink:0;
-  background:var(--petal); touch-action:pan-y;
-}
-.swiper-track {
-  display:flex; height:100%;
-  transition:transform 0.35s cubic-bezier(0.25,0.8,0.25,1);
-  will-change:transform;
-}
-.swiper-slide {
-  min-width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
-}
+.swiper-wrap { position:relative; width:100%; height:270px; overflow:hidden; flex-shrink:0; background:var(--petal); touch-action:pan-y; }
+.swiper-track { display:flex; height:100%; transition:transform 0.35s cubic-bezier(0.25,0.8,0.25,1); will-change:transform; }
+.swiper-slide { min-width:100%; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
 .swiper-slide img { width:100%; height:100%; object-fit:cover; }
 .swiper-slide .big-emoji { font-size:100px; line-height:1; }
 
-/* Language pill */
-.lang-pill {
-  position:absolute; top:14px; left:14px;
-  display:flex; gap:6px; z-index:10;
-}
+.lang-pill { position:absolute; top:14px; left:14px; display:flex; gap:6px; z-index:10; }
 .lang-dot {
-  padding:5px 12px; border-radius:50px;
-  font-size:11px; font-weight:600;
-  background:rgba(255,255,255,0.8);
-  backdrop-filter:blur(8px);
-  color:var(--text-mid);
-  border:1px solid rgba(255,255,255,0.6);
-  transition:all 0.2s;
+  padding:5px 12px; border-radius:50px; font-size:11px; font-weight:600;
+  background:rgba(255,255,255,0.8); backdrop-filter:blur(8px);
+  color:var(--text-mid); border:1px solid rgba(255,255,255,0.6); transition:all 0.2s;
 }
-.lang-dot.active {
-  background:rgba(242,170,187,0.9);
-  color:#fff; border-color:transparent;
-}
-
+.lang-dot.active { background:rgba(242,170,187,0.9); color:#fff; border-color:transparent; }
 .swipe-hint {
   position:absolute; right:14px; bottom:50px;
   background:rgba(255,255,255,0.8); backdrop-filter:blur(8px);
-  border-radius:50px; padding:5px 12px;
-  font-size:11px; font-weight:600; color:var(--text-mid);
+  border-radius:50px; padding:5px 12px; font-size:11px; font-weight:600; color:var(--text-mid);
   display:flex; align-items:center; gap:4px;
   animation:hint 2s ease-in-out 1s 3;
 }
 @keyframes hint { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 .swipe-hint.hidden { display:none; }
-
-.swiper-dots {
-  position:absolute; bottom:14px; left:50%;
-  transform:translateX(-50%);
-  display:flex; gap:5px; z-index:10;
-}
-.swiper-dot {
-  width:6px; height:6px; border-radius:50%;
-  background:rgba(255,255,255,0.5); transition:all 0.25s;
-}
+.swiper-dots { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:10; }
+.swiper-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.5); transition:all 0.25s; }
 .swiper-dot.active { background:#fff; width:16px; border-radius:3px; }
 
-/* Price ribbon */
 .detail-price-ribbon {
   position:absolute; bottom:0; left:0; right:0; z-index:12;
-  background:linear-gradient(to top, rgba(58,26,38,0.6) 0%, transparent 100%);
-  padding:28px 18px 14px;
-  pointer-events:none;
+  background:linear-gradient(to top,rgba(58,26,38,0.6) 0%,transparent 100%);
+  padding:28px 18px 14px; pointer-events:none;
 }
-.detail-ribbon-price {
-  font-family:'Cormorant Garamond',serif;
-  font-size:28px; font-weight:700; color:#fff;
-  text-shadow:0 2px 8px rgba(0,0,0,0.2);
-}
+.detail-ribbon-price { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.2); }
 .detail-ribbon-price small { font-size:14px; font-weight:400; margin-left:4px; opacity:0.85; }
 
-/* Detail body */
-.detail-body {
-  flex:1; overflow-y:auto; padding:22px 22px 0;
-  scrollbar-width:none;
-}
+.detail-body { flex:1; overflow-y:auto; padding:22px 22px 0; scrollbar-width:none; }
 .detail-body::-webkit-scrollbar { display:none; }
-.detail-name {
-  font-family:'Cormorant Garamond',serif;
-  font-size:24px; font-weight:700; color:var(--text-dark);
-  line-height:1.2; margin-bottom:4px;
-}
-.detail-name-ru {
-  font-size:13px; color:var(--text-soft); font-weight:400;
-  font-style:italic; margin-bottom:10px;
-}
-.detail-cat-tag {
-  display:inline-block;
-  font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
-  padding:4px 12px; border-radius:50px;
-  background:var(--petal); color:var(--rose);
-  margin-bottom:14px;
-}
-.detail-footer {
-  padding:16px 20px 32px; flex-shrink:0;
-  background:var(--cream);
-  border-top:1px solid var(--border);
-}
+.detail-name { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:var(--text-dark); line-height:1.2; margin-bottom:4px; }
+.detail-name-ru { font-size:13px; color:var(--text-soft); font-weight:400; font-style:italic; margin-bottom:10px; }
+.detail-cat-tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; border-radius:50px; background:var(--petal); color:var(--rose); margin-bottom:14px; }
+
+.detail-footer { padding:16px 20px 32px; flex-shrink:0; background:var(--cream); border-top:1px solid var(--border); }
 .detail-add-btn {
-  width:100%;
-  background:linear-gradient(135deg,var(--blush),var(--blush-dark));
+  width:100%; background:linear-gradient(135deg,var(--blush),var(--blush-dark));
   color:#fff; border:none; border-radius:18px;
   padding:16px; font-size:16px; font-weight:600;
-  font-family:'Jost',sans-serif;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
+  font-family:'Jost',sans-serif; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; gap:10px;
   box-shadow:0 8px 24px rgba(196,113,138,0.3);
   transition:all 0.2s; letter-spacing:0.5px;
 }
 .detail-add-btn:active { transform:scale(0.97); }
-.detail-add-btn.added {
-  background:linear-gradient(135deg,#e8a0b0,var(--rose));
-}
+.detail-add-btn.added { background:linear-gradient(135deg,#c8657a,var(--blush-dark)); }
 .detail-close-btn {
   position:absolute; top:16px; right:16px; z-index:20;
-  width:34px; height:34px;
-  background:rgba(255,255,255,0.85); backdrop-filter:blur(8px);
-  border-radius:50%; border:none;
-  font-size:15px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  color:var(--text-mid);
+  width:34px; height:34px; background:rgba(255,255,255,0.85); backdrop-filter:blur(8px);
+  border-radius:50%; border:none; font-size:15px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; color:var(--text-mid);
 }
 
 /* ── CART DRAWER ── */
 .overlay {
   position:fixed; inset:0;
-  background:rgba(58,26,38,0.45);
-  backdrop-filter:blur(4px);
+  background:rgba(58,26,38,0.45); backdrop-filter:blur(4px);
   z-index:100; opacity:0; pointer-events:none; transition:opacity 0.3s;
 }
 .overlay.visible { opacity:1; pointer-events:all; }
@@ -348,79 +242,76 @@ body {
 .drawer-header { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 12px; flex-shrink:0; }
 .drawer-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--text-dark); }
 .close-drawer { width:32px; height:32px; background:var(--petal); border-radius:50%; border:none; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-mid); }
-.cart-items { flex:1; overflow-y:auto; padding:0 20px; scrollbar-width:none; }
+
+.cart-items { flex:1; overflow-y:auto; padding:0 20px; scrollbar-width:none; min-height:80px; }
 .cart-items::-webkit-scrollbar { display:none; }
 .cart-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
 .cart-item-img {
-  width:48px; height:48px; border-radius:14px;
-  overflow:hidden; flex-shrink:0;
-  background:var(--petal);
-  display:flex; align-items:center; justify-content:center;
-  font-size:24px;
+  width:48px; height:48px; border-radius:14px; overflow:hidden;
+  flex-shrink:0; background:var(--petal); display:flex; align-items:center; justify-content:center; font-size:24px;
 }
 .cart-item-img img { width:100%; height:100%; object-fit:cover; }
-.cart-item-info { flex:1; }
-.cart-item-name { font-size:13px; font-weight:600; color:var(--text-dark); }
+.cart-item-info { flex:1; min-width:0; }
+.cart-item-name { font-size:13px; font-weight:600; color:var(--text-dark); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .cart-item-price { font-size:12px; color:var(--text-soft); margin-top:2px; }
-.cart-qty-ctrl { display:flex; align-items:center; gap:8px; }
-.qty-btn { width:28px; height:28px; border-radius:9px; border:none; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:700; }
+.cart-qty-ctrl { display:flex; align-items:center; gap:8px; flex-shrink:0; }
+.qty-btn { width:28px; height:28px; border-radius:9px; border:none; font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:700; }
 .qty-minus { background:var(--petal); color:var(--rose); }
-.qty-plus { background:linear-gradient(135deg,var(--blush),var(--rose)); color:#fff; }
+.qty-plus  { background:linear-gradient(135deg,var(--blush),var(--rose)); color:#fff; }
 .qty-num { font-size:15px; font-weight:700; color:var(--text-dark); min-width:18px; text-align:center; }
-.cart-footer { padding:16px 20px 0; flex-shrink:0; }
+
+.cart-footer { padding:14px 20px 0; flex-shrink:0; }
 .note-input {
   width:100%; background:var(--petal); border:1.5px solid var(--border);
   border-radius:14px; padding:11px 14px; font-size:13px;
-  font-family:'Jost',sans-serif; color:var(--text-dark);
-  resize:none; outline:none; margin-bottom:12px;
+  font-family:'Jost',sans-serif; color:var(--text-dark); resize:none; outline:none; margin-bottom:12px;
 }
 .note-input:focus { border-color:var(--blush); }
 .cart-total { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
 .cart-total-label { font-size:14px; color:var(--text-soft); font-weight:500; }
 .cart-total-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--text-dark); }
 .empty-cart { text-align:center; padding:40px 20px; color:var(--text-soft); }
-.empty-cart div:first-child { font-size:50px; margin-bottom:10px; }
-.empty-cart p { font-weight:500; }
+.empty-cart .empty-icon { font-size:50px; margin-bottom:10px; }
+
+.send-btn {
+  width:100%; background:linear-gradient(135deg,var(--blush),var(--blush-dark));
+  color:#fff; border:none; border-radius:16px; height:52px;
+  font-size:15px; font-weight:600; font-family:'Jost',sans-serif;
+  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
+  box-shadow:0 6px 20px rgba(196,113,138,0.3); letter-spacing:0.5px;
+}
+.send-btn:active { transform:scale(0.98); }
 
 /* ── BOTTOM BAR ── */
 .bottom-bar {
   position:fixed; bottom:0; left:0; right:0;
   padding:12px 20px 28px;
   background:linear-gradient(to top,var(--petal-light) 70%,transparent);
-  z-index:50;
-  display:flex; gap:10px;
+  z-index:50; display:flex; gap:10px;
 }
 .cart-icon-btn {
   width:54px; height:54px; flex-shrink:0;
-  background:var(--card-bg);
-  border:1.5px solid var(--border);
-  border-radius:18px;
-  display:flex; align-items:center; justify-content:center;
+  background:var(--card-bg); border:1.5px solid var(--border);
+  border-radius:18px; display:flex; align-items:center; justify-content:center;
   font-size:22px; cursor:pointer; position:relative;
   box-shadow:0 4px 16px rgba(180,100,130,0.12);
 }
 .cart-icon-badge {
   position:absolute; top:-5px; right:-5px;
   background:var(--blush-dark); color:#fff;
-  font-size:9px; font-weight:700;
-  width:17px; height:17px; border-radius:50%;
-  display:none; align-items:center; justify-content:center;
+  font-size:9px; font-weight:700; width:17px; height:17px;
+  border-radius:50%; display:none; align-items:center; justify-content:center;
 }
 .order-btn {
-  flex:1;
-  background:linear-gradient(135deg,var(--blush) 0%,var(--blush-dark) 100%);
-  color:#fff; border:none; border-radius:18px;
-  padding:0 20px; height:54px;
-  font-size:15px; font-weight:600;
-  font-family:'Jost',sans-serif; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 6px 20px rgba(196,113,138,0.35);
-  transition:all 0.25s; letter-spacing:0.5px;
+  flex:1; background:linear-gradient(135deg,var(--blush) 0%,var(--blush-dark) 100%);
+  color:#fff; border:none; border-radius:18px; padding:0 20px; height:54px;
+  font-size:15px; font-weight:600; font-family:'Jost',sans-serif;
+  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
+  box-shadow:0 6px 20px rgba(196,113,138,0.35); letter-spacing:0.5px;
   position:relative; overflow:hidden;
 }
 .order-btn::after {
-  content:''; position:absolute;
-  top:0; left:-100%; width:50%; height:100%;
+  content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
   animation:shimmer 3.5s infinite;
 }
@@ -437,16 +328,14 @@ body {
   transform:translateX(-50%) translateY(-80px);
   background:var(--text-dark); color:#fff;
   padding:10px 20px; border-radius:50px;
-  font-size:13px; font-weight:500; z-index:300;
-  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1);
-  white-space:nowrap;
+  font-size:13px; font-weight:500; z-index:400;
+  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1); white-space:nowrap;
 }
 .toast.show { transform:translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-top">
     <div class="logo-wrap">🌸</div>
@@ -454,7 +343,7 @@ body {
       <div class="brand-name">VitaShop</div>
       <div class="brand-sub">Sog'liq do'koni</div>
     </div>
-
+    
   </div>
   <div class="search-bar">
     <span>🔍</span>
@@ -462,11 +351,9 @@ body {
   </div>
 </div>
 
-<!-- CATEGORIES -->
 <div class="section-label">Kategoriyalar</div>
 <div class="categories-scroll" id="catList"></div>
 
-<!-- PRODUCTS -->
 <div class="section-label" style="padding-top:16px">Mahsulotlar</div>
 <div class="products-grid" id="productsGrid"></div>
 
@@ -474,11 +361,11 @@ body {
 <div class="bottom-bar">
   <div class="cart-icon-btn" onclick="openCart()">
     🛒
-    <div class="cart-icon-badge" id="cartIconBadge">0</div>
+    <div class="cart-icon-badge" id="cartIconBadge"></div>
   </div>
-  <button class="order-btn" id="orderBtn" onclick="openCart()">
+  <button class="order-btn" onclick="openCart()">
     <span>Savatni Ko'rish</span>
-    <span class="order-btn-count" id="orderCount">0</span>
+    <span class="order-btn-count" id="orderCount"></span>
   </button>
 </div>
 
@@ -497,7 +384,7 @@ body {
       <span class="cart-total-label">Jami summa:</span>
       <span class="cart-total-price" id="totalPrice">0 so'm</span>
     </div>
-    <button class="order-btn" style="animation:none;border-radius:16px;height:52px" onclick="sendOrder()">
+    <button class="send-btn" onclick="sendOrder()">
       <span>✅</span><span>Buyurtma Berish</span>
     </button>
   </div>
@@ -521,7 +408,7 @@ body {
   </div>
   <div class="detail-body">
     <div class="detail-cat-tag" id="dCat"></div>
-    <div class="detail-name" id="dName"></div>
+    <div class="detail-name"    id="dName"></div>
     <div class="detail-name-ru" id="dNameRu"></div>
     <div style="height:20px"></div>
   </div>
@@ -535,182 +422,92 @@ body {
 <div class="toast" id="toast"></div>
 
 <script>
-const tg = window.Telegram?.WebApp;
-if(tg){ tg.ready(); tg.expand(); }
+/* ── Telegram WebApp ── */
+const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+if (tg) { tg.ready(); tg.expand(); }
 
+/* ── DATA ── */
 const categories = [
-  { id:'all',      icon:'🌸', label:'Barchasi'       },
-  { id:'vitamin',  icon:'💊', label:'Vitaminlar'      },
-  { id:'mineral',  icon:'⚗️', label:'Minerallar'      },
-  { id:'omega',    icon:'🐟', label:'Omega'           },
-  { id:'probiotic',icon:'🦠', label:'Probiotiklar'    },
-  { id:'sport',    icon:'💪', label:'Sport'           },
-  { id:'immune',   icon:'🛡️', label:'Immunitet'       },
+  { id:'all',       icon:'🌸', label:'Barchasi'    },
+  { id:'vitamin',   icon:'💊', label:'Vitaminlar'   },
+  { id:'mineral',   icon:'⚗️', label:'Minerallar'   },
+  { id:'omega',     icon:'🐟', label:'Omega'        },
+  { id:'probiotic', icon:'🦠', label:'Probiotiklar' },
+  { id:'sport',     icon:'💪', label:'Sport'        },
+  { id:'immune',    icon:'🛡️', label:'Immunitet'    },
 ];
 
 const products = [
-  {
-    id:1, cat:'vitamin', emoji:'🌟', name:'Vitamin C 1000mg', nameRu:'Витамин C 1000мг',
-    price:35000,
-    images:[
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80',
-      'https://images.unsplash.com/photo-1550572017-edd951b55104?w=600&q=80',
-    ],
-  },
-  {
-    id:2, cat:'vitamin', emoji:'☀️', name:'Vitamin D3 5000 IU', nameRu:'Витамин D3 5000 МЕ',
-    price:42000,
-    images:[
-      'https://images.unsplash.com/photo-1559757175-7b1d0b3e2399?w=600&q=80',
-      'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80',
-    ],
-  },
-  {
-    id:3, cat:'vitamin', emoji:'🅱️', name:'B12 Vitamini', nameRu:'Витамин B12',
-    price:28000,
-    images:[
-      'https://images.unsplash.com/photo-1576671414121-aa2d60f0a0a4?w=600&q=80',
-      'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80',
-    ],
-  },
-  {
-    id:4, cat:'mineral', emoji:'🦴', name:'Kalsiy + D3', nameRu:'Кальций + D3',
-    price:32000,
-    images:[
-      'https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=600&q=80',
-      'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80',
-    ],
-  },
-  {
-    id:5, cat:'mineral', emoji:'🧲', name:'Magniy 400mg', nameRu:'Магний 400мг',
-    price:38000,
-    images:[
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-      'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80',
-    ],
-  },
-  {
-    id:6, cat:'mineral', emoji:'⚡', name:'Temir (Iron) 14mg', nameRu:'Железо 14мг',
-    price:25000,
-    images:[
-      'https://images.unsplash.com/photo-1516542076529-1ea3854896f2?w=600&q=80',
-      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
-    ],
-  },
-  {
-    id:7, cat:'omega', emoji:'🐟', name:'Omega-3 Fish Oil', nameRu:'Омега-3 Рыбий жир',
-    price:55000,
-    images:[
-      'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80',
-      'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80',
-    ],
-  },
-  {
-    id:8, cat:'omega', emoji:'🫒', name:'Omega-6 va -9', nameRu:'Омега-6 и -9',
-    price:48000,
-    images:[
-      'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80',
-      'https://images.unsplash.com/photo-1564894639-e3e1917f2f97?w=600&q=80',
-    ],
-  },
-  {
-    id:9, cat:'probiotic', emoji:'🦠', name:'Probiotik 20 mlrd', nameRu:'Пробиотик 20 млрд',
-    price:62000,
-    images:[
-      'https://images.unsplash.com/photo-1606206873764-fd15e242e5de?w=600&q=80',
-      'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80',
-    ],
-  },
-  {
-    id:10, cat:'probiotic', emoji:'🥛', name:'Laktobatsiller', nameRu:'Лактобациллы',
-    price:45000,
-    images:[
-      'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80',
-      'https://images.unsplash.com/photo-1556909172-8c2f041fca1e?w=600&q=80',
-    ],
-  },
-  {
-    id:11, cat:'sport', emoji:'💪', name:'BCAA Aminokislotalar', nameRu:'BCAA Аминокислоты',
-    price:78000,
-    images:[
-      'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80',
-      'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80',
-    ],
-  },
-  {
-    id:12, cat:'sport', emoji:'🏋️', name:'Kreatin Monohidrat', nameRu:'Креатин Моногидрат',
-    price:65000,
-    images:[
-      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80',
-      'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80',
-    ],
-  },
-  {
-    id:13, cat:'immune', emoji:'🛡️', name:'Sink (Zinc) 25mg', nameRu:'Цинк 25мг',
-    price:29000,
-    images:[
-      'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80',
-      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80',
-    ],
-  },
-  {
-    id:14, cat:'immune', emoji:'🍄', name:'Echinacea Ekstrakti', nameRu:'Экстракт Эхинацеи',
-    price:34000,
-    images:[
-      'https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80',
-      'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80',
-    ],
-  },
+  { id:1,  cat:'vitamin',   emoji:'🌟', name:'Vitamin C 1000mg',     nameRu:'Витамин C 1000мг',      price:35000, images:['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80','https://images.unsplash.com/photo-1550572017-edd951b55104?w=600&q=80'] },
+  { id:2,  cat:'vitamin',   emoji:'☀️', name:'Vitamin D3 5000 IU',   nameRu:'Витамин D3 5000 МЕ',    price:42000, images:['https://images.unsplash.com/photo-1559757175-7b1d0b3e2399?w=600&q=80','https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80'] },
+  { id:3,  cat:'vitamin',   emoji:'🅱️', name:'B12 Vitamini',          nameRu:'Витамин B12',           price:28000, images:['https://images.unsplash.com/photo-1576671414121-aa2d60f0a0a4?w=600&q=80','https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80'] },
+  { id:4,  cat:'mineral',   emoji:'🦴', name:'Kalsiy + D3',           nameRu:'Кальций + D3',          price:32000, images:['https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=600&q=80','https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80'] },
+  { id:5,  cat:'mineral',   emoji:'🧲', name:'Magniy 400mg',          nameRu:'Магний 400мг',          price:38000, images:['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80','https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80'] },
+  { id:6,  cat:'mineral',   emoji:'⚡', name:'Temir (Iron) 14mg',     nameRu:'Железо 14мг',           price:25000, images:['https://images.unsplash.com/photo-1516542076529-1ea3854896f2?w=600&q=80','https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80'] },
+  { id:7,  cat:'omega',     emoji:'🐟', name:'Omega-3 Fish Oil',      nameRu:'Омега-3 Рыбий жир',     price:55000, images:['https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80','https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'] },
+  { id:8,  cat:'omega',     emoji:'🫒', name:'Omega-6 va -9',         nameRu:'Омега-6 и -9',          price:48000, images:['https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80','https://images.unsplash.com/photo-1564894639-e3e1917f2f97?w=600&q=80'] },
+  { id:9,  cat:'probiotic', emoji:'🦠', name:'Probiotik 20 mlrd',     nameRu:'Пробиотик 20 млрд',     price:62000, images:['https://images.unsplash.com/photo-1606206873764-fd15e242e5de?w=600&q=80','https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80'] },
+  { id:10, cat:'probiotic', emoji:'🥛', name:'Laktobatsiller',        nameRu:'Лактобациллы',          price:45000, images:['https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80','https://images.unsplash.com/photo-1556909172-8c2f041fca1e?w=600&q=80'] },
+  { id:11, cat:'sport',     emoji:'💪', name:'BCAA Aminokislotalar',  nameRu:'BCAA Аминокислоты',     price:78000, images:['https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80','https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80'] },
+  { id:12, cat:'sport',     emoji:'🏋️', name:'Kreatin Monohidrat',    nameRu:'Креатин Моногидрат',    price:65000, images:['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80','https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80'] },
+  { id:13, cat:'immune',    emoji:'🛡️', name:'Sink (Zinc) 25mg',      nameRu:'Цинк 25мг',             price:29000, images:['https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80','https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80'] },
+  { id:14, cat:'immune',    emoji:'🍄', name:'Echinacea Ekstrakti',   nameRu:'Экстракт Эхинацеи',     price:34000, images:['https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80','https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80'] },
 ];
 
-let cart = {};
+/* ── STATE ── */
+const cart = {};
 let activeCategory = 'all';
-let searchQuery = '';
+let searchQuery    = '';
 let currentDetailId = null;
 
-function renderCategories() {
-  document.getElementById('catList').innerHTML = categories.map(c => `
-    <div class="cat-chip ${c.id===activeCategory?'active':''}" onclick="selectCat('${c.id}')">
-      ${c.icon} ${c.label}
-    </div>`).join('');
+/* ── SCROLL LOCK ── */
+function lockScroll()   { document.body.classList.add('locked'); }
+function unlockScroll() {
+  // only unlock if no overlay is still open
+  const cartOpen   = document.getElementById('cartDrawer').classList.contains('open');
+  const detailOpen = document.getElementById('detailModal').classList.contains('open');
+  if (!cartOpen && !detailOpen) document.body.classList.remove('locked');
 }
 
+/* ── CATEGORIES ── */
+function renderCategories() {
+  document.getElementById('catList').innerHTML = categories.map(c =>
+    `<div class="cat-chip ${c.id===activeCategory?'active':''}" onclick="selectCat('${c.id}')">${c.icon} ${c.label}</div>`
+  ).join('');
+}
+function selectCat(id) { activeCategory = id; renderCategories(); renderProducts(); }
+function filterProducts(v) { searchQuery = v; renderProducts(); }
+
+/* ── PRODUCTS ── */
 function getBg(cat) {
-  const m = {
-    vitamin:'linear-gradient(135deg,#fde8ef,#f9c5d4)',
-    mineral:'linear-gradient(135deg,#fde8ef,#f5c4d8)',
-    omega:'linear-gradient(135deg,#fce8f3,#f5c4e4)',
-    probiotic:'linear-gradient(135deg,#fdeef5,#f9d0e3)',
-    sport:'linear-gradient(135deg,#fde8f5,#f5c4e0)',
-    immune:'linear-gradient(135deg,#fdeaf0,#f9c8d8)',
-  };
-  return m[cat]||'linear-gradient(135deg,#fde8ef,#f9c5d4)';
+  const m = { vitamin:'linear-gradient(135deg,#fde8ef,#f9c5d4)', mineral:'linear-gradient(135deg,#fde8ef,#f5c4d8)', omega:'linear-gradient(135deg,#fce8f3,#f5c4e4)', probiotic:'linear-gradient(135deg,#fdeef5,#f9d0e3)', sport:'linear-gradient(135deg,#fde8f5,#f5c4e0)', immune:'linear-gradient(135deg,#fdeaf0,#f9c8d8)' };
+  return m[cat] || 'linear-gradient(135deg,#fde8ef,#f9c5d4)';
 }
 
 function renderProducts() {
-  const filtered = products.filter(p => {
-    const mc = activeCategory==='all' || p.cat===activeCategory;
-    const ms = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-    return mc && ms;
-  });
+  const filtered = products.filter(p =>
+    (activeCategory === 'all' || p.cat === activeCategory) &&
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
   const el = document.getElementById('productsGrid');
-  if(!filtered.length){
-    el.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-soft);font-weight:500;">Hech narsa topilmadi</div>';
+  if (!filtered.length) {
+    el.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-soft);font-weight:500;">Hech narsa topilmadi</div>';
     return;
   }
   el.innerHTML = filtered.map(p => {
-    const inCart = cart[p.id]>0;
-    const bg = getBg(p.cat);
-    const imgUrl = p.images && p.images[0];
-    const catLabel = categories.find(c=>c.id===p.cat)?.label || '';
+    const inCart   = (cart[p.id] || 0) > 0;
+    const catLabel = categories.find(c => c.id === p.cat)?.label || '';
+    const imgUrl   = p.images && p.images[0];
     return `
       <div class="product-card" onclick="openDetail(${p.id})">
-        <div class="product-thumb" style="background:${bg}">
-          ${imgUrl ? `<img src="${imgUrl}" alt="${p.name}" onerror="this.style.display='none'">` : `<span class="fallback-emoji">${p.emoji}</span>`}
+        <div class="product-thumb" style="background:${getBg(p.cat)}">
+          ${imgUrl
+            ? `<img src="${imgUrl}" alt="${p.name}" onerror="this.style.display='none'">`
+            : `<span class="fallback-emoji">${p.emoji}</span>`}
           <div class="price-overlay">
             <div class="price-overlay-amount">${p.price.toLocaleString('uz-UZ')}<small> so'm</small></div>
-            <button class="price-overlay-add ${inCart?'added':''}" id="addbtn-${p.id}"
-              onclick="event.stopPropagation();addToCart(${p.id})">${inCart?'✓':'+'}</button>
+            <button class="price-overlay-add ${inCart ? 'added' : ''}" id="addbtn-${p.id}"
+              onclick="event.stopPropagation(); quickAdd(${p.id})">${inCart ? '✓' : '+'}</button>
           </div>
         </div>
         <div class="product-info">
@@ -721,40 +518,168 @@ function renderProducts() {
   }).join('');
 }
 
-function selectCat(id){ activeCategory=id; renderCategories(); renderProducts(); }
-function filterProducts(v){ searchQuery=v; renderProducts(); }
+/* ── QUICK ADD (updates button directly, no full re-render) ── */
+function quickAdd(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+  cart[id] = (cart[id] || 0) + 1;
+  // Update only this button — no flickering re-render
+  const btn = document.getElementById('addbtn-' + id);
+  if (btn) { btn.textContent = '✓'; btn.classList.add('added'); }
+  updateCartUI();
+  if (currentDetailId === id) updateDetailBtn();
+  showToast('✓ ' + p.name + " qo'shildi");
+}
 
-/* ── DETAIL + SWIPER ── */
-let swipeStartX=0, swipeCurrentX=0, swipeDragging=false, swipeIndex=0, swipeTotal=0, hintShown=false;
+/* ── CART QTY ── */
+function changeQty(id, delta) {
+  id = Number(id);
+  cart[id] = (cart[id] || 0) + delta;
+  if (cart[id] <= 0) delete cart[id];
+  updateCartUI();
+  renderCartItems();
+  // Also refresh the + button on the grid card
+  const btn = document.getElementById('addbtn-' + id);
+  if (btn) {
+    const inCart = (cart[id] || 0) > 0;
+    btn.textContent = inCart ? '✓' : '+';
+    btn.classList.toggle('added', inCart);
+  }
+}
+
+/* ── CART UI ── */
+function updateCartUI() {
+  const total = Object.values(cart).reduce((a, b) => a + b, 0);
+  // Header badge
+  const badge = document.getElementById('cartBadge');
+  badge.textContent = total;
+  badge.style.display = total > 0 ? 'flex' : 'none';
+  // Bottom icon badge
+  const ibadge = document.getElementById('cartIconBadge');
+  ibadge.textContent = total;
+  ibadge.style.display = total > 0 ? 'flex' : 'none';
+  // Bottom button count
+  const count = document.getElementById('orderCount');
+  count.textContent = total;
+  count.style.display = total > 0 ? 'flex' : 'none';
+}
+
+function renderCartItems() {
+  const el   = document.getElementById('cartItems');
+  const keys = Object.keys(cart).map(Number);
+  if (!keys.length) {
+    el.innerHTML = '<div class="empty-cart"><div class="empty-icon">🛒</div><p>Savatcha bo\'sh</p></div>';
+    document.getElementById('totalPrice').textContent = "0 so'm";
+    return;
+  }
+  let total = 0;
+  el.innerHTML = keys.map(id => {
+    const p   = products.find(x => x.id === id);
+    const qty = cart[id];
+    const sub = p.price * qty;
+    total += sub;
+    const imgUrl = p.images && p.images[0];
+    return `
+      <div class="cart-item">
+        <div class="cart-item-img">${imgUrl ? `<img src="${imgUrl}" alt="">` : p.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-price">${p.price.toLocaleString('uz-UZ')} × ${qty} = ${sub.toLocaleString('uz-UZ')} so'm</div>
+        </div>
+        <div class="cart-qty-ctrl">
+          <button class="qty-btn qty-minus" onclick="changeQty(${id}, -1)">−</button>
+          <span class="qty-num">${qty}</span>
+          <button class="qty-btn qty-plus"  onclick="changeQty(${id}, +1)">+</button>
+        </div>
+      </div>`;
+  }).join('');
+  document.getElementById('totalPrice').textContent = total.toLocaleString('uz-UZ') + " so'm";
+}
+
+function openCart() {
+  renderCartItems();
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('overlay').classList.add('visible');
+  lockScroll();
+}
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('visible');
+  unlockScroll();
+}
+
+/* ── SEND ORDER ── */
+function sendOrder() {
+  const keys = Object.keys(cart).map(Number);
+  if (!keys.length) { showToast("⚠️ Savatcha bo'sh!"); return; }
+
+  const items = keys.map(id => {
+    const p = products.find(x => x.id === id);
+    return { id: p.id, name: p.name, nameRu: p.nameRu, price: p.price, qty: cart[id] };
+  });
+  const note = document.getElementById('noteInput').value;
+  const payload = JSON.stringify({ items, note });
+
+  if (tg && tg.sendData) {
+    try {
+      tg.sendData(payload);
+    } catch(e) {
+      showToast('❌ Xatolik: ' + e.message);
+    }
+  } else {
+    // Fallback for browser testing
+    showToast('✅ Buyurtma yuborildi!');
+    console.log('Order payload:', payload);
+  }
+}
+
+/* ══════ DETAIL MODAL + SWIPER ══════ */
+let swipeStartX = 0, swipeCurrentX = 0, swipeDragging = false;
+let swipeIndex = 0, swipeTotal = 0, hintShown = false;
 
 function openDetail(id) {
-  const p = products.find(x=>x.id===id);
-  if(!p) return;
+  const p = products.find(x => x.id === id);
+  if (!p) return;
   currentDetailId = id;
   swipeIndex = 0;
-  const bg = getBg(p.cat);
   swipeTotal = (p.images && p.images.length) || 1;
+
+  // Build slides
   const track = document.getElementById('swiperTrack');
-  track.innerHTML = (p.images && p.images.length ? p.images : [null]).map((url) => {
-    if(url) return `<div class="swiper-slide" style="background:${bg}"><img src="${url}" alt="" onerror="this.parentElement.innerHTML='<span class=\\"big-emoji\\">${p.emoji}</span>'"></div>`;
+  const bg = getBg(p.cat);
+  track.innerHTML = (p.images && p.images.length ? p.images : [null]).map(url => {
+    if (url) return `<div class="swiper-slide" style="background:${bg}"><img src="${url}" alt="" onerror="this.parentElement.innerHTML='<span class=\\"big-emoji\\">${p.emoji}</span>'"></div>`;
     return `<div class="swiper-slide" style="background:${bg}"><span class="big-emoji">${p.emoji}</span></div>`;
   }).join('');
+
+  // Dots
   const dots = document.getElementById('swiperDots');
-  dots.innerHTML = Array.from({length:swipeTotal},(_,i)=>`<div class="swiper-dot ${i===0?'active':''}" id="dot-${i}"></div>`).join('');
-  dots.style.display = swipeTotal>1?'flex':'none';
-  document.getElementById('swipeHint').classList.toggle('hidden', swipeTotal<=1||hintShown);
-  document.getElementById('dCat').textContent = categories.find(c=>c.id===p.cat)?.label||p.cat;
-  document.getElementById('dName').textContent = p.name;
-  document.getElementById('dNameRu').textContent = p.nameRu||'';
+  dots.innerHTML = Array.from({ length: swipeTotal }, (_, i) =>
+    `<div class="swiper-dot ${i === 0 ? 'active' : ''}" id="dot-${i}"></div>`
+  ).join('');
+  dots.style.display = swipeTotal > 1 ? 'flex' : 'none';
+
+  // Hint
+  document.getElementById('swipeHint').classList.toggle('hidden', swipeTotal <= 1 || hintShown);
+
+  // Fill content
+  document.getElementById('dCat').textContent    = categories.find(c => c.id === p.cat)?.label || p.cat;
+  document.getElementById('dName').textContent   = p.name;
+  document.getElementById('dNameRu').textContent = p.nameRu || '';
   document.getElementById('ribbonPrice').innerHTML = `${p.price.toLocaleString('uz-UZ')} <small>so'm</small>`;
+
   updateDetailBtn();
   updateSwiper();
+
+  // Touch events
   const wrap = document.getElementById('swiperWrap');
-  wrap.addEventListener('touchstart', onTouchStart, {passive:true});
-  wrap.addEventListener('touchmove',  onTouchMove,  {passive:true});
-  wrap.addEventListener('touchend',   onTouchEnd,   {passive:true});
+  wrap.addEventListener('touchstart', onTouchStart, { passive: true });
+  wrap.addEventListener('touchmove',  onTouchMove,  { passive: true });
+  wrap.addEventListener('touchend',   onTouchEnd,   { passive: true });
+
   document.getElementById('detailOverlay').classList.add('visible');
   document.getElementById('detailModal').classList.add('open');
+  lockScroll();
 }
 
 function closeDetail() {
@@ -765,103 +690,73 @@ function closeDetail() {
   wrap.removeEventListener('touchmove',  onTouchMove);
   wrap.removeEventListener('touchend',   onTouchEnd);
   currentDetailId = null;
+  unlockScroll();
 }
 
 function updateSwiper() {
-  document.getElementById('swiperTrack').style.transform=`translateX(-${swipeIndex*100}%)`;
-  for(let i=0;i<swipeTotal;i++){
-    const d=document.getElementById('dot-'+i);
-    if(d) d.className='swiper-dot'+(i===swipeIndex?' active':'');
+  document.getElementById('swiperTrack').style.transform = `translateX(-${swipeIndex * 100}%)`;
+  for (let i = 0; i < swipeTotal; i++) {
+    const d = document.getElementById('dot-' + i);
+    if (d) d.className = 'swiper-dot' + (i === swipeIndex ? ' active' : '');
   }
-  for(let i=0;i<2;i++){
-    const d=document.getElementById('langDot'+i);
-    if(d) d.className='lang-dot'+(i===swipeIndex?' active':'');
+  const d0 = document.getElementById('langDot0');
+  const d1 = document.getElementById('langDot1');
+  if (d0) d0.className = 'lang-dot' + (swipeIndex === 0 ? ' active' : '');
+  if (d1) d1.className = 'lang-dot' + (swipeIndex === 1 ? ' active' : '');
+}
+
+function onTouchStart(e) { swipeStartX = e.touches[0].clientX; swipeCurrentX = swipeStartX; swipeDragging = true; }
+function onTouchMove(e) {
+  if (!swipeDragging) return;
+  swipeCurrentX = e.touches[0].clientX;
+  const diff = swipeStartX - swipeCurrentX;
+  const base = swipeIndex * 100;
+  const pct  = (diff / window.innerWidth) * 100;
+  const track = document.getElementById('swiperTrack');
+  track.style.transition = 'none';
+  track.style.transform  = `translateX(calc(-${base}% - ${pct}%))`;
+}
+function onTouchEnd() {
+  if (!swipeDragging) return;
+  swipeDragging = false;
+  document.getElementById('swiperTrack').style.transition = '';
+  const diff = swipeStartX - swipeCurrentX;
+  if (diff > 50 && swipeIndex < swipeTotal - 1) {
+    swipeIndex++;
+    hintShown = true;
+    document.getElementById('swipeHint').classList.add('hidden');
+  } else if (diff < -50 && swipeIndex > 0) {
+    swipeIndex--;
   }
-}
-function onTouchStart(e){ swipeStartX=e.touches[0].clientX; swipeCurrentX=swipeStartX; swipeDragging=true; }
-function onTouchMove(e){
-  if(!swipeDragging) return;
-  swipeCurrentX=e.touches[0].clientX;
-  const diff=swipeStartX-swipeCurrentX;
-  const base=swipeIndex*100;
-  const pct=(diff/window.innerWidth)*100;
-  document.getElementById('swiperTrack').style.transition='none';
-  document.getElementById('swiperTrack').style.transform=`translateX(calc(-${base}% - ${pct}%))`;
-}
-function onTouchEnd(){
-  if(!swipeDragging) return;
-  swipeDragging=false;
-  document.getElementById('swiperTrack').style.transition='';
-  const diff=swipeStartX-swipeCurrentX;
-  if(diff>50 && swipeIndex<swipeTotal-1){ swipeIndex++; hintShown=true; document.getElementById('swipeHint').classList.add('hidden'); }
-  else if(diff<-50 && swipeIndex>0){ swipeIndex--; }
   updateSwiper();
 }
-function updateDetailBtn(){
-  const inCart=currentDetailId&&cart[currentDetailId]>0;
-  document.getElementById('detailAddBtn').className='detail-add-btn'+(inCart?' added':'');
-  document.getElementById('detailAddLabel').textContent=inCart?`Savatchada (${cart[currentDetailId]} ta) ✓`:"Savatchaga qo'shish";
-}
-function detailAddToCart(){ if(!currentDetailId) return; addToCart(currentDetailId); updateDetailBtn(); }
 
-/* ── CART ── */
-function addToCart(id){
-  const p=products.find(x=>x.id===id); if(!p) return;
-  cart[id]=(cart[id]||0)+1;
-  updateCartUI(); renderProducts();
-  showToast(`✓ ${p.name} qo'shildi`);
+function updateDetailBtn() {
+  const qty   = cart[currentDetailId] || 0;
+  const inCart = qty > 0;
+  document.getElementById('detailAddBtn').className = 'detail-add-btn' + (inCart ? ' added' : '');
+  document.getElementById('detailAddLabel').textContent = inCart
+    ? `Savatchada (${qty} ta) ✓`
+    : "Savatchaga qo'shish";
 }
-function changeQty(id,delta){
-  cart[id]=(cart[id]||0)+delta;
-  if(cart[id]<=0) delete cart[id];
-  updateCartUI(); renderCartItems();
-}
-function updateCartUI(){
-  const total=Object.values(cart).reduce((a,b)=>a+b,0);
-  const badge=document.getElementById('cartBadge');
-  const ibadge=document.getElementById('cartIconBadge');
-  const count=document.getElementById('orderCount');
-  badge.textContent=total; badge.style.display=total>0?'flex':'none';
-  ibadge.textContent=total; ibadge.style.display=total>0?'flex':'none';
-  count.textContent=total; count.style.display=total>0?'flex':'none';
-  if(currentDetailId) updateDetailBtn();
-}
-function renderCartItems(){
-  const el=document.getElementById('cartItems');
-  const keys=Object.keys(cart).map(Number);
-  if(!keys.length){
-    el.innerHTML='<div class="empty-cart"><div>🛒</div><p>Savatcha bo\'sh</p></div>';
-    document.getElementById('totalPrice').textContent="0 so'm"; return;
-  }
-  let totalSum=0;
-  el.innerHTML=keys.map(id=>{
-    const p=products.find(x=>x.id===id); const qty=cart[id]; const sub=p.price*qty; totalSum+=sub;
-    const imgUrl=p.images&&p.images[0];
-    return `<div class="cart-item">
-      <div class="cart-item-img">${imgUrl?`<img src="${imgUrl}" alt="">`:`${p.emoji}`}</div>
-      <div class="cart-item-info">
-        <div class="cart-item-name">${p.name}</div>
-        <div class="cart-item-price">${p.price.toLocaleString('uz-UZ')} × ${qty} = ${sub.toLocaleString('uz-UZ')} so'm</div>
-      </div>
-      <div class="cart-qty-ctrl">
-        <button class="qty-btn qty-minus" onclick="changeQty(${id},-1)">−</button>
-        <span class="qty-num">${qty}</span>
-        <button class="qty-btn qty-plus" onclick="changeQty(${id},+1)">+</button>
-      </div>
-    </div>`;
-  }).join('');
-  document.getElementById('totalPrice').textContent=totalSum.toLocaleString('uz-UZ')+' so\'m';
-}
-function openCart(){ renderCartItems(); document.getElementById('cartDrawer').classList.add('open'); document.getElementById('overlay').classList.add('visible'); }
-function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('overlay').classList.remove('visible'); }
-function sendOrder(){
-  const keys=Object.keys(cart).map(Number);
-  if(!keys.length){ showToast("⚠️ Savatcha bo'sh!"); return; }
-  const items=keys.map(id=>{ const p=products.find(x=>x.id===id); return {id:p.id,name:p.name,nameRu:p.nameRu,price:p.price,qty:cart[id]}; });
-  if(tg) tg.sendData(JSON.stringify({items,note:document.getElementById('noteInput').value}));
-}
-function showToast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2000); }
 
+function detailAddToCart() {
+  if (!currentDetailId) return;
+  quickAdd(currentDetailId);
+  updateDetailBtn();
+}
+
+/* ── TOAST ── */
+let toastTimer = null;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+/* ── INIT ── */
 renderCategories();
 renderProducts();
 </script>
