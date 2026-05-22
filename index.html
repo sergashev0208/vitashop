@@ -5,555 +5,430 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>VitaShop</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --purple-deep:  #6B3FA0;
-  --purple-main:  #8B5CF6;
-  --purple-light: #C4B5FD;
-  --purple-pale:  #F3EEFF;
-  --orange-main:  #FB923C;
-  --orange-glow:  rgba(251,146,60,0.25);
-  --white:        #FFFFFF;
-  --text-dark:    #1E1040;
-  --text-mid:     #5B4A7A;
-  --text-soft:    #9C8BBB;
-  --card-bg:      #FDFAFF;
-  --border:       rgba(139,92,246,0.18);
+  --blush:       #F2AABB;
+  --blush-deep:  #D4849A;
+  --blush-dark:  #B5657A;
+  --rose:        #C4718A;
+  --petal:       #FDE8EF;
+  --petal-light: #FFF4F7;
+  --cream:       #FFFAF9;
+  --text-dark:   #3A1A26;
+  --text-mid:    #7A4A5A;
+  --text-soft:   #B4889A;
+  --card-bg:     #FFFFFF;
+  --border:      rgba(212,132,154,0.18);
 }
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 body {
-  font-family:'Nunito',sans-serif;
-  background:var(--purple-pale);
+  font-family:'Jost',sans-serif;
+  background:var(--petal-light);
   color:var(--text-dark);
   min-height:100vh;
-  padding-bottom:120px;
+  padding-bottom:110px;
   overflow-x:hidden;
 }
 
 /* ── HEADER ── */
 .header {
-  background:linear-gradient(135deg,var(--purple-deep) 0%,var(--purple-main) 60%,#A78BFA 100%);
-  padding:20px 20px 28px;
+  background:linear-gradient(160deg, #f7c5d0 0%, #eea0b8 50%, #d98aa5 100%);
+  padding:22px 20px 26px;
   position:relative; overflow:hidden;
 }
 .header::before {
-  content:''; position:absolute;
-  top:-30px; right:-30px;
-  width:120px; height:120px;
-  background:var(--orange-glow);
-  border-radius:50%; filter:blur(30px);
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 .header-top {
   display:flex; align-items:center; gap:12px;
-  margin-bottom:14px; position:relative; z-index:1;
+  margin-bottom:16px; position:relative; z-index:1;
 }
-.logo-circle {
-  width:44px; height:44px;
-  background:linear-gradient(135deg,var(--orange-main),#F97316);
-  border-radius:14px;
+.logo-wrap {
+  width:46px; height:46px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.5);
   display:flex; align-items:center; justify-content:center;
-  font-size:22px;
-  box-shadow:0 4px 14px var(--orange-glow); flex-shrink:0;
+  font-size:22px; flex-shrink:0;
 }
-.brand-name { font-family:'Poppins',sans-serif; font-size:22px; font-weight:700; color:#fff; }
-.brand-sub  { font-size:12px; color:var(--purple-light); font-weight:500; }
+.brand-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:700;
+  color:#fff; letter-spacing:0.5px;
+}
+.brand-sub { font-size:12px; color:rgba(255,255,255,0.8); font-weight:400; letter-spacing:1px; text-transform:uppercase; }
 .cart-btn {
   margin-left:auto; position:relative;
-  background:rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.25);
-  border-radius:12px; width:44px; height:44px;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.4);
+  border-radius:14px; width:46px; height:46px;
   display:flex; align-items:center; justify-content:center;
   font-size:20px; cursor:pointer;
 }
 .cart-badge {
-  position:absolute; top:-4px; right:-4px;
-  background:var(--orange-main); color:#fff;
-  font-size:10px; font-weight:800;
+  position:absolute; top:-5px; right:-5px;
+  background:#fff; color:var(--blush-dark);
+  font-size:10px; font-weight:700;
   width:18px; height:18px; border-radius:50%;
   display:none; align-items:center; justify-content:center;
-  box-shadow:0 2px 6px rgba(251,146,60,0.5);
 }
 .search-bar {
   position:relative; z-index:1;
-  background:rgba(255,255,255,0.18);
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:14px;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.45);
+  border-radius:16px;
   display:flex; align-items:center;
-  padding:10px 14px; gap:8px;
+  padding:12px 16px; gap:10px;
 }
 .search-bar input {
   background:none; border:none; outline:none;
-  color:#fff; font-size:14px; font-family:'Nunito',sans-serif;
-  width:100%; font-weight:600;
+  color:#fff; font-size:14px; font-family:'Jost',sans-serif;
+  width:100%; font-weight:500;
 }
-.search-bar input::placeholder { color:rgba(255,255,255,0.6); }
+.search-bar input::placeholder { color:rgba(255,255,255,0.7); }
 
 /* ── CATEGORIES ── */
 .section-label {
-  font-size:13px; font-weight:800; color:var(--text-soft);
-  letter-spacing:0.8px; text-transform:uppercase;
-  padding:18px 20px 10px;
+  font-size:11px; font-weight:600; color:var(--text-soft);
+  letter-spacing:2px; text-transform:uppercase;
+  padding:20px 20px 10px;
 }
 .categories-scroll {
-  display:flex; gap:10px; padding:0 20px 4px;
+  display:flex; gap:8px; padding:0 20px 4px;
   overflow-x:auto; scrollbar-width:none;
 }
 .categories-scroll::-webkit-scrollbar { display:none; }
 .cat-chip {
   display:flex; align-items:center; gap:6px;
-  padding:9px 16px; border-radius:50px;
-  font-size:13px; font-weight:700; white-space:nowrap;
-  cursor:pointer; transition:all 0.2s;
-  background:var(--white); color:var(--text-mid);
-  box-shadow:0 2px 8px rgba(107,63,160,0.08);
+  padding:9px 18px; border-radius:50px;
+  font-size:13px; font-weight:600; white-space:nowrap;
+  cursor:pointer; transition:all 0.22s;
+  background:var(--card-bg); color:var(--text-mid);
+  border:1.5px solid var(--border);
 }
 .cat-chip.active {
-  background:linear-gradient(135deg,var(--purple-main),var(--purple-deep));
-  color:#fff; box-shadow:0 4px 14px rgba(139,92,246,0.35);
-}
-
-/* ── PROMO ── */
-.promo-banner {
-  margin:14px 20px;
-  background:linear-gradient(135deg,#F97316,var(--orange-main),#FBBF24);
-  border-radius:18px; padding:16px 18px;
-  display:flex; align-items:center; justify-content:space-between;
-  box-shadow:0 6px 20px var(--orange-glow);
-  overflow:hidden; position:relative;
-}
-.promo-banner::before { content:'✨'; position:absolute; font-size:60px; right:14px; top:-10px; opacity:0.25; }
-.promo-text { color:#fff; }
-.promo-text h3 { font-size:15px; font-weight:800; }
-.promo-text p  { font-size:12px; opacity:0.9; margin-top:2px; }
-.promo-badge {
-  background:rgba(255,255,255,0.25); border:1px solid rgba(255,255,255,0.4);
-  color:#fff; font-size:11px; font-weight:800;
-  padding:6px 12px; border-radius:50px; white-space:nowrap;
+  background:linear-gradient(135deg,var(--blush),var(--rose));
+  color:#fff; border-color:transparent;
+  box-shadow:0 4px 14px rgba(196,113,138,0.3);
 }
 
 /* ── PRODUCTS GRID ── */
 .products-grid {
   display:grid; grid-template-columns:1fr 1fr;
-  gap:14px; padding:4px 20px;
+  gap:14px; padding:10px 20px;
 }
 .product-card {
-  background:var(--card-bg); border-radius:20px; overflow:hidden;
-  box-shadow:0 3px 14px rgba(107,63,160,0.1);
+  background:var(--card-bg); border-radius:22px; overflow:hidden;
+  box-shadow:0 2px 16px rgba(180,100,130,0.1);
   border:1px solid var(--border);
   cursor:pointer; transition:transform 0.2s;
 }
 .product-card:active { transform:scale(0.97); }
 .product-thumb {
-  width:100%; height:110px;
+  width:100%; height:120px;
   display:flex; align-items:center; justify-content:center;
-  font-size:50px; position:relative; overflow:hidden;
+  position:relative; overflow:hidden;
+  background:var(--petal);
 }
 .product-thumb img {
   width:100%; height:100%; object-fit:cover;
-  position:absolute; inset:0;
 }
 .product-thumb .fallback-emoji {
-  position:relative; z-index:1; font-size:50px;
-}
-.product-badge {
-  position:absolute; top:8px; right:8px; z-index:2;
-  background:var(--orange-main); color:#fff;
-  font-size:9px; font-weight:800;
-  padding:3px 8px; border-radius:50px;
+  font-size:48px; position:relative; z-index:1;
 }
 
-/* Price tag overlay on image */
+/* Price overlay */
 .price-overlay {
   position:absolute;
-  bottom:0; left:0; right:0;
-  z-index:3;
-  background:linear-gradient(to top, rgba(20,6,50,0.72) 0%, transparent 100%);
-  padding:22px 10px 9px;
+  bottom:0; left:0; right:0; z-index:3;
+  background:linear-gradient(to top, rgba(58,26,38,0.65) 0%, transparent 100%);
+  padding:20px 10px 8px;
   display:flex; align-items:flex-end; justify-content:space-between;
 }
 .price-overlay-amount {
-  font-family:'Poppins',sans-serif;
-  font-size:15px; font-weight:800;
-  color:#fff;
-  text-shadow:0 1px 4px rgba(0,0,0,0.4);
-  line-height:1.1;
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px; font-weight:700; color:#fff;
+  line-height:1;
 }
-.price-overlay-amount small {
-  font-size:10px; font-weight:500;
-  opacity:0.85; display:block; line-height:1;
-}
+.price-overlay-amount small { font-size:10px; font-weight:400; opacity:0.85; }
 .price-overlay-add {
-  width:30px; height:30px;
-  background:linear-gradient(135deg,var(--orange-main),#F97316);
+  width:28px; height:28px;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(8px);
+  border:1.5px solid rgba(255,255,255,0.5);
   border-radius:50%;
-  border:none;
   display:flex; align-items:center; justify-content:center;
-  font-size:19px; color:#fff; cursor:pointer;
-  box-shadow:0 3px 10px rgba(251,146,60,0.5);
+  font-size:17px; color:#fff; cursor:pointer;
   flex-shrink:0; line-height:1;
-  transition:transform 0.18s;
+  transition:all 0.18s;
 }
 .price-overlay-add:active { transform:scale(0.85); }
 .price-overlay-add.added {
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-  box-shadow:0 3px 10px rgba(34,197,94,0.45);
+  background:rgba(255,255,255,0.9);
+  color:var(--blush-dark);
+  border-color:transparent;
 }
 
-/* hide old footer price row inside card */
-.product-footer { display:none; }
-
-.product-info { padding:10px 11px 12px; }
-.product-name { font-size:13px; font-weight:800; color:var(--text-dark); line-height:1.3; margin-bottom:3px; }
-.product-desc {
-  font-size:11px; color:var(--text-soft); line-height:1.4;
-  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-}
-.add-btn {
-  width:32px; height:32px;
-  background:linear-gradient(135deg,var(--purple-main),var(--purple-deep));
-  border-radius:10px; border:none;
-  display:flex; align-items:center; justify-content:center;
-  font-size:18px; color:#fff; cursor:pointer;
-  box-shadow:0 3px 10px rgba(139,92,246,0.35);
-  flex-shrink:0; line-height:1;
-}
-.add-btn.added { background:linear-gradient(135deg,var(--orange-main),#F97316); }
+.product-info { padding:10px 12px 13px; }
+.product-name { font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3; margin-bottom:2px; }
+.product-cat  { font-size:11px; color:var(--text-soft); font-weight:500; letter-spacing:0.3px; }
 
 /* ══════════════════════════════════
    PRODUCT DETAIL MODAL
 ══════════════════════════════════ */
 .detail-overlay {
   position:fixed; inset:0;
-  background:rgba(30,16,64,0.6);
-  backdrop-filter:blur(6px);
-  z-index:200;
-  opacity:0; pointer-events:none;
-  transition:opacity 0.3s;
+  background:rgba(58,26,38,0.5);
+  backdrop-filter:blur(8px);
+  z-index:200; opacity:0; pointer-events:none; transition:opacity 0.3s;
 }
 .detail-overlay.visible { opacity:1; pointer-events:all; }
 
 .detail-modal {
-  position:fixed;
-  bottom:0; left:0; right:0;
-  background:var(--white);
+  position:fixed; bottom:0; left:0; right:0;
+  background:var(--cream);
   border-radius:28px 28px 0 0;
-  z-index:201;
-  max-height:92vh;
+  z-index:201; max-height:90vh;
   display:flex; flex-direction:column;
   transform:translateY(100%);
-  transition:transform 0.38s cubic-bezier(0.34,1.3,0.64,1);
+  transition:transform 0.38s cubic-bezier(0.34,1.2,0.64,1);
   overflow:hidden;
 }
 .detail-modal.open { transform:translateY(0); }
 
-/* Image swiper inside modal */
+/* Swiper */
 .swiper-wrap {
-  position:relative;
-  width:100%;
-  height:260px;
-  overflow:hidden;
-  flex-shrink:0;
-  background:#f0ebff;
-  touch-action:pan-y;
-}
-
-/* Price ribbon on detail swiper image */
-.detail-price-ribbon {
-  position:absolute;
-  bottom:0; left:0; right:0; z-index:12;
-  background:linear-gradient(to top, rgba(15,4,40,0.75) 0%, transparent 100%);
-  padding:32px 18px 14px;
-  display:flex; align-items:flex-end; justify-content:space-between;
-  pointer-events:none;
-}
-.detail-ribbon-price {
-  font-family:'Poppins',sans-serif;
-  font-size:26px; font-weight:800; color:#fff;
-  text-shadow:0 2px 8px rgba(0,0,0,0.35);
-  line-height:1;
-}
-.detail-ribbon-price small {
-  font-size:14px; font-weight:500;
-  opacity:0.85; margin-left:4px;
-}
-.detail-ribbon-badge {
-  background:linear-gradient(135deg,var(--orange-main),#F97316);
-  color:#fff; font-size:11px; font-weight:800;
-  padding:5px 14px; border-radius:50px;
-  box-shadow:0 3px 10px rgba(251,146,60,0.45);
-  display:none;
+  position:relative; width:100%; height:270px;
+  overflow:hidden; flex-shrink:0;
+  background:var(--petal); touch-action:pan-y;
 }
 .swiper-track {
-  display:flex;
-  height:100%;
+  display:flex; height:100%;
   transition:transform 0.35s cubic-bezier(0.25,0.8,0.25,1);
   will-change:transform;
 }
 .swiper-slide {
-  min-width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
+  min-width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
 }
-.swiper-slide img {
-  width:100%; height:100%; object-fit:cover;
-}
-.swiper-slide .big-emoji {
-  font-size:110px;
-  line-height:1;
-}
+.swiper-slide img { width:100%; height:100%; object-fit:cover; }
+.swiper-slide .big-emoji { font-size:100px; line-height:1; }
 
-/* Language pill on top of image */
+/* Language pill */
 .lang-pill {
-  position:absolute;
-  top:14px; left:14px;
+  position:absolute; top:14px; left:14px;
   display:flex; gap:6px; z-index:10;
 }
 .lang-dot {
-  padding:4px 12px;
-  border-radius:50px;
-  font-size:11px; font-weight:800;
-  background:rgba(255,255,255,0.85);
+  padding:5px 12px; border-radius:50px;
+  font-size:11px; font-weight:600;
+  background:rgba(255,255,255,0.8);
   backdrop-filter:blur(8px);
-  color:var(--purple-deep);
-  border:1.5px solid var(--purple-light);
+  color:var(--text-mid);
+  border:1px solid rgba(255,255,255,0.6);
   transition:all 0.2s;
 }
 .lang-dot.active {
-  background:var(--purple-main);
-  color:#fff;
-  border-color:var(--purple-main);
+  background:rgba(242,170,187,0.9);
+  color:#fff; border-color:transparent;
 }
 
-/* Swipe hint arrow */
 .swipe-hint {
-  position:absolute;
-  right:14px; bottom:14px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(8px);
-  border-radius:50px;
-  padding:5px 12px;
-  font-size:12px; font-weight:700;
-  color:var(--purple-deep);
-  display:flex; align-items:center; gap:5px;
-  animation:hint-pulse 2s ease-in-out 1s 3;
-  opacity:0.92;
+  position:absolute; right:14px; bottom:50px;
+  background:rgba(255,255,255,0.8); backdrop-filter:blur(8px);
+  border-radius:50px; padding:5px 12px;
+  font-size:11px; font-weight:600; color:var(--text-mid);
+  display:flex; align-items:center; gap:4px;
+  animation:hint 2s ease-in-out 1s 3;
 }
-@keyframes hint-pulse {
-  0%,100% { transform:translateX(0); }
-  50%      { transform:translateX(5px); }
-}
+@keyframes hint { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
 .swipe-hint.hidden { display:none; }
 
-/* Dots indicator */
 .swiper-dots {
-  position:absolute;
-  bottom:12px; left:50%;
+  position:absolute; bottom:14px; left:50%;
   transform:translateX(-50%);
-  display:flex; gap:6px; z-index:10;
+  display:flex; gap:5px; z-index:10;
 }
 .swiper-dot {
-  width:7px; height:7px;
-  border-radius:50%;
-  background:rgba(255,255,255,0.5);
-  transition:all 0.25s;
+  width:6px; height:6px; border-radius:50%;
+  background:rgba(255,255,255,0.5); transition:all 0.25s;
 }
-.swiper-dot.active {
-  background:#fff;
-  width:18px;
-  border-radius:4px;
+.swiper-dot.active { background:#fff; width:16px; border-radius:3px; }
+
+/* Price ribbon */
+.detail-price-ribbon {
+  position:absolute; bottom:0; left:0; right:0; z-index:12;
+  background:linear-gradient(to top, rgba(58,26,38,0.6) 0%, transparent 100%);
+  padding:28px 18px 14px;
+  pointer-events:none;
 }
+.detail-ribbon-price {
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px; font-weight:700; color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+.detail-ribbon-price small { font-size:14px; font-weight:400; margin-left:4px; opacity:0.85; }
 
 /* Detail body */
 .detail-body {
-  flex:1; overflow-y:auto;
-  padding:20px 20px 0;
+  flex:1; overflow-y:auto; padding:22px 22px 0;
   scrollbar-width:none;
 }
 .detail-body::-webkit-scrollbar { display:none; }
-
-.detail-badge-row {
-  display:flex; align-items:center; gap:8px; margin-bottom:8px;
-}
-.detail-cat-tag {
-  font-size:11px; font-weight:800; letter-spacing:0.5px;
-  padding:4px 10px; border-radius:50px;
-  background:var(--purple-pale); color:var(--purple-main);
-}
-.detail-sale-tag {
-  font-size:11px; font-weight:800;
-  padding:4px 10px; border-radius:50px;
-  background:#FFF0E6; color:var(--orange-main);
-}
-
 .detail-name {
-  font-family:'Poppins',sans-serif;
-  font-size:20px; font-weight:700;
-  color:var(--text-dark); line-height:1.25;
-  margin-bottom:6px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px; font-weight:700; color:var(--text-dark);
+  line-height:1.2; margin-bottom:4px;
 }
 .detail-name-ru {
-  font-size:13px; color:var(--text-soft); font-weight:600;
+  font-size:13px; color:var(--text-soft); font-weight:400;
+  font-style:italic; margin-bottom:10px;
+}
+.detail-cat-tag {
+  display:inline-block;
+  font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
+  padding:4px 12px; border-radius:50px;
+  background:var(--petal); color:var(--rose);
   margin-bottom:14px;
 }
-
-.detail-section-title {
-  font-size:12px; font-weight:800; letter-spacing:0.7px;
-  text-transform:uppercase; color:var(--text-soft);
-  margin-bottom:8px; margin-top:18px;
-}
-.detail-desc {
-  font-size:14px; line-height:1.65;
-  color:var(--text-mid); margin-bottom:4px;
-}
-.detail-desc-ru {
-  font-size:13px; line-height:1.6;
-  color:var(--text-soft); font-style:italic;
-}
-
-.detail-facts {
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:10px; margin-top:4px;
-}
-.fact-card {
-  background:var(--purple-pale);
-  border-radius:14px; padding:12px;
-  border:1px solid var(--border);
-}
-.fact-icon { font-size:20px; margin-bottom:4px; }
-.fact-label { font-size:10px; font-weight:800; color:var(--text-soft); letter-spacing:0.5px; text-transform:uppercase; }
-.fact-value { font-size:13px; font-weight:700; color:var(--text-dark); margin-top:2px; }
-
-/* Detail footer */
 .detail-footer {
-  padding:16px 20px 32px;
-  flex-shrink:0;
-  background:var(--white);
+  padding:16px 20px 32px; flex-shrink:0;
+  background:var(--cream);
   border-top:1px solid var(--border);
 }
-.detail-price-row {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-bottom:14px;
-}
-.detail-price {
-  font-family:'Poppins',sans-serif;
-  font-size:24px; font-weight:700; color:var(--purple-deep);
-}
-.detail-price small { font-size:13px; color:var(--text-soft); font-weight:400; }
-
 .detail-add-btn {
   width:100%;
-  background:linear-gradient(135deg,var(--purple-main),var(--purple-deep));
+  background:linear-gradient(135deg,var(--blush),var(--blush-dark));
   color:#fff; border:none; border-radius:18px;
-  padding:16px; font-size:16px; font-weight:800;
-  font-family:'Nunito',sans-serif;
+  padding:16px; font-size:16px; font-weight:600;
+  font-family:'Jost',sans-serif;
   cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 8px 24px rgba(107,63,160,0.35);
-  transition:all 0.2s;
+  box-shadow:0 8px 24px rgba(196,113,138,0.3);
+  transition:all 0.2s; letter-spacing:0.5px;
 }
 .detail-add-btn:active { transform:scale(0.97); }
 .detail-add-btn.added {
-  background:linear-gradient(135deg,var(--orange-main),#F97316);
+  background:linear-gradient(135deg,#e8a0b0,var(--rose));
 }
 .detail-close-btn {
   position:absolute; top:16px; right:16px; z-index:20;
-  width:36px; height:36px;
-  background:rgba(255,255,255,0.85);
-  backdrop-filter:blur(8px);
+  width:34px; height:34px;
+  background:rgba(255,255,255,0.85); backdrop-filter:blur(8px);
   border-radius:50%; border:none;
-  font-size:16px; cursor:pointer;
+  font-size:15px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   color:var(--text-mid);
-  box-shadow:0 2px 10px rgba(0,0,0,0.12);
 }
 
 /* ── CART DRAWER ── */
 .overlay {
   position:fixed; inset:0;
-  background:rgba(30,16,64,0.55);
+  background:rgba(58,26,38,0.45);
   backdrop-filter:blur(4px);
   z-index:100; opacity:0; pointer-events:none; transition:opacity 0.3s;
 }
 .overlay.visible { opacity:1; pointer-events:all; }
 .cart-drawer {
   position:fixed; bottom:0; left:0; right:0;
-  background:var(--white); border-radius:28px 28px 0 0;
+  background:var(--cream); border-radius:28px 28px 0 0;
   padding:0 0 32px; z-index:101; max-height:85vh;
   display:flex; flex-direction:column;
   transform:translateY(100%);
-  transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-  box-shadow:0 -10px 40px rgba(107,63,160,0.2);
+  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1);
+  box-shadow:0 -10px 40px rgba(180,100,130,0.15);
 }
 .cart-drawer.open { transform:translateY(0); }
-.drawer-handle { width:40px; height:4px; background:var(--purple-light); border-radius:2px; margin:14px auto 0; flex-shrink:0; }
+.drawer-handle { width:36px; height:4px; background:var(--blush); border-radius:2px; margin:14px auto 0; flex-shrink:0; opacity:0.5; }
 .drawer-header { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 12px; flex-shrink:0; }
-.drawer-title { font-size:18px; font-weight:800; color:var(--text-dark); }
-.close-drawer { width:32px; height:32px; background:var(--purple-pale); border-radius:50%; border:none; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-mid); }
+.drawer-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--text-dark); }
+.close-drawer { width:32px; height:32px; background:var(--petal); border-radius:50%; border:none; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-mid); }
 .cart-items { flex:1; overflow-y:auto; padding:0 20px; scrollbar-width:none; }
 .cart-items::-webkit-scrollbar { display:none; }
 .cart-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
-.cart-item-emoji { font-size:32px; width:44px; text-align:center; }
+.cart-item-img {
+  width:48px; height:48px; border-radius:14px;
+  overflow:hidden; flex-shrink:0;
+  background:var(--petal);
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px;
+}
+.cart-item-img img { width:100%; height:100%; object-fit:cover; }
 .cart-item-info { flex:1; }
-.cart-item-name { font-size:13px; font-weight:700; color:var(--text-dark); }
+.cart-item-name { font-size:13px; font-weight:600; color:var(--text-dark); }
 .cart-item-price { font-size:12px; color:var(--text-soft); margin-top:2px; }
 .cart-qty-ctrl { display:flex; align-items:center; gap:8px; }
 .qty-btn { width:28px; height:28px; border-radius:9px; border:none; font-size:16px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:700; }
-.qty-minus { background:var(--purple-pale); color:var(--purple-main); }
-.qty-plus { background:linear-gradient(135deg,var(--purple-main),var(--purple-deep)); color:#fff; }
-.qty-num { font-size:15px; font-weight:800; color:var(--text-dark); min-width:18px; text-align:center; }
+.qty-minus { background:var(--petal); color:var(--rose); }
+.qty-plus { background:linear-gradient(135deg,var(--blush),var(--rose)); color:#fff; }
+.qty-num { font-size:15px; font-weight:700; color:var(--text-dark); min-width:18px; text-align:center; }
 .cart-footer { padding:16px 20px 0; flex-shrink:0; }
 .note-input {
-  width:100%; background:var(--purple-pale); border:1.5px solid var(--border);
+  width:100%; background:var(--petal); border:1.5px solid var(--border);
   border-radius:14px; padding:11px 14px; font-size:13px;
-  font-family:'Nunito',sans-serif; color:var(--text-dark);
+  font-family:'Jost',sans-serif; color:var(--text-dark);
   resize:none; outline:none; margin-bottom:12px;
 }
-.note-input:focus { border-color:var(--purple-main); }
+.note-input:focus { border-color:var(--blush); }
 .cart-total { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.cart-total-label { font-size:14px; color:var(--text-soft); font-weight:600; }
-.cart-total-price { font-family:'Poppins',sans-serif; font-size:20px; font-weight:700; color:var(--purple-deep); }
+.cart-total-label { font-size:14px; color:var(--text-soft); font-weight:500; }
+.cart-total-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--text-dark); }
 .empty-cart { text-align:center; padding:40px 20px; color:var(--text-soft); }
-.empty-cart div:first-child { font-size:52px; margin-bottom:10px; }
+.empty-cart div:first-child { font-size:50px; margin-bottom:10px; }
+.empty-cart p { font-weight:500; }
 
-/* ── BOTTOM ORDER BUTTON ── */
+/* ── BOTTOM BAR ── */
 .bottom-bar {
   position:fixed; bottom:0; left:0; right:0;
-  padding:14px 20px 28px;
-  background:linear-gradient(to top,var(--purple-pale) 70%,transparent);
+  padding:12px 20px 28px;
+  background:linear-gradient(to top,var(--petal-light) 70%,transparent);
   z-index:50;
+  display:flex; gap:10px;
+}
+.cart-icon-btn {
+  width:54px; height:54px; flex-shrink:0;
+  background:var(--card-bg);
+  border:1.5px solid var(--border);
+  border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; cursor:pointer; position:relative;
+  box-shadow:0 4px 16px rgba(180,100,130,0.12);
+}
+.cart-icon-badge {
+  position:absolute; top:-5px; right:-5px;
+  background:var(--blush-dark); color:#fff;
+  font-size:9px; font-weight:700;
+  width:17px; height:17px; border-radius:50%;
+  display:none; align-items:center; justify-content:center;
 }
 .order-btn {
-  width:100%;
-  background:linear-gradient(135deg,var(--purple-main),var(--purple-deep));
-  color:#fff; border:none; border-radius:20px;
-  padding:17px; font-size:16px; font-weight:800;
-  font-family:'Nunito',sans-serif; cursor:pointer;
+  flex:1;
+  background:linear-gradient(135deg,var(--blush) 0%,var(--blush-dark) 100%);
+  color:#fff; border:none; border-radius:18px;
+  padding:0 20px; height:54px;
+  font-size:15px; font-weight:600;
+  font-family:'Jost',sans-serif; cursor:pointer;
   display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 8px 24px rgba(107,63,160,0.4);
-  transition:all 0.25s;
-  animation:pulse-glow 2.5s infinite;
+  box-shadow:0 6px 20px rgba(196,113,138,0.35);
+  transition:all 0.25s; letter-spacing:0.5px;
   position:relative; overflow:hidden;
 }
 .order-btn::after {
   content:''; position:absolute;
-  top:0; left:-100%; width:60%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);
-  animation:shimmer 3s infinite;
+  top:0; left:-100%; width:50%; height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
+  animation:shimmer 3.5s infinite;
 }
 @keyframes shimmer { 0%{left:-100%} 60%,100%{left:150%} }
-@keyframes pulse-glow {
-  0%,100%{box-shadow:0 8px 24px rgba(107,63,160,0.4),0 0 0 0 rgba(139,92,246,0.25)}
-  50%{box-shadow:0 8px 28px rgba(107,63,160,0.5),0 0 0 8px rgba(139,92,246,0)}
-}
-.order-btn.has-items { background:linear-gradient(135deg,var(--orange-main),#F97316 50%,var(--purple-main)); }
 .order-btn-count {
-  background:rgba(255,255,255,0.25); width:26px; height:26px;
-  border-radius:50%; display:flex; align-items:center; justify-content:center;
-  font-size:13px; font-weight:900;
+  background:rgba(255,255,255,0.25); width:24px; height:24px;
+  border-radius:50%; display:none; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700;
 }
 
 /* ── TOAST ── */
@@ -562,34 +437,24 @@ body {
   transform:translateX(-50%) translateY(-80px);
   background:var(--text-dark); color:#fff;
   padding:10px 20px; border-radius:50px;
-  font-size:13px; font-weight:700; z-index:300;
-  transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  font-size:13px; font-weight:500; z-index:300;
+  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1);
   white-space:nowrap;
 }
 .toast.show { transform:translateX(-50%) translateY(0); }
-
-.bg-circle { position:fixed; border-radius:50%; pointer-events:none; z-index:0; filter:blur(50px); opacity:0.18; }
-.bg-circle-1 { width:200px; height:200px; background:var(--purple-main); top:200px; right:-60px; }
-.bg-circle-2 { width:150px; height:150px; background:var(--orange-main); bottom:150px; left:-40px; }
 </style>
 </head>
 <body>
 
-<div class="bg-circle bg-circle-1"></div>
-<div class="bg-circle bg-circle-2"></div>
-
 <!-- HEADER -->
 <div class="header">
   <div class="header-top">
-    <div class="logo-circle">🌿</div>
+    <div class="logo-wrap">🌸</div>
     <div>
       <div class="brand-name">VitaShop</div>
       <div class="brand-sub">Sog'liq do'koni</div>
     </div>
-    <div class="cart-btn" onclick="openCart()">
-      🛒
-      <div class="cart-badge" id="cartBadge">0</div>
-    </div>
+
   </div>
   <div class="search-bar">
     <span>🔍</span>
@@ -601,25 +466,19 @@ body {
 <div class="section-label">Kategoriyalar</div>
 <div class="categories-scroll" id="catList"></div>
 
-<!-- PROMO -->
-<div class="promo-banner">
-  <div class="promo-text">
-    <h3>Sog'lom hayot — baxtli hayot!</h3>
-    <p>Har kuni vitamin iste'mol qiling</p>
-  </div>
-  <div class="promo-badge">-15% OFF</div>
-</div>
-
 <!-- PRODUCTS -->
-<div class="section-label">Mahsulotlar</div>
+<div class="section-label" style="padding-top:16px">Mahsulotlar</div>
 <div class="products-grid" id="productsGrid"></div>
 
 <!-- BOTTOM BAR -->
 <div class="bottom-bar">
+  <div class="cart-icon-btn" onclick="openCart()">
+    🛒
+    <div class="cart-icon-badge" id="cartIconBadge">0</div>
+  </div>
   <button class="order-btn" id="orderBtn" onclick="openCart()">
-    <span>🛒</span>
     <span>Savatni Ko'rish</span>
-    <span class="order-btn-count" id="orderCount" style="display:none">0</span>
+    <span class="order-btn-count" id="orderCount">0</span>
   </button>
 </div>
 
@@ -638,7 +497,7 @@ body {
       <span class="cart-total-label">Jami summa:</span>
       <span class="cart-total-price" id="totalPrice">0 so'm</span>
     </div>
-    <button class="order-btn has-items" onclick="sendOrder()" style="animation:none">
+    <button class="order-btn" style="animation:none;border-radius:16px;height:52px" onclick="sendOrder()">
       <span>✅</span><span>Buyurtma Berish</span>
     </button>
   </div>
@@ -648,52 +507,25 @@ body {
 <div class="detail-overlay" id="detailOverlay" onclick="closeDetail()"></div>
 <div class="detail-modal" id="detailModal">
   <button class="detail-close-btn" onclick="closeDetail()">✕</button>
-
-  <!-- IMAGE SWIPER -->
   <div class="swiper-wrap" id="swiperWrap">
     <div class="swiper-track" id="swiperTrack"></div>
-    <!-- Language pills -->
     <div class="lang-pill">
       <div class="lang-dot active" id="langDot0">🇺🇿 O'zbekcha</div>
       <div class="lang-dot"        id="langDot1">🇷🇺 Русский</div>
     </div>
-    <!-- Swipe hint -->
     <div class="swipe-hint" id="swipeHint">Swipe →</div>
-    <!-- Dots -->
     <div class="swiper-dots" id="swiperDots"></div>
-    <!-- Price ribbon overlay on image -->
     <div class="detail-price-ribbon">
       <div class="detail-ribbon-price" id="ribbonPrice"></div>
-      <div class="detail-ribbon-badge" id="ribbonBadge"></div>
     </div>
   </div>
-
-  <!-- BODY -->
   <div class="detail-body">
-    <div class="detail-badge-row">
-      <div class="detail-cat-tag" id="dCat"></div>
-      <div class="detail-sale-tag" id="dBadge" style="display:none"></div>
-    </div>
+    <div class="detail-cat-tag" id="dCat"></div>
     <div class="detail-name" id="dName"></div>
     <div class="detail-name-ru" id="dNameRu"></div>
-
-    <div class="detail-section-title">📋 Tarkib va foyda</div>
-    <div class="detail-desc" id="dDesc"></div>
-
-    <div class="detail-section-title">🇷🇺 Описание (Русский)</div>
-    <div class="detail-desc-ru" id="dDescRu"></div>
-
-    <div class="detail-section-title">📊 Asosiy ko'rsatkichlar</div>
-    <div class="detail-facts" id="dFacts"></div>
-
-    <div style="height:24px"></div>
+    <div style="height:20px"></div>
   </div>
-
-  <!-- FOOTER -->
   <div class="detail-footer">
-    <div class="detail-price-row">
-      <div class="detail-price" id="dPrice"></div>
-    </div>
     <button class="detail-add-btn" id="detailAddBtn" onclick="detailAddToCart()">
       <span>🛒</span><span id="detailAddLabel">Savatchaga qo'shish</span>
     </button>
@@ -703,179 +535,131 @@ body {
 <div class="toast" id="toast"></div>
 
 <script>
-const tg = window.Telegram.WebApp;
-tg.ready(); tg.expand();
+const tg = window.Telegram?.WebApp;
+if(tg){ tg.ready(); tg.expand(); }
 
-/* ════════════════════════════════════
-   DATA — har mahsulotda images[] bor
-   images[0] = O'zbekcha rasm URL
-   images[1] = Ruscha rasm URL
-   Agar rasm URL si yo'q bo'lsa emoji ko'rsatiladi
-════════════════════════════════════ */
 const categories = [
-  { id:'all',      icon:'🌟', label:'Barchasi'      },
-  { id:'vitamin',  icon:'💊', label:'Vitaminlar'     },
-  { id:'mineral',  icon:'⚗️', label:'Minerallar'     },
-  { id:'omega',    icon:'🐟', label:'Omega & Yog\'lar'},
-  { id:'probiotic',icon:'🦠', label:'Probiotiklar'   },
-  { id:'sport',    icon:'💪', label:'Sport'          },
-  { id:'immune',   icon:'🛡️', label:'Immunitet'      },
+  { id:'all',      icon:'🌸', label:'Barchasi'       },
+  { id:'vitamin',  icon:'💊', label:'Vitaminlar'      },
+  { id:'mineral',  icon:'⚗️', label:'Minerallar'      },
+  { id:'omega',    icon:'🐟', label:'Omega'           },
+  { id:'probiotic',icon:'🦠', label:'Probiotiklar'    },
+  { id:'sport',    icon:'💪', label:'Sport'           },
+  { id:'immune',   icon:'🛡️', label:'Immunitet'       },
 ];
 
 const products = [
   {
     id:1, cat:'vitamin', emoji:'🌟', name:'Vitamin C 1000mg', nameRu:'Витамин C 1000мг',
-    price:35000, badge:'TOP',
+    price:35000,
     images:[
       'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80',
       'https://images.unsplash.com/photo-1550572017-edd951b55104?w=600&q=80',
     ],
-    desc:"Immunitetni mustahkamlaydi, temir so'rilishini yaxshilaydi, antioksidant vazifasini bajaradi. Kuniga 1 tabletka ovqat bilan.",
-    descRu:"Укрепляет иммунитет, улучшает усвоение железа, обладает антиоксидантными свойствами. Принимать 1 таблетку в день с едой.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💧',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'60 dona'}, {icon:'🔬',label:'Doza',val:'1000 mg'} ]
   },
   {
     id:2, cat:'vitamin', emoji:'☀️', name:'Vitamin D3 5000 IU', nameRu:'Витамин D3 5000 МЕ',
-    price:42000, badge:'YANGI',
+    price:42000,
     images:[
       'https://images.unsplash.com/photo-1559757175-7b1d0b3e2399?w=600&q=80',
       'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80',
     ],
-    desc:"Suyak va tish mustahkamligini saqlaydi, kayfiyatni yaxshilaydi, qish mavsumida D vitamin yetishmasligini to'ldiradi.",
-    descRu:"Укрепляет кости и зубы, улучшает настроение, восполняет дефицит витамина D в зимний период.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'90 dona'}, {icon:'🔬',label:'Doza',val:'5000 IU'} ]
   },
   {
     id:3, cat:'vitamin', emoji:'🅱️', name:'B12 Vitamini', nameRu:'Витамин B12',
-    price:28000, badge:'',
+    price:28000,
     images:[
       'https://images.unsplash.com/photo-1576671414121-aa2d60f0a0a4?w=600&q=80',
       'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80',
     ],
-    desc:"Asab tizimini qo'llab-quvvatlaydi, energiya almashinuvini faollashtiradi, qizil qon hujayralarini shakllantiradi.",
-    descRu:"Поддерживает нервную систему, активизирует энергетический обмен, способствует образованию красных кровяных клеток.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'60 dona'}, {icon:'🔬',label:'Doza',val:'1000 mcg'} ]
   },
   {
     id:4, cat:'mineral', emoji:'🦴', name:'Kalsiy + D3', nameRu:'Кальций + D3',
-    price:32000, badge:'',
+    price:32000,
     images:[
       'https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=600&q=80',
       'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80',
     ],
-    desc:"Suyak va tish qattiqligini oshiradi. Kalsiy so'rilishi uchun D3 bilan biriktirilgan maxsus formula.",
-    descRu:"Повышает прочность костей и зубов. Специальная формула с D3 для лучшего усвоения кальция.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 2x'}, {icon:'💊',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'120 dona'}, {icon:'🔬',label:'Doza',val:'500 mg'} ]
   },
   {
     id:5, cat:'mineral', emoji:'🧲', name:'Magniy 400mg', nameRu:'Магний 400мг',
-    price:38000, badge:'',
+    price:38000,
     images:[
       'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
       'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80',
     ],
-    desc:"Stress va charchoqni kamaytiradi, uyquni yaxshilaydi, mushak va asab tizimini qo'llab-quvvatlaydi.",
-    descRu:"Снижает стресс и усталость, улучшает сон, поддерживает мышечную и нервную систему.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kechqurun'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'60 dona'}, {icon:'🔬',label:'Doza',val:'400 mg'} ]
   },
   {
     id:6, cat:'mineral', emoji:'⚡', name:'Temir (Iron) 14mg', nameRu:'Железо 14мг',
-    price:25000, badge:'',
+    price:25000,
     images:[
       'https://images.unsplash.com/photo-1516542076529-1ea3854896f2?w=600&q=80',
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
     ],
-    desc:"Qondagi gemoglobin darajasini normallashtiradi, charchoq va kamqonlikka qarshi kurashadi.",
-    descRu:"Нормализует уровень гемоглобина в крови, борется с усталостью и анемией.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'90 dona'}, {icon:'🔬',label:'Doza',val:'14 mg'} ]
   },
   {
     id:7, cat:'omega', emoji:'🐟', name:'Omega-3 Fish Oil', nameRu:'Омега-3 Рыбий жир',
-    price:55000, badge:'SIFATLI',
+    price:55000,
     images:[
       'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80',
       'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80',
     ],
-    desc:"Yurak-qon tomir, miya va ko'z sog'ligini yaxshilaydi. 1000mg EPA+DHA. Norvegiyadagi baliqdan tayyorlangan.",
-    descRu:"Улучшает здоровье сердечно-сосудистой системы, мозга и зрения. 1000 мг EPA+DHA из норвежской рыбы.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 2x'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'120 dona'}, {icon:'🔬',label:'Doza',val:'1000 mg'} ]
   },
   {
     id:8, cat:'omega', emoji:'🫒', name:'Omega-6 va -9', nameRu:'Омега-6 и -9',
-    price:48000, badge:'',
+    price:48000,
     images:[
       'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80',
       'https://images.unsplash.com/photo-1564894639-e3e1917f2f97?w=600&q=80',
     ],
-    desc:"To'yinmagan yog' kislotalar kompleksi. Teri, soch va tirnoq sog'ligini saqlaydi.",
-    descRu:"Комплекс ненасыщенных жирных кислот. Поддерживает здоровье кожи, волос и ногтей.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'90 dona'}, {icon:'🔬',label:'Doza',val:'1200 mg'} ]
   },
   {
     id:9, cat:'probiotic', emoji:'🦠', name:'Probiotik 20 mlrd', nameRu:'Пробиотик 20 млрд',
-    price:62000, badge:'KUCHLI',
+    price:62000,
     images:[
       'https://images.unsplash.com/photo-1606206873764-fd15e242e5de?w=600&q=80',
       'https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80',
     ],
-    desc:"20 mlrd tirik bakteriya. Ichaklarni tartibga keltiradi, immunitetni kuchaytiradi, ovqat hazm qilishni yaxshilaydi.",
-    descRu:"20 млрд живых бактерий. Нормализует работу кишечника, укрепляет иммунитет, улучшает пищеварение.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Kapsula'}, {icon:'📦',label:'Miqdor',val:'30 dona'}, {icon:'🔬',label:'Doza',val:'20 mlrd KOE'} ]
   },
   {
     id:10, cat:'probiotic', emoji:'🥛', name:'Laktobatsiller', nameRu:'Лактобациллы',
-    price:45000, badge:'',
+    price:45000,
     images:[
       'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80',
       'https://images.unsplash.com/photo-1556909172-8c2f041fca1e?w=600&q=80',
     ],
-    desc:"Ichak mikroflorasini tiklaydi, diareya va qabziyatga qarshi, allergiyani kamaytiradi.",
-    descRu:"Восстанавливает микрофлору кишечника, борется с диареей и запорами, снижает аллергические реакции.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 2x'}, {icon:'💊',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'60 dona'}, {icon:'🔬',label:'Doza',val:'5 mlrd KOE'} ]
   },
   {
     id:11, cat:'sport', emoji:'💪', name:'BCAA Aminokislotalar', nameRu:'BCAA Аминокислоты',
-    price:78000, badge:'PRO',
+    price:78000,
     images:[
       'https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80',
       'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80',
     ],
-    desc:"Mushak tiklanishini tezlashtiradi, charchoqni kamaytiradi. 2:1:1 nisbatda leucin, izoleucin, valin.",
-    descRu:"Ускоряет восстановление мышц, снижает усталость. Соотношение лейцина, изолейцина и валина 2:1:1.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Trening atrofi'}, {icon:'💊',label:'Shakl',val:'Kukun'}, {icon:'📦',label:'Miqdor',val:'300 g'}, {icon:'🔬',label:'Doza',val:'5 g/porsiya'} ]
   },
   {
     id:12, cat:'sport', emoji:'🏋️', name:'Kreatin Monohidrat', nameRu:'Креатин Моногидрат',
-    price:65000, badge:'',
+    price:65000,
     images:[
       'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80',
       'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80',
     ],
-    desc:"Kuch va chidamlilikni oshiradi, mushak massasini ko'paytirishga yordam beradi. Suvda yaxshi eriydi.",
-    descRu:"Повышает силу и выносливость, помогает набрать мышечную массу. Хорошо растворяется в воде.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Kukun'}, {icon:'📦',label:'Miqdor',val:'500 g'}, {icon:'🔬',label:'Doza',val:'5 g/porsiya'} ]
   },
   {
     id:13, cat:'immune', emoji:'🛡️', name:'Sink (Zinc) 25mg', nameRu:'Цинк 25мг',
-    price:29000, badge:'',
+    price:29000,
     images:[
       'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80',
       'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80',
     ],
-    desc:"Immunitetni kuchaytiradi, yarani tezroq biturishga yordam beradi, testosteron ishlab chiqarishni qo'llab-quvvatlaydi.",
-    descRu:"Укрепляет иммунитет, способствует заживлению ран, поддерживает выработку тестостерона.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 1x'}, {icon:'💊',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'90 dona'}, {icon:'🔬',label:'Doza',val:'25 mg'} ]
   },
   {
     id:14, cat:'immune', emoji:'🍄', name:'Echinacea Ekstrakti', nameRu:'Экстракт Эхинацеи',
-    price:34000, badge:'NATURAL',
+    price:34000,
     images:[
       'https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80',
       'https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80',
     ],
-    desc:"O'simlik asosidagi immunitet kuchaytirgich. ARVI va gripp paytida himoyani oshiradi.",
-    descRu:"Растительный иммуностимулятор. Повышает защиту организма при ОРВИ и гриппе.",
-    facts:[ {icon:'⏱',label:'Qabul',val:'Kuniga 3x'}, {icon:'💊',label:'Shakl',val:'Tabletka'}, {icon:'📦',label:'Miqdor',val:'60 dona'}, {icon:'🔬',label:'Doza',val:'400 mg'} ]
   },
 ];
 
@@ -884,7 +668,6 @@ let activeCategory = 'all';
 let searchQuery = '';
 let currentDetailId = null;
 
-/* ── CATEGORIES ── */
 function renderCategories() {
   document.getElementById('catList').innerHTML = categories.map(c => `
     <div class="cat-chip ${c.id===activeCategory?'active':''}" onclick="selectCat('${c.id}')">
@@ -892,45 +675,47 @@ function renderCategories() {
     </div>`).join('');
 }
 
-/* ── PRODUCTS ── */
-function getBgColor(cat) {
-  const m = {vitamin:'linear-gradient(135deg,#EDE9FE,#DDD6FE)',mineral:'linear-gradient(135deg,#E0F2FE,#BAE6FD)',omega:'linear-gradient(135deg,#DCFCE7,#BBF7D0)',probiotic:'linear-gradient(135deg,#FEF3C7,#FDE68A)',sport:'linear-gradient(135deg,#FFE4E6,#FECDD3)',immune:'linear-gradient(135deg,#F0FDF4,#BBF7D0)'};
-  return m[cat]||'linear-gradient(135deg,#F3EEFF,#E9D5FF)';
+function getBg(cat) {
+  const m = {
+    vitamin:'linear-gradient(135deg,#fde8ef,#f9c5d4)',
+    mineral:'linear-gradient(135deg,#fde8ef,#f5c4d8)',
+    omega:'linear-gradient(135deg,#fce8f3,#f5c4e4)',
+    probiotic:'linear-gradient(135deg,#fdeef5,#f9d0e3)',
+    sport:'linear-gradient(135deg,#fde8f5,#f5c4e0)',
+    immune:'linear-gradient(135deg,#fdeaf0,#f9c8d8)',
+  };
+  return m[cat]||'linear-gradient(135deg,#fde8ef,#f9c5d4)';
 }
 
 function renderProducts() {
   const filtered = products.filter(p => {
     const mc = activeCategory==='all' || p.cat===activeCategory;
-    const ms = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.desc.toLowerCase().includes(searchQuery.toLowerCase());
+    const ms = p.name.toLowerCase().includes(searchQuery.toLowerCase());
     return mc && ms;
   });
   const el = document.getElementById('productsGrid');
-  if(!filtered.length){ el.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-soft);font-weight:700;">🔍 Hech narsa topilmadi</div>'; return; }
-
+  if(!filtered.length){
+    el.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-soft);font-weight:500;">Hech narsa topilmadi</div>';
+    return;
+  }
   el.innerHTML = filtered.map(p => {
     const inCart = cart[p.id]>0;
-    const bg = getBgColor(p.cat);
+    const bg = getBg(p.cat);
     const imgUrl = p.images && p.images[0];
-    const thumbHtml = imgUrl
-      ? `<img src="${imgUrl}" alt="${p.name}" onerror="this.style.display='none'">`
-      : `<span class="fallback-emoji">${p.emoji}</span>`;
+    const catLabel = categories.find(c=>c.id===p.cat)?.label || '';
     return `
       <div class="product-card" onclick="openDetail(${p.id})">
         <div class="product-thumb" style="background:${bg}">
-          ${thumbHtml}
-          ${p.badge?`<div class="product-badge">${p.badge}</div>`:''}
+          ${imgUrl ? `<img src="${imgUrl}" alt="${p.name}" onerror="this.style.display='none'">` : `<span class="fallback-emoji">${p.emoji}</span>`}
           <div class="price-overlay">
-            <div class="price-overlay-amount">
-              ${p.price.toLocaleString('uz-UZ')}
-              <small>so'm</small>
-            </div>
+            <div class="price-overlay-amount">${p.price.toLocaleString('uz-UZ')}<small> so'm</small></div>
             <button class="price-overlay-add ${inCart?'added':''}" id="addbtn-${p.id}"
-              onclick="event.stopPropagation();addToCart(${p.id})">${inCart?'&#10003;':'+'}</button>
+              onclick="event.stopPropagation();addToCart(${p.id})">${inCart?'✓':'+'}</button>
           </div>
         </div>
         <div class="product-info">
           <div class="product-name">${p.name}</div>
-          <div class="product-desc">${p.desc}</div>
+          <div class="product-cat">${catLabel}</div>
         </div>
       </div>`;
   }).join('');
@@ -939,9 +724,7 @@ function renderProducts() {
 function selectCat(id){ activeCategory=id; renderCategories(); renderProducts(); }
 function filterProducts(v){ searchQuery=v; renderProducts(); }
 
-/* ══════════════════════════════════
-   PRODUCT DETAIL + SWIPER
-══════════════════════════════════ */
+/* ── DETAIL + SWIPER ── */
 let swipeStartX=0, swipeCurrentX=0, swipeDragging=false, swipeIndex=0, swipeTotal=0, hintShown=false;
 
 function openDetail(id) {
@@ -949,61 +732,27 @@ function openDetail(id) {
   if(!p) return;
   currentDetailId = id;
   swipeIndex = 0;
-
-  /* Build slides */
-  const track = document.getElementById('swiperTrack');
-  const bg = getBgColor(p.cat);
+  const bg = getBg(p.cat);
   swipeTotal = (p.images && p.images.length) || 1;
-
-  track.innerHTML = (p.images && p.images.length ? p.images : [null]).map((url,i) => {
-    const lang = i===0 ? '🇺🇿' : '🇷🇺';
-    if(url) {
-      return `<div class="swiper-slide" style="background:${bg}">
-        <img src="${url}" alt="${lang}" onerror="this.parentElement.innerHTML='<span class=\\"big-emoji\\">${p.emoji}</span>'">
-      </div>`;
-    }
+  const track = document.getElementById('swiperTrack');
+  track.innerHTML = (p.images && p.images.length ? p.images : [null]).map((url) => {
+    if(url) return `<div class="swiper-slide" style="background:${bg}"><img src="${url}" alt="" onerror="this.parentElement.innerHTML='<span class=\\"big-emoji\\">${p.emoji}</span>'"></div>`;
     return `<div class="swiper-slide" style="background:${bg}"><span class="big-emoji">${p.emoji}</span></div>`;
   }).join('');
-
-  /* Dots */
   const dots = document.getElementById('swiperDots');
   dots.innerHTML = Array.from({length:swipeTotal},(_,i)=>`<div class="swiper-dot ${i===0?'active':''}" id="dot-${i}"></div>`).join('');
-  dots.style.display = swipeTotal>1 ? 'flex' : 'none';
-
-  /* Hint */
-  const hint = document.getElementById('swipeHint');
-  hint.classList.toggle('hidden', swipeTotal<=1 || hintShown);
-
-  /* Fill body */
-  document.getElementById('dCat').textContent = categories.find(c=>c.id===p.cat)?.label || p.cat;
-  const badge = document.getElementById('dBadge');
-  if(p.badge){ badge.textContent=p.badge; badge.style.display='block'; } else { badge.style.display='none'; }
+  dots.style.display = swipeTotal>1?'flex':'none';
+  document.getElementById('swipeHint').classList.toggle('hidden', swipeTotal<=1||hintShown);
+  document.getElementById('dCat').textContent = categories.find(c=>c.id===p.cat)?.label||p.cat;
   document.getElementById('dName').textContent = p.name;
   document.getElementById('dNameRu').textContent = p.nameRu||'';
-  document.getElementById('dDesc').textContent = p.desc;
-  document.getElementById('dDescRu').textContent = p.descRu||'';
-  document.getElementById('dPrice').innerHTML = `${p.price.toLocaleString('uz-UZ')} <small>so'm</small>`;
-
-  /* Ribbon price on swiper image */
   document.getElementById('ribbonPrice').innerHTML = `${p.price.toLocaleString('uz-UZ')} <small>so'm</small>`;
-  const rb = document.getElementById('ribbonBadge');
-  if(p.badge){ rb.textContent=p.badge; rb.style.display='block'; } else { rb.style.display='none'; }
-  document.getElementById('dFacts').innerHTML = (p.facts||[]).map(f=>`
-    <div class="fact-card">
-      <div class="fact-icon">${f.icon}</div>
-      <div class="fact-label">${f.label}</div>
-      <div class="fact-value">${f.val}</div>
-    </div>`).join('');
-
   updateDetailBtn();
   updateSwiper();
-
-  /* Touch events on swiper */
   const wrap = document.getElementById('swiperWrap');
   wrap.addEventListener('touchstart', onTouchStart, {passive:true});
   wrap.addEventListener('touchmove',  onTouchMove,  {passive:true});
   wrap.addEventListener('touchend',   onTouchEnd,   {passive:true});
-
   document.getElementById('detailOverlay').classList.add('visible');
   document.getElementById('detailModal').classList.add('open');
 }
@@ -1019,94 +768,80 @@ function closeDetail() {
 }
 
 function updateSwiper() {
-  document.getElementById('swiperTrack').style.transform = `translateX(-${swipeIndex*100}%)`;
+  document.getElementById('swiperTrack').style.transform=`translateX(-${swipeIndex*100}%)`;
   for(let i=0;i<swipeTotal;i++){
-    const d = document.getElementById('dot-'+i);
+    const d=document.getElementById('dot-'+i);
     if(d) d.className='swiper-dot'+(i===swipeIndex?' active':'');
   }
-  /* lang pills */
   for(let i=0;i<2;i++){
-    const d = document.getElementById('langDot'+i);
+    const d=document.getElementById('langDot'+i);
     if(d) d.className='lang-dot'+(i===swipeIndex?' active':'');
   }
 }
-
-function onTouchStart(e) {
-  swipeStartX = e.touches[0].clientX;
-  swipeCurrentX = swipeStartX;
-  swipeDragging = true;
-}
-function onTouchMove(e) {
+function onTouchStart(e){ swipeStartX=e.touches[0].clientX; swipeCurrentX=swipeStartX; swipeDragging=true; }
+function onTouchMove(e){
   if(!swipeDragging) return;
-  swipeCurrentX = e.touches[0].clientX;
-  const diff = swipeStartX - swipeCurrentX;
-  const base = swipeIndex * 100;
-  const pct = (diff / window.innerWidth)*100;
+  swipeCurrentX=e.touches[0].clientX;
+  const diff=swipeStartX-swipeCurrentX;
+  const base=swipeIndex*100;
+  const pct=(diff/window.innerWidth)*100;
   document.getElementById('swiperTrack').style.transition='none';
   document.getElementById('swiperTrack').style.transform=`translateX(calc(-${base}% - ${pct}%))`;
 }
-function onTouchEnd() {
+function onTouchEnd(){
   if(!swipeDragging) return;
-  swipeDragging = false;
+  swipeDragging=false;
   document.getElementById('swiperTrack').style.transition='';
-  const diff = swipeStartX - swipeCurrentX;
-  if(diff>50 && swipeIndex < swipeTotal-1) { swipeIndex++; hintShown=true; document.getElementById('swipeHint').classList.add('hidden'); }
-  else if(diff<-50 && swipeIndex>0) { swipeIndex--; }
+  const diff=swipeStartX-swipeCurrentX;
+  if(diff>50 && swipeIndex<swipeTotal-1){ swipeIndex++; hintShown=true; document.getElementById('swipeHint').classList.add('hidden'); }
+  else if(diff<-50 && swipeIndex>0){ swipeIndex--; }
   updateSwiper();
 }
-
-function updateDetailBtn() {
-  const inCart = currentDetailId && cart[currentDetailId]>0;
-  const btn = document.getElementById('detailAddBtn');
-  const lbl = document.getElementById('detailAddLabel');
-  btn.className='detail-add-btn'+(inCart?' added':'');
-  lbl.textContent = inCart ? `Savatchada (${cart[currentDetailId]} ta) ✓` : "Savatchaga qo'shish";
+function updateDetailBtn(){
+  const inCart=currentDetailId&&cart[currentDetailId]>0;
+  document.getElementById('detailAddBtn').className='detail-add-btn'+(inCart?' added':'');
+  document.getElementById('detailAddLabel').textContent=inCart?`Savatchada (${cart[currentDetailId]} ta) ✓`:"Savatchaga qo'shish";
 }
-
-function detailAddToCart() {
-  if(!currentDetailId) return;
-  addToCart(currentDetailId);
-  updateDetailBtn();
-}
+function detailAddToCart(){ if(!currentDetailId) return; addToCart(currentDetailId); updateDetailBtn(); }
 
 /* ── CART ── */
-function addToCart(id) {
-  const p = products.find(x=>x.id===id);
-  if(!p) return;
+function addToCart(id){
+  const p=products.find(x=>x.id===id); if(!p) return;
   cart[id]=(cart[id]||0)+1;
-  updateCartUI();
-  renderProducts();
-  showToast(`✅ ${p.name} savatchaga qo'shildi`);
+  updateCartUI(); renderProducts();
+  showToast(`✓ ${p.name} qo'shildi`);
 }
-function changeQty(id,delta) {
+function changeQty(id,delta){
   cart[id]=(cart[id]||0)+delta;
   if(cart[id]<=0) delete cart[id];
   updateCartUI(); renderCartItems();
 }
-function updateCartUI() {
+function updateCartUI(){
   const total=Object.values(cart).reduce((a,b)=>a+b,0);
   const badge=document.getElementById('cartBadge');
+  const ibadge=document.getElementById('cartIconBadge');
   const count=document.getElementById('orderCount');
   badge.textContent=total; badge.style.display=total>0?'flex':'none';
+  ibadge.textContent=total; ibadge.style.display=total>0?'flex':'none';
   count.textContent=total; count.style.display=total>0?'flex':'none';
-  document.getElementById('orderBtn').classList.toggle('has-items',total>0);
   if(currentDetailId) updateDetailBtn();
 }
-function renderCartItems() {
+function renderCartItems(){
   const el=document.getElementById('cartItems');
   const keys=Object.keys(cart).map(Number);
   if(!keys.length){
-    el.innerHTML='<div class="empty-cart"><div>🛒</div><p>Savatcha bo\'sh</p><p style="font-size:12px;margin-top:4px;opacity:0.7">Mahsulot qo\'shing!</p></div>';
+    el.innerHTML='<div class="empty-cart"><div>🛒</div><p>Savatcha bo\'sh</p></div>';
     document.getElementById('totalPrice').textContent="0 so'm"; return;
   }
   let totalSum=0;
   el.innerHTML=keys.map(id=>{
     const p=products.find(x=>x.id===id); const qty=cart[id]; const sub=p.price*qty; totalSum+=sub;
+    const imgUrl=p.images&&p.images[0];
     return `<div class="cart-item">
-      <div class="cart-item-emoji">${p.emoji}</div>
+      <div class="cart-item-img">${imgUrl?`<img src="${imgUrl}" alt="">`:`${p.emoji}`}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${p.name}</div>
-        <div class="cart-item-price">${p.price.toLocaleString('uz-UZ')} so'm × ${qty} = ${sub.toLocaleString('uz-UZ')} so'm</div>
+        <div class="cart-item-price">${p.price.toLocaleString('uz-UZ')} × ${qty} = ${sub.toLocaleString('uz-UZ')} so'm</div>
       </div>
       <div class="cart-qty-ctrl">
         <button class="qty-btn qty-minus" onclick="changeQty(${id},-1)">−</button>
@@ -1119,17 +854,13 @@ function renderCartItems() {
 }
 function openCart(){ renderCartItems(); document.getElementById('cartDrawer').classList.add('open'); document.getElementById('overlay').classList.add('visible'); }
 function closeCart(){ document.getElementById('cartDrawer').classList.remove('open'); document.getElementById('overlay').classList.remove('visible'); }
-
-/* ── SEND ORDER ── */
-function sendOrder() {
+function sendOrder(){
   const keys=Object.keys(cart).map(Number);
   if(!keys.length){ showToast("⚠️ Savatcha bo'sh!"); return; }
-  const items=keys.map(id=>{ const p=products.find(x=>x.id===id); return {id:p.id,name:p.name,nameRu:p.nameRu,price:p.price,qty:cart[id],description:p.desc,descriptionRu:p.descRu,category:p.cat}; });
-  tg.sendData(JSON.stringify({items,note:document.getElementById('noteInput').value}));
+  const items=keys.map(id=>{ const p=products.find(x=>x.id===id); return {id:p.id,name:p.name,nameRu:p.nameRu,price:p.price,qty:cart[id]}; });
+  if(tg) tg.sendData(JSON.stringify({items,note:document.getElementById('noteInput').value}));
 }
-
-/* ── TOAST ── */
-function showToast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2200); }
+function showToast(msg){ const el=document.getElementById('toast'); el.textContent=msg; el.classList.add('show'); setTimeout(()=>el.classList.remove('show'),2000); }
 
 renderCategories();
 renderProducts();
