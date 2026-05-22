@@ -2,762 +2,1571 @@
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>VitaShop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>💊 Vitamino_2022 – Katalog</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --blush:       #F2AABB;
-  --blush-deep:  #D4849A;
-  --blush-dark:  #B5657A;
-  --rose:        #C4718A;
-  --petal:       #FDE8EF;
-  --petal-light: #FFF4F7;
-  --cream:       #FFFAF9;
-  --text-dark:   #3A1A26;
-  --text-mid:    #7A4A5A;
-  --text-soft:   #B4889A;
-  --card-bg:     #FFFFFF;
-  --border:      rgba(212,132,154,0.18);
-}
-* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-html, body {
-  font-family:'Jost',sans-serif;
-  background:var(--petal-light);
-  color:var(--text-dark);
-  min-height:100vh;
-  overflow-x:hidden;
-}
-body { padding-bottom:110px; }
-body.locked { overflow:hidden; }
+  :root {
+    --bg: #FDF0F8;
+    --surface: #ffffff;
+    --text: #2A1020;
+    --muted: #9B6B8A;
+    --accent: #D81B60;
+    --accent-hover: #AD1457;
+    --accent2: #F8BBD9;
+    --accent-light: #FCE4EC;
+    --border: #F0C8DC;
+    --purple: #7B5EA7;
+    --purple-light: #EDE7F6;
+    --purple-border: #D1C4E9;
+    --danger: #c0392b;
+    --gold: #f4a62a;
+    --bottom-bar-h: 72px;
+  }
 
-/* ── HEADER ── */
-.header {
-  background:linear-gradient(160deg,#f7c5d0 0%,#eea0b8 50%,#d98aa5 100%);
-  padding:22px 20px 26px;
-  position:relative; overflow:hidden;
-}
-.header::before {
-  content:''; position:absolute; inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.07'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-.header-top {
-  display:flex; align-items:center; gap:12px;
-  margin-bottom:16px; position:relative; z-index:1;
-}
-.logo-wrap {
-  width:46px; height:46px;
-  background:rgba(255,255,255,0.3);
-  backdrop-filter:blur(10px);
-  border-radius:16px; border:1px solid rgba(255,255,255,0.5);
-  display:flex; align-items:center; justify-content:center;
-  font-size:22px; flex-shrink:0;
-}
-.brand-name { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:#fff; letter-spacing:0.5px; }
-.brand-sub  { font-size:12px; color:rgba(255,255,255,0.8); font-weight:400; letter-spacing:1px; text-transform:uppercase; }
-.cart-btn {
-  margin-left:auto; position:relative;
-  background:rgba(255,255,255,0.25); backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.4);
-  border-radius:14px; width:46px; height:46px;
-  display:flex; align-items:center; justify-content:center;
-  font-size:20px; cursor:pointer;
-}
-.cart-badge {
-  position:absolute; top:-5px; right:-5px;
-  background:#fff; color:var(--blush-dark);
-  font-size:10px; font-weight:700;
-  width:18px; height:18px; border-radius:50%;
-  display:none; align-items:center; justify-content:center;
-}
-.search-bar {
-  position:relative; z-index:1;
-  background:rgba(255,255,255,0.3); backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.45);
-  border-radius:16px; display:flex; align-items:center;
-  padding:12px 16px; gap:10px;
-}
-.search-bar input {
-  background:none; border:none; outline:none;
-  color:#fff; font-size:14px; font-family:'Jost',sans-serif; width:100%; font-weight:500;
-}
-.search-bar input::placeholder { color:rgba(255,255,255,0.7); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── CATEGORIES ── */
-.section-label {
-  font-size:11px; font-weight:600; color:var(--text-soft);
-  letter-spacing:2px; text-transform:uppercase; padding:20px 20px 10px;
-}
-.categories-scroll { display:flex; gap:8px; padding:0 20px 4px; overflow-x:auto; scrollbar-width:none; }
-.categories-scroll::-webkit-scrollbar { display:none; }
-.cat-chip {
-  display:flex; align-items:center; gap:6px;
-  padding:9px 18px; border-radius:50px;
-  font-size:13px; font-weight:600; white-space:nowrap;
-  cursor:pointer; transition:all 0.22s;
-  background:var(--card-bg); color:var(--text-mid);
-  border:1.5px solid var(--border);
-}
-.cat-chip.active {
-  background:linear-gradient(135deg,var(--blush),var(--rose));
-  color:#fff; border-color:transparent;
-  box-shadow:0 4px 14px rgba(196,113,138,0.3);
-}
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding-bottom: var(--bottom-bar-h);
+  }
 
-/* ── PRODUCTS GRID ── */
-.products-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; padding:10px 20px; }
-.product-card {
-  background:var(--card-bg); border-radius:22px; overflow:hidden;
-  box-shadow:0 2px 16px rgba(180,100,130,0.1);
-  border:1px solid var(--border); cursor:pointer; transition:transform 0.2s;
-}
-.product-card:active { transform:scale(0.97); }
-.product-thumb {
-  width:100%; height:120px;
-  display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden; background:var(--petal);
-}
-.product-thumb img { width:100%; height:100%; object-fit:cover; }
-.product-thumb .fallback-emoji { font-size:48px; position:relative; z-index:1; }
+  /* ── Background decoration ── */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -120px; right: -120px;
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, #F8BBD944 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: 80px; left: -100px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, #D1C4E955 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.price-overlay {
-  position:absolute; bottom:0; left:0; right:0; z-index:3;
-  background:linear-gradient(to top,rgba(58,26,38,0.65) 0%,transparent 100%);
-  padding:20px 10px 8px;
-  display:flex; align-items:flex-end; justify-content:space-between;
-}
-.price-overlay-amount { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:700; color:#fff; line-height:1; }
-.price-overlay-amount small { font-size:10px; font-weight:400; opacity:0.85; }
-.price-overlay-add {
-  width:28px; height:28px;
-  background:rgba(255,255,255,0.25); backdrop-filter:blur(8px);
-  border:1.5px solid rgba(255,255,255,0.5);
-  border-radius:50%; display:flex; align-items:center; justify-content:center;
-  font-size:17px; line-height:1; color:#fff; cursor:pointer; flex-shrink:0;
-  transition:all 0.18s;
-}
-.price-overlay-add:active { transform:scale(0.85); }
-.price-overlay-add.added { background:rgba(255,255,255,0.92); color:var(--blush-dark); border-color:transparent; font-size:14px; }
+  /* ── Header ── */
+  .header {
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--border);
+    padding: 10px 16px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(216,27,96,0.07);
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .logo {
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 0.5px;
+  }
+  .logo-pill {
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 2px;
+    letter-spacing: 0.3px;
+    font-family: 'Nunito', sans-serif;
+  }
 
-.product-info { padding:10px 12px 13px; }
-.product-name { font-size:13px; font-weight:600; color:var(--text-dark); line-height:1.3; margin-bottom:2px; }
-.product-cat  { font-size:11px; color:var(--text-soft); font-weight:500; }
+  /* Location bar */
+  .location-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 9px;
+    min-height: 16px;
+  }
+  .location-bar .loc-icon { font-size: 12px; flex-shrink: 0; }
+  .location-bar .loc-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100vw - 100px);
+    font-family: 'Nunito', sans-serif;
+  }
+  .location-bar.loading .loc-text { color: #bbb; font-style: italic; }
+  .location-bar.error   .loc-text { color: #e07070; }
+  .location-bar.ok      .loc-text { color: var(--accent); font-weight: 600; }
 
-/* ══════ DETAIL MODAL ══════ */
-.detail-overlay {
-  position:fixed; inset:0;
-  background:rgba(58,26,38,0.5); backdrop-filter:blur(8px);
-  z-index:200; opacity:0; pointer-events:none; transition:opacity 0.3s;
-}
-.detail-overlay.visible { opacity:1; pointer-events:all; }
-.detail-modal {
-  position:fixed; bottom:0; left:0; right:0;
-  background:var(--cream); border-radius:28px 28px 0 0;
-  z-index:201; max-height:90vh;
-  display:flex; flex-direction:column;
-  transform:translateY(100%);
-  transition:transform 0.38s cubic-bezier(0.34,1.2,0.64,1);
-  overflow:hidden;
-}
-.detail-modal.open { transform:translateY(0); }
+  /* Search */
+  .search-wrap { position: relative; }
+  .search-icon {
+    position: absolute;
+    left: 12px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    pointer-events: none;
+    color: var(--muted);
+  }
+  .search-input {
+    width: 100%;
+    padding: 10px 36px 10px 36px;
+    border: 1.5px solid var(--border);
+    border-radius: 24px;
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(216,27,96,0.10);
+  }
+  .search-input::placeholder { color: #c8a0b8; }
+  .search-clear {
+    position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%);
+    background: var(--muted);
+    border: none;
+    color: white;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    font-size: 11px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+  .search-clear.visible { display: flex; }
 
-.swiper-wrap { position:relative; width:100%; height:270px; overflow:hidden; flex-shrink:0; background:var(--petal); touch-action:pan-y; }
-.swiper-track { display:flex; height:100%; transition:transform 0.35s cubic-bezier(0.25,0.8,0.25,1); will-change:transform; }
-.swiper-slide { min-width:100%; height:100%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-.swiper-slide img { width:100%; height:100%; object-fit:cover; }
-.swiper-slide .big-emoji { font-size:100px; line-height:1; }
+  /* No results */
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+    font-size: 15px;
+    display: none;
+  }
+  .no-results.show { display: block; }
+  .no-results-icon { font-size: 40px; margin-bottom: 12px; }
 
-.lang-pill { position:absolute; top:14px; left:14px; display:flex; gap:6px; z-index:10; }
-.lang-dot {
-  padding:5px 12px; border-radius:50px; font-size:11px; font-weight:600;
-  background:rgba(255,255,255,0.8); backdrop-filter:blur(8px);
-  color:var(--text-mid); border:1px solid rgba(255,255,255,0.6); transition:all 0.2s;
-}
-.lang-dot.active { background:rgba(242,170,187,0.9); color:#fff; border-color:transparent; }
-.swipe-hint {
-  position:absolute; right:14px; bottom:50px;
-  background:rgba(255,255,255,0.8); backdrop-filter:blur(8px);
-  border-radius:50px; padding:5px 12px; font-size:11px; font-weight:600; color:var(--text-mid);
-  display:flex; align-items:center; gap:4px;
-  animation:hint 2s ease-in-out 1s 3;
-}
-@keyframes hint { 0%,100%{transform:translateX(0)} 50%{transform:translateX(4px)} }
-.swipe-hint.hidden { display:none; }
-.swiper-dots { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:10; }
-.swiper-dot { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,0.5); transition:all 0.25s; }
-.swiper-dot.active { background:#fff; width:16px; border-radius:3px; }
+  /* ── Categories ── */
+  .categories {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: var(--surface);
+    border-bottom: 1.5px solid var(--border);
+  }
+  .categories::-webkit-scrollbar { display: none; }
+  .cat-btn {
+    white-space: nowrap;
+    padding: 7px 16px;
+    border-radius: 20px;
+    border: 1.5px solid var(--purple-border);
+    background: transparent;
+    color: var(--purple);
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .cat-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    border-color: transparent;
+    color: white;
+  }
 
-.detail-price-ribbon {
-  position:absolute; bottom:0; left:0; right:0; z-index:12;
-  background:linear-gradient(to top,rgba(58,26,38,0.6) 0%,transparent 100%);
-  padding:28px 18px 14px; pointer-events:none;
-}
-.detail-ribbon-price { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:700; color:#fff; text-shadow:0 2px 8px rgba(0,0,0,0.2); }
-.detail-ribbon-price small { font-size:14px; font-weight:400; margin-left:4px; opacity:0.85; }
+  /* ── Product Grid ── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 14px 12px;
+    position: relative;
+    z-index: 1;
+  }
 
-.detail-body { flex:1; overflow-y:auto; padding:22px 22px 0; scrollbar-width:none; }
-.detail-body::-webkit-scrollbar { display:none; }
-.detail-name { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:var(--text-dark); line-height:1.2; margin-bottom:4px; }
-.detail-name-ru { font-size:13px; color:var(--text-soft); font-weight:400; font-style:italic; margin-bottom:10px; }
-.detail-cat-tag { display:inline-block; font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; padding:4px 12px; border-radius:50px; background:var(--petal); color:var(--rose); margin-bottom:14px; }
+  .card {
+    background: var(--surface);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    box-shadow: 0 2px 12px rgba(216,27,96,0.06);
+  }
+  .card:active { transform: scale(0.97); }
 
-.detail-footer { padding:16px 20px 32px; flex-shrink:0; background:var(--cream); border-top:1px solid var(--border); }
-.detail-add-btn {
-  width:100%; background:linear-gradient(135deg,var(--blush),var(--blush-dark));
-  color:#fff; border:none; border-radius:18px;
-  padding:16px; font-size:16px; font-weight:600;
-  font-family:'Jost',sans-serif; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 8px 24px rgba(196,113,138,0.3);
-  transition:all 0.2s; letter-spacing:0.5px;
-}
-.detail-add-btn:active { transform:scale(0.97); }
-.detail-add-btn.added { background:linear-gradient(135deg,#c8657a,var(--blush-dark)); }
-.detail-close-btn {
-  position:absolute; top:16px; right:16px; z-index:20;
-  width:34px; height:34px; background:rgba(255,255,255,0.85); backdrop-filter:blur(8px);
-  border-radius:50%; border:none; font-size:15px; cursor:pointer;
-  display:flex; align-items:center; justify-content:center; color:var(--text-mid);
-}
+  .card-img {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--accent-light), var(--purple-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-img.has-image { cursor: zoom-in; }
+  .zoom-hint {
+    position: absolute;
+    bottom: 6px; right: 6px;
+    font-size: 13px;
+    background: rgba(216,27,96,0.5);
+    border-radius: 8px;
+    padding: 2px 6px;
+    color: white;
+    pointer-events: none;
+  }
 
-/* ── CART DRAWER ── */
-.overlay {
-  position:fixed; inset:0;
-  background:rgba(58,26,38,0.45); backdrop-filter:blur(4px);
-  z-index:100; opacity:0; pointer-events:none; transition:opacity 0.3s;
-}
-.overlay.visible { opacity:1; pointer-events:all; }
-.cart-drawer {
-  position:fixed; bottom:0; left:0; right:0;
-  background:var(--cream); border-radius:28px 28px 0 0;
-  padding:0 0 32px; z-index:101; max-height:85vh;
-  display:flex; flex-direction:column;
-  transform:translateY(100%);
-  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1);
-  box-shadow:0 -10px 40px rgba(180,100,130,0.15);
-}
-.cart-drawer.open { transform:translateY(0); }
-.drawer-handle { width:36px; height:4px; background:var(--blush); border-radius:2px; margin:14px auto 0; flex-shrink:0; opacity:0.5; }
-.drawer-header { display:flex; align-items:center; justify-content:space-between; padding:16px 20px 12px; flex-shrink:0; }
-.drawer-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--text-dark); }
-.close-drawer { width:32px; height:32px; background:var(--petal); border-radius:50%; border:none; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--text-mid); }
+  .card-body { padding: 10px 10px 12px; }
+  .card-name {
+    font-family: 'Comfortaa', cursive;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 3px;
+    color: var(--text);
+  }
+  .card-brand {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 7px;
+    letter-spacing: 0.3px;
+  }
+  .card-price {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent);
+    font-family: 'Comfortaa', cursive;
+  }
+  .card-old-price {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-left: 4px;
+  }
+  .add-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    border: 1.5px solid var(--accent);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--accent);
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .add-btn.in-cart {
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    border-color: transparent;
+    color: white;
+  }
 
-.cart-items { flex:1; overflow-y:auto; padding:0 20px; scrollbar-width:none; min-height:80px; }
-.cart-items::-webkit-scrollbar { display:none; }
-.cart-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
-.cart-item-img {
-  width:48px; height:48px; border-radius:14px; overflow:hidden;
-  flex-shrink:0; background:var(--petal); display:flex; align-items:center; justify-content:center; font-size:24px;
-}
-.cart-item-img img { width:100%; height:100%; object-fit:cover; }
-.cart-item-info { flex:1; min-width:0; }
-.cart-item-name { font-size:13px; font-weight:600; color:var(--text-dark); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.cart-item-price { font-size:12px; color:var(--text-soft); margin-top:2px; }
-.cart-qty-ctrl { display:flex; align-items:center; gap:8px; flex-shrink:0; }
-.qty-btn { width:28px; height:28px; border-radius:9px; border:none; font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; font-weight:700; }
-.qty-minus { background:var(--petal); color:var(--rose); }
-.qty-plus  { background:linear-gradient(135deg,var(--blush),var(--rose)); color:#fff; }
-.qty-num { font-size:15px; font-weight:700; color:var(--text-dark); min-width:18px; text-align:center; }
+  .badge {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--danger);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 2;
+    font-family: 'Nunito', sans-serif;
+  }
+  .badge-new {
+    position: absolute;
+    top: 8px; left: 8px;
+    background: var(--gold);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    z-index: 2;
+    font-family: 'Nunito', sans-serif;
+  }
 
-.cart-footer { padding:14px 20px 0; flex-shrink:0; }
-.note-input {
-  width:100%; background:var(--petal); border:1.5px solid var(--border);
-  border-radius:14px; padding:11px 14px; font-size:13px;
-  font-family:'Jost',sans-serif; color:var(--text-dark); resize:none; outline:none; margin-bottom:12px;
-}
-.note-input:focus { border-color:var(--blush); }
-.cart-total { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-.cart-total-label { font-size:14px; color:var(--text-soft); font-weight:500; }
-.cart-total-price { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700; color:var(--text-dark); }
-.empty-cart { text-align:center; padding:40px 20px; color:var(--text-soft); }
-.empty-cart .empty-icon { font-size:50px; margin-bottom:10px; }
+  /* ── Bottom Cart Bar ── */
+  .bottom-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--bottom-bar-h);
+    background: var(--surface);
+    border-top: 1.5px solid var(--border);
+    padding: 10px 16px;
+    z-index: 150;
+    box-shadow: 0 -4px 24px rgba(216,27,96,0.10);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cart-btn-bottom {
+    flex: 1;
+    padding: 13px 20px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 15px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: opacity 0.2s, transform 0.1s;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 16px rgba(216,27,96,0.28);
+  }
+  .cart-btn-bottom:active { transform: scale(0.97); opacity: 0.9; }
+  .cart-count-badge {
+    background: white;
+    color: var(--accent);
+    border-radius: 50%;
+    width: 22px; height: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nunito', sans-serif;
+  }
+  .cart-total-text {
+    font-size: 12px;
+    opacity: 0.9;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+  }
 
-.send-btn {
-  width:100%; background:linear-gradient(135deg,var(--blush),var(--blush-dark));
-  color:#fff; border:none; border-radius:16px; height:52px;
-  font-size:15px; font-weight:600; font-family:'Jost',sans-serif;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
-  box-shadow:0 6px 20px rgba(196,113,138,0.3); letter-spacing:0.5px;
-}
-.send-btn:active { transform:scale(0.98); }
+  /* ── Lightbox ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(42,16,32,0.93);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+    overflow-y: auto;
+  }
+  .lightbox.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+  .lightbox-inner {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
 
-/* ── BOTTOM BAR ── */
-.bottom-bar {
-  position:fixed; bottom:0; left:0; right:0;
-  padding:12px 20px 28px;
-  background:linear-gradient(to top,var(--petal-light) 70%,transparent);
-  z-index:50; display:flex; gap:10px;
-}
-.cart-icon-btn {
-  width:54px; height:54px; flex-shrink:0;
-  background:var(--card-bg); border:1.5px solid var(--border);
-  border-radius:18px; display:flex; align-items:center; justify-content:center;
-  font-size:22px; cursor:pointer; position:relative;
-  box-shadow:0 4px 16px rgba(180,100,130,0.12);
-}
-.cart-icon-badge {
-  position:absolute; top:-5px; right:-5px;
-  background:var(--blush-dark); color:#fff;
-  font-size:9px; font-weight:700; width:17px; height:17px;
-  border-radius:50%; display:none; align-items:center; justify-content:center;
-}
-.order-btn {
-  flex:1; background:linear-gradient(135deg,var(--blush) 0%,var(--blush-dark) 100%);
-  color:#fff; border:none; border-radius:18px; padding:0 20px; height:54px;
-  font-size:15px; font-weight:600; font-family:'Jost',sans-serif;
-  cursor:pointer; display:flex; align-items:center; justify-content:center; gap:10px;
-  box-shadow:0 6px 20px rgba(196,113,138,0.35); letter-spacing:0.5px;
-  position:relative; overflow:hidden;
-}
-.order-btn::after {
-  content:''; position:absolute; top:0; left:-100%; width:50%; height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);
-  animation:shimmer 3.5s infinite;
-}
-@keyframes shimmer { 0%{left:-100%} 60%,100%{left:150%} }
-.order-btn-count {
-  background:rgba(255,255,255,0.25); width:24px; height:24px;
-  border-radius:50%; display:none; align-items:center; justify-content:center;
-  font-size:12px; font-weight:700;
-}
+  /* Language toggle */
+  .lang-toggle {
+    display: flex;
+    gap: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    margin-bottom: 14px;
+    align-self: center;
+  }
+  .lang-btn {
+    padding: 7px 20px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .lang-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+  }
 
-/* ── TOAST ── */
-.toast {
-  position:fixed; top:20px; left:50%;
-  transform:translateX(-50%) translateY(-80px);
-  background:var(--text-dark); color:#fff;
-  padding:10px 20px; border-radius:50px;
-  font-size:13px; font-weight:500; z-index:400;
-  transition:transform 0.35s cubic-bezier(0.34,1.4,0.64,1); white-space:nowrap;
-}
-.toast.show { transform:translateX(-50%) translateY(0); }
+  .lightbox-img-wrap {
+    width: 100%;
+    max-height: 52vw;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--accent-light), var(--purple-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+  }
+  .lightbox-img {
+    width: 100%;
+    max-height: 52vw;
+    object-fit: contain;
+    display: block;
+    border-radius: 20px;
+    animation: lbZoomIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  @keyframes lbZoomIn {
+    from { transform: scale(0.82); opacity: 0; }
+    to   { transform: scale(1);   opacity: 1; }
+  }
+  .lightbox-name {
+    color: white;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4px;
+    line-height: 1.35;
+  }
+  .lightbox-brand {
+    color: #F8BBD9;
+    font-size: 12px;
+    margin-bottom: 14px;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  /* Type selector */
+  .type-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 8px;
+    align-self: flex-start;
+  }
+  .type-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    align-self: flex-start;
+    width: 100%;
+  }
+  .type-btn {
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .type-btn.active {
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 2px 10px rgba(216,27,96,0.35);
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 14px; right: 14px;
+    background: rgba(255,255,255,0.14);
+    border: none;
+    color: white;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s;
+    z-index: 1;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.3); }
+
+  .lightbox-price {
+    color: #F8BBD9;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .lightbox-add {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 15px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    box-shadow: 0 4px 18px rgba(216,27,96,0.35);
+    letter-spacing: 0.3px;
+  }
+  .lightbox-add:active { transform: scale(0.97); opacity: 0.9; }
+  .lightbox-add.in-cart { background: linear-gradient(135deg, #27ae60, #1e8449); }
+
+  /* ── Cart Overlay ── */
+  .overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(42,16,32,0.45);
+    z-index: 200;
+  }
+  .overlay.open { display: block; }
+
+  /* ── Cart Panel ── */
+  .cart-panel {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--surface);
+    border-radius: 24px 24px 0 0;
+    padding: 20px 16px 32px;
+    z-index: 201;
+    max-height: 88vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 -8px 40px rgba(216,27,96,0.14);
+  }
+  .cart-panel.open { transform: translateY(0); }
+
+  .panel-handle {
+    width: 40px; height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin: 0 auto 16px;
+  }
+  .panel-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1.5px solid var(--border);
+  }
+  .ci-thumb {
+    width: 52px; height: 52px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    background: linear-gradient(135deg, var(--accent-light), var(--purple-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+  }
+  .ci-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ci-info { flex: 1; }
+  .ci-name { font-size: 13px; font-weight: 600; font-family: 'Nunito', sans-serif; }
+  .ci-type { font-size: 11px; color: var(--purple); font-weight: 600; margin-top: 1px; }
+  .ci-price { font-size: 13px; color: var(--accent); font-weight: 700; font-family: 'Comfortaa', cursive; }
+  .ci-qty { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .qty-btn {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent);
+    transition: all 0.15s;
+  }
+  .qty-btn:active { background: var(--accent-light); }
+  .qty-num { font-size: 14px; font-weight: 700; min-width: 20px; text-align: center; font-family: 'Comfortaa', cursive; }
+
+  .empty-cart {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--muted);
+    font-size: 15px;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  /* Order form */
+  .order-form { margin-top: 16px; }
+  .form-label {
+    font-size: 11px;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 4px;
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+  .form-input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(216,27,96,0.08); }
+
+  .location-order-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+  }
+  .location-order-row .loc-status { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .get-loc-btn {
+    margin-left: auto;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .get-loc-btn:disabled { background: var(--muted); cursor: default; }
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0 6px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+  }
+  .total-sum {
+    font-family: 'Comfortaa', cursive;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .order-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--accent), var(--purple));
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    letter-spacing: 0.4px;
+    box-shadow: 0 4px 16px rgba(216,27,96,0.3);
+  }
+  .order-btn:disabled { background: var(--muted); cursor: not-allowed; box-shadow: none; }
+  .order-btn:active:not(:disabled) { transform: scale(0.98); opacity: 0.9; }
+
+  /* Success */
+  .success-screen {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .success-screen.show { display: block; }
+  .success-icon { font-size: 64px; margin-bottom: 16px; }
+  .success-title {
+    font-family: 'Comfortaa', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .success-text { color: var(--muted); font-size: 14px; line-height: 1.7; font-family: 'Nunito', sans-serif; }
+
+  /* Search highlight */
+  mark {
+    background: rgba(216,27,96,0.15);
+    color: var(--accent);
+    border-radius: 3px;
+    padding: 0 2px;
+    font-style: normal;
+  }
 </style>
 </head>
 <body>
 
+<!-- Header -->
 <div class="header">
   <div class="header-top">
-    <div class="logo-wrap">🌸</div>
-    <div>
-      <div class="brand-name">VitaShop</div>
-      <div class="brand-sub">Sog'liq do'koni</div>
+    <div class="logo">
+      💊 Vitamino<span class="logo-pill">2022</span>
     </div>
-    
   </div>
-  <div class="search-bar">
-    <span>🔍</span>
-    <input type="text" placeholder="Vitamin qidiring..." oninput="filterProducts(this.value)">
+
+  <!-- Location bar -->
+  <div class="location-bar loading" id="locationBar">
+    <span class="loc-icon">📍</span>
+    <span class="loc-text" id="locationText">Joylashuv aniqlanmoqda…</span>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input class="search-input" id="searchInput" type="text"
+      placeholder="Vitamin qidiring…"
+      oninput="handleSearch(this.value)" autocomplete="off">
+    <button class="search-clear" id="searchClear" onclick="clearSearch()">✕</button>
   </div>
 </div>
 
-<div class="section-label">Kategoriyalar</div>
-<div class="categories-scroll" id="catList"></div>
+<!-- Categories -->
+<div class="categories" id="categoriesBar">
+  <button class="cat-btn active" onclick="filterCat('all', this)">Barchasi</button>
+  <button class="cat-btn" onclick="filterCat('yodlar', this)">💊 Yodlar(йод)</button>
+  <button class="cat-btn" onclick="filterCat('collagenlar', this)">🦴 Collagen</button>
+  <button class="cat-btn" onclick="filterCat('omega', this)">🐟 Omega & Yog'lar</button>
+  <button class="cat-btn" onclick="filterCat('d3', this)">☀️ Vitamin D3</button>
+  <button class="cat-btn" onclick="filterCat('calcium', this)">🦷 Calcium</button>
+  <button class="cat-btn" onclick="filterCat('gozallik', this)">💖 Go'zallik</button>
+  <button class="cat-btn" onclick="filterCat('jigar', this)">🫀 Jigar</button>
+  <button class="cat-btn" onclick="filterCat('qon', this)">🩸 Gemoglabin & Qon</button>
+  <button class="cat-btn" onclick="filterCat('magniy', this)">💆🏻‍♀️ Magniy</button>
+  <button class="cat-btn" onclick="filterCat('complex', this)">🛡️ Complex</button>
+  <button class="cat-btn" onclick="filterCat('gijja', this)">🪱 Gijja</button>
+  <button class="cat-btn" onclick="filterCat('gummies', this)">🍭 Gummies</button>
+  <button class="cat-btn" onclick="filterCat('mini', this)">⭐️ Mini Drops</button>
+  <button class="cat-btn" onclick="filterCat('sogliq', this)">❤️‍🩹 Sog'liq</button>
+</div>
 
-<div class="section-label" style="padding-top:16px">Mahsulotlar</div>
-<div class="products-grid" id="productsGrid"></div>
+<!-- Product Grid -->
+<div class="grid" id="productGrid"></div>
+<div class="no-results" id="noResults">
+  <div class="no-results-icon">🔍</div>
+  <div>"<span id="noResultsQuery"></span>" bo'yicha hech narsa topilmadi</div>
+  <div style="font-size:12px;margin-top:8px;color:#bbb;">Boshqa so'z bilan qidiring</div>
+</div>
 
-<!-- BOTTOM BAR -->
+<!-- Bottom Cart Bar -->
 <div class="bottom-bar">
-  <div class="cart-icon-btn" onclick="openCart()">
-    🛒
-    <div class="cart-icon-badge" id="cartIconBadge"></div>
-  </div>
-  <button class="order-btn" onclick="openCart()">
-    <span>Savatni Ko'rish</span>
-    <span class="order-btn-count" id="orderCount"></span>
+  <button class="cart-btn-bottom" onclick="toggleCart()">
+    🛒 &nbsp;Mening savatim
+    <span class="cart-count-badge" id="cartCount">0</span>
+    <span class="cart-total-text" id="cartTotalBottom"></span>
   </button>
 </div>
 
-<!-- CART OVERLAY + DRAWER -->
-<div class="overlay" id="overlay" onclick="closeCart()"></div>
-<div class="cart-drawer" id="cartDrawer">
-  <div class="drawer-handle"></div>
-  <div class="drawer-header">
-    <div class="drawer-title">🛒 Savatcha</div>
-    <button class="close-drawer" onclick="closeCart()">✕</button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-footer">
-    <textarea class="note-input" id="noteInput" placeholder="📝 Izoh yoki manzil yozing..." rows="2"></textarea>
-    <div class="cart-total">
-      <span class="cart-total-label">Jami summa:</span>
-      <span class="cart-total-price" id="totalPrice">0 so'm</span>
+<!-- Cart Overlay -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<!-- Cart Panel -->
+<div class="cart-panel" id="cartPanel">
+  <div class="panel-handle"></div>
+
+  <div id="cartContent">
+    <div class="panel-title">🛒 Savatim</div>
+    <div id="cartItems"></div>
+
+    <div class="order-form" id="orderForm" style="display:none;">
+      <div class="total-row">
+        <span>Jami:</span>
+        <span class="total-sum" id="totalSum">0 so'm</span>
+      </div>
+
+      <label class="form-label">Telefon raqam *</label>
+      <input class="form-input" id="phoneInput" type="tel" placeholder="+998 90 000 00 00">
+
+      <label class="form-label">Manzil *</label>
+      <input class="form-input" id="addressInput" type="text" placeholder="Shahar, ko'cha, uy raqami">
+
+      <label class="form-label">Joylashuv (GPS)</label>
+      <div class="location-order-row" id="locationOrderRow">
+        <div>
+          <div id="locationOrderText">📍 Aniqlanmadi</div>
+          <div class="loc-status" id="locationOrderStatus">Aniq manzil yuborish uchun ruxsat bering</div>
+        </div>
+        <button class="get-loc-btn" id="getLocBtn" onclick="requestLocation()">📡 Aniqlash</button>
+      </div>
+
+      <label class="form-label">Izoh (ixtiyoriy)</label>
+      <input class="form-input" id="commentInput" type="text" placeholder="Qo'shimcha ma'lumot...">
+      <button class="order-btn" id="orderBtn" onclick="submitOrder()">✅ Buyurtma berish</button>
     </div>
-    <button class="send-btn" onclick="sendOrder()">
-      <span>✅</span><span>Buyurtma Berish</span>
-    </button>
+  </div>
+
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">Buyurtma qabul qilindi!</div>
+    <div class="success-text">Menejer tez orada siz bilan bog'lanadi.<br>Sog'lom va baquvvat bo'ling! 💊💜</div>
   </div>
 </div>
 
-<!-- PRODUCT DETAIL MODAL -->
-<div class="detail-overlay" id="detailOverlay" onclick="closeDetail()"></div>
-<div class="detail-modal" id="detailModal">
-  <button class="detail-close-btn" onclick="closeDetail()">✕</button>
-  <div class="swiper-wrap" id="swiperWrap">
-    <div class="swiper-track" id="swiperTrack"></div>
-    <div class="lang-pill">
-      <div class="lang-dot active" id="langDot0">🇺🇿 O'zbekcha</div>
-      <div class="lang-dot"        id="langDot1">🇷🇺 Русский</div>
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="lightboxBgClick(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-inner">
+
+    <!-- Language toggle -->
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="langBtnUz" onclick="switchLang('uz')">🇺🇿 O'zbek</button>
+      <button class="lang-btn" id="langBtnRu" onclick="switchLang('ru')">🇷🇺 Русский</button>
     </div>
-    <div class="swipe-hint" id="swipeHint">Swipe →</div>
-    <div class="swiper-dots" id="swiperDots"></div>
-    <div class="detail-price-ribbon">
-      <div class="detail-ribbon-price" id="ribbonPrice"></div>
+
+    <!-- Product image -->
+    <div class="lightbox-img-wrap">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
-  </div>
-  <div class="detail-body">
-    <div class="detail-cat-tag" id="dCat"></div>
-    <div class="detail-name"    id="dName"></div>
-    <div class="detail-name-ru" id="dNameRu"></div>
-    <div style="height:20px"></div>
-  </div>
-  <div class="detail-footer">
-    <button class="detail-add-btn" id="detailAddBtn" onclick="detailAddToCart()">
-      <span>🛒</span><span id="detailAddLabel">Savatchaga qo'shish</span>
+
+    <div class="lightbox-name" id="lightboxName"></div>
+    <div class="lightbox-brand">💊 Vitamino_2022</div>
+    <div class="lightbox-price" id="lightboxPrice"></div>
+
+    <!-- Type selector -->
+    <div class="type-label">Shakli / Вид:</div>
+    <div class="type-selector" id="typeSelector"></div>
+
+    <button class="lightbox-add" id="lightboxAddBtn" onclick="lightboxAddToCart()">
+      + Savatga qo'shish
     </button>
   </div>
 </div>
-
-<div class="toast" id="toast"></div>
 
 <script>
-/* ── Telegram WebApp ── */
-const tg = window.Telegram && window.Telegram.WebApp ? window.Telegram.WebApp : null;
+const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-/* ── DATA ── */
-const categories = [
-  { id:'all',       icon:'🌸', label:'Barchasi'    },
-  { id:'vitamin',   icon:'💊', label:'Vitaminlar'   },
-  { id:'mineral',   icon:'⚗️', label:'Minerallar'   },
-  { id:'omega',     icon:'🐟', label:'Omega'        },
-  { id:'probiotic', icon:'🦠', label:'Probiotiklar' },
-  { id:'sport',     icon:'💪', label:'Sport'        },
-  { id:'immune',    icon:'🛡️', label:'Immunitet'    },
-];
+const BRAND = "💊 Vitamino_2022";
 
-const products = [
-  { id:1,  cat:'vitamin',   emoji:'🌟', name:'Vitamin C 1000mg',     nameRu:'Витамин C 1000мг',      price:35000, images:['https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80','https://images.unsplash.com/photo-1550572017-edd951b55104?w=600&q=80'] },
-  { id:2,  cat:'vitamin',   emoji:'☀️', name:'Vitamin D3 5000 IU',   nameRu:'Витамин D3 5000 МЕ',    price:42000, images:['https://images.unsplash.com/photo-1559757175-7b1d0b3e2399?w=600&q=80','https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80'] },
-  { id:3,  cat:'vitamin',   emoji:'🅱️', name:'B12 Vitamini',          nameRu:'Витамин B12',           price:28000, images:['https://images.unsplash.com/photo-1576671414121-aa2d60f0a0a4?w=600&q=80','https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=600&q=80'] },
-  { id:4,  cat:'mineral',   emoji:'🦴', name:'Kalsiy + D3',           nameRu:'Кальций + D3',          price:32000, images:['https://images.unsplash.com/photo-1535914254981-b5012eebbd15?w=600&q=80','https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80'] },
-  { id:5,  cat:'mineral',   emoji:'🧲', name:'Magniy 400mg',          nameRu:'Магний 400мг',          price:38000, images:['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80','https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&q=80'] },
-  { id:6,  cat:'mineral',   emoji:'⚡', name:'Temir (Iron) 14mg',     nameRu:'Железо 14мг',           price:25000, images:['https://images.unsplash.com/photo-1516542076529-1ea3854896f2?w=600&q=80','https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80'] },
-  { id:7,  cat:'omega',     emoji:'🐟', name:'Omega-3 Fish Oil',      nameRu:'Омега-3 Рыбий жир',     price:55000, images:['https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80','https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=600&q=80'] },
-  { id:8,  cat:'omega',     emoji:'🫒', name:'Omega-6 va -9',         nameRu:'Омега-6 и -9',          price:48000, images:['https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&q=80','https://images.unsplash.com/photo-1564894639-e3e1917f2f97?w=600&q=80'] },
-  { id:9,  cat:'probiotic', emoji:'🦠', name:'Probiotik 20 mlrd',     nameRu:'Пробиотик 20 млрд',     price:62000, images:['https://images.unsplash.com/photo-1606206873764-fd15e242e5de?w=600&q=80','https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80'] },
-  { id:10, cat:'probiotic', emoji:'🥛', name:'Laktobatsiller',        nameRu:'Лактобациллы',          price:45000, images:['https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&q=80','https://images.unsplash.com/photo-1556909172-8c2f041fca1e?w=600&q=80'] },
-  { id:11, cat:'sport',     emoji:'💪', name:'BCAA Aminokislotalar',  nameRu:'BCAA Аминокислоты',     price:78000, images:['https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&q=80','https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80'] },
-  { id:12, cat:'sport',     emoji:'🏋️', name:'Kreatin Monohidrat',    nameRu:'Креатин Моногидрат',    price:65000, images:['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80','https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&q=80'] },
-  { id:13, cat:'immune',    emoji:'🛡️', name:'Sink (Zinc) 25mg',      nameRu:'Цинк 25мг',             price:29000, images:['https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=600&q=80','https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80'] },
-  { id:14, cat:'immune',    emoji:'🍄', name:'Echinacea Ekstrakti',   nameRu:'Экстракт Эхинацеи',     price:34000, images:['https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=600&q=80','https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=600&q=80'] },
-];
+// ── Product types by category
+const CAT_TYPES = {
+  yodlar:     ["Tomchi 💧", "Kapsula 💊", "Tabletka"],
+  collagenlar:["Parashok 🧪", "Kapsula 💊", "Suyuq 💧", "Chaynaladigan 🍬"],
+  omega:      ["Kapsula 💊", "Suyuq 💧", "Gummies 🍬"],
+  d3:         ["Tomchi 💧", "Kapsula 💊", "Spray 🌬️", "Chaynaladigan 🍬"],
+  calcium:    ["Tabletka", "Suyuq 💧", "Kapsula 💊", "Chaynaladigan 🍬"],
+  gozallik:   ["Kapsula 💊", "Parashok 🧪", "Suyuq 💧"],
+  jigar:      ["Kapsula 💊", "Tabletka", "Suyuq 💧"],
+  qon:        ["Suyuq 💧", "Kapsula 💊", "Tabletka"],
+  magniy:     ["Kapsula 💊", "Tabletka", "Suyuq 💧", "Parashok 🧪"],
+  complex:    ["Kapsula 💊", "Suyuq 💧", "Chaynaladigan 🍬", "Tabletka"],
+  gijja:      ["Kapsula 💊", "Tabletka", "Suyuq 💧"],
+  gummies:    ["Gummies 🍬"],
+  mini:       ["Tomchi 💧"],
+  sogliq:     ["Kapsula 💊", "Tabletka", "Suyuq 💧"],
+};
+const DEFAULT_TYPES = ["Kapsula 💊", "Parashok 🧪", "Chaynaladigan 🍬", "Suyuq 💧"];
 
-/* ── STATE ── */
-const cart = {};
-let activeCategory = 'all';
-let searchQuery    = '';
-let currentDetailId = null;
+// ── Geolocation ──────────────────────────────────────────────────────────────
+let userLocation = null;
 
-/* ── SCROLL LOCK ── */
-function lockScroll()   { document.body.classList.add('locked'); }
-function unlockScroll() {
-  // only unlock if no overlay is still open
-  const cartOpen   = document.getElementById('cartDrawer').classList.contains('open');
-  const detailOpen = document.getElementById('detailModal').classList.contains('open');
-  if (!cartOpen && !detailOpen) document.body.classList.remove('locked');
-}
+function requestLocation() {
+  const bar     = document.getElementById('locationBar');
+  const barText = document.getElementById('locationText');
+  const oText   = document.getElementById('locationOrderText');
+  const oStat   = document.getElementById('locationOrderStatus');
+  const btn     = document.getElementById('getLocBtn');
 
-/* ── CATEGORIES ── */
-function renderCategories() {
-  document.getElementById('catList').innerHTML = categories.map(c =>
-    `<div class="cat-chip ${c.id===activeCategory?'active':''}" onclick="selectCat('${c.id}')">${c.icon} ${c.label}</div>`
-  ).join('');
-}
-function selectCat(id) { activeCategory = id; renderCategories(); renderProducts(); }
-function filterProducts(v) { searchQuery = v; renderProducts(); }
+  bar.className = 'location-bar loading';
+  barText.textContent = 'Joylashuv aniqlanmoqda…';
+  if (btn) { btn.disabled = true; btn.textContent = '⏳'; }
 
-/* ── PRODUCTS ── */
-function getBg(cat) {
-  const m = { vitamin:'linear-gradient(135deg,#fde8ef,#f9c5d4)', mineral:'linear-gradient(135deg,#fde8ef,#f5c4d8)', omega:'linear-gradient(135deg,#fce8f3,#f5c4e4)', probiotic:'linear-gradient(135deg,#fdeef5,#f9d0e3)', sport:'linear-gradient(135deg,#fde8f5,#f5c4e0)', immune:'linear-gradient(135deg,#fdeaf0,#f9c8d8)' };
-  return m[cat] || 'linear-gradient(135deg,#fde8ef,#f9c5d4)';
-}
-
-function renderProducts() {
-  const filtered = products.filter(p =>
-    (activeCategory === 'all' || p.cat === activeCategory) &&
-    p.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  const el = document.getElementById('productsGrid');
-  if (!filtered.length) {
-    el.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px 0;color:var(--text-soft);font-weight:500;">Hech narsa topilmadi</div>';
+  if (!navigator.geolocation) {
+    bar.className = 'location-bar error';
+    barText.textContent = "GPS qo'llab-quvvatlanmaydi";
+    if (btn) { btn.disabled = false; btn.textContent = '📡 Aniqlash'; }
     return;
   }
-  el.innerHTML = filtered.map(p => {
-    const inCart   = (cart[p.id] || 0) > 0;
-    const catLabel = categories.find(c => c.id === p.cat)?.label || '';
-    const imgUrl   = p.images && p.images[0];
-    return `
-      <div class="product-card" onclick="openDetail(${p.id})">
-        <div class="product-thumb" style="background:${getBg(p.cat)}">
-          ${imgUrl
-            ? `<img src="${imgUrl}" alt="${p.name}" onerror="this.style.display='none'">`
-            : `<span class="fallback-emoji">${p.emoji}</span>`}
-          <div class="price-overlay">
-            <div class="price-overlay-amount">${p.price.toLocaleString('uz-UZ')}<small> so'm</small></div>
-            <button class="price-overlay-add ${inCart ? 'added' : ''}" id="addbtn-${p.id}"
-              onclick="event.stopPropagation(); quickAdd(${p.id})">${inCart ? '✓' : '+'}</button>
-          </div>
-        </div>
-        <div class="product-info">
-          <div class="product-name">${p.name}</div>
-          <div class="product-cat">${catLabel}</div>
-        </div>
-      </div>`;
-  }).join('');
+
+  navigator.geolocation.getCurrentPosition(
+    function(pos) {
+      const lat = pos.coords.latitude.toFixed(6);
+      const lng = pos.coords.longitude.toFixed(6);
+      const mapsUrl = 'https://yandex.com/maps/?pt=' + lng + ',' + lat + '&z=17&l=map';
+      userLocation = { lat, lng, mapsUrl, address: lat + ', ' + lng };
+
+      bar.className = 'location-bar ok';
+      barText.textContent = '📍 ' + lat + ', ' + lng;
+      if (oText) oText.textContent = '📍 ' + lat + ', ' + lng;
+      if (oStat) oStat.textContent = '✅ Joylashuv tayyor – buyurtmada yuboriladi';
+      if (btn) { btn.disabled = false; btn.textContent = '🔄 Yangilash'; }
+    },
+    function(err) {
+      bar.className = 'location-bar error';
+      let msg = 'Joylashuv aniqlanmadi';
+      if (err.code === 1) msg = 'Ruxsat berilmadi';
+      else if (err.code === 2) msg = "GPS signal yo'q";
+      else if (err.code === 3) msg = 'Vaqt tugadi';
+      barText.textContent = msg;
+      if (oStat) oStat.textContent = msg + ' — ixtiyoriy';
+      if (btn) { btn.disabled = false; btn.textContent = '📡 Qayta'; }
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+  );
+}
+window.addEventListener('load', function() { requestLocation(); });
+
+// ── Products ─────────────────────────────────────────────────────────────────
+const products = [
+  // 💊 Yodlar(йод)
+  { id:1,   name:"NEWLINE Iodine",                              cat:"yodlar",     price:150000, emoji:"🍋", image:"https://iili.io/BDPYQEu.jpg", sale:true },
+  { id:2,   name:"VeNatura iYOT VA SELENYUM TOMCHISI",          cat:"yodlar",     price:140000, emoji:"☀️", image:"https://iili.io/BDPGuGS.jpg", sale:true },
+  { id:3,   name:"NBT life Iyotic Damla",                       cat:"yodlar",     price:155000, emoji:"💊", image:"https://iili.io/BDPhHqQ.jpg", sale:true },
+  { id:4,   name:"Swiss KELP (IODINE)",                         cat:"yodlar",     price:160000, emoji:"🌈", image:"https://iili.io/BDPwIRt.jpg", sale:true },
+  { id:5,   name:"life flo LIQUID IODINE PLUS",                 cat:"yodlar",     price:140000, emoji:"🪨", image:"https://iili.io/BDPvfFj.jpg", sale:true },
+  { id:143, name:"KAL Kelp Iodine",                             cat:"yodlar",     price:160000, emoji:"🪨", image:"https://iili.io/C9upKrl.jpg", sale:true },
+  // 🦴 Collagen
+  { id:6,   name:"AFNAN Beauty COLLAGEN",                       cat:"collagenlar",price:250000, emoji:"🔴", image:"https://iili.io/BDPswBV.jpg", sale:true },
+  { id:7,   name:"esila COLLAGEN DETOX",                        cat:"collagenlar",price:170000, emoji:"🦷", image:"https://iili.io/BDPQtzG.jpg", sale:true },
+  { id:8,   name:"The COLLAGEN BEAUTY PLUS DAY2DAY",            cat:"collagenlar",price:600000, emoji:"⚪", image:"https://iili.io/BDPbTk7.jpg", sale:true },
+  { id:30,  name:"Swiss JOINT ALP",                             cat:"collagenlar",price:250000, emoji:"🦷", image:"https://iili.io/BDi2o5x.jpg", sale:true },
+  { id:31,  name:"NUTRAXIN ARTROFLEX",                          cat:"collagenlar",price:300000, emoji:"🦷", image:"https://iili.io/BDiFdP9.jpg", sale:true },
+  { id:32,  name:"COLLABEL Collagen Life Pro",                  cat:"collagenlar",price:130000, emoji:"🦷", image:"https://iili.io/BDifXj4.jpg", sale:true },
+  { id:33,  name:"BORK Swiss MARINE COLLAGEN",                  cat:"collagenlar",price:320000, emoji:"🦷", image:"https://iili.io/BDiCsP2.jpg", sale:true },
+  { id:34,  name:"Swiss BORK Natural COLLAGEN POWDER+",         cat:"collagenlar",price:200000, emoji:"🦷", image:"https://iili.io/BDiIzmX.jpg", sale:true },
+  { id:35,  name:"Noora Collagen Powder",                       cat:"collagenlar",price:250000, emoji:"🦷", image:"https://iili.io/BDiuKSp.jpg", sale:true },
+  { id:36,  name:"California GOLD Nutrition Collagen UP",       cat:"collagenlar",price:250000, emoji:"🦷", image:"https://iili.io/BDiR5w7.jpg", sale:true },
+  { id:37,  name:"OSENDE Multi Plus COLLAGEN",                  cat:"collagenlar",price:380000, emoji:"🦷", image:"https://iili.io/BDicGTl.jpg", sale:true },
+  { id:38,  name:"OSENDE COLLAGEN 10,000 mg",                   cat:"collagenlar",price:400000, emoji:"🦷", image:"https://iili.io/BDi197s.jpg", sale:true },
+  { id:39,  name:"Kiperin Collagen Peptides",                   cat:"collagenlar",price:380000, emoji:"🦷", image:"https://iili.io/BDijB5P.jpg", sale:true },
+  { id:40,  name:"Kiperin Collagen Purple",                     cat:"collagenlar",price:480000, emoji:"🦷", image:"https://iili.io/BDijj7S.jpg", sale:true },
+  { id:180, name:"Collagenforte Premium",                       cat:"collagenlar",price:350000, emoji:"🦷", image:"https://iili.io/C9VlaVt.jpg", sale:true },
+  // 🐟 Omega
+  { id:9,   name:"Added Attention BURIED TREASURE",             cat:"omega",      price:380000, emoji:"🐟", image:"https://iili.io/BDgJWSS.jpg", sale:true },
+  { id:10,  name:"Focusvit Kids",                               cat:"omega",      price:210000, emoji:"💛", image:"https://iili.io/BDr64N2.jpg", sale:true },
+  { id:11,  name:"OMEGA 3",                                     cat:"omega",      price:270000, emoji:"🦐", image:"https://iili.io/BDrbXAg.jpg", sale:true },
+  { id:12,  name:"Balen OMEGA 3•6•9 SOFT",                     cat:"omega",      price:250000, emoji:"🦐", image:"https://iili.io/BD4qj2a.jpg", sale:true },
+  { id:13,  name:"Carlson kid's",                               cat:"omega",      price:330000, emoji:"🦐", image:"https://iili.io/BD4I3ua.jpg", sale:true },
+  { id:14,  name:"Norwitella Omega-3",                          cat:"omega",      price:300000, emoji:"🦐", image:"https://iili.io/BD4uZjs.jpg", sale:true },
+  { id:15,  name:"novomins KIDS OMEGA 3-6-9 + MULTI GUMMIES",  cat:"omega",      price:180000, emoji:"🦐", image:"https://iili.io/BD4aUnn.jpg", sale:true },
+  { id:16,  name:"Ausvit Norway Fish Oil",                      cat:"omega",      price:300000, emoji:"🦐", image:"https://iili.io/BD40dhP.jpg", sale:true },
+  { id:17,  name:"NORDIC BORK PURE OMEGA-3 NORWAY COD LIVER OIL",cat:"omega",   price:160000, emoji:"🦐", image:"https://iili.io/BD4Gdj2.jpg", sale:true },
+  { id:19,  name:"Ausvit Focus Formula KIDS",                   cat:"omega",      price:210000, emoji:"🦐", image:"https://iili.io/BD4WL9s.jpg", sale:true },
+  { id:20,  name:"now Omega-3 Fish Oil",                        cat:"omega",      price:180000, emoji:"🦐", image:"https://iili.io/BD4hjpa.jpg", sale:true },
+  { id:145, name:"now Sunflower Liquid Lecithin",               cat:"omega",      price:300000, emoji:"🦐", image:"https://iili.io/C9TD6U7.jpg", sale:true },
+  { id:201, name:"now Sunflower Lecithin 1,200 mg",             cat:"omega",      price:200000, emoji:"🦐", image:"https://iili.io/C9rUlTl.jpg", sale:true },
+  // ☀️ Vitamin D3
+  { id:21,  name:"Swiss VITAMIN D3+K2",                         cat:"d3",         price:140000, emoji:"🌸", image:"https://iili.io/BDLXJTX.jpg", sale:true },
+  { id:22,  name:"NEWLINE VITAMIN D3+K2",                       cat:"d3",         price:130000, emoji:"🍯", image:"https://iili.io/BDLNPse.jpg", sale:true },
+  { id:23,  name:"now LIQUID VITAMIN D3",                       cat:"d3",         price:140000, emoji:"🦠", image:"https://iili.io/BDLeboP.jpg", sale:true },
+  { id:24,  name:"Carlson Super Daily D3",                      cat:"d3",         price:170000, emoji:"🦠", image:"https://iili.io/BDLUran.jpg", sale:true },
+  { id:25,  name:"Carlson Kid's Super Daily D3+K2",             cat:"d3",         price:285000, emoji:"🦠", image:"https://iili.io/BDL4R2t.jpg", sale:true },
+  { id:26,  name:"VeNatura D3K2",                               cat:"d3",         price:110000, emoji:"🦠", image:"https://iili.io/BDLPas4.jpg", sale:true },
+  { id:27,  name:"CALIFORNIA GOLD NUTRITION",                   cat:"d3",         price:120000, emoji:"🦠", image:"https://iili.io/BDLLM7I.jpg", sale:true },
+  { id:28,  name:"AKSUVITAL VITAMIN D3+K2 5,000 IU",           cat:"d3",         price:150000, emoji:"🦠", image:"https://iili.io/BDLQrap.jpg", sale:true },
+  { id:29,  name:"AKSUVITAL VITAMIN D3+K2 10,000 IU",          cat:"d3",         price:170000, emoji:"🦠", image:"https://iili.io/BDLtt24.jpg", sale:true },
+  { id:41,  name:"now Vitamin D-3 & K-2",                      cat:"d3",         price:160000, emoji:"🦠", image:"https://iili.io/BDLmTdv.jpg", sale:true },
+  { id:42,  name:"Solaray Vitamin D3 + K2",                    cat:"d3",         price:200000, emoji:"🦠", image:"https://iili.io/BDLybzN.jpg", sale:true },
+  { id:43,  name:"now Vitamin D-3 5,000 UI",                   cat:"d3",         price:130000, emoji:"🦠", image:"https://iili.io/BDQHySs.jpg", sale:true },
+  { id:44,  name:"now Vitamin D-3 10,000 IU",                  cat:"d3",         price:160000, emoji:"🦠", image:"https://iili.io/BDQdyuf.jpg", sale:true },
+  { id:45,  name:"NEW LINE Vitamin D3+K2",                      cat:"d3",         price:200000, emoji:"🦠", image:"https://iili.io/BDQFBhx.jpg", sale:true },
+  { id:46,  name:"Mini Drops Vitamin D3",                       cat:"mini",       price:125000, emoji:"🦠", image:"https://iili.io/BDQKeDJ.jpg" },
+  { id:47,  name:"Child Life Vitamin D3",                       cat:"d3",         price:130000, emoji:"🦠", image:"https://iili.io/BDQq9BR.jpg", sale:true },
+  { id:144, name:"Wonlab Vitamin D3 + K2",                      cat:"d3",         price:200000, emoji:"🦠", image:"https://iili.io/C9TMWoN.jpg", sale:true },
+  { id:185, name:"geeks Vitamin D3 + K2",                       cat:"d3",         price:280000, emoji:"🦠", image:"https://iili.io/C9SSlZF.jpg", sale:true },
+  { id:186, name:"Aksuvital Vitamin D3 + K2 1,000 IU",         cat:"d3",         price:130000, emoji:"🦠", image:"https://iili.io/C9S4OJf.jpg", sale:true },
+  { id:191, name:"Aksuvital Vitamin D3 + K2 2,000 IU",         cat:"d3",         price:120000, emoji:"🦠", image:"https://iili.io/C9U3TYv.jpg", sale:true },
+  { id:196, name:"Carlson Super Daily D3 2,000 IU",             cat:"d3",         price:200000, emoji:"🦠", image:"https://iili.io/C9rNrbt.jpg", sale:true },
+  { id:197, name:"BetterYou Vitamin D3+K2 spray",               cat:"d3",         price:180000, emoji:"🦠", image:"https://iili.io/C9reCFf.jpg", sale:true },
+  { id:198, name:"BetterYou Vitamin D 4,000 IU spray",          cat:"d3",         price:180000, emoji:"🦠", image:"https://iili.io/C9re8NI.jpg", sale:true },
+  { id:199, name:"BetterYou Vitamin D 3,000 IU spray",          cat:"d3",         price:180000, emoji:"🦠", image:"https://iili.io/C9rkDdv.jpg", sale:true },
+  { id:200, name:"ORZAX OCEAN D3 + K2",                         cat:"d3",         price:130000, emoji:"🦠", image:"https://iili.io/C9rvGCF.jpg", sale:true },
+  // 🦷 Calcium
+  { id:48,  name:"H&B Calcium + Magnesium, Zinc & Vitamin D",  cat:"calcium",    price:270000, emoji:"✨", image:"https://iili.io/BDm7z4p.jpg", sale:true },
+  { id:49,  name:"OSTECARE Original 90 Tablets",                cat:"calcium",    price:250000, emoji:"💇", image:"https://iili.io/BDbDzge.jpg", sale:true },
+  { id:50,  name:"AUSVIT OSTELIN KIDS 150 ml",                  cat:"calcium",    price:160000, emoji:"💧", image:"https://iili.io/BDbmRVV.jpg", sale:true },
+  { id:51,  name:"Osteocare Liquid Original",                   cat:"calcium",    price:180000, emoji:"⚡", image:"https://iili.io/BDm9EOu.jpg", sale:true },
+  { id:52,  name:"ChildLife Liquid Calcium with Magnesium",     cat:"calcium",    price:270000, emoji:"⚡", image:"https://iili.io/BDmJh8P.jpg" },
+  { id:53,  name:"Kirkland Calcium Citrate + Magnesium + Zinc", cat:"calcium",    price:400000, emoji:"⚡", image:"https://iili.io/BDmKzrv.jpg", sale:true },
+  { id:54,  name:"Osteocare PLUS GLUCOSAMINE & CHONDROITIN",    cat:"calcium",    price:250000, emoji:"⚡", image:"https://iili.io/BDmqKWF.jpg", sale:true },
+  { id:55,  name:"Norwitella Ostevit KIDS bone & growth",       cat:"calcium",    price:160000, emoji:"⚡", image:"https://iili.io/BDmCGV9.jpg", sale:true },
+  { id:56,  name:"now Kids - KID CAL Orange",                   cat:"calcium",    price:240000, emoji:"⚡", image:"https://iili.io/BDmoVvj.jpg", sale:true },
+  { id:57,  name:"Swiss Bone Care 30 tablets",                  cat:"calcium",    price:130000, emoji:"⚡", image:"https://iili.io/BDmzdOv.jpg", sale:true },
+  { id:58,  name:"Solaray Calcium Citrate 1000 mg",             cat:"calcium",    price:200000, emoji:"⚡", image:"https://iili.io/BDmIDcF.jpg", sale:true },
+  { id:59,  name:"Swiss Move Up Step Two 60 Tablets",           cat:"calcium",    price:180000, emoji:"⚡", image:"https://iili.io/BbKFJgS.jpg", sale:true },
+  { id:123, name:"Calcium-Magnesium Citrate + Vitamin D3",      cat:"calcium",    price:300000, emoji:"⚡", image:"https://iili.io/C9TTefV.jpg", sale:true },
+  // 💖 Go'zallik
+  { id:60,  name:"CHLOROPHYLLIN ICHKI DEZODORANT",              cat:"gozallik",   price:100000, emoji:"⚡", image:"https://iili.io/BbFx0aR.jpg", sale:true },
+  { id:61,  name:"now Psyllium Husk Caps 500 mg",               cat:"gozallik",   price:200000, emoji:"🔥", image:"https://iili.io/BbFjeLX.jpg", sale:true },
+  { id:62,  name:"now Whole Psyllium Husks Powder",             cat:"gozallik",   price:250000, emoji:"🌿", image:"https://iili.io/BbFeku4.jpg", sale:true },
+  { id:63,  name:"Norwitella INOSITOL 60 tablets 1000 mg",      cat:"gozallik",   price:170000, emoji:"🌿", image:"https://iili.io/BbFS7xR.jpg", sale:true },
+  { id:96,  name:"BERBERINE 500 mg",                            cat:"gozallik",   price:190000, emoji:"🌿", image:"https://iili.io/BpljQXn.jpg", sale:true },
+  { id:97,  name:"BERBERINE from Indian Barberry 500 mg",       cat:"gozallik",   price:250000, emoji:"🌿", image:"https://iili.io/BplNIa4.jpg", sale:true },
+  { id:98,  name:"INOBALANS 60 kapsula",                        cat:"gozallik",   price:200000, emoji:"🌿", image:"https://iili.io/BplOydv.jpg", sale:true },
+  { id:124, name:"Jarrow Inositol 750 mg",                      cat:"gozallik",   price:230000, emoji:"🌿", image:"https://iili.io/C9TAovt.jpg", sale:true },
+  { id:125, name:"now Alpha Lipoic Acid 600 mg",                cat:"gozallik",   price:270000, emoji:"🌿", image:"https://iili.io/C9Ta52R.jpg", sale:true },
+  { id:126, name:"now Inositol Capsules",                       cat:"gozallik",   price:160000, emoji:"🌿", image:"https://iili.io/C9TNgkX.jpg", sale:true },
+  { id:127, name:"now Spirulina 500 mg",                        cat:"gozallik",   price:200000, emoji:"🌿", image:"https://iili.io/C9TiSVI.jpg", sale:true },
+  { id:128, name:"now Liquid Chlorophyll",                      cat:"gozallik",   price:300000, emoji:"🌿", image:"https://iili.io/C9TZWzv.jpg", sale:true },
+  { id:129, name:"Fairhaven Health Myo + D-Chiro Inositol",     cat:"gozallik",   price:320000, emoji:"🌿", image:"https://iili.io/C9TtLnR.jpg", sale:true },
+  { id:130, name:"Nature's Way CHLOROFRESH",                    cat:"gozallik",   price:260000, emoji:"🌿", image:"https://iili.io/C9uEiMP.jpg", sale:true },
+  { id:131, name:"now Liquid Chlorophyll (kichik)",             cat:"gozallik",   price:200000, emoji:"🌿", image:"https://iili.io/C9uNXNn.jpg", sale:true },
+  { id:132, name:"now Biotin 5000 mcg",                         cat:"gozallik",   price:160000, emoji:"🌿", image:"https://iili.io/C9ue1pt.jpg", sale:true },
+  { id:133, name:"now Selenium 100 mcg",                        cat:"gozallik",   price:130000, emoji:"🌿", image:"https://iili.io/C9AHxIt.jpg", sale:true },
+  { id:178, name:"Fairhaven Health MYO-INOSITOL 120 kapsula",   cat:"gozallik",   price:290000, emoji:"🌿", image:"https://iili.io/C9VYvUv.jpg", sale:true },
+  { id:179, name:"Norwitella LIQUID CHLOROPHYLL",               cat:"gozallik",   price:280000, emoji:"🌿", image:"https://iili.io/C9VaBeV.jpg", sale:true },
+  { id:188, name:"Solgar Chromium Picolinate 500 mcg",          cat:"gozallik",   price:180000, emoji:"🌿", image:"https://iili.io/C9U9ml4.jpg", sale:true },
+  { id:189, name:"Solgar Super Potency Biotin 5,000 mcg",       cat:"gozallik",   price:280000, emoji:"🌿", image:"https://iili.io/C9UJGYQ.jpg", sale:true },
+  { id:190, name:"H&B Ultra Greens",                            cat:"gozallik",   price:200000, emoji:"🌿", image:"https://iili.io/C9Ud9t9.jpg", sale:true },
+  { id:202, name:"Bio Herbs Chia Seeds",                        cat:"gozallik",   price:35000,  emoji:"🌿", image:"https://iili.io/C9rgSDl.jpg", sale:true },
+  // 🫀 Jigar
+  { id:64,  name:"Collagen Life ARTICHOKE HERBAL TEA & PASTE",  cat:"jigar",      price:280000, emoji:"⚡", image:"https://iili.io/BbFL4I9.jpg" },
+  { id:65,  name:"VITAUCT Гепатроп 350mg",                      cat:"jigar",      price:230000, emoji:"⚡", image:"https://iili.io/BbFDK2j.jpg" },
+  { id:66,  name:"Swiss MILK THISTLE COMPLEX",                   cat:"jigar",      price:150000, emoji:"⚡", image:"https://iili.io/BbK9PQ2.jpg" },
+  { id:149, name:"Solaray Artichoke Extracts",                   cat:"jigar",      price:180000, emoji:"⚡", image:"https://iili.io/C9TQc9s.jpg" },
+  { id:150, name:"Rastoropsha Kapsulalari",                      cat:"jigar",      price:80000,  emoji:"⚡", image:"https://iili.io/C9unK8u.jpg" },
+  // 🩸 Qon
+  { id:67,  name:"Feroglobin LIQUID",                            cat:"qon",        price:180000, emoji:"⚡", image:"https://iili.io/Bm90rap.jpg" },
+  { id:68,  name:"Swiss LIPOSOMAL IRON+HERBS LIQUID",            cat:"qon",        price:160000, emoji:"⚡", image:"https://iili.io/Bm9GNuS.jpg" },
+  { id:69,  name:"Esila Harnup Pekmezi",                         cat:"qon",        price:240000, emoji:"⚡", image:"https://iili.io/Bm9UTMv.jpg" },
+  { id:70,  name:"Keçi Boynuzu Özü 700 g",                      cat:"qon",        price:240000, emoji:"⚡", image:"https://iili.io/Bm9UEoG.jpg" },
+  { id:151, name:"Nature's Plus HEMA-PLEX Tablets",              cat:"qon",        price:185000, emoji:"⚡", image:"https://iili.io/C9uvvLu.jpg" },
+  { id:152, name:"Feroglobin Capsules",                          cat:"qon",        price:150000, emoji:"⚡", image:"https://iili.io/C9ubDNe.jpg" },
+  // 💆 Magniy
+  { id:71,  name:"MAGNESIUM VITAMIN B6 100 tablets",             cat:"magniy",     price:200000, emoji:"⚡", image:"https://iili.io/BbFGqOX.jpg" },
+  { id:94,  name:"Swiss Bork Magnesium Complex + Vitamin B6",    cat:"magniy",     price:170000, emoji:"⚡", image:"https://iili.io/BbFGX5P.jpg" },
+  { id:73,  name:"now Ashwagandha 450 mg",                       cat:"magniy",     price:160000, emoji:"⚡", image:"https://iili.io/BbFMZwF.jpg" },
+  { id:74,  name:"Swiss Bork Magnesium Complex for Children",    cat:"magniy",     price:150000, emoji:"⚡", image:"https://iili.io/BbFVWDF.jpg" },
+  { id:134, name:"LIFE EXTENSION® Neuro-Mag® 90 kapsula",       cat:"magniy",     price:400000, emoji:"⚡", image:"https://iili.io/C9T1lSf.jpg" },
+  { id:135, name:"Solaray Magnesium Glycinate 350 mg",           cat:"magniy",     price:250000, emoji:"⚡", image:"https://iili.io/C9ThjIf.jpg" },
+  { id:136, name:"Swiss Mig+Guard 60 kapsula",                   cat:"magniy",     price:180000, emoji:"⚡", image:"https://iili.io/C9TjLwG.jpg" },
+  { id:137, name:"Swiss MAG - 5X Liposomal Magnesium",           cat:"magniy",     price:150000, emoji:"⚡", image:"https://iili.io/C9T6wqF.jpg" },
+  { id:138, name:"Carlson Chelated Magnesium Glycinate",         cat:"magniy",     price:300000, emoji:"⚡", image:"https://iili.io/C9Tbi1p.jpg" },
+  { id:139, name:"Swiss MAG + FOCUS KIDS",                       cat:"magniy",     price:160000, emoji:"⚡", image:"https://iili.io/C9uHYSp.jpg" },
+  { id:140, name:"Life Extension Neuro-Mag",                     cat:"magniy",     price:400000, emoji:"⚡", image:"https://iili.io/C9ugAQt.jpg" },
+  { id:141, name:"Mag-ThreeOn Kids",                             cat:"magniy",     price:250000, emoji:"⚡", image:"https://iili.io/C9uLIl1.jpg" },
+  { id:173, name:"KAL Magnesium Malate 400",                     cat:"magniy",     price:230000, emoji:"⚡", image:"https://iili.io/C9VTLfR.jpg" },
+  { id:174, name:"KAL Magnesium Taurate+ 400mg",                 cat:"magniy",     price:230000, emoji:"⚡", image:"https://iili.io/C9Vu1LJ.jpg" },
+  { id:175, name:"Solaray Magnesium Citrate 400 mg",             cat:"magniy",     price:180000, emoji:"⚡", image:"https://iili.io/C9VARCG.jpg" },
+  { id:176, name:"Vitabiotics Ultra Magnesium",                  cat:"magniy",     price:170000, emoji:"⚡", image:"https://iili.io/C9VA46v.jpg" },
+  { id:177, name:"Source Naturals Ultra-Mag 120 tablets",        cat:"magniy",     price:240000, emoji:"⚡", image:"https://iili.io/C9VRb5B.jpg" },
+  { id:187, name:"geeks Magnesium Glycinate 3-in-1",             cat:"magniy",     price:280000, emoji:"⚡", image:"https://iili.io/C9SLVF1.jpg" },
+  // 🛡️ Complex
+  { id:75,  name:"Swiss B-COMPLEX SYRUP 150 ml",                 cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/Bbyjg1e.jpg" },
+  { id:76,  name:"Swiss BROMELAIN complex 60 plant",             cat:"complex",    price:200000, emoji:"⚡", image:"https://iili.io/BbyOXrF.jpg" },
+  { id:77,  name:"NEW LINE VITAMIN C 150 ml",                    cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/Bby8Eyg.jpg" },
+  { id:78,  name:"ChildLife Echinacea 30 ml",                    cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/BbyUW1p.jpg" },
+  { id:79,  name:"ChildLife Zinc Plus 118 ml",                   cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/BbyrfR9.jpg" },
+  { id:80,  name:"ChildLife Multi Vitamin & Mineral 237 ml",     cat:"complex",    price:240000, emoji:"⚡", image:"https://iili.io/Bby4spt.jpg" },
+  { id:81,  name:"Life Extension BioActive Complete B-Complex",  cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/BbyiIhF.jpg" },
+  { id:82,  name:"NutriBiotic Vitamin C 1000 mg kapsula",        cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/BbyQABe.jpg" },
+  { id:84,  name:"Norwitella Multivit KIDS 150 ml",              cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/BbybRtV.jpg" },
+  { id:93,  name:"Uzmax PLUS Multivitamin 60 kapsula",           cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/BbyyuAG.jpg" },
+  { id:85,  name:"NewLine GINKGO BILOBA",                        cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/Bm9H6FI.jpg" },
+  { id:86,  name:"Swiss GENIUS KIDS",                            cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/Bm92nv1.jpg" },
+  { id:87,  name:"Wellkid Multi-Vitamin Liquid",                 cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/Bm9o8tS.jpg" },
+  { id:88,  name:"WellBaby Multi-Vitamin Liquid",                cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/Bm9uOjR.jpg" },
+  { id:89,  name:"Bio360 microbiotics KIDZ PRO-5",               cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/Bm97H9n.jpg" },
+  { id:90,  name:"Swiss-VIDELIB 30 kapsula",                     cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/Bm9YWmu.jpg" },
+  { id:91,  name:"now Sports L-ARGININE 1000 mg",                cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/Bm96J5B.jpg" },
+  { id:92,  name:"Medicago TUSIMED",                             cat:"complex",    price:140000, emoji:"⚡", image:"https://iili.io/Bm9iMiu.jpg" },
+  { id:95,  name:"L-LYSINE MONOLAURIN",                          cat:"complex",    price:165000, emoji:"⚡", image:"https://iili.io/BplMl71.jpg" },
+  { id:99,  name:"SARIMSOQ",                                     cat:"complex",    price:75000,  emoji:"⚡", image:"https://iili.io/Bp0xVDX.jpg" },
+  { id:100, name:"BLACK SEED OIL SOFTGEL",                       cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9T2ThX.jpg" },
+  { id:101, name:"KIST-UL HINDI®",                               cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9T3vS4.jpg" },
+  { id:102, name:"Haşhaş yog'i",                                 cat:"complex",    price:120000, emoji:"⚡", image:"https://iili.io/C9TFQLX.jpg" },
+  { id:103, name:"wellwoman",                                    cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9T5jkP.jpg" },
+  { id:104, name:"Super Stars",                                  cat:"complex",    price:165000, emoji:"⚡", image:"https://iili.io/C9TeDbe.jpg" },
+  { id:105, name:"Swiss Super Immoo",                            cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9Tgv5l.jpg" },
+  { id:106, name:"Swiss Allert-G kids",                          cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9TpfFp.jpg" },
+  { id:107, name:"Mommy's BLISS Gripe Water",                    cat:"complex",    price:200000, emoji:"⚡", image:"https://iili.io/C9TyzdB.jpg" },
+  { id:108, name:"Pregnacare him & her conception",              cat:"complex",    price:280000, emoji:"⚡", image:"https://iili.io/C9u9zGf.jpg" },
+  { id:109, name:"Puritan's Pride L-THEANINE 200 mg",            cat:"complex",    price:180000, emoji:"⚡", image:"https://iili.io/C9uJTeS.jpg" },
+  { id:110, name:"wellman original",                             cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9uz4HX.jpg" },
+  { id:113, name:"NutriBiotic GSE (Grapefruit Seed Extract)",    cat:"complex",    price:185000, emoji:"⚡", image:"https://iili.io/C9ucl7R.jpg" },
+  { id:114, name:"Swiss VITAMIN E",                              cat:"complex",    price:120000, emoji:"⚡", image:"https://iili.io/C9ulpN2.jpg" },
+  { id:115, name:"ЧЕРНИКА Ko'rish uchun 40 kapsula",             cat:"complex",    price:80000,  emoji:"⚡", image:"https://iili.io/C9uX64S.jpg" },
+  { id:116, name:"Swiss BP Control",                             cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9ujdil.jpg" },
+  { id:117, name:"Medicago Colistop",                            cat:"complex",    price:120000, emoji:"⚡", image:"https://iili.io/C9u66P9.jpg" },
+  { id:118, name:"Swiss Kids PROBIOTIC DROP with D3",            cat:"complex",    price:100000, emoji:"⚡", image:"https://iili.io/C9uinmx.jpg" },
+  { id:119, name:"Pregnacare original",                          cat:"complex",    price:260000, emoji:"⚡", image:"https://iili.io/C9us3jR.jpg" },
+  { id:120, name:"SMARTUP Resveratrol Plus",                     cat:"complex",    price:240000, emoji:"⚡", image:"https://iili.io/C9uQxIf.jpg" },
+  { id:121, name:"Solaray Kids Vitamins & Minerals",             cat:"complex",    price:240000, emoji:"⚡", image:"https://iili.io/C9utpee.jpg" },
+  { id:122, name:"Swiss Vitality Energy",                        cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/C9uy5ns.jpg" },
+  { id:160, name:"ChildLife Liquid Vitamin C",                   cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9MQxbj.jpg" },
+  { id:161, name:"Swiss Zinc Syrup +Vitamin C",                  cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9MZKhv.jpg" },
+  { id:162, name:"Ausvit Relax One Liquid",                      cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9MZVTb.jpg" },
+  { id:163, name:"Swiss Super Immoo (yangi)",                    cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9Mtf9e.jpg" },
+  { id:164, name:"Pregnacare MAX",                               cat:"complex",    price:300000, emoji:"⚡", image:"https://iili.io/C9V9ziJ.jpg" },
+  { id:165, name:"Pregnacare Breast-Feeding",                    cat:"complex",    price:250000, emoji:"⚡", image:"https://iili.io/C9V9D0v.jpg" },
+  { id:166, name:"WellKid Multi-Vitamin Smart Chewable",         cat:"complex",    price:170000, emoji:"⚡", image:"https://iili.io/C9VHvIt.jpg" },
+  { id:167, name:"Nordic Multivitamin L-Arginin + Fosfatidilserin",cat:"complex", price:160000, emoji:"⚡", image:"https://iili.io/C9VdXJR.jpg" },
+  { id:168, name:"Ausvit MultiMax Kids",                         cat:"complex",    price:160000, emoji:"⚡", image:"https://iili.io/C9VdQse.jpg" },
+  { id:169, name:"Swiss Prebiotic Boost",                        cat:"complex",    price:150000, emoji:"⚡", image:"https://iili.io/C9V2SQ1.jpg" },
+  { id:181, name:"geeks Zinc Picolinate 3-in-1",                 cat:"complex",    price:250000, emoji:"⚡", image:"https://iili.io/C9Sa0uI.jpg" },
+  { id:182, name:"Selenium 200mcg 60 tablets",                   cat:"complex",    price:120000, emoji:"⚡", image:"https://iili.io/C9SVoLN.jpg" },
+  { id:183, name:"Solaray Selenium 100mcg",                      cat:"complex",    price:140000, emoji:"⚡", image:"https://iili.io/C9SWyKP.jpg" },
+  { id:184, name:"Solaray Zinc Citrate 50mg",                    cat:"complex",    price:130000, emoji:"⚡", image:"https://iili.io/C9SjhKB.jpg" },
+  // 🪱 Gijja
+  { id:146, name:"now Black Walnut Hulls 500 mg",                cat:"gijja",      price:180000, emoji:"⚡", image:"https://iili.io/C9uqQVI.jpg" },
+  { id:147, name:"Vitauct 9-ka STOPparazit",                     cat:"gijja",      price:230000, emoji:"⚡", image:"https://iili.io/C9uxaBp.jpg" },
+  { id:148, name:"YAMIZOL Herbal Syrup",                         cat:"gijja",      price:240000, emoji:"⚡", image:"https://iili.io/C9uZUtj.jpg" },
+  // 🍭 Gummies
+  { id:153, name:"novomis Kids Magnesium Gummies",               cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9M8gj9.jpg" },
+  { id:154, name:"novomis Kids Iron Gummies",                    cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9MSpHl.jpg" },
+  { id:155, name:"novomis Kids L-Theanine Gummies",              cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9MUebS.jpg" },
+  { id:156, name:"novomis Multivitamin Gummies",                 cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9MgAIS.jpg" },
+  { id:157, name:"novomis Kids Focus Gummies",                   cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9MggjI.jpg" },
+  { id:158, name:"novomis Kids Night-Time Gummies",              cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9MrhAl.jpg" },
+  { id:159, name:"novomis Kids Omega 3-6-9 +Multi Gummies",     cat:"gummies",    price:180000, emoji:"⚡", image:"https://iili.io/C9M4r1n.jpg" },
+  // ⭐️ Mini Drops
+  { id:170, name:"Mini Drops Bed Time",                          cat:"mini",       price:160000, emoji:"⚡", image:"https://iili.io/C9Vqu0F.jpg" },
+  { id:171, name:"Mini Drops Multivitamin",                      cat:"mini",       price:145000, emoji:"⚡", image:"https://iili.io/C9VBII4.jpg" },
+  { id:172, name:"Mini Drops Daily Microbiotic",                 cat:"mini",       price:220000, emoji:"⚡", image:"https://iili.io/C9Vn75u.jpg" },
+  { id:83,  name:"Mini Drops Immune Plus 50 ml",                 cat:"mini",       price:170000, emoji:"⚡", image:"https://iili.io/BbytWdJ.jpg" },
+  { id:18,  name:"Mini Drops DHA",                               cat:"mini",       price:160000, emoji:"🦐", image:"https://iili.io/BD4MD5G.jpg" },
+  // ❤️ Sog'liq
+  { id:192, name:"ЧУДО МАСЛО ДЛЯ НОСА",                         cat:"sogliq",     price:70000,  emoji:"🦐", image:"https://iili.io/C9r1KCB.jpg" },
+  { id:193, name:"ЧУДО МАСЛО ДЛЯ ГОРЛА",                        cat:"sogliq",     price:70000,  emoji:"🦐", image:"https://iili.io/C9r1Euf.jpg" },
+  { id:194, name:"Jarrow Methyl Folate 400mcg",                  cat:"sogliq",     price:100000, emoji:"🦐", image:"https://iili.io/C9rEnPS.jpg" },
+  { id:112, name:"Bragg Apple Cider Vinegar",                    cat:"sogliq",     price:140000, emoji:"⚡", image:"https://iili.io/C9uASXs.jpg" },
+  { id:111, name:"H&B Folic Acid",                               cat:"sogliq",     price:140000, emoji:"⚡", image:"https://iili.io/C9uuK8P.jpg" },
+  { id:195, name:"Kirkland Aspirin 81 mg",                       cat:"sogliq",     price:140000, emoji:"🦐", image:"https://iili.io/C9rW5dP.jpg" },
+];
+
+let cart = {};
+let currentCat = 'all';
+let searchQuery = '';
+let lightboxProductId = null;
+let lightboxLang = 'uz';
+let selectedType = '';
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function fmt(n) {
+  return n.toLocaleString('uz-UZ') + " so'm";
 }
 
-/* ── QUICK ADD (updates button directly, no full re-render) ── */
-function quickAdd(id) {
-  const p = products.find(x => x.id === id);
-  if (!p) return;
-  cart[id] = (cart[id] || 0) + 1;
-  // Update only this button — no flickering re-render
-  const btn = document.getElementById('addbtn-' + id);
-  if (btn) { btn.textContent = '✓'; btn.classList.add('added'); }
-  updateCartUI();
-  if (currentDetailId === id) updateDetailBtn();
-  showToast('✓ ' + p.name + " qo'shildi");
+function highlightText(text, query) {
+  if (!query) return text;
+  const re = new RegExp('(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  return text.replace(re, '<mark>$1</mark>');
 }
 
-/* ── CART QTY ── */
-function changeQty(id, delta) {
-  id = Number(id);
-  cart[id] = (cart[id] || 0) + delta;
-  if (cart[id] <= 0) delete cart[id];
-  updateCartUI();
-  renderCartItems();
-  // Also refresh the + button on the grid card
-  const btn = document.getElementById('addbtn-' + id);
-  if (btn) {
-    const inCart = (cart[id] || 0) > 0;
-    btn.textContent = inCart ? '✓' : '+';
-    btn.classList.toggle('added', inCart);
+// ── Search ───────────────────────────────────────────────────────────────────
+function handleSearch(val) {
+  searchQuery = val.trim().toLowerCase();
+  const clearBtn = document.getElementById('searchClear');
+  const catBar   = document.getElementById('categoriesBar');
+  if (searchQuery) {
+    clearBtn.classList.add('visible');
+    currentCat = 'all';
+    document.querySelectorAll('.cat-btn').forEach(function(b, i) {
+      b.classList.toggle('active', i === 0);
+    });
+    catBar.style.display = 'none';
+  } else {
+    clearBtn.classList.remove('visible');
+    catBar.style.display = '';
   }
+  renderProducts();
 }
 
-/* ── CART UI ── */
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  document.getElementById('categoriesBar').style.display = '';
+  handleSearch('');
+  document.getElementById('searchInput').focus();
+}
+
+// ── Render ───────────────────────────────────────────────────────────────────
+function renderProducts() {
+  const grid   = document.getElementById('productGrid');
+  const noRes  = document.getElementById('noResults');
+  const noResQ = document.getElementById('noResultsQuery');
+
+  let filtered = currentCat === 'all' ? products : products.filter(function(p) { return p.cat === currentCat; });
+  if (searchQuery) {
+    filtered = products.filter(function(p) { return p.name.toLowerCase().includes(searchQuery); });
+  }
+
+  grid.innerHTML = '';
+
+  if (filtered.length === 0) {
+    noRes.classList.add('show');
+    noResQ.textContent = document.getElementById('searchInput').value.trim();
+    return;
+  }
+  noRes.classList.remove('show');
+
+  filtered.forEach(function(p) {
+    const inCart = !!cart[p.id];
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    if (p.sale) {
+      const badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = 'SALE';
+      card.appendChild(badge);
+    } else if (p.isnew) {
+      const badge = document.createElement('span');
+      badge.className = 'badge-new';
+      badge.textContent = 'YANGI';
+      card.appendChild(badge);
+    }
+
+    const imgDiv = document.createElement('div');
+    imgDiv.className = 'card-img' + (p.image ? ' has-image' : '');
+
+    if (p.image) {
+      const img = document.createElement('img');
+      img.src = p.image;
+      img.alt = p.name;
+      img.addEventListener('error', function() {
+        imgDiv.classList.remove('has-image');
+        imgDiv.removeEventListener('click', imgDiv._clickHandler);
+        imgDiv.innerHTML = p.emoji;
+      });
+      imgDiv.appendChild(img);
+      const hint = document.createElement('span');
+      hint.className = 'zoom-hint';
+      hint.textContent = '🔍';
+      imgDiv.appendChild(hint);
+      imgDiv._clickHandler = function() { openLightbox(p.id); };
+      imgDiv.addEventListener('click', imgDiv._clickHandler);
+    } else {
+      imgDiv.textContent = p.emoji;
+    }
+    card.appendChild(imgDiv);
+
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    body.innerHTML =
+      '<div class="card-name">' + highlightText(p.name, searchQuery) + '</div>' +
+      '<div class="card-brand">' + BRAND + '</div>' +
+      '<div><span class="card-price">' + fmt(p.price) + '</span>' +
+      (p.oldPrice ? '<span class="card-old-price">' + fmt(p.oldPrice) + '</span>' : '') + '</div>';
+
+    const addBtn = document.createElement('button');
+    addBtn.className = 'add-btn' + (inCart ? ' in-cart' : '');
+    addBtn.textContent = inCart ? '✓ Savatda' : '+ Savatga';
+    addBtn.addEventListener('click', function() { addToCart(p.id); });
+
+    body.appendChild(addBtn);
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+function filterCat(cat, btn) {
+  currentCat = cat;
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchClear').classList.remove('visible');
+  document.querySelectorAll('.cat-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderProducts();
+}
+
+// ── Cart ─────────────────────────────────────────────────────────────────────
+function addToCart(id, type) {
+  const cartKey = id + (type ? '_' + type : '');
+  if (cart[cartKey]) {
+    cart[cartKey].qty++;
+  } else {
+    const p = products.find(function(x) { return x.id === id; });
+    cart[cartKey] = Object.assign({}, p, { qty: 1, cartKey: cartKey, selectedType: type || '' });
+  }
+  updateCartUI();
+  renderProducts();
+}
+
+function changeQty(key, delta) {
+  if (!cart[key]) return;
+  cart[key].qty += delta;
+  if (cart[key].qty <= 0) delete cart[key];
+  updateCartUI();
+  renderProducts();
+  renderCartItems();
+}
+
 function updateCartUI() {
-  const total = Object.values(cart).reduce((a, b) => a + b, 0);
-  // Header badge
-  const badge = document.getElementById('cartBadge');
-  badge.textContent = total;
-  badge.style.display = total > 0 ? 'flex' : 'none';
-  // Bottom icon badge
-  const ibadge = document.getElementById('cartIconBadge');
-  ibadge.textContent = total;
-  ibadge.style.display = total > 0 ? 'flex' : 'none';
-  // Bottom button count
-  const count = document.getElementById('orderCount');
-  count.textContent = total;
-  count.style.display = total > 0 ? 'flex' : 'none';
+  const items = Object.values(cart);
+  const total = items.reduce(function(s, i) { return s + i.qty; }, 0);
+  const sum   = items.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
+  document.getElementById('cartCount').textContent = total;
+  document.getElementById('cartTotalBottom').textContent = total > 0 ? '• ' + fmt(sum) : '';
 }
 
 function renderCartItems() {
-  const el   = document.getElementById('cartItems');
-  const keys = Object.keys(cart).map(Number);
-  if (!keys.length) {
-    el.innerHTML = '<div class="empty-cart"><div class="empty-icon">🛒</div><p>Savatcha bo\'sh</p></div>';
-    document.getElementById('totalPrice').textContent = "0 so'm";
+  const items = Object.values(cart);
+  const el    = document.getElementById('cartItems');
+  const form  = document.getElementById('orderForm');
+
+  if (items.length === 0) {
+    el.innerHTML = '<div class="empty-cart">🛒 Savat bo\'sh<br><small>Katalogdan mahsulot qo\'shing</small></div>';
+    form.style.display = 'none';
     return;
   }
-  let total = 0;
-  el.innerHTML = keys.map(id => {
-    const p   = products.find(x => x.id === id);
-    const qty = cart[id];
-    const sub = p.price * qty;
-    total += sub;
-    const imgUrl = p.images && p.images[0];
-    return `
-      <div class="cart-item">
-        <div class="cart-item-img">${imgUrl ? `<img src="${imgUrl}" alt="">` : p.emoji}</div>
-        <div class="cart-item-info">
-          <div class="cart-item-name">${p.name}</div>
-          <div class="cart-item-price">${p.price.toLocaleString('uz-UZ')} × ${qty} = ${sub.toLocaleString('uz-UZ')} so'm</div>
-        </div>
-        <div class="cart-qty-ctrl">
-          <button class="qty-btn qty-minus" onclick="changeQty(${id}, -1)">−</button>
-          <span class="qty-num">${qty}</span>
-          <button class="qty-btn qty-plus"  onclick="changeQty(${id}, +1)">+</button>
-        </div>
-      </div>`;
-  }).join('');
-  document.getElementById('totalPrice').textContent = total.toLocaleString('uz-UZ') + " so'm";
-}
 
-function openCart() {
-  renderCartItems();
-  document.getElementById('cartDrawer').classList.add('open');
-  document.getElementById('overlay').classList.add('visible');
-  lockScroll();
-}
-function closeCart() {
-  document.getElementById('cartDrawer').classList.remove('open');
-  document.getElementById('overlay').classList.remove('visible');
-  unlockScroll();
-}
+  el.innerHTML = '';
+  items.forEach(function(item) {
+    const row = document.createElement('div');
+    row.className = 'cart-item';
 
-/* ── SEND ORDER ── */
-function sendOrder() {
-  const keys = Object.keys(cart).map(Number);
-  if (!keys.length) { showToast("⚠️ Savatcha bo'sh!"); return; }
-
-  const items = keys.map(id => {
-    const p = products.find(x => x.id === id);
-    return { id: p.id, name: p.name, nameRu: p.nameRu, price: p.price, qty: cart[id] };
-  });
-  const note = document.getElementById('noteInput').value;
-  const payload = JSON.stringify({ items, note });
-
-  if (tg && tg.sendData) {
-    try {
-      tg.sendData(payload);
-    } catch(e) {
-      showToast('❌ Xatolik: ' + e.message);
+    const thumb = document.createElement('div');
+    thumb.className = 'ci-thumb';
+    if (item.image) {
+      const img = document.createElement('img');
+      img.className = 'ci-img';
+      img.src = item.image;
+      img.alt = item.name;
+      img.addEventListener('error', function() { thumb.textContent = item.emoji; });
+      thumb.appendChild(img);
+    } else {
+      thumb.textContent = item.emoji;
     }
-  } else {
-    // Fallback for browser testing
-    showToast('✅ Buyurtma yuborildi!');
-    console.log('Order payload:', payload);
+
+    const info = document.createElement('div');
+    info.className = 'ci-info';
+    info.innerHTML =
+      '<div class="ci-name">' + item.name + '</div>' +
+      (item.selectedType ? '<div class="ci-type">▸ ' + item.selectedType + '</div>' : '') +
+      '<div class="ci-price">' + fmt(item.price) + '</div>';
+
+    const qtyDiv = document.createElement('div');
+    qtyDiv.className = 'ci-qty';
+    const minBtn = document.createElement('button');
+    minBtn.className = 'qty-btn';
+    minBtn.textContent = '−';
+    minBtn.addEventListener('click', function() { changeQty(item.cartKey, -1); });
+    const num = document.createElement('span');
+    num.className = 'qty-num';
+    num.textContent = item.qty;
+    const plusBtn = document.createElement('button');
+    plusBtn.className = 'qty-btn';
+    plusBtn.textContent = '+';
+    plusBtn.addEventListener('click', function() { changeQty(item.cartKey, +1); });
+
+    qtyDiv.appendChild(minBtn);
+    qtyDiv.appendChild(num);
+    qtyDiv.appendChild(plusBtn);
+    row.appendChild(thumb);
+    row.appendChild(info);
+    row.appendChild(qtyDiv);
+    el.appendChild(row);
+  });
+
+  const total = items.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
+  document.getElementById('totalSum').textContent = fmt(total);
+  form.style.display = 'block';
+
+  if (userLocation) {
+    const ot = document.getElementById('locationOrderText');
+    const os = document.getElementById('locationOrderStatus');
+    if (ot) ot.textContent = '📍 ' + userLocation.lat + ', ' + userLocation.lng;
+    if (os) os.textContent = '✅ Joylashuv tayyor – buyurtmada yuboriladi';
+    const btn = document.getElementById('getLocBtn');
+    if (btn) { btn.textContent = '🔄 Yangilash'; btn.disabled = false; }
   }
 }
 
-/* ══════ DETAIL MODAL + SWIPER ══════ */
-let swipeStartX = 0, swipeCurrentX = 0, swipeDragging = false;
-let swipeIndex = 0, swipeTotal = 0, hintShown = false;
+function toggleCart() {
+  const panel   = document.getElementById('cartPanel');
+  const overlay = document.getElementById('overlay');
+  const isOpen  = panel.classList.contains('open');
+  if (!isOpen) renderCartItems();
+  panel.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
 
-function openDetail(id) {
-  const p = products.find(x => x.id === id);
+// ── Submit ───────────────────────────────────────────────────────────────────
+function submitOrder() {
+  const phone   = document.getElementById('phoneInput').value.trim();
+  const address = document.getElementById('addressInput').value.trim();
+  if (!phone || !address) {
+    const msg = "Iltimos, telefon raqam va manzilni kiriting!";
+    if (tg) tg.showAlert(msg); else alert(msg);
+    return;
+  }
+
+  const items = Object.values(cart).map(function(i) {
+    return { id: i.id, name: i.name, price: i.price, qty: i.qty, type: i.selectedType || '', image: i.image || '' };
+  });
+  const total = items.reduce(function(s, i) { return s + i.price * i.qty; }, 0);
+
+  const data = JSON.stringify({
+    items, total, phone, address,
+    comment: document.getElementById('commentInput').value.trim(),
+    location: userLocation ? { lat: userLocation.lat, lng: userLocation.lng, mapsUrl: userLocation.mapsUrl } : null
+  });
+
+  if (tg) tg.sendData(data);
+  else console.log("Order:", data);
+
+  document.getElementById('cartContent').style.display = 'none';
+  document.getElementById('successScreen').classList.add('show');
+  cart = {};
+  updateCartUI();
+  renderProducts();
+  if (tg) setTimeout(function() { tg.close(); }, 3000);
+}
+
+// ── Lightbox ─────────────────────────────────────────────────────────────────
+function openLightbox(id) {
+  const p = products.find(function(x) { return x.id === id; });
+  if (!p || !p.image) return;
+  lightboxProductId = id;
+  lightboxLang = 'uz';
+  selectedType = '';
+
+  // Set image
+  document.getElementById('lightboxImg').src = p.image;
+  document.getElementById('lightboxName').textContent = p.name;
+  document.getElementById('lightboxPrice').textContent = fmt(p.price);
+
+  // Language toggle state
+  document.getElementById('langBtnUz').classList.add('active');
+  document.getElementById('langBtnRu').classList.remove('active');
+
+  // Build type selector
+  const types = CAT_TYPES[p.cat] || DEFAULT_TYPES;
+  const typeSelector = document.getElementById('typeSelector');
+  typeSelector.innerHTML = '';
+  types.forEach(function(t, i) {
+    const btn = document.createElement('button');
+    btn.className = 'type-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = t;
+    if (i === 0) selectedType = t;
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.type-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      selectedType = t;
+    });
+    typeSelector.appendChild(btn);
+  });
+
+  // Cart button state
+  updateLightboxCartBtn();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightboxCartBtn() {
+  const btn = document.getElementById('lightboxAddBtn');
+  const p = products.find(function(x) { return x.id === lightboxProductId; });
   if (!p) return;
-  currentDetailId = id;
-  swipeIndex = 0;
-  swipeTotal = (p.images && p.images.length) || 1;
-
-  // Build slides
-  const track = document.getElementById('swiperTrack');
-  const bg = getBg(p.cat);
-  track.innerHTML = (p.images && p.images.length ? p.images : [null]).map(url => {
-    if (url) return `<div class="swiper-slide" style="background:${bg}"><img src="${url}" alt="" onerror="this.parentElement.innerHTML='<span class=\\"big-emoji\\">${p.emoji}</span>'"></div>`;
-    return `<div class="swiper-slide" style="background:${bg}"><span class="big-emoji">${p.emoji}</span></div>`;
-  }).join('');
-
-  // Dots
-  const dots = document.getElementById('swiperDots');
-  dots.innerHTML = Array.from({ length: swipeTotal }, (_, i) =>
-    `<div class="swiper-dot ${i === 0 ? 'active' : ''}" id="dot-${i}"></div>`
-  ).join('');
-  dots.style.display = swipeTotal > 1 ? 'flex' : 'none';
-
-  // Hint
-  document.getElementById('swipeHint').classList.toggle('hidden', swipeTotal <= 1 || hintShown);
-
-  // Fill content
-  document.getElementById('dCat').textContent    = categories.find(c => c.id === p.cat)?.label || p.cat;
-  document.getElementById('dName').textContent   = p.name;
-  document.getElementById('dNameRu').textContent = p.nameRu || '';
-  document.getElementById('ribbonPrice').innerHTML = `${p.price.toLocaleString('uz-UZ')} <small>so'm</small>`;
-
-  updateDetailBtn();
-  updateSwiper();
-
-  // Touch events
-  const wrap = document.getElementById('swiperWrap');
-  wrap.addEventListener('touchstart', onTouchStart, { passive: true });
-  wrap.addEventListener('touchmove',  onTouchMove,  { passive: true });
-  wrap.addEventListener('touchend',   onTouchEnd,   { passive: true });
-
-  document.getElementById('detailOverlay').classList.add('visible');
-  document.getElementById('detailModal').classList.add('open');
-  lockScroll();
-}
-
-function closeDetail() {
-  document.getElementById('detailModal').classList.remove('open');
-  document.getElementById('detailOverlay').classList.remove('visible');
-  const wrap = document.getElementById('swiperWrap');
-  wrap.removeEventListener('touchstart', onTouchStart);
-  wrap.removeEventListener('touchmove',  onTouchMove);
-  wrap.removeEventListener('touchend',   onTouchEnd);
-  currentDetailId = null;
-  unlockScroll();
-}
-
-function updateSwiper() {
-  document.getElementById('swiperTrack').style.transform = `translateX(-${swipeIndex * 100}%)`;
-  for (let i = 0; i < swipeTotal; i++) {
-    const d = document.getElementById('dot-' + i);
-    if (d) d.className = 'swiper-dot' + (i === swipeIndex ? ' active' : '');
+  // Check if any variant in cart
+  const anyInCart = Object.keys(cart).some(function(k) { return parseInt(k) === p.id; });
+  if (anyInCart) {
+    btn.textContent = '✓ Savatda';
+    btn.classList.add('in-cart');
+  } else {
+    btn.textContent = "+ Savatga qo'shish";
+    btn.classList.remove('in-cart');
   }
-  const d0 = document.getElementById('langDot0');
-  const d1 = document.getElementById('langDot1');
-  if (d0) d0.className = 'lang-dot' + (swipeIndex === 0 ? ' active' : '');
-  if (d1) d1.className = 'lang-dot' + (swipeIndex === 1 ? ' active' : '');
 }
 
-function onTouchStart(e) { swipeStartX = e.touches[0].clientX; swipeCurrentX = swipeStartX; swipeDragging = true; }
-function onTouchMove(e) {
-  if (!swipeDragging) return;
-  swipeCurrentX = e.touches[0].clientX;
-  const diff = swipeStartX - swipeCurrentX;
-  const base = swipeIndex * 100;
-  const pct  = (diff / window.innerWidth) * 100;
-  const track = document.getElementById('swiperTrack');
-  track.style.transition = 'none';
-  track.style.transform  = `translateX(calc(-${base}% - ${pct}%))`;
-}
-function onTouchEnd() {
-  if (!swipeDragging) return;
-  swipeDragging = false;
-  document.getElementById('swiperTrack').style.transition = '';
-  const diff = swipeStartX - swipeCurrentX;
-  if (diff > 50 && swipeIndex < swipeTotal - 1) {
-    swipeIndex++;
-    hintShown = true;
-    document.getElementById('swipeHint').classList.add('hidden');
-  } else if (diff < -50 && swipeIndex > 0) {
-    swipeIndex--;
-  }
-  updateSwiper();
+function switchLang(lang) {
+  lightboxLang = lang;
+  document.getElementById('langBtnUz').classList.toggle('active', lang === 'uz');
+  document.getElementById('langBtnRu').classList.toggle('active', lang === 'ru');
+
+  const p = products.find(function(x) { return x.id === lightboxProductId; });
+  if (!p) return;
+
+  const img = document.getElementById('lightboxImg');
+  // Animate swap
+  img.style.opacity = '0';
+  img.style.transform = 'scale(0.95)';
+  setTimeout(function() {
+    // Use imageRu if available, else same image
+    img.src = (lang === 'ru' && p.imageRu) ? p.imageRu : p.image;
+    img.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    img.style.opacity = '1';
+    img.style.transform = 'scale(1)';
+  }, 160);
 }
 
-function updateDetailBtn() {
-  const qty   = cart[currentDetailId] || 0;
-  const inCart = qty > 0;
-  document.getElementById('detailAddBtn').className = 'detail-add-btn' + (inCart ? ' added' : '');
-  document.getElementById('detailAddLabel').textContent = inCart
-    ? `Savatchada (${qty} ta) ✓`
-    : "Savatchaga qo'shish";
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxProductId = null;
 }
 
-function detailAddToCart() {
-  if (!currentDetailId) return;
-  quickAdd(currentDetailId);
-  updateDetailBtn();
+function lightboxBgClick(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
 }
 
-/* ── TOAST ── */
-let toastTimer = null;
-function showToast(msg) {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
-  if (toastTimer) clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+function lightboxAddToCart() {
+  if (!lightboxProductId) return;
+  addToCart(lightboxProductId, selectedType);
+  updateLightboxCartBtn();
+  updateCartUI();
 }
 
-/* ── INIT ── */
-renderCategories();
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// ── Init ─────────────────────────────────────────────────────────────────────
 renderProducts();
 </script>
 </body>
