@@ -7,34 +7,39 @@
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #FDF0F8;
-    --surface: #ffffff;
-    --text: #2A1020;
-    --muted: #9B6B8A;
-    --accent: #D81B60;
-    --accent-hover: #AD1457;
-    --accent2: #F8BBD9;
-    --accent-light: #FCE4EC;
-    --border: #F0C8DC;
-    --purple: #7B5EA7;
-    --purple-light: #EDE7F6;
-    --purple-border: #D1C4E9;
-    --danger: #c0392b;
-    --gold: #f4a62a;
-    --bottom-bar-h: 72px;
-  }
+ :root{
+  --bg:#130012;
+  --bg2:#220022;
+
+  --card:rgba(255,255,255,.08);
+
+  --border:rgba(255,105,180,.18);
+  --border2:rgba(255,105,180,.35);
+
+  --text:#ffffff;
+  --muted:#d3a4c9;
+
+  --p1:#ff1493;
+  --p2:#ff69b4;
+
+  --cyan:#ff85c2;
+  --gold:#ffd6ea;
+
+  --danger:#ff3366;
+
+  --bar-h:72px;
+}
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Nunito', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-    padding-bottom: var(--bottom-bar-h);
-  }
+  body{
+  font-family:'Outfit',sans-serif;
+  background:
+  radial-gradient(circle at top right,#ff149320 0%,transparent 40%),
+  radial-gradient(circle at bottom left,#ff69b420 0%,transparent 40%),
+  linear-gradient(180deg,#130012 0%,#220022 100%);
+  color:var(--text);
+}
 
   /* ── Background decoration ── */
   body::before {
@@ -59,15 +64,10 @@
   }
 
   /* ── Header ── */
-  .header {
-    background: var(--surface);
-    border-bottom: 1.5px solid var(--border);
-    padding: 10px 16px 10px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 16px rgba(216,27,96,0.07);
-  }
+  .header{
+  background:rgba(25,0,25,.92);
+  border-bottom:1px solid rgba(255,105,180,.25);
+}
   .header-top {
     display: flex;
     align-items: center;
@@ -214,15 +214,11 @@
     z-index: 1;
   }
 
-  .card {
-    background: var(--surface);
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1.5px solid var(--border);
-    transition: transform 0.15s, box-shadow 0.15s;
-    position: relative;
-    box-shadow: 0 2px 12px rgba(216,27,96,0.06);
-  }
+ .card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,105,180,.18);
+  box-shadow:0 4px 20px rgba(255,20,147,.08);
+}
   .card:active { transform: scale(0.97); }
 
   .card-img {
