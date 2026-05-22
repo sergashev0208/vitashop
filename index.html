@@ -132,15 +132,24 @@
     position: relative;
   }
   .card:active { transform: scale(0.97); }
-  .card-img {
+  .card-img-wrap {
     width: 100%;
     height: 130px;
-    object-fit: cover;
     background: var(--green-light);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .card-img-emoji {
     font-size: 52px;
+    line-height: 1;
   }
   .card-body { padding: 10px 12px 12px; }
   .card-name {
@@ -190,6 +199,7 @@
     font-weight: 800;
     border-radius: 8px;
     padding: 2px 7px;
+    z-index: 2;
   }
 
   /* ── BOTTOM BAR ── */
@@ -286,39 +296,55 @@
     border-radius: 2px;
     margin: 10px auto 16px;
   }
-  .modal-lang {
-    display: flex;
-    gap: 8px;
-    padding: 0 16px 12px;
-    justify-content: flex-end;
-  }
-  .modal-lang-btn {
-    padding: 5px 14px;
-    border-radius: 16px;
-    border: 2px solid var(--green);
-    background: transparent;
-    color: var(--green-dark);
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .modal-lang-btn.active {
-    background: var(--green);
-    color: white;
-  }
-  .modal-image {
+
+  /* ── MODAL IMAGE (with lang switch) ── */
+  .modal-image-wrap {
+    position: relative;
     width: 100%;
-    height: 240px;
-    object-fit: cover;
+    height: 260px;
     background: var(--green-light);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 90px;
   }
-  .modal-body { padding: 20px 16px 0; }
+  .modal-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .modal-image-emoji {
+    font-size: 90px;
+    line-height: 1;
+  }
+  /* Lang pills on top of image */
+  .img-lang-pills {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 6px;
+    z-index: 5;
+  }
+  .img-lang-pill {
+    padding: 4px 13px;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.35);
+    color: white;
+    backdrop-filter: blur(6px);
+    transition: all 0.2s;
+  }
+  .img-lang-pill.active {
+    background: white;
+    color: var(--green-dark);
+  }
+
+  .modal-body { padding: 18px 16px 0; }
   .modal-name {
     font-size: 22px;
     font-weight: 900;
@@ -329,13 +355,7 @@
     font-size: 20px;
     font-weight: 900;
     color: var(--green-dark);
-    margin-bottom: 12px;
-  }
-  .modal-desc {
-    font-size: 14px;
-    color: var(--text-soft);
-    line-height: 1.6;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
   .form-type-title {
     font-size: 14px;
@@ -411,11 +431,27 @@
     padding: 12px 16px;
     border-bottom: 1px solid #F0F0F0;
   }
-  .cart-item-icon { font-size: 32px; width: 44px; text-align: center; }
+  .cart-item-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green-light);
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .cart-item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .cart-item-info { flex: 1; }
   .cart-item-name { font-size: 14px; font-weight: 800; }
   .cart-item-type { font-size: 12px; color: var(--text-soft); }
-  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--green-dark); }
+  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--green-dark); white-space: nowrap; }
   .cart-item-remove {
     background: none;
     border: none;
@@ -440,7 +476,7 @@
   }
   .cart-empty-icon { font-size: 50px; margin-bottom: 12px; }
 
-  /* ── SUCCESS TOAST ── */
+  /* ── TOAST ── */
   .toast {
     position: fixed;
     top: 24px;
@@ -488,18 +524,21 @@
 </div>
 
 <!-- PRODUCT DETAIL MODAL -->
-<div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event, 'detailModal')">
+<div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event,'detailModal')">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-lang">
-      <button class="modal-lang-btn active" id="imgLangUz" onclick="setImgLang('uz')">🇺🇿 UZ</button>
-      <button class="modal-lang-btn" id="imgLangRu" onclick="setImgLang('ru')">🇷🇺 RU</button>
+
+    <!-- Image area with lang pills overlay -->
+    <div class="modal-image-wrap" id="modalImageWrap">
+      <div class="img-lang-pills">
+        <button class="img-lang-pill active" id="imgLangUz" onclick="setImgLang('uz')">🇺🇿 UZ</button>
+        <button class="img-lang-pill" id="imgLangRu" onclick="setImgLang('ru')">🇷🇺 RU</button>
+      </div>
     </div>
-    <div class="modal-image" id="modalImage"></div>
+
     <div class="modal-body">
       <div class="modal-name" id="modalName"></div>
       <div class="modal-price" id="modalPrice"></div>
-      <div class="modal-desc" id="modalDesc"></div>
       <div class="form-type-title" id="formTypeTitle">Shaklini tanlang:</div>
       <div class="type-options">
         <button class="type-btn active" id="typePowder" onclick="selectType('powder')">
@@ -514,13 +553,13 @@
     </div>
     <div class="modal-actions">
       <button class="btn-add-cart" id="btnAddCart" onclick="addToCart()">🛒 Savatga</button>
-      <button class="btn-order-now" onclick="orderNow()">⚡ Hozir buyurtma</button>
+      <button class="btn-order-now" id="btnOrderNow" onclick="orderNow()">⚡ Hozir buyurtma</button>
     </div>
   </div>
 </div>
 
 <!-- CART MODAL -->
-<div class="modal-overlay" id="cartModal" onclick="handleOverlayClick(event, 'cartModal')">
+<div class="modal-overlay" id="cartModal" onclick="handleOverlayClick(event,'cartModal')">
   <div class="modal">
     <div class="modal-handle"></div>
     <div style="padding: 0 16px 12px; font-size: 18px; font-weight: 900;" id="cartTitle">🛒 Savat</div>
@@ -543,13 +582,10 @@
 // TELEGRAM INIT
 // ───────────────────────────────────────────────
 const tg = window.Telegram?.WebApp;
-if (tg) {
-  tg.ready();
-  tg.expand();
-}
+if (tg) { tg.ready(); tg.expand(); }
 
 // ───────────────────────────────────────────────
-// DATA
+// TRANSLATIONS
 // ───────────────────────────────────────────────
 const translations = {
   uz: {
@@ -562,8 +598,8 @@ const translations = {
     addCart: '🛒 Savatga',
     orderNow: '⚡ Hozir buyurtma',
     total: 'Jami:',
-    emptyCart: 'Savat bo\'sh',
-    toastAdded: '✅ Savatga qo\'shildi!',
+    emptyCart: "Savat bo'sh",
+    toastAdded: "✅ Savatga qo'shildi!",
     toastOrdering: '✅ Buyurtma yuborildi!',
     currency: "so'm",
   },
@@ -585,71 +621,75 @@ const translations = {
 };
 
 const categories = {
-  uz: ['Hammasi', 'Immunitet', 'Suyak', 'Teri & Soch', 'Ko\'z', 'Yurak', 'Bolalar', 'Sport'],
+  uz: ['Hammasi', 'Immunitet', 'Suyak', 'Teri & Soch', "Ko'z", 'Yurak', 'Bolalar', 'Sport'],
   ru: ['Все', 'Иммунитет', 'Кости', 'Кожа & Волосы', 'Зрение', 'Сердце', 'Детские', 'Спорт'],
 };
 
+// ───────────────────────────────────────────────
+// PRODUCTS
+// imageUz / imageRu — URL yoki null (null bo'lsa emoji ko'rinadi)
+// ───────────────────────────────────────────────
 const products = [
   {
     id: 1, emoji: '🍊', cat: 1,
-    uz: { name: 'Vitamin C', sub: 'Immunitet kuchaytirgich', desc: 'Kunlik immunitetni mustahkamlash uchun. 1000mg, 60 ta tabletka.' },
-    ru: { name: 'Витамин C', sub: 'Усилитель иммунитета', desc: 'Ежедневная поддержка иммунитета. 1000мг, 60 таблеток.' },
+    uz: { name: 'Vitamin C', sub: 'Immunitet kuchaytirgich' },
+    ru: { name: 'Витамин C', sub: 'Усилитель иммунитета' },
     price: 45000,
     imageUz: null, imageRu: null,
     badge: 'HIT',
   },
   {
     id: 2, emoji: '☀️', cat: 1,
-    uz: { name: 'Vitamin D3', sub: 'Quyosh vitamini', desc: 'Suyak va immunitet sog\'ligi uchun zarur. 2000IU, 90 ta kapsul.' },
-    ru: { name: 'Витамин D3', sub: 'Солнечный витамин', desc: 'Необходим для здоровья костей и иммунитета. 2000МЕ, 90 капсул.' },
+    uz: { name: 'Vitamin D3', sub: "Quyosh vitamini" },
+    ru: { name: 'Витамин D3', sub: 'Солнечный витамин' },
     price: 62000,
     imageUz: null, imageRu: null,
     badge: null,
   },
   {
     id: 3, emoji: '🦴', cat: 2,
-    uz: { name: 'Kalsiy + D3', sub: 'Suyak mustahkamlovchi', desc: 'Suyak va tish sog\'lig\'ini ta\'minlaydi. 500mg + 400IU.' },
-    ru: { name: 'Кальций + D3', sub: 'Укрепление костей', desc: 'Обеспечивает здоровье костей и зубов. 500мг + 400МЕ.' },
+    uz: { name: 'Kalsiy + D3', sub: "Suyak mustahkamlovchi" },
+    ru: { name: 'Кальций + D3', sub: 'Укрепление костей' },
     price: 38000,
     imageUz: null, imageRu: null,
     badge: null,
   },
   {
     id: 4, emoji: '💊', cat: 0,
-    uz: { name: 'Multivitamin', sub: 'Kunlik kompleks', desc: '23 ta vitamin va mineral. Butun kunlik ehtiyojni qoplaydi.' },
-    ru: { name: 'Мультивитамин', sub: 'Ежедневный комплекс', desc: '23 витамина и минерала. Покрывает все суточные потребности.' },
+    uz: { name: 'Multivitamin', sub: 'Kunlik kompleks' },
+    ru: { name: 'Мультивитамин', sub: 'Ежедневный комплекс' },
     price: 89000,
     imageUz: null, imageRu: null,
     badge: 'YANGI',
   },
   {
     id: 5, emoji: '💆', cat: 3,
-    uz: { name: 'Biotin', sub: 'Soch va tirnoq', desc: 'Soch to\'kilishini kamaytiradi, tirnoqlarni mustahkamlaydi. 10000mcg.' },
-    ru: { name: 'Биотин', sub: 'Волосы и ногти', desc: 'Уменьшает выпадение волос, укрепляет ногти. 10000мкг.' },
+    uz: { name: 'Biotin', sub: 'Soch va tirnoq' },
+    ru: { name: 'Биотин', sub: 'Волосы и ногти' },
     price: 52000,
     imageUz: null, imageRu: null,
     badge: null,
   },
   {
     id: 6, emoji: '👁️', cat: 4,
-    uz: { name: 'Lutein', sub: 'Ko\'z salomatligi', desc: 'Ko\'z retinasini himoya qiladi, ko\'rish keskinligini oshiradi.' },
-    ru: { name: 'Лютеин', sub: 'Здоровье глаз', desc: 'Защищает сетчатку, улучшает остроту зрения.' },
+    uz: { name: 'Lutein', sub: "Ko'z salomatligi" },
+    ru: { name: 'Лютеин', sub: 'Здоровье глаз' },
     price: 71000,
     imageUz: null, imageRu: null,
     badge: null,
   },
   {
     id: 7, emoji: '❤️', cat: 5,
-    uz: { name: 'Omega-3', sub: 'Yurak sog\'ligi', desc: 'Yurak-qon tomir tizimini himoya qiladi. Baliq moyi, 1000mg.' },
-    ru: { name: 'Омега-3', sub: 'Здоровье сердца', desc: 'Защищает сердечно-сосудистую систему. Рыбий жир, 1000мг.' },
+    uz: { name: 'Omega-3', sub: "Yurak sog'ligi" },
+    ru: { name: 'Омега-3', sub: 'Здоровье сердца' },
     price: 95000,
     imageUz: null, imageRu: null,
     badge: null,
   },
   {
     id: 8, emoji: '🧸', cat: 6,
-    uz: { name: 'Bolalar vitamini', sub: 'Multivitamin 3-12 yosh', desc: 'Bolalar o\'sishi va rivojlanishi uchun. Mevasimón ta\'m.' },
-    ru: { name: 'Детские витамины', sub: 'Мультивитамин 3-12 лет', desc: 'Для роста и развития детей. Фруктовый вкус.' },
+    uz: { name: 'Bolalar vitamini', sub: 'Multivitamin 3-12 yosh' },
+    ru: { name: 'Детские витамины', sub: 'Мультивитамин 3-12 лет' },
     price: 43000,
     imageUz: null, imageRu: null,
     badge: 'MASHHUR',
@@ -660,7 +700,7 @@ const products = [
 // STATE
 // ───────────────────────────────────────────────
 let lang = 'uz';
-let selectedCat = 0; // 0 = all
+let selectedCat = 0;
 let currentProduct = null;
 let imgLang = 'uz';
 let selectedType = 'powder';
@@ -671,14 +711,14 @@ let cart = [];
 // ───────────────────────────────────────────────
 function setLang(l) {
   lang = l;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === l.toUpperCase()));
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent === l.toUpperCase())
+  );
   renderCategories();
   renderProducts();
   updateStaticText();
 }
-
 function t(key) { return translations[lang][key]; }
-
 function updateStaticText() {
   document.getElementById('orderBtn').textContent = t('orderBtn');
   document.getElementById('cartTitle').textContent = t('cartTitle');
@@ -691,12 +731,10 @@ function updateStaticText() {
 // ───────────────────────────────────────────────
 function renderCategories() {
   const cats = categories[lang];
-  const container = document.getElementById('categories');
-  container.innerHTML = cats.map((c, i) =>
+  document.getElementById('categories').innerHTML = cats.map((c, i) =>
     `<button class="cat-btn ${selectedCat === i ? 'active' : ''}" onclick="selectCat(${i})">${c}</button>`
   ).join('');
 }
-
 function selectCat(i) {
   selectedCat = i;
   renderCategories();
@@ -704,27 +742,68 @@ function selectCat(i) {
 }
 
 // ───────────────────────────────────────────────
-// PRODUCTS
+// IMAGE HELPER — emoji yoki <img>
+// ───────────────────────────────────────────────
+function productImageHTML(p, useLang, classes) {
+  const url = useLang === 'ru' ? p.imageRu : p.imageUz;
+  if (url) return `<img src="${url}" alt="${p[useLang].name}" class="${classes}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`;
+  return '';
+}
+
+// ───────────────────────────────────────────────
+// PRODUCTS GRID
 // ───────────────────────────────────────────────
 function renderProducts() {
-  const filtered = selectedCat === 0
-    ? products
-    : products.filter(p => p.cat === selectedCat);
-
+  const filtered = selectedCat === 0 ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
     const info = p[lang];
+    const imgUrl = lang === 'ru' ? p.imageRu : p.imageUz;
+    const imgTag = imgUrl
+      ? `<img src="${imgUrl}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;">`
+      : `<span class="card-img-emoji">${p.emoji}</span>`;
     return `
     <div class="card" onclick="openDetail(${p.id})">
       ${p.badge ? `<div class="badge">${p.badge}</div>` : ''}
-      <div class="card-img">${p.emoji}</div>
+      <div class="card-img-wrap">${imgTag}</div>
       <div class="card-body">
         <div class="card-name">${info.name}</div>
         <div class="card-sub">${info.sub}</div>
         <div class="card-price">${p.price.toLocaleString()} ${t('currency')}</div>
       </div>
-      <button class="card-add" onclick="quickAdd(event, ${p.id})">+</button>
+      <button class="card-add" onclick="quickAdd(event,${p.id})">+</button>
     </div>`;
   }).join('');
+}
+
+// ───────────────────────────────────────────────
+// MODAL IMAGE RENDER
+// ───────────────────────────────────────────────
+function renderModalImage(p, il) {
+  const wrap = document.getElementById('modalImageWrap');
+  // pilllarni saqlab qolamiz
+  const pills = wrap.querySelector('.img-lang-pills');
+  wrap.innerHTML = '';
+  wrap.appendChild(pills);
+
+  const url = il === 'ru' ? p.imageRu : p.imageUz;
+  if (url) {
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = p[il].name;
+    img.onerror = () => {
+      img.remove();
+      const em = document.createElement('div');
+      em.className = 'modal-image-emoji';
+      em.textContent = p.emoji;
+      wrap.insertBefore(em, pills);
+    };
+    wrap.insertBefore(img, pills);
+  } else {
+    const em = document.createElement('div');
+    em.className = 'modal-image-emoji';
+    em.textContent = p.emoji;
+    wrap.insertBefore(em, pills);
+  }
 }
 
 // ───────────────────────────────────────────────
@@ -739,18 +818,14 @@ function openDetail(id) {
 }
 
 function populateModal(p) {
-  const info = p[lang];
-  const imgInfo = p[imgLang];
+  renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p[imgLang].name;
   document.getElementById('modalPrice').textContent = `${p.price.toLocaleString()} ${t('currency')}`;
-  document.getElementById('modalDesc').textContent = p[imgLang].desc;
-  document.getElementById('modalImage').textContent = p.emoji;
-  document.getElementById('modalImage').style.fontSize = '90px';
   document.getElementById('formTypeTitle').textContent = t('formType');
   document.getElementById('typePowderLabel').textContent = t('powder');
   document.getElementById('typeChewLabel').textContent = t('chew');
   document.getElementById('btnAddCart').textContent = t('addCart');
-  document.querySelector('.btn-order-now').textContent = t('orderNow');
+  document.getElementById('btnOrderNow').textContent = t('orderNow');
 
   document.getElementById('imgLangUz').classList.toggle('active', imgLang === 'uz');
   document.getElementById('imgLangRu').classList.toggle('active', imgLang === 'ru');
@@ -789,11 +864,8 @@ function addToCart() {
 function addItem(p, type) {
   const key = `${p.id}-${type}`;
   const existing = cart.find(i => i.key === key);
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ key, id: p.id, type, qty: 1, product: p });
-  }
+  if (existing) existing.qty++;
+  else cart.push({ key, id: p.id, type, qty: 1, product: p });
   updateCartBadge();
 }
 
@@ -811,8 +883,8 @@ function openCart() {
 
 function renderCart() {
   const container = document.getElementById('cartItems');
-  const totalEl = document.getElementById('cartTotal');
-  const orderBtn = document.getElementById('cartOrderBtn');
+  const totalEl   = document.getElementById('cartTotal');
+  const orderBtn  = document.getElementById('cartOrderBtn');
   document.getElementById('cartTitle').textContent = t('cartTitle');
   document.getElementById('totalLabel').textContent = t('total');
 
@@ -823,19 +895,24 @@ function renderCart() {
     return;
   }
 
-  const typeLabel = (type) => type === 'powder' ? t('powder') : t('chew');
+  const typeLabel = type => type === 'powder' ? t('powder') : t('chew');
 
-  container.innerHTML = cart.map(item => `
+  container.innerHTML = cart.map(item => {
+    const imgUrl = lang === 'ru' ? item.product.imageRu : item.product.imageUz;
+    const thumb = imgUrl
+      ? `<img src="${imgUrl}" alt="${item.product[lang].name}" style="width:100%;height:100%;object-fit:cover;">`
+      : item.product.emoji;
+    return `
     <div class="cart-item">
-      <div class="cart-item-icon">${item.product.emoji}</div>
+      <div class="cart-item-thumb">${thumb}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.product[lang].name} × ${item.qty}</div>
         <div class="cart-item-type">${typeLabel(item.type)}</div>
       </div>
       <div class="cart-item-price">${(item.product.price * item.qty).toLocaleString()} ${t('currency')}</div>
       <button class="cart-item-remove" onclick="removeItem('${item.key}')">🗑</button>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 
   const total = cart.reduce((s, i) => s + i.product.price * i.qty, 0);
   document.getElementById('totalPrice').textContent = `${total.toLocaleString()} ${t('currency')}`;
@@ -850,47 +927,51 @@ function removeItem(key) {
 }
 
 // ───────────────────────────────────────────────
-// ORDER
+// ORDER — sotuvchiga yuboriladi
+// bot.py tomonida: tg.sendData → web_app_data handle
+// har bir mahsulot uchun imageUz + imageRu URL ham yuboriladi
 // ───────────────────────────────────────────────
-function buildOrderText(items) {
+function buildOrderPayload(items) {
   const user = tg?.initDataUnsafe?.user;
-  const userName = user ? `@${user.username || user.first_name}` : 'Noma\'lum';
-  const typeLabel = (type) => type === 'powder' ? '🧪 Poroshokli' : '🍬 Chaynaladigan';
-  const lines = items.map(i =>
-    `• ${i.product.uz.name} × ${i.qty} (${typeLabel(i.type)}) — ${(i.product.price * i.qty).toLocaleString()} so'm`
-  );
-  const total = items.reduce((s, i) => s + i.product.price * i.qty, 0);
-  return `🛒 *Yangi buyurtma!*\n\n👤 Xaridor: ${userName}\n\n${lines.join('\n')}\n\n💰 *Jami: ${total.toLocaleString()} so'm*\n\n📦 Iltimos, xaridor bilan bog'laning!`;
+  return {
+    user: {
+      id:        user?.id        || null,
+      username:  user?.username  || null,
+      firstName: user?.first_name || null,
+      phone:     user?.phone_number || null,
+    },
+    items: items.map(i => ({
+      id:       i.product.id,
+      nameUz:   i.product.uz.name,
+      nameRu:   i.product.ru.name,
+      qty:      i.qty,
+      type:     i.type,           // 'powder' | 'chew'
+      price:    i.product.price,
+      subtotal: i.product.price * i.qty,
+      imageUz:  i.product.imageUz || null,
+      imageRu:  i.product.imageRu || null,
+      emoji:    i.product.emoji,
+    })),
+    total: items.reduce((s, i) => s + i.product.price * i.qty, 0),
+    lang: lang,
+  };
 }
 
 function sendOrderToBot(items) {
-  const text = buildOrderText(items);
-  if (tg) {
-    // Send data to bot via Telegram WebApp
-    tg.sendData(JSON.stringify({
-      type: 'order',
-      items: items.map(i => ({
-        name_uz: i.product.uz.name,
-        name_ru: i.product.ru.name,
-        type: i.type,
-        qty: i.qty,
-        price: i.product.price,
-        total: i.product.price * i.qty,
-      })),
-      total: items.reduce((s, i) => s + i.product.price * i.qty, 0),
-      user: tg.initDataUnsafe?.user || {},
-      text,
-    }));
-  } else {
-    // Dev fallback
-    console.log('ORDER:', text);
-    alert('Buyurtma (dev mode):\n\n' + text.replace(/\*/g, ''));
-  }
+  if (!tg) return;
+  const payload = buildOrderPayload(items);
+  tg.sendData(JSON.stringify(payload));
 }
 
 function orderNow() {
   if (!currentProduct) return;
-  const items = [{ key: `${currentProduct.id}-${selectedType}`, id: currentProduct.id, type: selectedType, qty: 1, product: currentProduct }];
+  const items = [{
+    key: `${currentProduct.id}-${selectedType}`,
+    id: currentProduct.id,
+    type: selectedType,
+    qty: 1,
+    product: currentProduct
+  }];
   sendOrderToBot(items);
   closeModal('detailModal');
   showToast(t('toastOrdering'));
@@ -911,11 +992,9 @@ function orderAll() {
 function handleOverlayClick(e, id) {
   if (e.target === document.getElementById(id)) closeModal(id);
 }
-
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
 }
-
 function showToast(msg) {
   const el = document.getElementById('toast');
   el.textContent = msg;
@@ -923,9 +1002,7 @@ function showToast(msg) {
   setTimeout(() => el.classList.remove('show'), 2500);
 }
 
-// ───────────────────────────────────────────────
-// INIT
-// ───────────────────────────────────────────────
+// ── INIT ──
 renderCategories();
 renderProducts();
 </script>
