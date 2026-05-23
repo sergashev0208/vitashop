@@ -9,18 +9,22 @@
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
 
   :root {
-    --pink: #E91E8C;
-    --pink-dark: #C2185B;
-    --pink-mid: #F06292;
-    --pink-light: #FCE4EC;
-    --pink-pale: #FFF0F6;
-    --orange: #FF6B9D;
-    --orange-light: #FFF0F6;
+    --pink: #F4860A;
+    --pink-dark: #D4720A;
+    --pink-mid: #F9A84D;
+    --pink-light: #FEF0DC;
+    --pink-pale: #FFF8F0;
+    --purple: #7B5EA7;
+    --purple-dark: #6A4D9B;
+    --purple-light: #EDE8F5;
+    --purple-pale: #F5F2FB;
+    --orange: #F4860A;
+    --orange-light: #FEF0DC;
     --white: #FFFFFF;
-    --gray: #FDF5F9;
-    --text: #2D1B2E;
-    --text-soft: #9E6B8A;
-    --card-shadow: 0 4px 20px rgba(233,30,140,0.10);
+    --gray: #F7F4FB;
+    --text: #2C1A4E;
+    --text-soft: #8B76A9;
+    --card-shadow: 0 4px 20px rgba(123,94,167,0.12);
     --radius: 18px;
     --bottom-bar: 72px;
   }
@@ -38,12 +42,12 @@
 
   /* ── HEADER ── */
   .header {
-    background: linear-gradient(135deg, #C2185B 0%, #E91E8C 60%, #F06292 100%);
+    background: linear-gradient(135deg, #6A4D9B 0%, #7B5EA7 60%, #9B7EC8 100%);
     padding: 20px 16px 14px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 16px rgba(233,30,140,0.35);
+    box-shadow: 0 2px 16px rgba(106,77,155,0.40);
   }
   .header-top {
     display: flex;
@@ -52,12 +56,23 @@
     margin-bottom: 14px;
   }
   .logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
+    font-family: 'Caviar Dreams', serif;
+    font-size: 26px;
+    font-weight: 700px;
     color: white;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
-  .logo span { color: #FFB3D1; }
+  .logo-v {
+    font-size: 28px;
+    color: #F9C97A;
+    font-weight: 700;
+  }
+  .logo-year {
+    color: #F9C97A;
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
   .lang-toggle {
     display: flex;
     background: rgba(255,255,255,0.2);
@@ -77,7 +92,7 @@
     background: transparent;
     color: rgba(255,255,255,0.7);
   }
-  .lang-btn.active { background: white; color: var(--pink-dark); }
+  .lang-btn.active { background: white; color: var(--purple-dark); }
 
   /* ── CATEGORIES ── */
   .categories {
@@ -102,7 +117,7 @@
     transition: all 0.2s;
     flex-shrink: 0;
   }
-  .cat-btn.active { background: white; color: var(--pink-dark); border-color: white; }
+  .cat-btn.active { background: white; color: var(--purple-dark); border-color: white; }
 
   /* ── PRODUCT GRID ── */
   .section-title {
@@ -125,13 +140,13 @@
     cursor: pointer;
     transition: transform 0.18s, box-shadow 0.18s;
     position: relative;
-    border: 1px solid #FADADD;
+    border: 1px solid #E8E0F5;
   }
   .card:active { transform: scale(0.97); }
   .card-img-wrap {
     width: 100%;
     height: 130px;
-    background: var(--pink-light);
+    background: var(--purple-light);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -147,14 +162,14 @@
   .card-body { padding: 10px 12px 12px; }
   .card-name { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
   .card-sub { font-size: 11px; color: var(--text-soft); margin-bottom: 8px; }
-  .card-price { font-size: 15px; font-weight: 900; color: var(--pink-dark); }
+  .card-price { font-size: 15px; font-weight: 900; color: var(--purple-dark); }
   .card-add {
     position: absolute;
     bottom: 12px;
     right: 10px;
     width: 28px;
     height: 28px;
-    background: var(--pink);
+    background: var(--purple);
     border-radius: 50%;
     border: none;
     color: white;
@@ -164,15 +179,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(233,30,140,0.4);
+    box-shadow: 0 2px 8px rgba(123,94,167,0.4);
     transition: background 0.2s, transform 0.15s;
   }
-  .card-add:active { transform: scale(0.9); background: var(--pink-dark); }
+  .card-add:active { transform: scale(0.9); background: var(--purple-dark); }
   .badge {
     position: absolute;
     top: 8px;
     left: 8px;
-    background: linear-gradient(135deg, #FF6B9D, #E91E8C);
+    background: linear-gradient(135deg, #F9A84D, #F4860A);
     color: white;
     font-size: 10px;
     font-weight: 800;
@@ -188,19 +203,19 @@
     left: 0;
     right: 0;
     background: white;
-    border-top: 1px solid #FADADD;
+    border-top: 1px solid #E8E0F5;
     padding: 10px 16px 12px;
     display: flex;
     gap: 10px;
     z-index: 200;
-    box-shadow: 0 -4px 20px rgba(233,30,140,0.10);
+    box-shadow: 0 -4px 20px rgba(123,94,167,0.12);
   }
   .btn-cart {
     position: relative;
     width: 52px;
     height: 52px;
     border-radius: 14px;
-    border: 2.5px solid var(--pink);
+    border: 2.5px solid var(--purple);
     background: white;
     font-size: 22px;
     display: flex;
@@ -210,12 +225,12 @@
     flex-shrink: 0;
     transition: background 0.2s;
   }
-  .btn-cart:active { background: var(--pink-light); }
+  .btn-cart:active { background: var(--purple-light); }
   .cart-badge {
     position: absolute;
     top: -6px;
     right: -6px;
-    background: var(--pink-dark);
+    background: var(--orange);
     color: white;
     font-size: 11px;
     font-weight: 900;
@@ -231,7 +246,7 @@
     height: 52px;
     border-radius: 14px;
     border: none;
-    background: linear-gradient(135deg, #C2185B, #E91E8C);
+    background: linear-gradient(135deg, #6A4D9B, #F4860A);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
@@ -239,7 +254,7 @@
     cursor: pointer;
     letter-spacing: 0.3px;
     transition: opacity 0.2s, transform 0.15s;
-    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
+    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
   }
   .btn-order:active { transform: scale(0.98); opacity: 0.92; }
 
@@ -247,7 +262,7 @@
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(45,27,46,0.55);
+    background: rgba(44,26,78,0.55);
     z-index: 300;
     display: none;
     align-items: flex-end;
@@ -270,7 +285,7 @@
   .modal-handle {
     width: 36px;
     height: 4px;
-    background: #FADADD;
+    background: #D8D0EE;
     border-radius: 2px;
     margin: 10px auto 16px;
   }
@@ -280,7 +295,7 @@
     position: relative;
     width: 100%;
     height: 280px;
-    background: var(--pink-light);
+    background: var(--purple-light);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -315,13 +330,13 @@
     backdrop-filter: blur(6px);
     transition: all 0.2s;
   }
-  .img-lang-pill.active { background: white; color: var(--pink-dark); }
+  .img-lang-pill.active { background: white; color: var(--purple-dark); }
   .zoom-hint {
     position: absolute;
     bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(194,24,91,0.7);
+    background: rgba(106,77,155,0.7);
     color: white;
     font-size: 11px;
     font-weight: 700;
@@ -370,14 +385,14 @@
 
   .modal-body { padding: 18px 16px 0; }
   .modal-name { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
-  .modal-price { font-size: 20px; font-weight: 900; color: var(--pink-dark); margin-bottom: 16px; }
+  .modal-price { font-size: 20px; font-weight: 900; color: var(--purple-dark); margin-bottom: 16px; }
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
   .type-options { display: flex; gap: 10px; margin-bottom: 20px; }
   .type-btn {
     flex: 1;
     padding: 10px 8px;
     border-radius: 14px;
-    border: 2px solid #FADADD;
+    border: 2px solid #E8E0F5;
     background: white;
     font-family: 'Nunito', sans-serif;
     font-size: 13px;
@@ -387,35 +402,35 @@
     text-align: center;
     color: var(--text-soft);
   }
-  .type-btn.active { border-color: var(--pink); background: var(--pink-light); color: var(--pink-dark); }
+  .type-btn.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple-dark); }
   .type-icon { font-size: 20px; display: block; margin-bottom: 4px; }
   .modal-actions { display: flex; gap: 10px; padding: 0 16px; }
   .btn-add-cart {
     flex: 1;
     height: 50px;
     border-radius: 14px;
-    border: 2.5px solid var(--pink);
+    border: 2.5px solid var(--purple);
     background: white;
-    color: var(--pink-dark);
+    color: var(--purple-dark);
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 800;
     cursor: pointer;
     transition: all 0.2s;
   }
-  .btn-add-cart:active { background: var(--pink-light); }
+  .btn-add-cart:active { background: var(--purple-light); }
   .btn-order-now {
     flex: 1.4;
     height: 50px;
     border-radius: 14px;
     border: none;
-    background: linear-gradient(135deg, #C2185B, #E91E8C);
+    background: linear-gradient(135deg, #6A4D9B, #F4860A);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
+    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
     transition: opacity 0.2s;
   }
   .btn-order-now:active { opacity: 0.88; }
@@ -447,14 +462,14 @@
   .addr-label {
     font-size: 13px;
     font-weight: 800;
-    color: var(--pink-dark);
+    color: var(--purple-dark);
     margin-bottom: 8px;
     display: block;
   }
   .addr-input {
     width: 100%;
     padding: 13px 16px;
-    border: 2px solid #FADADD;
+    border: 2px solid #E8E0F5;
     border-radius: 14px;
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
@@ -462,23 +477,23 @@
     color: var(--text);
     outline: none;
     transition: border-color 0.2s;
-    background: var(--pink-pale);
+    background: var(--purple-pale);
   }
-  .addr-input:focus { border-color: var(--pink); background: white; }
-  .addr-input::placeholder { color: #C8A4B5; }
+  .addr-input:focus { border-color: var(--purple); background: white; }
+  .addr-input::placeholder { color: #B0A0CC; }
   .addr-confirm {
     width: calc(100% - 32px);
     margin: 4px 16px 0;
     height: 52px;
     border-radius: 14px;
     border: none;
-    background: linear-gradient(135deg, #C2185B, #E91E8C);
+    background: linear-gradient(135deg, #6A4D9B, #F4860A);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
+    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
   }
   .addr-confirm:active { opacity: 0.88; }
 
@@ -488,13 +503,13 @@
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    border-bottom: 1px solid #FFF0F6;
+    border-bottom: 1px solid #EDE8F5;
   }
   .cart-item-thumb {
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: var(--pink-light);
+    background: var(--purple-light);
     overflow: hidden;
     flex-shrink: 0;
     display: flex;
@@ -506,8 +521,8 @@
   .cart-item-info { flex: 1; }
   .cart-item-name { font-size: 14px; font-weight: 800; }
   .cart-item-type { font-size: 12px; color: var(--text-soft); }
-  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--pink-dark); white-space: nowrap; }
-  .cart-item-remove { background: none; border: none; font-size: 18px; color: #E91E8C; cursor: pointer; padding: 4px; }
+  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--purple-dark); white-space: nowrap; }
+  .cart-item-remove { background: none; border: none; font-size: 18px; color: var(--orange); cursor: pointer; padding: 4px; }
   .cart-total {
     display: flex;
     justify-content: space-between;
@@ -515,7 +530,7 @@
     padding: 16px;
     font-size: 16px;
     font-weight: 900;
-    background: var(--pink-pale);
+    background: var(--purple-pale);
     margin: 8px 16px;
     border-radius: 14px;
   }
@@ -533,7 +548,7 @@
     top: 24px;
     left: 50%;
     transform: translateX(-50%) translateY(-80px);
-    background: var(--pink-dark);
+    background: var(--orange);
     color: white;
     padding: 12px 20px;
     border-radius: 50px;
@@ -542,7 +557,7 @@
     z-index: 999;
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(233,30,140,0.35);
+    box-shadow: 0 4px 20px rgba(106,77,155,0.35);
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
 
@@ -556,7 +571,7 @@
 <!-- HEADER -->
 <div class="header">
   <div class="header-top">
-    <div class="logo">Vitamino<span>_2022</span> 🌸</div>
+    <div class="logo"><span class="logo-v">V</span>itamino<span class="logo-year">_2022</span> 🌿</div>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('uz')">UZ</button>
       <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -627,7 +642,7 @@
     <div id="cartItems"></div>
     <div class="cart-total" id="cartTotal" style="display:none">
       <span id="totalLabel">Jami:</span>
-      <span id="totalPrice" style="color:var(--pink-dark)"></span>
+      <span id="totalPrice" style="color:var(--purple-dark)"></span>
     </div>
     <div style="padding: 0 16px; display:none" id="cartOrderBtn">
       <button class="btn-order-now" style="width:100%; height:52px; font-size:16px" onclick="startOrder()">📦 Buyurtma berish</button>
@@ -720,35 +735,37 @@ const categories = {
 };
 
 const products = [
-  { id:1, emoji:'🍊', cat:1, hasTypes:true,
+  // hasTypes: true = parashok/chaynaladigan tanlash chiqadi
+  // hasImageRu: true = RU tilida ham rasm bor, false = RU da emoji chiqadi
+  { id:1, emoji:'🍊', cat:1, hasTypes:true, hasImageRu:false,
     uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
     ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
     price:45000, imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT' },
-  { id:2, emoji:'☀️', cat:1, hasTypes:false,
+  { id:2, emoji:'☀️', cat:1, hasTypes:false, hasImageRu:false,
     uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
     price:62000, imageUz:null, imageRu:null, badge:null },
-  { id:3, emoji:'🦴', cat:2, hasTypes:false,
+  { id:3, emoji:'🦴', cat:2, hasTypes:false, hasImageRu:false,
     uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
     price:38000, imageUz:null, imageRu:null, badge:null },
-  { id:4, emoji:'💊', cat:0, hasTypes:true,
+  { id:4, emoji:'💊', cat:0, hasTypes:true, hasImageRu:false,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
     price:89000, imageUz:null, imageRu:null, badge:'YANGI' },
-  { id:5, emoji:'💆', cat:3, hasTypes:false,
+  { id:5, emoji:'💆', cat:3, hasTypes:false, hasImageRu:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
     price:52000, imageUz:null, imageRu:null, badge:null },
-  { id:6, emoji:'👁️', cat:4, hasTypes:false,
+  { id:6, emoji:'👁️', cat:4, hasTypes:false, hasImageRu:false,
     uz:{name:'Lutein', sub:"Ko'z salomatligi"},
     ru:{name:'Лютеин', sub:'Здоровье глаз'},
     price:71000, imageUz:null, imageRu:null, badge:null },
-  { id:7, emoji:'❤️', cat:5, hasTypes:false,
+  { id:7, emoji:'❤️', cat:5, hasTypes:false, hasImageRu:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
     price:95000, imageUz:null, imageRu:null, badge:null },
-  { id:8, emoji:'🧸', cat:6, hasTypes:true,
+  { id:8, emoji:'🧸', cat:6, hasTypes:true, hasImageRu:false,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
     price:43000, imageUz:null, imageRu:null, badge:'MASHHUR' },
@@ -825,7 +842,20 @@ function renderModalImage(p, il) {
   wrap.appendChild(pills);
   wrap.appendChild(hint);
 
-  const url = il === 'ru' ? p.imageRu : p.imageUz;
+  // RU tilida rasm faqat hasImageRu:true bo'lsa ishlatiladi
+  let url = null;
+  if (il === 'ru') {
+    url = p.hasImageRu ? p.imageRu : null;
+  } else {
+    url = p.imageUz;
+  }
+
+  // RU lang pill — faqat hasImageRu:true bo'lsa ko'rinadi
+  const ruPill = document.getElementById('imgLangRu');
+  if (ruPill) {
+    ruPill.style.display = p.hasImageRu ? '' : 'none';
+  }
+
   if (url) {
     const img = document.createElement('img');
     img.src = url;
