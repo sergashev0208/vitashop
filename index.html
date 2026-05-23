@@ -1067,7 +1067,9 @@ let pendingOrderItems = null;
 // ─── UTIL: paket birligini oladi ───
 // unit yozilgan bo'lsa shu qaytadi, yo'q bo'lsa tarjimon'dan oladi
 function pkgUnit(pk) {
-  return pk.unit || t('pkgUnit');
+  if (!pk.unit || pk.unit === '') return t('pkgUnit');  // dona / шт
+  // g, ml, kaps — shundayligicha
+  return pk.unit;
 }
 
 function setLang(l) {
