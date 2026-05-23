@@ -41,7 +41,6 @@
     overflow-x: hidden;
   }
 
-  /* ── HEADER ── */
   .header {
     background: linear-gradient(135deg, #6A4D9B 0%, #7B5EA7 60%, #9B7EC8 100%);
     padding: 20px 16px 14px;
@@ -87,7 +86,6 @@
   }
   .lang-btn.active { background: white; color: var(--purple-dark); }
 
-  /* ── CATEGORIES ── */
   .categories {
     display: flex;
     gap: 8px;
@@ -112,7 +110,6 @@
   }
   .cat-btn.active { background: white; color: var(--purple-dark); border-color: white; }
 
-  /* ── PRODUCT GRID ── */
   .section-title {
     font-size: 16px;
     font-weight: 800;
@@ -185,7 +182,6 @@
     z-index: 2;
   }
 
-  /* ── BOTTOM BAR ── */
   .bottom-bar {
     position: fixed;
     bottom: 0;
@@ -247,7 +243,6 @@
   }
   .btn-order:active { transform: scale(0.98); opacity: 0.92; }
 
-  /* ── MODAL OVERLAY ── */
   .modal-overlay {
     position: fixed;
     inset: 0;
@@ -279,7 +274,6 @@
     margin: 10px auto 16px;
   }
 
-  /* ── DETAIL MODAL IMAGE ── */
   .modal-image-wrap {
     position: relative;
     width: 100%;
@@ -330,7 +324,6 @@
     backdrop-filter: blur(4px);
   }
 
-  /* ── FULLSCREEN IMAGE ZOOM ── */
   .zoom-overlay {
     position: fixed;
     inset: 0;
@@ -370,7 +363,6 @@
   .modal-body { padding: 18px 16px 0; }
   .modal-name { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
 
-  /* ── DYNAMIC PRICE DISPLAY ── */
   .modal-price-wrap {
     display: flex;
     align-items: baseline;
@@ -393,10 +385,7 @@
     font-weight: 600;
   }
 
-  /* ── PACKAGE SIZE SELECTOR ── */
-  .pkg-section {
-    margin-bottom: 18px;
-  }
+  .pkg-section { margin-bottom: 18px; }
   .pkg-title {
     font-size: 14px;
     font-weight: 800;
@@ -406,11 +395,7 @@
     align-items: center;
     gap: 6px;
   }
-  .pkg-options {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .pkg-options { display: flex; gap: 8px; flex-wrap: wrap; }
   .pkg-btn {
     position: relative;
     padding: 10px 14px;
@@ -443,31 +428,11 @@
     border-radius: 8px;
     white-space: nowrap;
   }
-  .pkg-qty {
-    font-size: 16px;
-    font-weight: 900;
-    color: var(--text);
-    display: block;
-    line-height: 1.2;
-  }
+  .pkg-qty { font-size: 16px; font-weight: 900; color: var(--text); display: block; line-height: 1.2; }
   .pkg-btn.active .pkg-qty { color: var(--purple-dark); }
-  .pkg-price {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-soft);
-    display: block;
-    margin-top: 2px;
-  }
+  .pkg-price { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-top: 2px; }
   .pkg-btn.active .pkg-price { color: var(--purple); }
-  .pkg-per-pill {
-    font-size: 10px;
-    color: var(--text-soft);
-    display: block;
-    margin-top: 1px;
-  }
-  .pkg-btn.active .pkg-per-pill { color: var(--purple); }
 
-  /* ── TYPE SELECTOR ── */
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
   .type-options { display: flex; gap: 10px; margin-bottom: 20px; }
   .type-btn {
@@ -487,10 +452,7 @@
   .type-btn.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple-dark); }
   .type-icon { font-size: 20px; display: block; margin-bottom: 4px; }
 
-  /* ── BRAND SELECTOR ── */
-  .brand-section {
-    margin-bottom: 18px;
-  }
+  .brand-section { margin-bottom: 18px; }
   .brand-title {
     font-size: 14px;
     font-weight: 800;
@@ -500,11 +462,7 @@
     align-items: center;
     gap: 6px;
   }
-  .brand-options {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .brand-options { display: flex; gap: 8px; flex-wrap: wrap; }
   .brand-btn {
     position: relative;
     display: flex;
@@ -528,21 +486,8 @@
     color: var(--purple-dark);
     box-shadow: 0 2px 10px rgba(123,94,167,0.18);
   }
-  .brand-btn .brand-logo {
-    font-size: 18px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .brand-btn .brand-name {
-    line-height: 1.15;
-  }
-  .brand-btn .brand-country {
-    font-size: 10px;
-    font-weight: 600;
-    opacity: 0.7;
-    display: block;
-    margin-top: 1px;
-  }
+  .brand-btn .brand-logo { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .brand-btn .brand-name { line-height: 1.15; }
   .brand-check {
     position: absolute;
     top: -6px;
@@ -591,7 +536,6 @@
   }
   .btn-order-now:active { opacity: 0.88; }
 
-  /* ── ADDRESS MODAL ── */
   .addr-modal {
     background: white;
     border-radius: 24px 24px 0 0;
@@ -634,7 +578,6 @@
   }
   .addr-confirm:active { opacity: 0.88; }
 
-  /* ── CART MODAL ── */
   .cart-item {
     display: flex;
     align-items: center;
@@ -691,7 +634,6 @@
   .cart-empty { text-align: center; padding: 40px 16px; color: var(--text-soft); font-size: 15px; }
   .cart-empty-icon { font-size: 50px; margin-bottom: 12px; }
 
-  /* ── TOAST ── */
   .toast {
     position: fixed;
     top: 24px;
@@ -716,7 +658,6 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-top">
     <div class="logo"><span class="logo-v">V</span>itamino<span class="logo-year">_2022</span> 🌸</div>
@@ -728,11 +669,9 @@
   <div class="categories" id="categories"></div>
 </div>
 
-<!-- PRODUCTS -->
 <div class="section-title" id="sectionTitle">Barcha vitaminlar</div>
 <div class="grid" id="grid"></div>
 
-<!-- BOTTOM BAR -->
 <div class="bottom-bar">
   <button class="btn-cart" onclick="openCart()">
     🛒
@@ -741,7 +680,6 @@
   <button class="btn-order" id="orderBtn" onclick="startOrder()">📦 Buyurtma berish</button>
 </div>
 
-<!-- PRODUCT DETAIL MODAL -->
 <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event,'detailModal')">
   <div class="modal">
     <div class="modal-handle"></div>
@@ -759,19 +697,16 @@
         <div class="modal-price-per" id="modalPricePer"></div>
       </div>
 
-      <!-- BRAND SELECTOR BLOCK -->
       <div class="brand-section" id="brandBlock">
         <div class="brand-title">🏷️ <span id="brandTitle">Brendni tanlang:</span></div>
         <div class="brand-options" id="brandOptions"></div>
       </div>
 
-      <!-- PACKAGE SIZE BLOCK -->
       <div class="pkg-section" id="pkgBlock">
         <div class="pkg-title">📦 <span id="pkgTitle">Miqdorni tanlang:</span></div>
         <div class="pkg-options" id="pkgOptions"></div>
       </div>
 
-      <!-- FORM TYPE BLOCK -->
       <div id="typeBlock">
         <div class="form-type-title" id="formTypeTitle">Shaklini tanlang:</div>
         <div class="type-options">
@@ -793,13 +728,11 @@
   </div>
 </div>
 
-<!-- FULLSCREEN ZOOM -->
 <div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()">
   <button class="zoom-close" onclick="closeZoom()">✕</button>
   <img id="zoomImg" src="" alt="">
 </div>
 
-<!-- CART MODAL -->
 <div class="modal-overlay" id="cartModal" onclick="handleOverlayClick(event,'cartModal')">
   <div class="modal">
     <div class="modal-handle"></div>
@@ -815,7 +748,6 @@
   </div>
 </div>
 
-<!-- ADDRESS MODAL -->
 <div class="modal-overlay" id="addrModal" onclick="handleOverlayClick(event,'addrModal')">
   <div class="addr-modal">
     <div class="modal-handle"></div>
@@ -833,14 +765,12 @@
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-// ─── TRANSLATIONS ───
 const translations = {
   uz: {
     allVit: 'Barcha vitaminlar',
@@ -848,9 +778,8 @@ const translations = {
     cartTitle: '🛒 Savat',
     formType: 'Shaklini tanlang:',
     pkgTitle: 'Miqdorni tanlang:',
-    pkgUnit: 'dona',
+    pkgUnit: 'dona',       // ← unit ko'rsatilmasa shu ishlatiladi
     pkgBestValue: '🔥 Foydali',
-    pkgPerPill: 'dona uchun',
     powder: 'Poroshokli',
     chew: 'Chaynaladigan',
     addCart: '🛒 Savatga',
@@ -882,7 +811,6 @@ const translations = {
     pkgTitle: 'Выберите количество:',
     pkgUnit: 'шт',
     pkgBestValue: '🔥 Выгодно',
-    pkgPerPill: 'за шт',
     powder: 'Порошковый',
     chew: 'Жевательный',
     addCart: '🛒 В корзину',
@@ -908,130 +836,109 @@ const translations = {
   }
 };
 
-// Kategoriyalar: key (kod) → har ikkala tilda nomi
-// Mahsulotlarda cat: 'immunitet' deb yoziladi
 const categories = [
-  { key: 'hammasi',   uz: 'Hammasi',     ru: 'Все'           },
-  { key: 'best',      uz: 'Best Seller', ru: 'Бестселлеры' },
-  { key: 'aksiya',      uz: 'Aksiya', ru: 'Акции' },
-  { key: 'kollagen',  uz: 'Kollagen',     ru: 'Коллаген'     },
-  { key: 'ozish',     uz: 'Ozish uchun',  ru: 'Для похудения'         },
-  { key: 'magniy',      uz: 'Magniy', ru: 'Магний' },
-  { key: 'kosmetika',       uz: "Kosmetika va Parvarish",        ru: 'Косметика и уход'        },
-  { key: 'ona',     uz: 'Ona Salomatligi',       ru: 'Женское здоровье'        },
-  { key: 'suyak',   uz: 'Suyaklar va Bogimlar',     ru: 'Кости и суставы'       },
-  { key: 'bolalar',     uz: 'Bolalar uchun',       ru: 'Для детей'         },
-  { key: 'immunitet',     uz: 'Immunitet',       ru: 'Иммунитет'         },
-  { key: 'xotira',     uz: 'Diqqat va Xotira',       ru: 'Внимание и память'         },
-  { key: 'omega',     uz: 'Omega',       ru: 'Омега'         },
-  { key: 'd3',     uz: 'D3',       ru: 'Д3'         },
-  { key: 'yaponiya',     uz: 'Yaponiya vitaminlari',       ru: 'Японские витамины'         },
-  { key: 'turkiya',     uz: 'Turkiya vitaminlari',       ru: 'Турецкие витамины'         },
-  
-  
+  { key: 'hammasi',   uz: 'Hammasi',              ru: 'Все'                  },
+  { key: 'best',      uz: 'Best Seller',           ru: 'Бестселлеры'          },
+  { key: 'aksiya',    uz: 'Aksiya',                ru: 'Акции'                },
+  { key: 'kollagen',  uz: 'Kollagen',              ru: 'Коллаген'             },
+  { key: 'ozish',     uz: 'Ozish uchun',           ru: 'Для похудения'        },
+  { key: 'magniy',    uz: 'Magniy',                ru: 'Магний'               },
+  { key: 'kosmetika', uz: 'Kosmetika va Parvarish',ru: 'Косметика и уход'     },
+  { key: 'ona',       uz: 'Ona Salomatligi',       ru: 'Женское здоровье'     },
+  { key: 'suyak',     uz: 'Suyaklar va Bogimlar',  ru: 'Кости и суставы'      },
+  { key: 'bolalar',   uz: 'Bolalar uchun',         ru: 'Для детей'            },
+  { key: 'immunitet', uz: 'Immunitet',             ru: 'Иммунитет'            },
+  { key: 'xotira',    uz: 'Diqqat va Xotira',      ru: 'Внимание и память'    },
+  { key: 'omega',     uz: 'Omega',                 ru: 'Омега'                },
+  { key: 'd3',        uz: 'D3',                    ru: 'Д3'                   },
+  { key: 'yaponiya',  uz: 'Yaponiya vitaminlari',  ru: 'Японские витамины'    },
+  { key: 'turkiya',   uz: 'Turkiya vitaminlari',   ru: 'Турецкие витамины'    },
 ];
 
 // ─── PRODUCTS DATA ───
-// hasBrands: true  → brend tanlash bloki chiqadi
-// hasBrands: false → brend bloki yashiriladi
-// brands: [{ id, nameUz, nameRu, logo (emoji), country }]
+// unit: 'g' | 'ml' | 'dona' | ... — ko'rsatilmasa 'dona' ishlatiladi
 const products = [
   {
     id:1, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Kollagen Gele', sub:''},
-    ru:{name:'Коллаген геле',  sub:''},
+    ru:{name:'Коллаген геле', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:297000, bestValue:true },
-    ],
+    packages: [ { qty:1, price:297000, bestValue:true } ],
     imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg', badge:null
   },
   {
     id:2, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Kollagen Powder', sub:''},
-    ru:{name:'Коллаген порошок',  sub:''},
+    ru:{name:'Коллаген порошок', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:235000, bestValue:true },
-    ],
+    packages: [ { qty:1, price:235000, bestValue:true } ],
     imageUz:'https://iili.io/CH8jiOl.jpg', imageRu:'https://iili.io/CH8jsb2.jpg', badge:null
   },
-{
+  {
     id:3, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Kollagen Peptidlari + Probiotiklar', sub:''},
-    ru:{name:'Коллаген Пептиды + Пробиотики',  sub:''},
+    ru:{name:'Коллаген Пептиды + Пробиотики', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:628000, bestValue:true },
-    ],
+    packages: [ { qty:1, price:628000, bestValue:true } ],
     imageUz:'https://iili.io/CH8vCAb.jpg', imageRu:'https://iili.io/CH8voDx.jpg', badge:null
   },
-{
+  {
     id:4, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
     uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:''},
-    ru:{name:'Verisol Kollagen + Biotin + Antioxidants',  sub:''},
+    ru:{name:'Verisol Kollagen + Biotin + Antioxidants', sub:''},
     brands: [],
     packages: [
-      { qty:345,  price:445000, bestValue:true },
-      { qty:120,  price:195000 },
+      { qty:345, unit:'g', price:445000, bestValue:true },
+      { qty:120, unit:'g', price:195000 },
     ],
     imageUz:'https://iili.io/CH84Uqx.jpg', imageRu:'https://iili.io/CH846dB.jpg', badge:null
   },
-{
+  {
     id:5, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Dengiz Kollageni Marine Collagen', sub:''},
-    ru:{name:'',  sub:''},
+    ru:{name:'', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:340000 },
-    ],
+    packages: [ { qty:1, price:340000 } ],
     imageUz:'https://iili.io/CH8QEX9.jpg', imageRu:null, badge:null
   },
   {
     id:6, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды',  sub:''},
+    ru:{name:'Коллаген Пептиды', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:355000 },
-    ],
+    packages: [ { qty:1, price:355000 } ],
     imageUz:'https://iili.io/CH8p5ge.jpg', imageRu:'https://iili.io/CH8pcej.jpg', badge:null
   },
   {
     id:7, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Hyaluronic Acid  Complex', sub:''},
-    ru:{name:'Collagen Hyaluronic Acid  Complex',  sub:''},
+    uz:{name:'Kollagen Hyaluronic Acid Complex', sub:''},
+    ru:{name:'Collagen Hyaluronic Acid Complex', sub:''},
     brands: [],
-    packages: [
-      { qty:1,  price:348000 },
-    ],
+    packages: [ { qty:1, price:348000 } ],
     imageUz:'https://iili.io/CHSHAqN.jpg', imageRu:'https://iili.io/CHSHR1I.jpg', badge:null
   },
   {
     id:8, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
     uz:{name:'Dengiz Kollageni CollagenUp', sub:''},
-    ru:{name:'Морской коллаген CollagenUp',  sub:''},
+    ru:{name:'Морской коллаген CollagenUp', sub:''},
     brands: [],
     packages: [
-      { qty:464,  price:528000, bestValue:true },
-      { qty:206,  price:255000 },
+      { qty:464, unit:'g', price:528000, bestValue:true },
+      { qty:206, unit:'g', price:255000 },
     ],
     imageUz:'https://iili.io/CHS2omu.jpg', imageRu:'https://iili.io/CHS2TLx.jpg', badge:null
   },
   {
     id:100, emoji:'☀️', cat:'immunitet', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
+    uz:{name:'Vitamin D3', sub:'Quyosh vitamini'},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
     brands: [],
-    packages: [
-      { qty:60, price:62000 },
-    ],
+    packages: [ { qty:60, price:62000 } ],
     imageUz:null, imageRu:null, badge:null
   },
-
   {
     id:200, emoji:'🦴', cat:'suyak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
-    uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
+    uz:{name:'Kalsiy + D3', sub:'Suyak mustahkamlovchi'},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
     brands: [
       { id:'natval', nameUz:"Nature's Valley", nameRu:"Nature's Valley", logo:'🟤', country:'🇺🇸 USA' },
@@ -1043,48 +950,28 @@ const products = [
     ],
     imageUz:null, imageRu:null, badge:null
   },
-
   {
     id:300, emoji:'💊', cat:'hammasi', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
     brands: [],
     packages: [
-      { qty:30,  price:55000 },
-      { qty:60,  price:89000 },
-      { qty:90,  price:125000, bestValue:true },
+      { qty:30, price:55000 },
+      { qty:60, price:89000 },
+      { qty:90, price:125000, bestValue:true },
     ],
     imageUz:null, imageRu:null, badge:'YANGI'
   },
-
   {
-    id:400, emoji:'💆', cat:'teri', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:400, emoji:'💆', cat:'kosmetika', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
     brands: [],
-    packages: [
-      { qty:60, price:52000 },
-    ],
+    packages: [ { qty:60, price:52000 } ],
     imageUz:null, imageRu:null, badge:null
   },
-
   {
-    id:500, emoji:'👁️', cat:'koz', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
-    uz:{name:'Lutein', sub:"Ko'z salomatligi"},
-    ru:{name:'Лютеин', sub:'Здоровье глаз'},
-    brands: [
-      { id:'ocuvite', nameUz:'Ocuvite',   nameRu:'Ocuvite',   logo:'🔵', country:'🇺🇸 USA' },
-      { id:'lutmax',  nameUz:'Lut-Max',   nameRu:'Lut-Max',   logo:'🟡', country:'🇩🇪 DE'  },
-    ],
-    packages: [
-      { qty:30,  price:40000 },
-      { qty:60,  price:71000, bestValue:true },
-    ],
-    imageUz:null, imageRu:null, badge:null
-  },
-
-  {
-    id:600, emoji:'❤️', cat:'yurak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
+    id:600, emoji:'❤️', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
     brands: [],
@@ -1095,30 +982,32 @@ const products = [
     ],
     imageUz:null, imageRu:null, badge:null
   },
-
   {
     id:700, emoji:'🧸', cat:'bolalar', hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
     brands: [],
-    packages: [
-      { qty:60, price:43000 },
-    ],
+    packages: [ { qty:60, price:43000 } ],
     imageUz:null, imageRu:null, badge:'MASHHUR'
   },
 ];
 
 let lang = 'uz';
-let selectedCat = 'hammasi';  // 'hammasi' = barcha kategoriyalar
+let selectedCat = 'hammasi';
 let currentProduct = null;
 let imgLang = 'uz';
 let selectedType = 'powder';
 let selectedPkgIndex = 0;
-let selectedBrandIndex = 0;   // ← yangi
+let selectedBrandIndex = 0;
 let cart = [];
 let pendingOrderItems = null;
 
-// ─── LANGUAGE ───
+// ─── UTIL: paket birligini oladi ───
+// unit yozilgan bo'lsa shu qaytadi, yo'q bo'lsa tarjimon'dan oladi
+function pkgUnit(pk) {
+  return pk.unit || t('pkgUnit');
+}
+
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b =>
@@ -1136,7 +1025,6 @@ function updateStaticText() {
   if (currentProduct) populateModal(currentProduct);
 }
 
-// ─── CATEGORIES ───
 function renderCategories() {
   document.getElementById('categories').innerHTML = categories.map(c =>
     `<button class="cat-btn ${selectedCat === c.key ? 'active' : ''}" onclick="selectCat('${c.key}')">${c[lang]}</button>`
@@ -1148,7 +1036,6 @@ function selectCat(key) {
   renderProducts();
 }
 
-// ─── PRODUCTS ───
 function getMinPrice(p) { return Math.min(...p.packages.map(pk => pk.price)); }
 function renderProducts() {
   const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
@@ -1177,7 +1064,6 @@ function renderProducts() {
   }).join('');
 }
 
-// ─── MODAL IMAGE ───
 function renderModalImage(p, il) {
   const wrap = document.getElementById('modalImageWrap');
   const pills = wrap.querySelector('.img-lang-pills');
@@ -1186,95 +1072,56 @@ function renderModalImage(p, il) {
   wrap.appendChild(pills);
   wrap.appendChild(hint);
 
-  let url = null;
-  if (il === 'ru') {
-    url = p.hasImageRu ? p.imageRu : null;
-  } else {
-    url = p.imageUz;
-  }
-
+  let url = il === 'ru' ? (p.hasImageRu ? p.imageRu : null) : p.imageUz;
   const ruPill = document.getElementById('imgLangRu');
-  if (ruPill) { ruPill.style.display = p.hasImageRu ? '' : 'none'; }
+  if (ruPill) ruPill.style.display = p.hasImageRu ? '' : 'none';
 
   if (url) {
     const img = document.createElement('img');
-    img.src = url;
-    img.alt = p[il].name;
-    img.id = 'modalImg';
+    img.src = url; img.alt = p[il].name; img.id = 'modalImg';
     img.onerror = () => {
       img.remove();
       const em = document.createElement('div');
-      em.className = 'modal-image-emoji';
-      em.textContent = p.emoji;
-      wrap.insertBefore(em, pills);
-      hint.style.display = 'none';
+      em.className = 'modal-image-emoji'; em.textContent = p.emoji;
+      wrap.insertBefore(em, pills); hint.style.display = 'none';
     };
-    wrap.insertBefore(img, pills);
-    hint.style.display = '';
+    wrap.insertBefore(img, pills); hint.style.display = '';
   } else {
     const em = document.createElement('div');
-    em.className = 'modal-image-emoji';
-    em.textContent = p.emoji;
-    wrap.insertBefore(em, pills);
-    hint.style.display = 'none';
+    em.className = 'modal-image-emoji'; em.textContent = p.emoji;
+    wrap.insertBefore(em, pills); hint.style.display = 'none';
   }
 }
 
-// ─── ZOOM ───
 function openZoom() {
   const img = document.getElementById('modalImg');
   if (!img) return;
   document.getElementById('zoomImg').src = img.src;
   document.getElementById('zoomOverlay').classList.add('open');
 }
-function closeZoom() {
-  document.getElementById('zoomOverlay').classList.remove('open');
-}
+function closeZoom() { document.getElementById('zoomOverlay').classList.remove('open'); }
 
-// ─── BRAND SELECTOR ───
 function renderBrandOptions(p) {
-  const container = document.getElementById('brandOptions');
-  container.innerHTML = p.brands.map((br, i) => {
-    const isActive = i === selectedBrandIndex;
-    return `
-    <button class="brand-btn ${isActive ? 'active' : ''}" onclick="selectBrand(${i})">
+  document.getElementById('brandOptions').innerHTML = p.brands.map((br, i) => `
+    <button class="brand-btn ${i === selectedBrandIndex ? 'active' : ''}" onclick="selectBrand(${i})">
       <span class="brand-check">✓</span>
       <span class="brand-logo">${br.logo}</span>
-      <span class="brand-name">
-        ${lang === 'ru' ? br.nameRu : br.nameUz}
-      </span>
-    </button>`;
-  }).join('');
+      <span class="brand-name">${lang === 'ru' ? br.nameRu : br.nameUz}</span>
+    </button>`).join('');
 }
+function selectBrand(i) { selectedBrandIndex = i; renderBrandOptions(currentProduct); }
 
-function selectBrand(i) {
-  selectedBrandIndex = i;
-  renderBrandOptions(currentProduct);
-}
-
-// ─── PACKAGE SELECTOR ───
+// ─── PACKAGE SELECTOR — unit qo'llab-quvvatlanadi ───
 function renderPkgOptions(p) {
-  const container = document.getElementById('pkgOptions');
-  container.innerHTML = p.packages.map((pk, i) => {
-    const perPill = Math.round(pk.price / pk.qty);
-    const isActive = i === selectedPkgIndex;
-    const isBest = pk.bestValue;
-    return `
-    <button class="pkg-btn ${isActive ? 'active' : ''} ${isBest ? 'best-value' : ''}"
-      data-label="${t('pkgBestValue')}"
-      onclick="selectPkg(${i})">
-      <span class="pkg-qty">${pk.qty} ${t('pkgUnit')}</span>
+  document.getElementById('pkgOptions').innerHTML = p.packages.map((pk, i) => `
+    <button class="pkg-btn ${i === selectedPkgIndex ? 'active' : ''} ${pk.bestValue ? 'best-value' : ''}"
+      data-label="${t('pkgBestValue')}" onclick="selectPkg(${i})">
+      <span class="pkg-qty">${pk.qty} ${pkgUnit(pk)}</span>
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
-
-    </button>`;
-  }).join('');
+    </button>`).join('');
 }
 
-function selectPkg(i) {
-  selectedPkgIndex = i;
-  renderPkgOptions(currentProduct);
-  updateModalPrice();
-}
+function selectPkg(i) { selectedPkgIndex = i; renderPkgOptions(currentProduct); updateModalPrice(); }
 
 function updateModalPrice() {
   if (!currentProduct) return;
@@ -1285,17 +1132,14 @@ function updateModalPrice() {
   void priceEl.offsetWidth;
   priceEl.classList.add('price-changed');
   setTimeout(() => priceEl.classList.remove('price-changed'), 400);
-
   document.getElementById('modalPricePer').textContent = '';
 }
 
-// ─── DETAIL MODAL ───
 function openDetail(id) {
   currentProduct = products.find(p => p.id === id);
   imgLang = lang;
   selectedType = currentProduct.hasTypes ? 'powder' : 'none';
-  selectedPkgIndex = 0;
-  selectedBrandIndex = 0;
+  selectedPkgIndex = 0; selectedBrandIndex = 0;
   populateModal(currentProduct);
   document.getElementById('detailModal').classList.add('open');
 }
@@ -1304,25 +1148,19 @@ function populateModal(p) {
   renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p[imgLang].name;
 
-  // Brand block — faqat hasBrands:true bo'lsa ko'rinadi
   const brandBlock = document.getElementById('brandBlock');
   if (p.hasBrands && p.brands.length > 0) {
     brandBlock.style.display = '';
     document.getElementById('brandTitle').textContent = t('brandTitle');
     renderBrandOptions(p);
-  } else {
-    brandBlock.style.display = 'none';
-  }
+  } else { brandBlock.style.display = 'none'; }
 
-  // Package block — faqat hasPackages:true bo'lsa ko'rinadi
   const pkgBlock = document.getElementById('pkgBlock');
   if (p.hasPackages) {
     pkgBlock.style.display = '';
     document.getElementById('pkgTitle').textContent = t('pkgTitle');
     renderPkgOptions(p);
-  } else {
-    pkgBlock.style.display = 'none';
-  }
+  } else { pkgBlock.style.display = 'none'; }
   updateModalPrice();
 
   document.getElementById('btnAddCart').textContent = t('addCart');
@@ -1340,23 +1178,16 @@ function populateModal(p) {
     document.getElementById('typeChewLabel').textContent = t('chew');
     document.getElementById('typePowder').classList.toggle('active', selectedType === 'powder');
     document.getElementById('typeChew').classList.toggle('active', selectedType === 'chew');
-  } else {
-    typeBlock.style.display = 'none';
-    selectedType = 'none';
-  }
+  } else { typeBlock.style.display = 'none'; selectedType = 'none'; }
 }
 
-function setImgLang(l) {
-  imgLang = l;
-  if (currentProduct) populateModal(currentProduct);
-}
+function setImgLang(l) { imgLang = l; if (currentProduct) populateModal(currentProduct); }
 function selectType(type) {
   selectedType = type;
   document.getElementById('typePowder').classList.toggle('active', type === 'powder');
   document.getElementById('typeChew').classList.toggle('active', type === 'chew');
 }
 
-// ─── CART ───
 function getSelectedBrand(p, brandIndex) {
   if (!p.hasBrands || !p.brands.length) return null;
   return p.brands[brandIndex] || null;
@@ -1366,29 +1197,23 @@ function quickAdd(e, id) {
   e.stopPropagation();
   const p = products.find(x => x.id === id);
   const pkg = p.packages[0];
-  const brand = getSelectedBrand(p, 0);
-  addItem(p, p.hasTypes ? 'powder' : 'none', 0, pkg, brand, 0);
+  addItem(p, p.hasTypes ? 'powder' : 'none', 0, pkg, getSelectedBrand(p, 0), 0);
   showToast(t('toastAdded'));
 }
-
 function addToCart() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
-  const brand = getSelectedBrand(currentProduct, selectedBrandIndex);
-  addItem(currentProduct, selectedType, selectedPkgIndex, pkg, brand, selectedBrandIndex);
+  addItem(currentProduct, selectedType, selectedPkgIndex, pkg, getSelectedBrand(currentProduct, selectedBrandIndex), selectedBrandIndex);
   closeModal('detailModal');
   showToast(t('toastAdded'));
 }
-
 function addItem(p, type, pkgIndex, pkg, brand, brandIndex) {
-  const brandKey = brand ? brand.id : 'none';
-  const key = `${p.id}-${type}-${pkgIndex}-${brandKey}`;
+  const key = `${p.id}-${type}-${pkgIndex}-${brand ? brand.id : 'none'}`;
   const existing = cart.find(i => i.key === key);
   if (existing) { existing.qty++; }
   else { cart.push({ key, id: p.id, type, pkgIndex, pkg, qty: 1, product: p, brand, brandIndex }); }
   updateCartBadge();
 }
-
 function updateCartBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
   const badge = document.getElementById('cartBadge');
@@ -1396,11 +1221,7 @@ function updateCartBadge() {
   badge.style.display = total > 0 ? 'flex' : 'none';
 }
 
-function openCart() {
-  renderCart();
-  document.getElementById('cartModal').classList.add('open');
-}
-
+function openCart() { renderCart(); document.getElementById('cartModal').classList.add('open'); }
 function renderCart() {
   const container = document.getElementById('cartItems');
   const totalEl = document.getElementById('cartTotal');
@@ -1409,21 +1230,19 @@ function renderCart() {
   document.getElementById('totalLabel').textContent = t('total');
   if (cart.length === 0) {
     container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div>${t('emptyCart')}</div>`;
-    totalEl.style.display = 'none';
-    orderBtn.style.display = 'none';
-    return;
+    totalEl.style.display = 'none'; orderBtn.style.display = 'none'; return;
   }
   const typeLabel = type => type === 'powder' ? t('powder') : type === 'chew' ? t('chew') : '';
   container.innerHTML = cart.map(item => {
     const imgUrl = lang === 'ru' ? item.product.imageRu : item.product.imageUz;
-    const thumb = imgUrl
-      ? `<img src="${imgUrl}" alt="${item.product[lang].name}">`
-      : item.product.emoji;
-    const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${t('cartPkg')}` : '';
-    const typePart = typeLabel(item.type) ? ` · ${typeLabel(item.type)}` : '';
-    // Brand nomi savat ichida ham ko'rinadi
+    const thumb = imgUrl ? `<img src="${imgUrl}" alt="${item.product[lang].name}">` : item.product.emoji;
+    // ── unit savatchada ham to'g'ri chiqadi ──
+    const pkgLabel = item.product.hasPackages
+      ? `📦 ${item.pkg.qty} ${pkgUnit(item.pkg)}`
+      : '';
+    const typePart  = typeLabel(item.type) ? ` · ${typeLabel(item.type)}` : '';
     const brandPart = item.brand ? ` · ${item.brand.logo} ${lang === 'ru' ? item.brand.nameRu : item.brand.nameUz}` : '';
-    const subInfo = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
+    const subInfo   = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
     return `
     <div class="cart-item">
       <div class="cart-item-thumb">${thumb}</div>
@@ -1443,22 +1262,16 @@ function renderCart() {
   }).join('');
   const total = cart.reduce((s, i) => s + i.pkg.price * i.qty, 0);
   document.getElementById('totalPrice').textContent = `${total.toLocaleString()} ${t('currency')}`;
-  totalEl.style.display = 'flex';
-  orderBtn.style.display = 'block';
+  totalEl.style.display = 'flex'; orderBtn.style.display = 'block';
 }
-
 function changeQty(key, delta) {
   const item = cart.find(i => i.key === key);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) {
-    cart = cart.filter(i => i.key !== key);
-  }
-  updateCartBadge();
-  renderCart();
+  if (item.qty <= 0) cart = cart.filter(i => i.key !== key);
+  updateCartBadge(); renderCart();
 }
 
-// ─── ADDRESS MODAL ───
 function openAddrModal() {
   document.getElementById('addrTitle').textContent = t('addrTitle');
   document.getElementById('addrSubtitle').textContent = t('addrSubtitle');
@@ -1469,48 +1282,33 @@ function openAddrModal() {
   document.getElementById('addrConfirmBtn').textContent = t('addrConfirm');
   document.getElementById('addrModal').classList.add('open');
 }
-
 function startOrder() {
   if (cart.length === 0) { openCart(); return; }
-  closeModal('cartModal');
-  pendingOrderItems = [...cart];
-  openAddrModal();
+  closeModal('cartModal'); pendingOrderItems = [...cart]; openAddrModal();
 }
-
 function orderNowDetail() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
   const brand = getSelectedBrand(currentProduct, selectedBrandIndex);
   pendingOrderItems = [{
     key: `${currentProduct.id}-${selectedType}-${selectedPkgIndex}-${brand ? brand.id : 'none'}`,
-    id: currentProduct.id,
-    type: selectedType,
-    pkgIndex: selectedPkgIndex,
-    pkg,
-    qty: 1,
-    product: currentProduct,
-    brand,
-    brandIndex: selectedBrandIndex,
+    id: currentProduct.id, type: selectedType, pkgIndex: selectedPkgIndex,
+    pkg, qty: 1, product: currentProduct, brand, brandIndex: selectedBrandIndex,
   }];
-  closeModal('detailModal');
-  openAddrModal();
+  closeModal('detailModal'); openAddrModal();
 }
-
 function confirmOrder() {
   const location = document.getElementById('addrInput').value.trim();
   const phone = document.getElementById('phoneInput').value.trim();
   if (!location) { showToast(t('addrErrorLoc')); return; }
   if (!phone) { showToast(t('addrErrorPhone')); return; }
   sendOrderToBot(pendingOrderItems, location, phone);
-  cart = [];
-  updateCartBadge();
-  closeModal('addrModal');
+  cart = []; updateCartBadge(); closeModal('addrModal');
   document.getElementById('addrInput').value = '';
   document.getElementById('phoneInput').value = '';
   showToast(t('toastOrdering'));
 }
 
-// ─── ORDER PAYLOAD ───
 function buildOrderPayload(items, location, phone) {
   const user = tg?.initDataUnsafe?.user;
   const typeLabel = (type, l) => {
@@ -1519,64 +1317,42 @@ function buildOrderPayload(items, location, phone) {
     return '';
   };
   return {
-    user: {
-      id:        user?.id || null,
-      username:  user?.username || null,
-      firstName: user?.first_name || null,
-      phone:     phone,
-    },
+    user: { id: user?.id||null, username: user?.username||null, firstName: user?.first_name||null, phone },
     delivery: { location, phone },
     items: items.map(i => ({
-      id:          i.product.id,
-      nameUz:      i.product.uz.name,
-      nameRu:      i.product.ru.name,
-      qty:         i.qty,
-      packageQty:  i.pkg.qty,
-      type:        i.type,
-      typeUz:      typeLabel(i.type, 'uz'),
-      typeRu:      typeLabel(i.type, 'ru'),
+      id: i.product.id,
+      nameUz: i.product.uz.name,
+      nameRu: i.product.ru.name,
+      qty: i.qty,
+      packageQty: i.pkg.qty,
+      packageUnit: pkgUnit(i.pkg),   // ← g / ml / dona — botga ham boradi
+      type: i.type,
+      typeUz: typeLabel(i.type, 'uz'),
+      typeRu: typeLabel(i.type, 'ru'),
       pricePerPkg: i.pkg.price,
-      subtotal:    i.pkg.price * i.qty,
-      imageUz:     i.product.imageUz || null,
-      imageRu:     i.product.imageRu || null,
-      emoji:       i.product.emoji,
-      // ← BREND ma'lumotlari
-      brand:       i.brand ? {
-        id:      i.brand.id,
-        nameUz:  i.brand.nameUz,
-        nameRu:  i.brand.nameRu,
-        country: i.brand.country,
-      } : null,
+      subtotal: i.pkg.price * i.qty,
+      imageUz: i.product.imageUz || null,
+      imageRu: i.product.imageRu || null,
+      emoji: i.product.emoji,
+      brand: i.brand ? { id: i.brand.id, nameUz: i.brand.nameUz, nameRu: i.brand.nameRu, country: i.brand.country } : null,
     })),
     total: items.reduce((s, i) => s + i.pkg.price * i.qty, 0),
-    lang: lang,
+    lang,
   };
 }
-
 function sendOrderToBot(items, location, phone) {
-  if (!tg) {
-    console.log('Order payload:', JSON.stringify(buildOrderPayload(items, location, phone), null, 2));
-    return;
-  }
-  const payload = buildOrderPayload(items, location, phone);
-  tg.sendData(JSON.stringify(payload));
+  if (!tg) { console.log('Order:', JSON.stringify(buildOrderPayload(items, location, phone), null, 2)); return; }
+  tg.sendData(JSON.stringify(buildOrderPayload(items, location, phone)));
 }
 
-// ─── HELPERS ───
-function handleOverlayClick(e, id) {
-  if (e.target === document.getElementById(id)) closeModal(id);
-}
-function closeModal(id) {
-  document.getElementById(id).classList.remove('open');
-}
+function handleOverlayClick(e, id) { if (e.target === document.getElementById(id)) closeModal(id); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 function showToast(msg) {
   const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.classList.add('show');
+  el.textContent = msg; el.classList.add('show');
   setTimeout(() => el.classList.remove('show'), 2500);
 }
 
-// ── INIT ──
 renderCategories();
 renderProducts();
 </script>
