@@ -592,11 +592,28 @@
     font-size: 24px;
   }
   .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
-  .cart-item-info { flex: 1; }
-  .cart-item-name { font-size: 14px; font-weight: 800; }
+  .cart-item-info { flex: 1; min-width: 0; }
+  .cart-item-name { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .cart-item-type { font-size: 12px; color: var(--text-soft); margin-top: 2px; }
+  .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
   .cart-item-price { font-size: 14px; font-weight: 800; color: var(--purple-dark); white-space: nowrap; }
-  .cart-item-remove { background: none; border: none; font-size: 18px; color: var(--orange); cursor: pointer; padding: 4px; }
+  .cart-qty-row { display: flex; align-items: center; gap: 6px; }
+  .cart-qty-btn {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    border: 2px solid #E8E0F5;
+    background: white;
+    font-size: 16px; font-weight: 900;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--purple-dark);
+  }
+  .cart-qty-btn:active { background: var(--purple-light); border-color: var(--purple); }
+  .cart-qty-btn.remove { border-color: #FFD6CC; color: var(--orange); }
+  .cart-qty-btn.remove:active { background: #FFF0EC; }
+  .cart-qty-num { font-size: 15px; font-weight: 900; color: var(--text); min-width: 18px; text-align: center; }
   .cart-total {
     display: flex;
     justify-content: space-between;
@@ -1040,7 +1057,6 @@ function renderPkgOptions(p) {
       <span class="pkg-qty">${pk.qty} ${t('pkgUnit')}</span>
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
       <span class="pkg-per-pill">${perPill.toLocaleString()} ${t('currency')}/${t('pkgPerPill')}</span>
-     
     </button>`;
   }).join('');
 }
@@ -1177,17 +1193,24 @@ function renderCart() {
     const thumb = imgUrl
       ? `<img src="${imgUrl}" alt="${item.product[lang].name}">`
       : item.product.emoji;
-    const pkgLabel = `${item.pkg.qty} ${t('cartPkg')}`;
+    const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${t('cartPkg')}` : '';
     const typePart = typeLabel(item.type) ? ` · ${typeLabel(item.type)}` : '';
+    const subInfo = [pkgLabel, typePart].filter(Boolean).join('');
     return `
     <div class="cart-item">
       <div class="cart-item-thumb">${thumb}</div>
       <div class="cart-item-info">
-        <div class="cart-item-name">${item.product[lang].name} × ${item.qty}</div>
-        <div class="cart-item-type">📦 ${pkgLabel}${typePart}</div>
+        <div class="cart-item-name">${item.product[lang].name}</div>
+        ${subInfo ? `<div class="cart-item-type">${subInfo}</div>` : ''}
       </div>
-      <div class="cart-item-price">${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}</div>
-      <button class="cart-item-remove" onclick="removeItem('${item.key}')">🗑</button>
+      <div class="cart-item-right">
+        <div class="cart-item-price">${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}</div>
+        <div class="cart-qty-row">
+          <button class="cart-qty-btn remove" onclick="changeQty('${item.key}', -1)">−</button>
+          <span class="cart-qty-num">${item.qty}</span>
+          <button class="cart-qty-btn" onclick="changeQty('${item.key}', +1)">+</button>
+        </div>
+      </div>
     </div>`;
   }).join('');
   const total = cart.reduce((s, i) => s + i.pkg.price * i.qty, 0);
@@ -1197,6 +1220,16 @@ function renderCart() {
 }
 function removeItem(key) {
   cart = cart.filter(i => i.key !== key);
+  updateCartBadge();
+  renderCart();
+}
+function changeQty(key, delta) {
+  const item = cart.find(i => i.key === key);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.key !== key);
+  }
   updateCartBadge();
   renderCart();
 }
