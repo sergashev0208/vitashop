@@ -466,16 +466,6 @@
     margin-top: 1px;
   }
   .pkg-btn.active .pkg-per-pill { color: var(--purple); }
-  .pkg-discount-tag {
-    display: inline-block;
-    background: #E8F5E9;
-    color: #2E7D32;
-    font-size: 9px;
-    font-weight: 800;
-    padding: 1px 5px;
-    border-radius: 5px;
-    margin-top: 3px;
-  }
 
   /* ── TYPE SELECTOR ── */
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
@@ -496,6 +486,79 @@
   }
   .type-btn.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple-dark); }
   .type-icon { font-size: 20px; display: block; margin-bottom: 4px; }
+
+  /* ── BRAND SELECTOR ── */
+  .brand-section {
+    margin-bottom: 18px;
+  }
+  .brand-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .brand-options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .brand-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border-radius: 40px;
+    border: 2px solid #E8E0F5;
+    background: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-soft);
+    white-space: nowrap;
+  }
+  .brand-btn.active {
+    border-color: var(--purple);
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    box-shadow: 0 2px 10px rgba(123,94,167,0.18);
+  }
+  .brand-btn .brand-logo {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .brand-btn .brand-name {
+    line-height: 1.15;
+  }
+  .brand-btn .brand-country {
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+    display: block;
+    margin-top: 1px;
+  }
+  .brand-check {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--purple-dark);
+    color: white;
+    font-size: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+  }
+  .brand-btn.active .brand-check { display: flex; }
 
   .modal-actions { display: flex; gap: 10px; padding: 0 16px; }
   .btn-add-cart {
@@ -696,6 +759,12 @@
         <div class="modal-price-per" id="modalPricePer"></div>
       </div>
 
+      <!-- BRAND SELECTOR BLOCK -->
+      <div class="brand-section" id="brandBlock">
+        <div class="brand-title">🏷️ <span id="brandTitle">Brendni tanlang:</span></div>
+        <div class="brand-options" id="brandOptions"></div>
+      </div>
+
       <!-- PACKAGE SIZE BLOCK -->
       <div class="pkg-section" id="pkgBlock">
         <div class="pkg-title">📦 <span id="pkgTitle">Miqdorni tanlang:</span></div>
@@ -803,6 +872,7 @@ const translations = {
     zoomHint: "🔍 Rasm bosing — zoom",
     fromPrice: "dan boshlab",
     cartPkg: "dona",
+    brandTitle: "🏷️ Brendni tanlang:",
   },
   ru: {
     allVit: 'Все витамины',
@@ -834,6 +904,7 @@ const translations = {
     zoomHint: "🔍 Нажмите на фото — zoom",
     fromPrice: "от",
     cartPkg: "шт",
+    brandTitle: "🏷️ Выберите бренд:",
   }
 };
 
@@ -842,81 +913,116 @@ const categories = {
   ru: ['Все', 'Иммунитет', 'Кости', 'Кожа & Волосы', 'Зрение', 'Сердце', 'Детские', 'Спорт'],
 };
 
-// hasPackages: true  → paket tanlash bloki chiqadi (30/60/100 dona va h.k.)
-// hasPackages: false → faqat bitta narx, paket bloki yashiriladi
-// packages: { qty (dona soni), price (narxi), bestValue (eng foydali) }
+// ─── PRODUCTS DATA ───
+// hasBrands: true  → brend tanlash bloki chiqadi
+// hasBrands: false → brend bloki yashiriladi
+// brands: [{ id, nameUz, nameRu, logo (emoji), country }]
 const products = [
-  { id:1, emoji:'🍊', cat:1, hasTypes:true, hasPackages:true, hasImageRu:false,
+  {
+    id:1, emoji:'🍊', cat:1, hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
     ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
+    brands: [
+      { id:'now',     nameUz:'Now Foods',   nameRu:'Now Foods',   logo:'🟡', country:'🇺🇸 USA' },
+      { id:'solgar',  nameUz:'Solgar',      nameRu:'Solgar',      logo:'🔵', country:'🇺🇸 USA' },
+      { id:'natmade', nameUz:'Nature Made', nameRu:'Nature Made', logo:'🟢', country:'🇺🇸 USA' },
+    ],
     packages: [
       { qty:30,  price:25000 },
       { qty:60,  price:45000 },
       { qty:100, price:68000, bestValue:true },
     ],
-    imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT' },
+    imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT'
+  },
 
-  { id:2, emoji:'☀️', cat:1, hasTypes:false, hasPackages:false, hasImageRu:false,
+  {
+    id:2, emoji:'☀️', cat:1, hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
+    brands: [],
     packages: [
       { qty:60, price:62000 },
     ],
-    imageUz:null, imageRu:null, badge:null },
+    imageUz:null, imageRu:null, badge:null
+  },
 
-  { id:3, emoji:'🦴', cat:2, hasTypes:false, hasPackages:true, hasImageRu:false,
+  {
+    id:3, emoji:'🦴', cat:2, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
+    brands: [
+      { id:'natval', nameUz:"Nature's Valley", nameRu:"Nature's Valley", logo:'🟤', country:'🇺🇸 USA' },
+      { id:'vitrum', nameUz:'Vitrum',          nameRu:'Витрум',          logo:'🔴', country:'🇩🇪 DE'  },
+    ],
     packages: [
       { qty:50,  price:38000 },
       { qty:100, price:68000, bestValue:true },
     ],
-    imageUz:null, imageRu:null, badge:null },
+    imageUz:null, imageRu:null, badge:null
+  },
 
-  { id:4, emoji:'💊', cat:0, hasTypes:true, hasPackages:true, hasImageRu:false,
+  {
+    id:4, emoji:'💊', cat:0, hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
+    brands: [],
     packages: [
       { qty:30,  price:55000 },
       { qty:60,  price:89000 },
       { qty:90,  price:125000, bestValue:true },
     ],
-    imageUz:null, imageRu:null, badge:'YANGI' },
+    imageUz:null, imageRu:null, badge:'YANGI'
+  },
 
-  { id:5, emoji:'💆', cat:3, hasTypes:false, hasPackages:false, hasImageRu:false,
+  {
+    id:5, emoji:'💆', cat:3, hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
+    brands: [],
     packages: [
       { qty:60, price:52000 },
     ],
-    imageUz:null, imageRu:null, badge:null },
+    imageUz:null, imageRu:null, badge:null
+  },
 
-  { id:6, emoji:'👁️', cat:4, hasTypes:false, hasPackages:true, hasImageRu:false,
+  {
+    id:6, emoji:'👁️', cat:4, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Lutein', sub:"Ko'z salomatligi"},
     ru:{name:'Лютеин', sub:'Здоровье глаз'},
+    brands: [
+      { id:'ocuvite', nameUz:'Ocuvite',   nameRu:'Ocuvite',   logo:'🔵', country:'🇺🇸 USA' },
+      { id:'lutmax',  nameUz:'Lut-Max',   nameRu:'Lut-Max',   logo:'🟡', country:'🇩🇪 DE'  },
+    ],
     packages: [
       { qty:30,  price:40000 },
       { qty:60,  price:71000, bestValue:true },
     ],
-    imageUz:null, imageRu:null, badge:null },
+    imageUz:null, imageRu:null, badge:null
+  },
 
-  { id:7, emoji:'❤️', cat:5, hasTypes:false, hasPackages:true, hasImageRu:false,
+  {
+    id:7, emoji:'❤️', cat:5, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
+    brands: [],
     packages: [
       { qty:30,  price:55000 },
       { qty:60,  price:95000 },
       { qty:120, price:175000, bestValue:true },
     ],
-    imageUz:null, imageRu:null, badge:null },
+    imageUz:null, imageRu:null, badge:null
+  },
 
-  { id:8, emoji:'🧸', cat:6, hasTypes:true, hasPackages:false, hasImageRu:false,
+  {
+    id:8, emoji:'🧸', cat:6, hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
+    brands: [],
     packages: [
       { qty:60, price:43000 },
     ],
-    imageUz:null, imageRu:null, badge:'MASHHUR' },
+    imageUz:null, imageRu:null, badge:'MASHHUR'
+  },
 ];
 
 let lang = 'uz';
@@ -925,6 +1031,7 @@ let currentProduct = null;
 let imgLang = 'uz';
 let selectedType = 'powder';
 let selectedPkgIndex = 0;
+let selectedBrandIndex = 0;   // ← yangi
 let cart = [];
 let pendingOrderItems = null;
 
@@ -1042,6 +1149,27 @@ function closeZoom() {
   document.getElementById('zoomOverlay').classList.remove('open');
 }
 
+// ─── BRAND SELECTOR ───
+function renderBrandOptions(p) {
+  const container = document.getElementById('brandOptions');
+  container.innerHTML = p.brands.map((br, i) => {
+    const isActive = i === selectedBrandIndex;
+    return `
+    <button class="brand-btn ${isActive ? 'active' : ''}" onclick="selectBrand(${i})">
+      <span class="brand-check">✓</span>
+      <span class="brand-logo">${br.logo}</span>
+      <span class="brand-name">
+        ${lang === 'ru' ? br.nameRu : br.nameUz}
+      </span>
+    </button>`;
+  }).join('');
+}
+
+function selectBrand(i) {
+  selectedBrandIndex = i;
+  renderBrandOptions(currentProduct);
+}
+
 // ─── PACKAGE SELECTOR ───
 function renderPkgOptions(p) {
   const container = document.getElementById('pkgOptions');
@@ -1049,14 +1177,13 @@ function renderPkgOptions(p) {
     const perPill = Math.round(pk.price / pk.qty);
     const isActive = i === selectedPkgIndex;
     const isBest = pk.bestValue;
-    // Chegirma foizi (birinchi pakka nisbatan)
     return `
     <button class="pkg-btn ${isActive ? 'active' : ''} ${isBest ? 'best-value' : ''}"
       data-label="${t('pkgBestValue')}"
       onclick="selectPkg(${i})">
       <span class="pkg-qty">${pk.qty} ${t('pkgUnit')}</span>
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
-      <span class="pkg-per-pill">${perPill.toLocaleString()} ${t('currency')}/${t('pkgPerPill')}</span>
+
     </button>`;
   }).join('');
 }
@@ -1072,19 +1199,12 @@ function updateModalPrice() {
   const pkg = currentProduct.packages[selectedPkgIndex];
   const priceEl = document.getElementById('modalPrice');
   priceEl.textContent = `${pkg.price.toLocaleString()} ${t('currency')}`;
-  // Animate price change
   priceEl.classList.remove('price-changed');
-  void priceEl.offsetWidth; // reflow
+  void priceEl.offsetWidth;
   priceEl.classList.add('price-changed');
   setTimeout(() => priceEl.classList.remove('price-changed'), 400);
 
-  const perPill = Math.round(pkg.price / pkg.qty);
-  const perEl = document.getElementById('modalPricePer');
-  if (currentProduct.hasPackages) {
-    perEl.textContent = `· ${perPill.toLocaleString()} ${t('currency')}/${t('pkgPerPill')}`;
-  } else {
-    perEl.textContent = '';
-  }
+  document.getElementById('modalPricePer').textContent = '';
 }
 
 // ─── DETAIL MODAL ───
@@ -1093,6 +1213,7 @@ function openDetail(id) {
   imgLang = lang;
   selectedType = currentProduct.hasTypes ? 'powder' : 'none';
   selectedPkgIndex = 0;
+  selectedBrandIndex = 0;
   populateModal(currentProduct);
   document.getElementById('detailModal').classList.add('open');
 }
@@ -1100,6 +1221,16 @@ function openDetail(id) {
 function populateModal(p) {
   renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p[imgLang].name;
+
+  // Brand block — faqat hasBrands:true bo'lsa ko'rinadi
+  const brandBlock = document.getElementById('brandBlock');
+  if (p.hasBrands && p.brands.length > 0) {
+    brandBlock.style.display = '';
+    document.getElementById('brandTitle').textContent = t('brandTitle');
+    renderBrandOptions(p);
+  } else {
+    brandBlock.style.display = 'none';
+  }
 
   // Package block — faqat hasPackages:true bo'lsa ko'rinadi
   const pkgBlock = document.getElementById('pkgBlock');
@@ -1144,37 +1275,50 @@ function selectType(type) {
 }
 
 // ─── CART ───
+function getSelectedBrand(p, brandIndex) {
+  if (!p.hasBrands || !p.brands.length) return null;
+  return p.brands[brandIndex] || null;
+}
+
 function quickAdd(e, id) {
   e.stopPropagation();
   const p = products.find(x => x.id === id);
-  const pkg = p.packages[0]; // default birinchi paket
-  addItem(p, p.hasTypes ? 'powder' : 'none', 0, pkg);
+  const pkg = p.packages[0];
+  const brand = getSelectedBrand(p, 0);
+  addItem(p, p.hasTypes ? 'powder' : 'none', 0, pkg, brand, 0);
   showToast(t('toastAdded'));
 }
+
 function addToCart() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
-  addItem(currentProduct, selectedType, selectedPkgIndex, pkg);
+  const brand = getSelectedBrand(currentProduct, selectedBrandIndex);
+  addItem(currentProduct, selectedType, selectedPkgIndex, pkg, brand, selectedBrandIndex);
   closeModal('detailModal');
   showToast(t('toastAdded'));
 }
-function addItem(p, type, pkgIndex, pkg) {
-  const key = `${p.id}-${type}-${pkgIndex}`;
+
+function addItem(p, type, pkgIndex, pkg, brand, brandIndex) {
+  const brandKey = brand ? brand.id : 'none';
+  const key = `${p.id}-${type}-${pkgIndex}-${brandKey}`;
   const existing = cart.find(i => i.key === key);
   if (existing) { existing.qty++; }
-  else { cart.push({ key, id: p.id, type, pkgIndex, pkg, qty: 1, product: p }); }
+  else { cart.push({ key, id: p.id, type, pkgIndex, pkg, qty: 1, product: p, brand, brandIndex }); }
   updateCartBadge();
 }
+
 function updateCartBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
   const badge = document.getElementById('cartBadge');
   badge.textContent = total;
   badge.style.display = total > 0 ? 'flex' : 'none';
 }
+
 function openCart() {
   renderCart();
   document.getElementById('cartModal').classList.add('open');
 }
+
 function renderCart() {
   const container = document.getElementById('cartItems');
   const totalEl = document.getElementById('cartTotal');
@@ -1195,7 +1339,9 @@ function renderCart() {
       : item.product.emoji;
     const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${t('cartPkg')}` : '';
     const typePart = typeLabel(item.type) ? ` · ${typeLabel(item.type)}` : '';
-    const subInfo = [pkgLabel, typePart].filter(Boolean).join('');
+    // Brand nomi savat ichida ham ko'rinadi
+    const brandPart = item.brand ? ` · ${item.brand.logo} ${lang === 'ru' ? item.brand.nameRu : item.brand.nameUz}` : '';
+    const subInfo = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
     return `
     <div class="cart-item">
       <div class="cart-item-thumb">${thumb}</div>
@@ -1218,11 +1364,7 @@ function renderCart() {
   totalEl.style.display = 'flex';
   orderBtn.style.display = 'block';
 }
-function removeItem(key) {
-  cart = cart.filter(i => i.key !== key);
-  updateCartBadge();
-  renderCart();
-}
+
 function changeQty(key, delta) {
   const item = cart.find(i => i.key === key);
   if (!item) return;
@@ -1245,27 +1387,33 @@ function openAddrModal() {
   document.getElementById('addrConfirmBtn').textContent = t('addrConfirm');
   document.getElementById('addrModal').classList.add('open');
 }
+
 function startOrder() {
   if (cart.length === 0) { openCart(); return; }
   closeModal('cartModal');
   pendingOrderItems = [...cart];
   openAddrModal();
 }
+
 function orderNowDetail() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
+  const brand = getSelectedBrand(currentProduct, selectedBrandIndex);
   pendingOrderItems = [{
-    key: `${currentProduct.id}-${selectedType}-${selectedPkgIndex}`,
+    key: `${currentProduct.id}-${selectedType}-${selectedPkgIndex}-${brand ? brand.id : 'none'}`,
     id: currentProduct.id,
     type: selectedType,
     pkgIndex: selectedPkgIndex,
     pkg,
     qty: 1,
-    product: currentProduct
+    product: currentProduct,
+    brand,
+    brandIndex: selectedBrandIndex,
   }];
   closeModal('detailModal');
   openAddrModal();
 }
+
 function confirmOrder() {
   const location = document.getElementById('addrInput').value.trim();
   const phone = document.getElementById('phoneInput').value.trim();
@@ -1281,7 +1429,6 @@ function confirmOrder() {
 }
 
 // ─── ORDER PAYLOAD ───
-// Bot uchun to'liq ma'lumot — paket miqdori va narxi ham bor
 function buildOrderPayload(items, location, phone) {
   const user = tg?.initDataUnsafe?.user;
   const typeLabel = (type, l) => {
@@ -1298,19 +1445,26 @@ function buildOrderPayload(items, location, phone) {
     },
     delivery: { location, phone },
     items: items.map(i => ({
-      id:         i.product.id,
-      nameUz:     i.product.uz.name,
-      nameRu:     i.product.ru.name,
-      qty:        i.qty,
-      packageQty: i.pkg.qty,           // ← paketdagi dona soni
-      type:       i.type,
-      typeUz:     typeLabel(i.type, 'uz'),
-      typeRu:     typeLabel(i.type, 'ru'),
-      pricePerPkg: i.pkg.price,        // ← 1 paket narxi
-      subtotal:   i.pkg.price * i.qty, // ← jami (paket × miqdor)
-      imageUz:    i.product.imageUz || null,
-      imageRu:    i.product.imageRu || null,
-      emoji:      i.product.emoji,
+      id:          i.product.id,
+      nameUz:      i.product.uz.name,
+      nameRu:      i.product.ru.name,
+      qty:         i.qty,
+      packageQty:  i.pkg.qty,
+      type:        i.type,
+      typeUz:      typeLabel(i.type, 'uz'),
+      typeRu:      typeLabel(i.type, 'ru'),
+      pricePerPkg: i.pkg.price,
+      subtotal:    i.pkg.price * i.qty,
+      imageUz:     i.product.imageUz || null,
+      imageRu:     i.product.imageRu || null,
+      emoji:       i.product.emoji,
+      // ← BREND ma'lumotlari
+      brand:       i.brand ? {
+        id:      i.brand.id,
+        nameUz:  i.brand.nameUz,
+        nameRu:  i.brand.nameRu,
+        country: i.brand.country,
+      } : null,
     })),
     total: items.reduce((s, i) => s + i.pkg.price * i.qty, 0),
     lang: lang,
@@ -1318,7 +1472,10 @@ function buildOrderPayload(items, location, phone) {
 }
 
 function sendOrderToBot(items, location, phone) {
-  if (!tg) { console.log('Order payload:', JSON.stringify(buildOrderPayload(items, location, phone), null, 2)); return; }
+  if (!tg) {
+    console.log('Order payload:', JSON.stringify(buildOrderPayload(items, location, phone), null, 2));
+    return;
+  }
   const payload = buildOrderPayload(items, location, phone);
   tg.sendData(JSON.stringify(payload));
 }
