@@ -946,9 +946,80 @@ const products = [
     ],
     imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg', badge:null
   },
-
   {
-    id:2, emoji:'☀️', cat:'immunitet', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:2, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Powder', sub:''},
+    ru:{name:'Коллаген порошок',  sub:''},
+    brands: [],
+    packages: [
+      { qty:1,  price:235000, bestValue:true },
+    ],
+    imageUz:'https://iili.io/CH8jiOl.jpg', imageRu:'https://iili.io/CH8jsb2.jpg', badge:null
+  },
+{
+    id:3, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari + Probiotiklar', sub:''},
+    ru:{name:'Коллаген Пептиды + Пробиотики',  sub:''},
+    brands: [],
+    packages: [
+      { qty:1,  price:628000, bestValue:true },
+    ],
+    imageUz:'https://iili.io/CH8vCAb.jpg', imageRu:'https://iili.io/CH8voDx.jpg', badge:null
+  },
+{
+    id:4, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:''},
+    ru:{name:'Verisol Kollagen + Biotin + Antioxidants',  sub:''},
+    brands: [],
+    packages: [
+      { qty:345,  price:445000, bestValue:true },
+      { qty:120,  price:195000 },
+    ],
+    imageUz:'https://iili.io/CH84Uqx.jpg', imageRu:'https://iili.io/CH846dB.jpg', badge:null
+  },
+{
+    id:5, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Dengiz Kollageni Marine Collagen', sub:''},
+    ru:{name:'',  sub:''},
+    brands: [],
+    packages: [
+      { qty:1,  price:340000 },
+    ],
+    imageUz:'https://iili.io/CH8QEX9.jpg', imageRu:null, badge:null
+  },
+  {
+    id:6, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''},
+    ru:{name:'Коллаген Пептиды',  sub:''},
+    brands: [],
+    packages: [
+      { qty:1,  price:355000 },
+    ],
+    imageUz:'https://iili.io/CH8p5ge.jpg', imageRu:'https://iili.io/CH8pcej.jpg', badge:null
+  },
+  {
+    id:7, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Hyaluronic Acid  Complex', sub:''},
+    ru:{name:'Collagen Hyaluronic Acid  Complex',  sub:''},
+    brands: [],
+    packages: [
+      { qty:1,  price:348000 },
+    ],
+    imageUz:'https://iili.io/CHSHAqN.jpg', imageRu:'https://iili.io/CHSHR1I.jpg', badge:null
+  },
+  {
+    id:8, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Dengiz Kollageni CollagenUp', sub:''},
+    ru:{name:'Морской коллаген CollagenUp',  sub:''},
+    brands: [],
+    packages: [
+      { qty:464,  price:528000, bestValue:true },
+      { qty:206,  price:255000 },
+    ],
+    imageUz:'https://iili.io/CHS2omu.jpg', imageRu:'https://iili.io/CHS2TLx.jpg', badge:null
+  },
+  {
+    id:100, emoji:'☀️', cat:'immunitet', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
     brands: [],
@@ -959,7 +1030,7 @@ const products = [
   },
 
   {
-    id:3, emoji:'🦴', cat:'suyak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
+    id:200, emoji:'🦴', cat:'suyak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
     brands: [
@@ -974,7 +1045,7 @@ const products = [
   },
 
   {
-    id:4, emoji:'💊', cat:'hammasi', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
+    id:300, emoji:'💊', cat:'hammasi', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
     brands: [],
@@ -987,7 +1058,7 @@ const products = [
   },
 
   {
-    id:5, emoji:'💆', cat:'teri', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:400, emoji:'💆', cat:'teri', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
     brands: [],
@@ -998,7 +1069,7 @@ const products = [
   },
 
   {
-    id:6, emoji:'👁️', cat:'koz', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
+    id:500, emoji:'👁️', cat:'koz', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Lutein', sub:"Ko'z salomatligi"},
     ru:{name:'Лютеин', sub:'Здоровье глаз'},
     brands: [
@@ -1013,7 +1084,7 @@ const products = [
   },
 
   {
-    id:7, emoji:'❤️', cat:'yurak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
+    id:600, emoji:'❤️', cat:'yurak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
     brands: [],
@@ -1026,7 +1097,7 @@ const products = [
   },
 
   {
-    id:8, emoji:'🧸', cat:'bolalar', hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:700, emoji:'🧸', cat:'bolalar', hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
     brands: [],
