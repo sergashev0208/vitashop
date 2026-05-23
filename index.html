@@ -912,7 +912,7 @@ const translations = {
 // Mahsulotlarda cat: 'immunitet' deb yoziladi
 const categories = [
   { key: 'hammasi',   uz: 'Hammasi',     ru: 'Все'           },
-  { key: 'immunitet', uz: 'Immunitet',   ru: 'Иммунитет'     },
+  { key: 'kollagen',  uz: 'Kollagen',     ru: 'Коллаген'     },
   { key: 'suyak',     uz: 'Suyak',       ru: 'Кости'         },
   { key: 'teri',      uz: 'Teri & Soch', ru: 'Кожа & Волосы' },
   { key: 'koz',       uz: "Ko'z",        ru: 'Зрение'        },
@@ -927,20 +927,14 @@ const categories = [
 // brands: [{ id, nameUz, nameRu, logo (emoji), country }]
 const products = [
   {
-    id:1, emoji:'🍊', cat:'immunitet', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:true,
-    uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
-    ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
-    brands: [
-      { id:'now',     nameUz:'Now Foods',   nameRu:'Now Foods',   logo:'🟡', country:'🇺🇸 USA' },
-      { id:'solgar',  nameUz:'Solgar',      nameRu:'Solgar',      logo:'🔵', country:'🇺🇸 USA' },
-      { id:'natmade', nameUz:'Nature Made', nameRu:'Nature Made', logo:'🟢', country:'🇺🇸 USA' },
-    ],
+    id:1, emoji:'🍊', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Gele', sub:''},
+    ru:{name:'Коллаген геле', sub:''},
+    
     packages: [
-      { qty:30,  price:25000 },
-      { qty:60,  price:45000 },
-      { qty:100, price:68000, bestValue:true },
+      { qty:1,  price:297000 bestValue:true },
     ],
-    imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT'
+    imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg'
   },
 
   {
