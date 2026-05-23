@@ -1033,8 +1033,6 @@ function renderPkgOptions(p) {
     const isActive = i === selectedPkgIndex;
     const isBest = pk.bestValue;
     // Chegirma foizi (birinchi pakka nisbatan)
-    const basePerPill = Math.round(p.packages[0].price / p.packages[0].qty);
-    const discount = i > 0 ? Math.round((1 - perPill / basePerPill) * 100) : 0;
     return `
     <button class="pkg-btn ${isActive ? 'active' : ''} ${isBest ? 'best-value' : ''}"
       data-label="${t('pkgBestValue')}"
@@ -1042,7 +1040,7 @@ function renderPkgOptions(p) {
       <span class="pkg-qty">${pk.qty} ${t('pkgUnit')}</span>
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
       <span class="pkg-per-pill">${perPill.toLocaleString()} ${t('currency')}/${t('pkgPerPill')}</span>
-      ${discount > 0 ? `<span class="pkg-discount-tag">-${discount}%</span>` : ''}
+     
     </button>`;
   }).join('');
 }
