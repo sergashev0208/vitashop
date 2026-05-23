@@ -592,16 +592,18 @@
     <div class="modal-body">
       <div class="modal-name" id="modalName"></div>
       <div class="modal-price" id="modalPrice"></div>
-      <div class="form-type-title" id="formTypeTitle">Shaklini tanlang:</div>
-      <div class="type-options">
-        <button class="type-btn active" id="typePowder" onclick="selectType('powder')">
-          <span class="type-icon">🧪</span>
-          <span id="typePowderLabel">Poroshokli</span>
-        </button>
-        <button class="type-btn" id="typeChew" onclick="selectType('chew')">
-          <span class="type-icon">🍬</span>
-          <span id="typeChewLabel">Chaynaladigan</span>
-        </button>
+      <div id="typeBlock">
+        <div class="form-type-title" id="formTypeTitle">Shaklini tanlang:</div>
+        <div class="type-options">
+          <button class="type-btn active" id="typePowder" onclick="selectType('powder')">
+            <span class="type-icon">🧪</span>
+            <span id="typePowderLabel">Poroshokli</span>
+          </button>
+          <button class="type-btn" id="typeChew" onclick="selectType('chew')">
+            <span class="type-icon">🍬</span>
+            <span id="typeChewLabel">Chaynaladigan</span>
+          </button>
+        </div>
       </div>
     </div>
     <div class="modal-actions">
@@ -718,35 +720,35 @@ const categories = {
 };
 
 const products = [
-  { id:1, emoji:'🍊', cat:1,
+  { id:1, emoji:'🍊', cat:1, hasTypes:true,
     uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
     ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
     price:45000, imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT' },
-  { id:2, emoji:'☀️', cat:1,
+  { id:2, emoji:'☀️', cat:1, hasTypes:false,
     uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
     price:62000, imageUz:null, imageRu:null, badge:null },
-  { id:3, emoji:'🦴', cat:2,
+  { id:3, emoji:'🦴', cat:2, hasTypes:false,
     uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
     price:38000, imageUz:null, imageRu:null, badge:null },
-  { id:4, emoji:'💊', cat:0,
+  { id:4, emoji:'💊', cat:0, hasTypes:true,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
     price:89000, imageUz:null, imageRu:null, badge:'YANGI' },
-  { id:5, emoji:'💆', cat:3,
+  { id:5, emoji:'💆', cat:3, hasTypes:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
     price:52000, imageUz:null, imageRu:null, badge:null },
-  { id:6, emoji:'👁️', cat:4,
+  { id:6, emoji:'👁️', cat:4, hasTypes:false,
     uz:{name:'Lutein', sub:"Ko'z salomatligi"},
     ru:{name:'Лютеин', sub:'Здоровье глаз'},
     price:71000, imageUz:null, imageRu:null, badge:null },
-  { id:7, emoji:'❤️', cat:5,
+  { id:7, emoji:'❤️', cat:5, hasTypes:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
     price:95000, imageUz:null, imageRu:null, badge:null },
-  { id:8, emoji:'🧸', cat:6,
+  { id:8, emoji:'🧸', cat:6, hasTypes:true,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
     price:43000, imageUz:null, imageRu:null, badge:'MASHHUR' },
@@ -863,7 +865,7 @@ function closeZoom() {
 function openDetail(id) {
   currentProduct = products.find(p => p.id === id);
   imgLang = lang;
-  selectedType = 'powder';
+  selectedType = currentProduct.hasTypes ? 'powder' : 'none';
   populateModal(currentProduct);
   document.getElementById('detailModal').classList.add('open');
 }
@@ -871,17 +873,26 @@ function populateModal(p) {
   renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p[imgLang].name;
   document.getElementById('modalPrice').textContent = `${p.price.toLocaleString()} ${t('currency')}`;
-  document.getElementById('formTypeTitle').textContent = t('formType');
-  document.getElementById('typePowderLabel').textContent = t('powder');
-  document.getElementById('typeChewLabel').textContent = t('chew');
   document.getElementById('btnAddCart').textContent = t('addCart');
   document.getElementById('btnOrderNow').textContent = t('orderNow');
   document.getElementById('imgLangUz').classList.toggle('active', imgLang === 'uz');
   document.getElementById('imgLangRu').classList.toggle('active', imgLang === 'ru');
-  document.getElementById('typePowder').classList.toggle('active', selectedType === 'powder');
-  document.getElementById('typeChew').classList.toggle('active', selectedType === 'chew');
   const hint = document.getElementById('zoomHint');
   if (hint) hint.textContent = t('zoomHint');
+
+  // hasTypes: faqat kerakli mahsulotda shakl tanlash chiqadi
+  const typeBlock = document.getElementById('typeBlock');
+  if (p.hasTypes) {
+    typeBlock.style.display = '';
+    document.getElementById('formTypeTitle').textContent = t('formType');
+    document.getElementById('typePowderLabel').textContent = t('powder');
+    document.getElementById('typeChewLabel').textContent = t('chew');
+    document.getElementById('typePowder').classList.toggle('active', selectedType === 'powder');
+    document.getElementById('typeChew').classList.toggle('active', selectedType === 'chew');
+  } else {
+    typeBlock.style.display = 'none';
+    selectedType = 'none';
+  }
 }
 function setImgLang(l) {
   imgLang = l;
@@ -897,7 +908,7 @@ function selectType(type) {
 function quickAdd(e, id) {
   e.stopPropagation();
   const p = products.find(x => x.id === id);
-  addItem(p, 'powder');
+  addItem(p, p.hasTypes ? 'powder' : 'none');
   showToast(t('toastAdded'));
 }
 function addToCart() {
@@ -935,7 +946,7 @@ function renderCart() {
     orderBtn.style.display = 'none';
     return;
   }
-  const typeLabel = type => type === 'powder' ? t('powder') : t('chew');
+  const typeLabel = type => type === 'powder' ? t('powder') : type === 'chew' ? t('chew') : '';
   container.innerHTML = cart.map(item => {
     const imgUrl = lang === 'ru' ? item.product.imageRu : item.product.imageUz;
     const thumb = imgUrl
