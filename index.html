@@ -3,23 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>VitaShop</title>
+<title>Vitamino_2022</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
 
   :root {
-    --green: #2ECC71;
-    --green-dark: #27AE60;
-    --green-light: #EAFAF1;
-    --orange: #F39C12;
-    --orange-light: #FEF9E7;
+    --pink: #E91E8C;
+    --pink-dark: #C2185B;
+    --pink-mid: #F06292;
+    --pink-light: #FCE4EC;
+    --pink-pale: #FFF0F6;
+    --orange: #FF6B9D;
+    --orange-light: #FFF0F6;
     --white: #FFFFFF;
-    --gray: #F4F6F8;
-    --text: #1A1A2E;
-    --text-soft: #7F8C8D;
-    --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    --radius: 16px;
+    --gray: #FDF5F9;
+    --text: #2D1B2E;
+    --text-soft: #9E6B8A;
+    --card-shadow: 0 4px 20px rgba(233,30,140,0.10);
+    --radius: 18px;
     --bottom-bar: 72px;
   }
 
@@ -36,12 +38,12 @@
 
   /* ── HEADER ── */
   .header {
-    background: linear-gradient(135deg, #27AE60 0%, #2ECC71 100%);
+    background: linear-gradient(135deg, #C2185B 0%, #E91E8C 60%, #F06292 100%);
     padding: 20px 16px 14px;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 12px rgba(46,204,113,0.3);
+    box-shadow: 0 2px 16px rgba(233,30,140,0.35);
   }
   .header-top {
     display: flex;
@@ -55,7 +57,7 @@
     color: white;
     letter-spacing: 0.5px;
   }
-  .logo span { color: #ABEBC6; }
+  .logo span { color: #FFB3D1; }
   .lang-toggle {
     display: flex;
     background: rgba(255,255,255,0.2);
@@ -75,10 +77,7 @@
     background: transparent;
     color: rgba(255,255,255,0.7);
   }
-  .lang-btn.active {
-    background: white;
-    color: var(--green-dark);
-  }
+  .lang-btn.active { background: white; color: var(--pink-dark); }
 
   /* ── CATEGORIES ── */
   .categories {
@@ -103,11 +102,7 @@
     transition: all 0.2s;
     flex-shrink: 0;
   }
-  .cat-btn.active {
-    background: white;
-    color: var(--green-dark);
-    border-color: white;
-  }
+  .cat-btn.active { background: white; color: var(--pink-dark); border-color: white; }
 
   /* ── PRODUCT GRID ── */
   .section-title {
@@ -130,12 +125,13 @@
     cursor: pointer;
     transition: transform 0.18s, box-shadow 0.18s;
     position: relative;
+    border: 1px solid #FADADD;
   }
   .card:active { transform: scale(0.97); }
   .card-img-wrap {
     width: 100%;
     height: 130px;
-    background: var(--green-light);
+    background: var(--pink-light);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -147,35 +143,18 @@
     object-fit: cover;
     display: block;
   }
-  .card-img-emoji {
-    font-size: 52px;
-    line-height: 1;
-  }
+  .card-img-emoji { font-size: 52px; line-height: 1; }
   .card-body { padding: 10px 12px 12px; }
-  .card-name {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 4px;
-    line-height: 1.2;
-  }
-  .card-sub {
-    font-size: 11px;
-    color: var(--text-soft);
-    margin-bottom: 8px;
-  }
-  .card-price {
-    font-size: 15px;
-    font-weight: 900;
-    color: var(--green-dark);
-  }
+  .card-name { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 4px; line-height: 1.2; }
+  .card-sub { font-size: 11px; color: var(--text-soft); margin-bottom: 8px; }
+  .card-price { font-size: 15px; font-weight: 900; color: var(--pink-dark); }
   .card-add {
     position: absolute;
     bottom: 12px;
     right: 10px;
     width: 28px;
     height: 28px;
-    background: var(--green);
+    background: var(--pink);
     border-radius: 50%;
     border: none;
     color: white;
@@ -185,15 +164,15 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(46,204,113,0.4);
+    box-shadow: 0 2px 8px rgba(233,30,140,0.4);
     transition: background 0.2s, transform 0.15s;
   }
-  .card-add:active { transform: scale(0.9); background: var(--green-dark); }
+  .card-add:active { transform: scale(0.9); background: var(--pink-dark); }
   .badge {
     position: absolute;
     top: 8px;
     left: 8px;
-    background: var(--orange);
+    background: linear-gradient(135deg, #FF6B9D, #E91E8C);
     color: white;
     font-size: 10px;
     font-weight: 800;
@@ -209,19 +188,19 @@
     left: 0;
     right: 0;
     background: white;
-    border-top: 1px solid #ECF0F1;
+    border-top: 1px solid #FADADD;
     padding: 10px 16px 12px;
     display: flex;
     gap: 10px;
     z-index: 200;
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 -4px 20px rgba(233,30,140,0.10);
   }
   .btn-cart {
     position: relative;
     width: 52px;
     height: 52px;
     border-radius: 14px;
-    border: 2.5px solid var(--green);
+    border: 2.5px solid var(--pink);
     background: white;
     font-size: 22px;
     display: flex;
@@ -231,29 +210,28 @@
     flex-shrink: 0;
     transition: background 0.2s;
   }
-  .btn-cart:active { background: var(--green-light); }
+  .btn-cart:active { background: var(--pink-light); }
   .cart-badge {
     position: absolute;
     top: -6px;
     right: -6px;
-    background: var(--orange);
+    background: var(--pink-dark);
     color: white;
     font-size: 11px;
     font-weight: 900;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
-    display: none;
   }
   .btn-order {
     flex: 1;
     height: 52px;
     border-radius: 14px;
     border: none;
-    background: linear-gradient(135deg, #27AE60, #2ECC71);
+    background: linear-gradient(135deg, #C2185B, #E91E8C);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
@@ -261,15 +239,15 @@
     cursor: pointer;
     letter-spacing: 0.3px;
     transition: opacity 0.2s, transform 0.15s;
-    box-shadow: 0 4px 16px rgba(46,204,113,0.35);
+    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
   }
   .btn-order:active { transform: scale(0.98); opacity: 0.92; }
 
-  /* ── MODAL DETAIL ── */
+  /* ── MODAL OVERLAY ── */
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(45,27,46,0.55);
     z-index: 300;
     display: none;
     align-items: flex-end;
@@ -280,7 +258,7 @@
     background: white;
     border-radius: 24px 24px 0 0;
     width: 100%;
-    max-height: 90vh;
+    max-height: 92vh;
     overflow-y: auto;
     padding-bottom: 28px;
     animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
@@ -292,32 +270,30 @@
   .modal-handle {
     width: 36px;
     height: 4px;
-    background: #DDE;
+    background: #FADADD;
     border-radius: 2px;
     margin: 10px auto 16px;
   }
 
-  /* ── MODAL IMAGE (with lang switch) ── */
+  /* ── DETAIL MODAL IMAGE ── */
   .modal-image-wrap {
     position: relative;
     width: 100%;
-    height: 260px;
-    background: var(--green-light);
+    height: 280px;
+    background: var(--pink-light);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: zoom-in;
   }
   .modal-image-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s;
   }
-  .modal-image-emoji {
-    font-size: 90px;
-    line-height: 1;
-  }
-  /* Lang pills on top of image */
+  .modal-image-emoji { font-size: 90px; line-height: 1; }
   .img-lang-pills {
     position: absolute;
     top: 10px;
@@ -339,40 +315,69 @@
     backdrop-filter: blur(6px);
     transition: all 0.2s;
   }
-  .img-lang-pill.active {
-    background: white;
-    color: var(--green-dark);
+  .img-lang-pill.active { background: white; color: var(--pink-dark); }
+  .zoom-hint {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(194,24,91,0.7);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ── FULLSCREEN IMAGE ZOOM ── */
+  .zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.93);
+    z-index: 500;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .zoom-overlay.open { display: flex; }
+  .zoom-overlay img {
+    max-width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 12px;
+    touch-action: pinch-zoom;
+  }
+  .zoom-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    font-size: 26px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
   }
 
   .modal-body { padding: 18px 16px 0; }
-  .modal-name {
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .modal-price {
-    font-size: 20px;
-    font-weight: 900;
-    color: var(--green-dark);
-    margin-bottom: 16px;
-  }
-  .form-type-title {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .type-options {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+  .modal-name { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
+  .modal-price { font-size: 20px; font-weight: 900; color: var(--pink-dark); margin-bottom: 16px; }
+  .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+  .type-options { display: flex; gap: 10px; margin-bottom: 20px; }
   .type-btn {
     flex: 1;
     padding: 10px 8px;
-    border-radius: 12px;
-    border: 2px solid #ECF0F1;
+    border-radius: 14px;
+    border: 2px solid #FADADD;
     background: white;
     font-family: 'Nunito', sans-serif;
     font-size: 13px;
@@ -382,46 +387,100 @@
     text-align: center;
     color: var(--text-soft);
   }
-  .type-btn.active {
-    border-color: var(--green);
-    background: var(--green-light);
-    color: var(--green-dark);
-  }
+  .type-btn.active { border-color: var(--pink); background: var(--pink-light); color: var(--pink-dark); }
   .type-icon { font-size: 20px; display: block; margin-bottom: 4px; }
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    padding: 0 16px;
-  }
+  .modal-actions { display: flex; gap: 10px; padding: 0 16px; }
   .btn-add-cart {
     flex: 1;
     height: 50px;
     border-radius: 14px;
-    border: 2.5px solid var(--green);
+    border: 2.5px solid var(--pink);
     background: white;
-    color: var(--green-dark);
+    color: var(--pink-dark);
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 800;
     cursor: pointer;
     transition: all 0.2s;
   }
-  .btn-add-cart:active { background: var(--green-light); }
+  .btn-add-cart:active { background: var(--pink-light); }
   .btn-order-now {
     flex: 1.4;
     height: 50px;
     border-radius: 14px;
     border: none;
-    background: linear-gradient(135deg, #27AE60, #2ECC71);
+    background: linear-gradient(135deg, #C2185B, #E91E8C);
     color: white;
     font-family: 'Nunito', sans-serif;
     font-size: 15px;
     font-weight: 900;
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(46,204,113,0.35);
+    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
     transition: opacity 0.2s;
   }
   .btn-order-now:active { opacity: 0.88; }
+
+  /* ── ADDRESS MODAL ── */
+  .addr-modal {
+    background: white;
+    border-radius: 24px 24px 0 0;
+    width: 100%;
+    padding-bottom: 28px;
+    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  .addr-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--text);
+    padding: 0 16px 16px;
+  }
+  .addr-subtitle {
+    font-size: 13px;
+    color: var(--text-soft);
+    padding: 0 16px 20px;
+    margin-top: -10px;
+    line-height: 1.5;
+  }
+  .addr-field {
+    padding: 0 16px 16px;
+  }
+  .addr-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--pink-dark);
+    margin-bottom: 8px;
+    display: block;
+  }
+  .addr-input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 2px solid #FADADD;
+    border-radius: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    background: var(--pink-pale);
+  }
+  .addr-input:focus { border-color: var(--pink); background: white; }
+  .addr-input::placeholder { color: #C8A4B5; }
+  .addr-confirm {
+    width: calc(100% - 32px);
+    margin: 4px 16px 0;
+    height: 52px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(135deg, #C2185B, #E91E8C);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(233,30,140,0.35);
+  }
+  .addr-confirm:active { opacity: 0.88; }
 
   /* ── CART MODAL ── */
   .cart-item {
@@ -429,13 +488,13 @@
     align-items: center;
     gap: 12px;
     padding: 12px 16px;
-    border-bottom: 1px solid #F0F0F0;
+    border-bottom: 1px solid #FFF0F6;
   }
   .cart-item-thumb {
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: var(--green-light);
+    background: var(--pink-light);
     overflow: hidden;
     flex-shrink: 0;
     display: flex;
@@ -443,23 +502,12 @@
     justify-content: center;
     font-size: 24px;
   }
-  .cart-item-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .cart-item-info { flex: 1; }
   .cart-item-name { font-size: 14px; font-weight: 800; }
   .cart-item-type { font-size: 12px; color: var(--text-soft); }
-  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--green-dark); white-space: nowrap; }
-  .cart-item-remove {
-    background: none;
-    border: none;
-    font-size: 18px;
-    color: #E74C3C;
-    cursor: pointer;
-    padding: 4px;
-  }
+  .cart-item-price { font-size: 14px; font-weight: 800; color: var(--pink-dark); white-space: nowrap; }
+  .cart-item-remove { background: none; border: none; font-size: 18px; color: #E91E8C; cursor: pointer; padding: 4px; }
   .cart-total {
     display: flex;
     justify-content: space-between;
@@ -467,6 +515,9 @@
     padding: 16px;
     font-size: 16px;
     font-weight: 900;
+    background: var(--pink-pale);
+    margin: 8px 16px;
+    border-radius: 14px;
   }
   .cart-empty {
     text-align: center;
@@ -482,7 +533,7 @@
     top: 24px;
     left: 50%;
     transform: translateX(-50%) translateY(-80px);
-    background: var(--green-dark);
+    background: var(--pink-dark);
     color: white;
     padding: 12px 20px;
     border-radius: 50px;
@@ -491,9 +542,13 @@
     z-index: 999;
     transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
     white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 20px rgba(233,30,140,0.35);
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* input number arrows hide */
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
 </style>
 </head>
 <body>
@@ -501,7 +556,7 @@
 <!-- HEADER -->
 <div class="header">
   <div class="header-top">
-    <div class="logo">Vita<span>Shop</span> 🌿</div>
+    <div class="logo">Vitamino<span>_2022</span> 🌸</div>
     <div class="lang-toggle">
       <button class="lang-btn active" onclick="setLang('uz')">UZ</button>
       <button class="lang-btn" onclick="setLang('ru')">RU</button>
@@ -520,22 +575,20 @@
     🛒
     <span class="cart-badge" id="cartBadge">0</span>
   </button>
-  <button class="btn-order" id="orderBtn" onclick="orderAll()">📦 Buyurtma berish</button>
+  <button class="btn-order" id="orderBtn" onclick="startOrder()">📦 Buyurtma berish</button>
 </div>
 
 <!-- PRODUCT DETAIL MODAL -->
 <div class="modal-overlay" id="detailModal" onclick="handleOverlayClick(event,'detailModal')">
   <div class="modal">
     <div class="modal-handle"></div>
-
-    <!-- Image area with lang pills overlay -->
-    <div class="modal-image-wrap" id="modalImageWrap">
+    <div class="modal-image-wrap" id="modalImageWrap" onclick="openZoom()">
       <div class="img-lang-pills">
-        <button class="img-lang-pill active" id="imgLangUz" onclick="setImgLang('uz')">🇺🇿 UZ</button>
-        <button class="img-lang-pill" id="imgLangRu" onclick="setImgLang('ru')">🇷🇺 RU</button>
+        <button class="img-lang-pill active" id="imgLangUz" onclick="event.stopPropagation();setImgLang('uz')">🇺🇿 UZ</button>
+        <button class="img-lang-pill" id="imgLangRu" onclick="event.stopPropagation();setImgLang('ru')">🇷🇺 RU</button>
       </div>
+      <div class="zoom-hint" id="zoomHint">🔍 Rasm bosing — zoom</div>
     </div>
-
     <div class="modal-body">
       <div class="modal-name" id="modalName"></div>
       <div class="modal-price" id="modalPrice"></div>
@@ -553,9 +606,15 @@
     </div>
     <div class="modal-actions">
       <button class="btn-add-cart" id="btnAddCart" onclick="addToCart()">🛒 Savatga</button>
-      <button class="btn-order-now" id="btnOrderNow" onclick="orderNow()">⚡ Hozir buyurtma</button>
+      <button class="btn-order-now" id="btnOrderNow" onclick="orderNowDetail()">⚡ Hozir buyurtma</button>
     </div>
   </div>
+</div>
+
+<!-- FULLSCREEN ZOOM -->
+<div class="zoom-overlay" id="zoomOverlay" onclick="closeZoom()">
+  <button class="zoom-close" onclick="closeZoom()">✕</button>
+  <img id="zoomImg" src="" alt="">
 </div>
 
 <!-- CART MODAL -->
@@ -566,11 +625,29 @@
     <div id="cartItems"></div>
     <div class="cart-total" id="cartTotal" style="display:none">
       <span id="totalLabel">Jami:</span>
-      <span id="totalPrice" style="color:var(--green-dark)"></span>
+      <span id="totalPrice" style="color:var(--pink-dark)"></span>
     </div>
     <div style="padding: 0 16px; display:none" id="cartOrderBtn">
-      <button class="btn-order-now" style="width:100%; height:52px; font-size:16px" onclick="orderAll()">📦 Buyurtma berish</button>
+      <button class="btn-order-now" style="width:100%; height:52px; font-size:16px" onclick="startOrder()">📦 Buyurtma berish</button>
     </div>
+  </div>
+</div>
+
+<!-- ADDRESS MODAL -->
+<div class="modal-overlay" id="addrModal" onclick="handleOverlayClick(event,'addrModal')">
+  <div class="addr-modal">
+    <div class="modal-handle"></div>
+    <div class="addr-title" id="addrTitle">📍 Yetkazib berish ma'lumotlari</div>
+    <div class="addr-subtitle" id="addrSubtitle">Buyurtmangizni to'g'ri yetkazib berish uchun ma'lumot kiriting</div>
+    <div class="addr-field">
+      <label class="addr-label" id="addrLocLabel">📍 Manzil (ko'cha, uy raqami)</label>
+      <input class="addr-input" id="addrInput" type="text" placeholder="Masalan: Chilonzor 4-daha, 12-uy">
+    </div>
+    <div class="addr-field">
+      <label class="addr-label" id="addrPhoneLabel">📞 Telefon raqam</label>
+      <input class="addr-input" id="phoneInput" type="tel" placeholder="+998 90 123 45 67">
+    </div>
+    <button class="addr-confirm" id="addrConfirmBtn" onclick="confirmOrder()">✅ Buyurtmani tasdiqlash</button>
   </div>
 </div>
 
@@ -578,15 +655,10 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ───────────────────────────────────────────────
-// TELEGRAM INIT
-// ───────────────────────────────────────────────
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
-// ───────────────────────────────────────────────
-// TRANSLATIONS
-// ───────────────────────────────────────────────
+// ─── TRANSLATIONS ───
 const translations = {
   uz: {
     allVit: 'Barcha vitaminlar',
@@ -602,6 +674,16 @@ const translations = {
     toastAdded: "✅ Savatga qo'shildi!",
     toastOrdering: '✅ Buyurtma yuborildi!',
     currency: "so'm",
+    addrTitle: "📍 Yetkazib berish ma'lumotlari",
+    addrSubtitle: "Buyurtmangizni to'g'ri yetkazib berish uchun ma'lumot kiriting",
+    addrLocLabel: "📍 Manzil (ko'cha, uy raqami)",
+    addrPhoneLabel: "📞 Telefon raqam",
+    addrPlaceholderLoc: "Masalan: Chilonzor 4-daha, 12-uy",
+    addrPlaceholderPhone: "+998 90 123 45 67",
+    addrConfirm: "✅ Buyurtmani tasdiqlash",
+    addrErrorLoc: "⚠️ Manzilni kiriting!",
+    addrErrorPhone: "⚠️ Telefon raqamni kiriting!",
+    zoomHint: "🔍 Rasm bosing — zoom",
   },
   ru: {
     allVit: 'Все витамины',
@@ -617,6 +699,16 @@ const translations = {
     toastAdded: '✅ Добавлено в корзину!',
     toastOrdering: '✅ Заказ отправлен!',
     currency: 'сум',
+    addrTitle: "📍 Данные для доставки",
+    addrSubtitle: "Введите данные для правильной доставки заказа",
+    addrLocLabel: "📍 Адрес (улица, номер дома)",
+    addrPhoneLabel: "📞 Номер телефона",
+    addrPlaceholderLoc: "Например: ул. Навои, д. 12",
+    addrPlaceholderPhone: "+998 90 123 45 67",
+    addrConfirm: "✅ Подтвердить заказ",
+    addrErrorLoc: "⚠️ Введите адрес!",
+    addrErrorPhone: "⚠️ Введите номер телефона!",
+    zoomHint: "🔍 Нажмите на фото — zoom",
   }
 };
 
@@ -625,90 +717,50 @@ const categories = {
   ru: ['Все', 'Иммунитет', 'Кости', 'Кожа & Волосы', 'Зрение', 'Сердце', 'Детские', 'Спорт'],
 };
 
-// ───────────────────────────────────────────────
-// PRODUCTS
-// imageUz / imageRu — URL yoki null (null bo'lsa emoji ko'rinadi)
-// ───────────────────────────────────────────────
 const products = [
-  {
-    id: 1, emoji: '🍊', cat: 1,
-    uz: { name: 'Vitamin C', sub: 'Immunitet kuchaytirgich' },
-    ru: { name: 'Витамин C', sub: 'Усилитель иммунитета' },
-    price: 45000,
-    imageUz: 'https://iili.io/CHC7lgj.jpg', imageRu: null,
-    badge: 'HIT',
-  },
-  {
-    id: 2, emoji: '☀️', cat: 1,
-    uz: { name: 'Vitamin D3', sub: "Quyosh vitamini" },
-    ru: { name: 'Витамин D3', sub: 'Солнечный витамин' },
-    price: 62000,
-    imageUz: null, imageRu: null,
-    badge: null,
-  },
-  {
-    id: 3, emoji: '🦴', cat: 2,
-    uz: { name: 'Kalsiy + D3', sub: "Suyak mustahkamlovchi" },
-    ru: { name: 'Кальций + D3', sub: 'Укрепление костей' },
-    price: 38000,
-    imageUz: null, imageRu: null,
-    badge: null,
-  },
-  {
-    id: 4, emoji: '💊', cat: 0,
-    uz: { name: 'Multivitamin', sub: 'Kunlik kompleks' },
-    ru: { name: 'Мультивитамин', sub: 'Ежедневный комплекс' },
-    price: 89000,
-    imageUz: null, imageRu: null,
-    badge: 'YANGI',
-  },
-  {
-    id: 5, emoji: '💆', cat: 3,
-    uz: { name: 'Biotin', sub: 'Soch va tirnoq' },
-    ru: { name: 'Биотин', sub: 'Волосы и ногти' },
-    price: 52000,
-    imageUz: null, imageRu: null,
-    badge: null,
-  },
-  {
-    id: 6, emoji: '👁️', cat: 4,
-    uz: { name: 'Lutein', sub: "Ko'z salomatligi" },
-    ru: { name: 'Лютеин', sub: 'Здоровье глаз' },
-    price: 71000,
-    imageUz: null, imageRu: null,
-    badge: null,
-  },
-  {
-    id: 7, emoji: '❤️', cat: 5,
-    uz: { name: 'Omega-3', sub: "Yurak sog'ligi" },
-    ru: { name: 'Омега-3', sub: 'Здоровье сердца' },
-    price: 95000,
-    imageUz: null, imageRu: null,
-    badge: null,
-  },
-  {
-    id: 8, emoji: '🧸', cat: 6,
-    uz: { name: 'Bolalar vitamini', sub: 'Multivitamin 3-12 yosh' },
-    ru: { name: 'Детские витамины', sub: 'Мультивитамин 3-12 лет' },
-    price: 43000,
-    imageUz: null, imageRu: null,
-    badge: 'MASHHUR',
-  },
+  { id:1, emoji:'🍊', cat:1,
+    uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
+    ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
+    price:45000, imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:null, badge:'HIT' },
+  { id:2, emoji:'☀️', cat:1,
+    uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
+    ru:{name:'Витамин D3', sub:'Солнечный витамин'},
+    price:62000, imageUz:null, imageRu:null, badge:null },
+  { id:3, emoji:'🦴', cat:2,
+    uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
+    ru:{name:'Кальций + D3', sub:'Укрепление костей'},
+    price:38000, imageUz:null, imageRu:null, badge:null },
+  { id:4, emoji:'💊', cat:0,
+    uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
+    ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
+    price:89000, imageUz:null, imageRu:null, badge:'YANGI' },
+  { id:5, emoji:'💆', cat:3,
+    uz:{name:'Biotin', sub:'Soch va tirnoq'},
+    ru:{name:'Биотин', sub:'Волосы и ногти'},
+    price:52000, imageUz:null, imageRu:null, badge:null },
+  { id:6, emoji:'👁️', cat:4,
+    uz:{name:'Lutein', sub:"Ko'z salomatligi"},
+    ru:{name:'Лютеин', sub:'Здоровье глаз'},
+    price:71000, imageUz:null, imageRu:null, badge:null },
+  { id:7, emoji:'❤️', cat:5,
+    uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
+    ru:{name:'Омега-3', sub:'Здоровье сердца'},
+    price:95000, imageUz:null, imageRu:null, badge:null },
+  { id:8, emoji:'🧸', cat:6,
+    uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
+    ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
+    price:43000, imageUz:null, imageRu:null, badge:'MASHHUR' },
 ];
 
-// ───────────────────────────────────────────────
-// STATE
-// ───────────────────────────────────────────────
 let lang = 'uz';
 let selectedCat = 0;
 let currentProduct = null;
 let imgLang = 'uz';
 let selectedType = 'powder';
 let cart = [];
+let pendingOrderItems = null;
 
-// ───────────────────────────────────────────────
-// LANGUAGE
-// ───────────────────────────────────────────────
+// ─── LANGUAGE ───
 function setLang(l) {
   lang = l;
   document.querySelectorAll('.lang-btn').forEach(b =>
@@ -726,13 +778,11 @@ function updateStaticText() {
   if (currentProduct) populateModal(currentProduct);
 }
 
-// ───────────────────────────────────────────────
-// CATEGORIES
-// ───────────────────────────────────────────────
+// ─── CATEGORIES ───
 function renderCategories() {
   const cats = categories[lang];
   document.getElementById('categories').innerHTML = cats.map((c, i) =>
-    `<button class="cat-btn ${selectedCat === i ? 'active' : ''}" onclick="selectCat(${i})">${c}</button>`
+    `<button class="cat-btn ${selectedCat===i?'active':''}" onclick="selectCat(${i})">${c}</button>`
   ).join('');
 }
 function selectCat(i) {
@@ -741,18 +791,7 @@ function selectCat(i) {
   renderProducts();
 }
 
-// ───────────────────────────────────────────────
-// IMAGE HELPER — emoji yoki <img>
-// ───────────────────────────────────────────────
-function productImageHTML(p, useLang, classes) {
-  const url = useLang === 'ru' ? p.imageRu : p.imageUz;
-  if (url) return `<img src="${url}" alt="${p[useLang].name}" class="${classes}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`;
-  return '';
-}
-
-// ───────────────────────────────────────────────
-// PRODUCTS GRID
-// ───────────────────────────────────────────────
+// ─── PRODUCTS ───
 function renderProducts() {
   const filtered = selectedCat === 0 ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
@@ -775,40 +814,52 @@ function renderProducts() {
   }).join('');
 }
 
-// ───────────────────────────────────────────────
-// MODAL IMAGE RENDER
-// ───────────────────────────────────────────────
+// ─── MODAL IMAGE ───
 function renderModalImage(p, il) {
   const wrap = document.getElementById('modalImageWrap');
-  // pilllarni saqlab qolamiz
   const pills = wrap.querySelector('.img-lang-pills');
+  const hint = wrap.querySelector('.zoom-hint');
   wrap.innerHTML = '';
   wrap.appendChild(pills);
+  wrap.appendChild(hint);
 
   const url = il === 'ru' ? p.imageRu : p.imageUz;
   if (url) {
     const img = document.createElement('img');
     img.src = url;
     img.alt = p[il].name;
+    img.id = 'modalImg';
     img.onerror = () => {
       img.remove();
       const em = document.createElement('div');
       em.className = 'modal-image-emoji';
       em.textContent = p.emoji;
       wrap.insertBefore(em, pills);
+      hint.style.display = 'none';
     };
     wrap.insertBefore(img, pills);
+    hint.style.display = '';
   } else {
     const em = document.createElement('div');
     em.className = 'modal-image-emoji';
     em.textContent = p.emoji;
     wrap.insertBefore(em, pills);
+    hint.style.display = 'none';
   }
 }
 
-// ───────────────────────────────────────────────
-// DETAIL MODAL
-// ───────────────────────────────────────────────
+// ─── ZOOM ───
+function openZoom() {
+  const img = document.getElementById('modalImg');
+  if (!img) return;
+  document.getElementById('zoomImg').src = img.src;
+  document.getElementById('zoomOverlay').classList.add('open');
+}
+function closeZoom() {
+  document.getElementById('zoomOverlay').classList.remove('open');
+}
+
+// ─── DETAIL MODAL ───
 function openDetail(id) {
   currentProduct = products.find(p => p.id === id);
   imgLang = lang;
@@ -816,7 +867,6 @@ function openDetail(id) {
   populateModal(currentProduct);
   document.getElementById('detailModal').classList.add('open');
 }
-
 function populateModal(p) {
   renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p[imgLang].name;
@@ -826,41 +876,36 @@ function populateModal(p) {
   document.getElementById('typeChewLabel').textContent = t('chew');
   document.getElementById('btnAddCart').textContent = t('addCart');
   document.getElementById('btnOrderNow').textContent = t('orderNow');
-
   document.getElementById('imgLangUz').classList.toggle('active', imgLang === 'uz');
   document.getElementById('imgLangRu').classList.toggle('active', imgLang === 'ru');
   document.getElementById('typePowder').classList.toggle('active', selectedType === 'powder');
   document.getElementById('typeChew').classList.toggle('active', selectedType === 'chew');
+  const hint = document.getElementById('zoomHint');
+  if (hint) hint.textContent = t('zoomHint');
 }
-
 function setImgLang(l) {
   imgLang = l;
   if (currentProduct) populateModal(currentProduct);
 }
-
 function selectType(type) {
   selectedType = type;
   document.getElementById('typePowder').classList.toggle('active', type === 'powder');
   document.getElementById('typeChew').classList.toggle('active', type === 'chew');
 }
 
-// ───────────────────────────────────────────────
-// CART
-// ───────────────────────────────────────────────
+// ─── CART ───
 function quickAdd(e, id) {
   e.stopPropagation();
   const p = products.find(x => x.id === id);
   addItem(p, 'powder');
   showToast(t('toastAdded'));
 }
-
 function addToCart() {
   if (!currentProduct) return;
   addItem(currentProduct, selectedType);
   closeModal('detailModal');
   showToast(t('toastAdded'));
 }
-
 function addItem(p, type) {
   const key = `${p.id}-${type}`;
   const existing = cart.find(i => i.key === key);
@@ -868,39 +913,33 @@ function addItem(p, type) {
   else cart.push({ key, id: p.id, type, qty: 1, product: p });
   updateCartBadge();
 }
-
 function updateCartBadge() {
   const total = cart.reduce((s, i) => s + i.qty, 0);
   const badge = document.getElementById('cartBadge');
   badge.textContent = total;
   badge.style.display = total > 0 ? 'flex' : 'none';
 }
-
 function openCart() {
   renderCart();
   document.getElementById('cartModal').classList.add('open');
 }
-
 function renderCart() {
   const container = document.getElementById('cartItems');
-  const totalEl   = document.getElementById('cartTotal');
-  const orderBtn  = document.getElementById('cartOrderBtn');
+  const totalEl = document.getElementById('cartTotal');
+  const orderBtn = document.getElementById('cartOrderBtn');
   document.getElementById('cartTitle').textContent = t('cartTitle');
   document.getElementById('totalLabel').textContent = t('total');
-
   if (cart.length === 0) {
     container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div>${t('emptyCart')}</div>`;
     totalEl.style.display = 'none';
     orderBtn.style.display = 'none';
     return;
   }
-
   const typeLabel = type => type === 'powder' ? t('powder') : t('chew');
-
   container.innerHTML = cart.map(item => {
     const imgUrl = lang === 'ru' ? item.product.imageRu : item.product.imageUz;
     const thumb = imgUrl
-      ? `<img src="${imgUrl}" alt="${item.product[lang].name}" style="width:100%;height:100%;object-fit:cover;">`
+      ? `<img src="${imgUrl}" alt="${item.product[lang].name}">`
       : item.product.emoji;
     return `
     <div class="cart-item">
@@ -913,39 +952,80 @@ function renderCart() {
       <button class="cart-item-remove" onclick="removeItem('${item.key}')">🗑</button>
     </div>`;
   }).join('');
-
   const total = cart.reduce((s, i) => s + i.product.price * i.qty, 0);
   document.getElementById('totalPrice').textContent = `${total.toLocaleString()} ${t('currency')}`;
   totalEl.style.display = 'flex';
   orderBtn.style.display = 'block';
 }
-
 function removeItem(key) {
   cart = cart.filter(i => i.key !== key);
   updateCartBadge();
   renderCart();
 }
 
-// ───────────────────────────────────────────────
-// ORDER — sotuvchiga yuboriladi
-// bot.py tomonida: tg.sendData → web_app_data handle
-// har bir mahsulot uchun imageUz + imageRu URL ham yuboriladi
-// ───────────────────────────────────────────────
-function buildOrderPayload(items) {
+// ─── ADDRESS MODAL ───
+function openAddrModal() {
+  document.getElementById('addrTitle').textContent = t('addrTitle');
+  document.getElementById('addrSubtitle').textContent = t('addrSubtitle');
+  document.getElementById('addrLocLabel').textContent = t('addrLocLabel');
+  document.getElementById('addrPhoneLabel').textContent = t('addrPhoneLabel');
+  document.getElementById('addrInput').placeholder = t('addrPlaceholderLoc');
+  document.getElementById('phoneInput').placeholder = t('addrPlaceholderPhone');
+  document.getElementById('addrConfirmBtn').textContent = t('addrConfirm');
+  document.getElementById('addrModal').classList.add('open');
+}
+
+function startOrder() {
+  if (cart.length === 0) { openCart(); return; }
+  closeModal('cartModal');
+  pendingOrderItems = [...cart];
+  openAddrModal();
+}
+
+function orderNowDetail() {
+  if (!currentProduct) return;
+  pendingOrderItems = [{
+    key: `${currentProduct.id}-${selectedType}`,
+    id: currentProduct.id,
+    type: selectedType,
+    qty: 1,
+    product: currentProduct
+  }];
+  closeModal('detailModal');
+  openAddrModal();
+}
+
+function confirmOrder() {
+  const location = document.getElementById('addrInput').value.trim();
+  const phone = document.getElementById('phoneInput').value.trim();
+  if (!location) { showToast(t('addrErrorLoc')); return; }
+  if (!phone) { showToast(t('addrErrorPhone')); return; }
+  sendOrderToBot(pendingOrderItems, location, phone);
+  cart = [];
+  updateCartBadge();
+  closeModal('addrModal');
+  document.getElementById('addrInput').value = '';
+  document.getElementById('phoneInput').value = '';
+  showToast(t('toastOrdering'));
+}
+
+// ─── ORDER PAYLOAD ───
+function buildOrderPayload(items, location, phone) {
   const user = tg?.initDataUnsafe?.user;
   return {
     user: {
-      id:        user?.id        || null,
-      username:  user?.username  || null,
+      id:        user?.id || null,
+      username:  user?.username || null,
       firstName: user?.first_name || null,
-      phone:     user?.phone_number || null,
+      phone:     phone,
     },
+    delivery: { location, phone },
     items: items.map(i => ({
       id:       i.product.id,
       nameUz:   i.product.uz.name,
       nameRu:   i.product.ru.name,
       qty:      i.qty,
-      type:     i.type,           // 'powder' | 'chew'
+      type:     i.type,
       price:    i.product.price,
       subtotal: i.product.price * i.qty,
       imageUz:  i.product.imageUz || null,
@@ -957,38 +1037,13 @@ function buildOrderPayload(items) {
   };
 }
 
-function sendOrderToBot(items) {
-  if (!tg) return;
-  const payload = buildOrderPayload(items);
+function sendOrderToBot(items, location, phone) {
+  if (!tg) { console.log('Order:', buildOrderPayload(items, location, phone)); return; }
+  const payload = buildOrderPayload(items, location, phone);
   tg.sendData(JSON.stringify(payload));
 }
 
-function orderNow() {
-  if (!currentProduct) return;
-  const items = [{
-    key: `${currentProduct.id}-${selectedType}`,
-    id: currentProduct.id,
-    type: selectedType,
-    qty: 1,
-    product: currentProduct
-  }];
-  sendOrderToBot(items);
-  closeModal('detailModal');
-  showToast(t('toastOrdering'));
-}
-
-function orderAll() {
-  if (cart.length === 0) { openCart(); return; }
-  sendOrderToBot(cart);
-  cart = [];
-  updateCartBadge();
-  closeModal('cartModal');
-  showToast(t('toastOrdering'));
-}
-
-// ───────────────────────────────────────────────
-// HELPERS
-// ───────────────────────────────────────────────
+// ─── HELPERS ───
 function handleOverlayClick(e, id) {
   if (e.target === document.getElementById(id)) closeModal(id);
 }
