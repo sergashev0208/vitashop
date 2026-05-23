@@ -908,10 +908,18 @@ const translations = {
   }
 };
 
-const categories = {
-  uz: ['Hammasi', 'Immunitet', 'Suyak', 'Teri & Soch', "Ko'z", 'Yurak', 'Bolalar', 'Sport'],
-  ru: ['Все', 'Иммунитет', 'Кости', 'Кожа & Волосы', 'Зрение', 'Сердце', 'Детские', 'Спорт'],
-};
+// Kategoriyalar: key (kod) → har ikkala tilda nomi
+// Mahsulotlarda cat: 'immunitet' deb yoziladi
+const categories = [
+  { key: 'hammasi',   uz: 'Hammasi',     ru: 'Все'           },
+  { key: 'immunitet', uz: 'Immunitet',   ru: 'Иммунитет'     },
+  { key: 'suyak',     uz: 'Suyak',       ru: 'Кости'         },
+  { key: 'teri',      uz: 'Teri & Soch', ru: 'Кожа & Волосы' },
+  { key: 'koz',       uz: "Ko'z",        ru: 'Зрение'        },
+  { key: 'yurak',     uz: 'Yurak',       ru: 'Сердце'        },
+  { key: 'bolalar',   uz: 'Bolalar',     ru: 'Детские'       },
+  { key: 'sport',     uz: 'Sport',       ru: 'Спорт'         },
+];
 
 // ─── PRODUCTS DATA ───
 // hasBrands: true  → brend tanlash bloki chiqadi
@@ -919,7 +927,7 @@ const categories = {
 // brands: [{ id, nameUz, nameRu, logo (emoji), country }]
 const products = [
   {
-    id:1, emoji:'🍊', cat:1, hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:true,
+    id:1, emoji:'🍊', cat:'immunitet', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Vitamin C', sub:'Immunitet kuchaytirgich'},
     ru:{name:'Витамин C', sub:'Усилитель иммунитета'},
     brands: [
@@ -936,7 +944,7 @@ const products = [
   },
 
   {
-    id:2, emoji:'☀️', cat:1, hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:2, emoji:'☀️', cat:'immunitet', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Vitamin D3', sub:"Quyosh vitamini"},
     ru:{name:'Витамин D3', sub:'Солнечный витамин'},
     brands: [],
@@ -947,7 +955,7 @@ const products = [
   },
 
   {
-    id:3, emoji:'🦴', cat:2, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
+    id:3, emoji:'🦴', cat:'suyak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Kalsiy + D3', sub:"Suyak mustahkamlovchi"},
     ru:{name:'Кальций + D3', sub:'Укрепление костей'},
     brands: [
@@ -962,7 +970,7 @@ const products = [
   },
 
   {
-    id:4, emoji:'💊', cat:0, hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
+    id:4, emoji:'💊', cat:'hammasi', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
     ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
     brands: [],
@@ -975,7 +983,7 @@ const products = [
   },
 
   {
-    id:5, emoji:'💆', cat:3, hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:5, emoji:'💆', cat:'teri', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Biotin', sub:'Soch va tirnoq'},
     ru:{name:'Биотин', sub:'Волосы и ногти'},
     brands: [],
@@ -986,7 +994,7 @@ const products = [
   },
 
   {
-    id:6, emoji:'👁️', cat:4, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
+    id:6, emoji:'👁️', cat:'koz', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{name:'Lutein', sub:"Ko'z salomatligi"},
     ru:{name:'Лютеин', sub:'Здоровье глаз'},
     brands: [
@@ -1001,7 +1009,7 @@ const products = [
   },
 
   {
-    id:7, emoji:'❤️', cat:5, hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
+    id:7, emoji:'❤️', cat:'yurak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
     ru:{name:'Омега-3', sub:'Здоровье сердца'},
     brands: [],
@@ -1014,7 +1022,7 @@ const products = [
   },
 
   {
-    id:8, emoji:'🧸', cat:6, hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
+    id:8, emoji:'🧸', cat:'bolalar', hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
     ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
     brands: [],
@@ -1026,7 +1034,7 @@ const products = [
 ];
 
 let lang = 'uz';
-let selectedCat = 0;
+let selectedCat = 'hammasi';  // 'hammasi' = barcha kategoriyalar
 let currentProduct = null;
 let imgLang = 'uz';
 let selectedType = 'powder';
@@ -1055,13 +1063,12 @@ function updateStaticText() {
 
 // ─── CATEGORIES ───
 function renderCategories() {
-  const cats = categories[lang];
-  document.getElementById('categories').innerHTML = cats.map((c, i) =>
-    `<button class="cat-btn ${selectedCat===i?'active':''}" onclick="selectCat(${i})">${c}</button>`
+  document.getElementById('categories').innerHTML = categories.map(c =>
+    `<button class="cat-btn ${selectedCat === c.key ? 'active' : ''}" onclick="selectCat('${c.key}')">${c[lang]}</button>`
   ).join('');
 }
-function selectCat(i) {
-  selectedCat = i;
+function selectCat(key) {
+  selectedCat = key;
   renderCategories();
   renderProducts();
 }
@@ -1069,7 +1076,7 @@ function selectCat(i) {
 // ─── PRODUCTS ───
 function getMinPrice(p) { return Math.min(...p.packages.map(pk => pk.price)); }
 function renderProducts() {
-  const filtered = selectedCat === 0 ? products : products.filter(p => p.cat === selectedCat);
+  const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
     const info = p[lang];
     const imgUrl = lang === 'ru' ? p.imageRu : p.imageUz;
