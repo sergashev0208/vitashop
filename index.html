@@ -10,18 +10,11 @@
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap');
 
   :root {
-    --pink: #F4860A;
-    --pink-dark: #D4720A;
-    --pink-mid: #F9A84D;
-    --pink-light: #FEF0DC;
-    --pink-pale: #FFF8F0;
     --purple: #7B5EA7;
     --purple-dark: #6A4D9B;
     --purple-light: #EDE8F5;
     --purple-pale: #F5F2FB;
     --orange: #F4860A;
-    --orange-light: #FEF0DC;
-    --white: #FFFFFF;
     --gray: #F7F4FB;
     --text: #2C1A4E;
     --text-soft: #8B76A9;
@@ -49,99 +42,24 @@
     z-index: 100;
     box-shadow: 0 2px 16px rgba(106,77,155,0.40);
   }
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-  }
-  .logo {
-    font-family: 'Caviar Dreams', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
+  .header-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .logo { font-family: 'Caviar Dreams', sans-serif; font-size: 28px; font-weight: 700; color: white; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,0,0,0.15); }
   .logo-v { font-size: 28px; color: #F9C97A; font-weight: 700; }
   .logo-year { color: #F9C97A; font-size: 18px; letter-spacing: 2px; }
-  .lang-toggle {
-    display: flex;
-    background: rgba(255,255,255,0.2);
-    border-radius: 20px;
-    padding: 3px;
-    gap: 2px;
-  }
-  .lang-btn {
-    padding: 4px 12px;
-    border: none;
-    border-radius: 16px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    background: transparent;
-    color: rgba(255,255,255,0.7);
-  }
+  .lang-toggle { display: flex; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px; gap: 2px; }
+  .lang-btn { padding: 4px 12px; border: none; border-radius: 16px; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; background: transparent; color: rgba(255,255,255,0.7); }
   .lang-btn.active { background: white; color: var(--purple-dark); }
 
-  .categories {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    scrollbar-width: none;
-  }
+  .categories { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
   .categories::-webkit-scrollbar { display: none; }
-  .cat-btn {
-    white-space: nowrap;
-    padding: 6px 14px;
-    border: 2px solid rgba(255,255,255,0.4);
-    border-radius: 20px;
-    background: transparent;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    flex-shrink: 0;
-  }
+  .cat-btn { white-space: nowrap; padding: 6px 14px; border: 2px solid rgba(255,255,255,0.4); border-radius: 20px; background: transparent; color: white; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
   .cat-btn.active { background: white; color: var(--purple-dark); border-color: white; }
 
-  .section-title {
-    font-size: 16px;
-    font-weight: 800;
-    padding: 16px 16px 8px;
-    color: var(--text);
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 0 16px;
-  }
-  .card {
-    background: white;
-    border-radius: var(--radius);
-    box-shadow: var(--card-shadow);
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.18s, box-shadow 0.18s;
-    position: relative;
-    border: 1px solid #E8E0F5;
-  }
+  .section-title { font-size: 16px; font-weight: 800; padding: 16px 16px 8px; color: var(--text); }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; }
+  .card { background: white; border-radius: var(--radius); box-shadow: var(--card-shadow); overflow: hidden; cursor: pointer; transition: transform 0.18s, box-shadow 0.18s; position: relative; border: 1px solid #E8E0F5; }
   .card:active { transform: scale(0.97); }
-  .card-img-wrap {
-    width: 100%;
-    height: 130px;
-    background: var(--purple-light);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  .card-img-wrap { width: 100%; height: 130px; background: var(--purple-light); overflow: hidden; display: flex; align-items: center; justify-content: center; }
   .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .card-img-emoji { font-size: 52px; line-height: 1; }
   .card-body { padding: 10px 12px 12px; }
@@ -149,454 +67,89 @@
   .card-sub { font-size: 11px; color: var(--text-soft); margin-bottom: 8px; }
   .card-price { font-size: 15px; font-weight: 900; color: var(--purple-dark); }
   .card-price-from { font-size: 10px; font-weight: 600; color: var(--text-soft); display: block; margin-bottom: 1px; }
-  .card-add {
-    position: absolute;
-    bottom: 12px;
-    right: 10px;
-    width: 28px;
-    height: 28px;
-    background: var(--purple);
-    border-radius: 50%;
-    border: none;
-    color: white;
-    font-size: 18px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(123,94,167,0.4);
-    transition: background 0.2s, transform 0.15s;
-  }
+  .card-add { position: absolute; bottom: 12px; right: 10px; width: 28px; height: 28px; background: var(--purple); border-radius: 50%; border: none; color: white; font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(123,94,167,0.4); transition: background 0.2s, transform 0.15s; }
   .card-add:active { transform: scale(0.9); background: var(--purple-dark); }
-  .badge {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background: linear-gradient(135deg, #F9A84D, #F4860A);
-    color: white;
-    font-size: 10px;
-    font-weight: 800;
-    border-radius: 8px;
-    padding: 2px 7px;
-    z-index: 2;
-  }
+  .badge { position: absolute; top: 8px; left: 8px; background: linear-gradient(135deg, #F9A84D, #F4860A); color: white; font-size: 10px; font-weight: 800; border-radius: 8px; padding: 2px 7px; z-index: 2; }
 
-  .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: white;
-    border-top: 1px solid #E8E0F5;
-    padding: 10px 16px 12px;
-    display: flex;
-    gap: 10px;
-    z-index: 200;
-    box-shadow: 0 -4px 20px rgba(123,94,167,0.12);
-  }
-  .btn-cart {
-    position: relative;
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
-    border: 2.5px solid var(--purple);
-    background: white;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.2s;
-  }
+  .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: white; border-top: 1px solid #E8E0F5; padding: 10px 16px 12px; display: flex; gap: 10px; z-index: 200; box-shadow: 0 -4px 20px rgba(123,94,167,0.12); }
+  .btn-cart { position: relative; width: 52px; height: 52px; border-radius: 14px; border: 2.5px solid var(--purple); background: white; font-size: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.2s; }
   .btn-cart:active { background: var(--purple-light); }
-  .cart-badge {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    background: var(--orange);
-    color: white;
-    font-size: 11px;
-    font-weight: 900;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-order {
-    flex: 1;
-    height: 52px;
-    border-radius: 14px;
-    border: none;
-    background: linear-gradient(135deg, #6A4D9B, #F4860A);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 900;
-    cursor: pointer;
-    letter-spacing: 0.3px;
-    transition: opacity 0.2s, transform 0.15s;
-    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
-  }
+  .cart-badge { position: absolute; top: -6px; right: -6px; background: var(--orange); color: white; font-size: 11px; font-weight: 900; width: 20px; height: 20px; border-radius: 50%; display: none; align-items: center; justify-content: center; }
+  .btn-order { flex: 1; height: 52px; border-radius: 14px; border: none; background: linear-gradient(135deg, #6A4D9B, #F4860A); color: white; font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 900; cursor: pointer; letter-spacing: 0.3px; transition: opacity 0.2s, transform 0.15s; box-shadow: 0 4px 16px rgba(123,94,167,0.35); }
   .btn-order:active { transform: scale(0.98); opacity: 0.92; }
 
-  .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(44,26,78,0.55);
-    z-index: 300;
-    display: none;
-    align-items: flex-end;
-    justify-content: center;
-  }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(44,26,78,0.55); z-index: 300; display: none; align-items: flex-end; justify-content: center; }
   .modal-overlay.open { display: flex; }
-  .modal {
-    background: white;
-    border-radius: 24px 24px 0 0;
-    width: 100%;
-    max-height: 92vh;
-    overflow-y: auto;
-    padding-bottom: 28px;
-    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  @keyframes slideUp {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
-  }
-  .modal-handle {
-    width: 36px;
-    height: 4px;
-    background: #D8D0EE;
-    border-radius: 2px;
-    margin: 10px auto 16px;
-  }
+  .modal { background: white; border-radius: 24px 24px 0 0; width: 100%; max-height: 92vh; overflow-y: auto; padding-bottom: 28px; animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+  .modal-handle { width: 36px; height: 4px; background: #D8D0EE; border-radius: 2px; margin: 10px auto 16px; }
 
-  .modal-image-wrap {
-    position: relative;
-    width: 100%;
-    height: 280px;
-    background: var(--purple-light);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: zoom-in;
-  }
+  .modal-image-wrap { position: relative; width: 100%; height: 280px; background: var(--purple-light); overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: zoom-in; }
   .modal-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
   .modal-image-emoji { font-size: 90px; line-height: 1; }
-  .img-lang-pills {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 6px;
-    z-index: 5;
-  }
-  .img-lang-pill {
-    padding: 4px 13px;
-    border-radius: 20px;
-    border: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 12px;
-    font-weight: 800;
-    cursor: pointer;
-    background: rgba(255,255,255,0.35);
-    color: white;
-    backdrop-filter: blur(6px);
-    transition: all 0.2s;
-  }
+  .img-lang-pills { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 5; }
+  .img-lang-pill { padding: 4px 13px; border-radius: 20px; border: none; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 800; cursor: pointer; background: rgba(255,255,255,0.35); color: white; backdrop-filter: blur(6px); transition: all 0.2s; }
   .img-lang-pill.active { background: white; color: var(--purple-dark); }
-  .zoom-hint {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(106,77,155,0.7);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    pointer-events: none;
-    backdrop-filter: blur(4px);
-  }
+  .zoom-hint { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); background: rgba(106,77,155,0.7); color: white; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 20px; pointer-events: none; backdrop-filter: blur(4px); }
 
-  .zoom-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.93);
-    z-index: 500;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+  .zoom-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 500; display: none; align-items: center; justify-content: center; flex-direction: column; }
   .zoom-overlay.open { display: flex; }
-  .zoom-overlay img {
-    max-width: 100%;
-    max-height: 88vh;
-    object-fit: contain;
-    border-radius: 12px;
-    touch-action: pinch-zoom;
-  }
-  .zoom-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: white;
-    font-size: 26px;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(6px);
-  }
+  .zoom-overlay img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 12px; touch-action: pinch-zoom; }
+  .zoom-close { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.15); border: none; color: white; font-size: 26px; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(6px); }
 
   .modal-body { padding: 18px 16px 0; }
   .modal-name { font-size: 22px; font-weight: 900; color: var(--text); margin-bottom: 4px; }
-
-  .modal-price-wrap {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .modal-price {
-    font-size: 22px;
-    font-weight: 900;
-    color: var(--purple-dark);
-    transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
-  }
-  .modal-price.price-changed {
-    transform: scale(1.08);
-    color: var(--orange);
-  }
-  .modal-price-per {
-    font-size: 12px;
-    color: var(--text-soft);
-    font-weight: 600;
-  }
+  .modal-price-wrap { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; }
+  .modal-price { font-size: 22px; font-weight: 900; color: var(--purple-dark); transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .modal-price.price-changed { transform: scale(1.08); color: var(--orange); }
+  .modal-price-per { font-size: 12px; color: var(--text-soft); font-weight: 600; }
 
   .pkg-section { margin-bottom: 18px; }
-  .pkg-title {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .pkg-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .pkg-options { display: flex; gap: 8px; flex-wrap: wrap; }
-  .pkg-btn {
-    position: relative;
-    padding: 10px 14px;
-    border-radius: 14px;
-    border: 2px solid #E8E0F5;
-    background: white;
-    font-family: 'Nunito', sans-serif;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-    min-width: 88px;
-    flex: 1;
-  }
-  .pkg-btn.active {
-    border-color: var(--purple);
-    background: var(--purple-light);
-    box-shadow: 0 2px 10px rgba(123,94,167,0.2);
-  }
-  .pkg-btn.best-value::after {
-    content: attr(data-label);
-    position: absolute;
-    top: -9px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #F9A84D, #F4860A);
-    color: white;
-    font-size: 9px;
-    font-weight: 900;
-    padding: 2px 7px;
-    border-radius: 8px;
-    white-space: nowrap;
-  }
+  .pkg-btn { position: relative; padding: 10px 14px; border-radius: 14px; border: 2px solid #E8E0F5; background: white; font-family: 'Nunito', sans-serif; cursor: pointer; transition: all 0.2s; text-align: center; min-width: 88px; flex: 1; }
+  .pkg-btn.active { border-color: var(--purple); background: var(--purple-light); box-shadow: 0 2px 10px rgba(123,94,167,0.2); }
+  .pkg-btn.best-value::after { content: attr(data-label); position: absolute; top: -9px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #F9A84D, #F4860A); color: white; font-size: 9px; font-weight: 900; padding: 2px 7px; border-radius: 8px; white-space: nowrap; }
   .pkg-qty { font-size: 16px; font-weight: 900; color: var(--text); display: block; line-height: 1.2; }
   .pkg-btn.active .pkg-qty { color: var(--purple-dark); }
   .pkg-price { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-top: 2px; }
   .pkg-btn.active .pkg-price { color: var(--purple); }
 
+  /* TYPE BLOCK */
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
-  .type-options { display: flex; gap: 10px; margin-bottom: 20px; }
-  .type-btn {
-    flex: 1;
-    padding: 10px 8px;
-    border-radius: 14px;
-    border: 2px solid #E8E0F5;
-    background: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-    color: var(--text-soft);
-  }
+  .type-options { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .type-btn { flex: 1; min-width: 72px; padding: 10px 8px; border-radius: 14px; border: 2px solid #E8E0F5; background: white; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; text-align: center; color: var(--text-soft); }
   .type-btn.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple-dark); }
   .type-icon { font-size: 20px; display: block; margin-bottom: 4px; }
 
   .brand-section { margin-bottom: 18px; }
-  .brand-title {
-    font-size: 14px;
-    font-weight: 800;
-    color: var(--text);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
+  .brand-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
   .brand-options { display: flex; gap: 8px; flex-wrap: wrap; }
-  .brand-btn {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding: 9px 14px;
-    border-radius: 40px;
-    border: 2px solid #E8E0F5;
-    background: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--text-soft);
-    white-space: nowrap;
-  }
-  .brand-btn.active {
-    border-color: var(--purple);
-    background: var(--purple-light);
-    color: var(--purple-dark);
-    box-shadow: 0 2px 10px rgba(123,94,167,0.18);
-  }
+  .brand-btn { position: relative; display: flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 40px; border: 2px solid #E8E0F5; background: white; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 800; cursor: pointer; transition: all 0.2s; color: var(--text-soft); white-space: nowrap; }
+  .brand-btn.active { border-color: var(--purple); background: var(--purple-light); color: var(--purple-dark); box-shadow: 0 2px 10px rgba(123,94,167,0.18); }
   .brand-btn .brand-logo { font-size: 18px; line-height: 1; flex-shrink: 0; }
-  .brand-btn .brand-name { line-height: 1.15; }
-  .brand-check {
-    position: absolute;
-    top: -6px;
-    right: -6px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--purple-dark);
-    color: white;
-    font-size: 10px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-  }
+  .brand-check { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border-radius: 50%; background: var(--purple-dark); color: white; font-size: 10px; display: none; align-items: center; justify-content: center; font-weight: 900; }
   .brand-btn.active .brand-check { display: flex; }
 
   .modal-actions { display: flex; gap: 10px; padding: 0 16px; }
-  .btn-add-cart {
-    flex: 1;
-    height: 50px;
-    border-radius: 14px;
-    border: 2.5px solid var(--purple);
-    background: white;
-    color: var(--purple-dark);
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .btn-add-cart { flex: 1; height: 50px; border-radius: 14px; border: 2.5px solid var(--purple); background: white; color: var(--purple-dark); font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800; cursor: pointer; transition: all 0.2s; }
   .btn-add-cart:active { background: var(--purple-light); }
-  .btn-order-now {
-    flex: 1.4;
-    height: 50px;
-    border-radius: 14px;
-    border: none;
-    background: linear-gradient(135deg, #6A4D9B, #F4860A);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 900;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
-    transition: opacity 0.2s;
-  }
+  .btn-order-now { flex: 1.4; height: 50px; border-radius: 14px; border: none; background: linear-gradient(135deg, #6A4D9B, #F4860A); color: white; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 900; cursor: pointer; box-shadow: 0 4px 16px rgba(123,94,167,0.35); transition: opacity 0.2s; }
   .btn-order-now:active { opacity: 0.88; }
 
-  .addr-modal {
-    background: white;
-    border-radius: 24px 24px 0 0;
-    width: 100%;
-    padding-bottom: 28px;
-    animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1);
-  }
+  .addr-modal { background: white; border-radius: 24px 24px 0 0; width: 100%; padding-bottom: 28px; animation: slideUp 0.3s cubic-bezier(0.34,1.56,0.64,1); }
   .addr-title { font-size: 18px; font-weight: 900; color: var(--text); padding: 0 16px 16px; }
   .addr-subtitle { font-size: 13px; color: var(--text-soft); padding: 0 16px 20px; margin-top: -10px; line-height: 1.5; }
   .addr-field { padding: 0 16px 16px; }
   .addr-label { font-size: 13px; font-weight: 800; color: var(--purple-dark); margin-bottom: 8px; display: block; }
-  .addr-input {
-    width: 100%;
-    padding: 13px 16px;
-    border: 2px solid #E8E0F5;
-    border-radius: 14px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    background: var(--purple-pale);
-  }
+  .addr-input { width: 100%; padding: 13px 16px; border: 2px solid #E8E0F5; border-radius: 14px; font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); outline: none; transition: border-color 0.2s; background: var(--purple-pale); }
   .addr-input:focus { border-color: var(--purple); background: white; }
   .addr-input::placeholder { color: #B0A0CC; }
-  .addr-confirm {
-    width: calc(100% - 32px);
-    margin: 4px 16px 0;
-    height: 52px;
-    border-radius: 14px;
-    border: none;
-    background: linear-gradient(135deg, #6A4D9B, #F4860A);
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 900;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(123,94,167,0.35);
-  }
+  .addr-confirm { width: calc(100% - 32px); margin: 4px 16px 0; height: 52px; border-radius: 14px; border: none; background: linear-gradient(135deg, #6A4D9B, #F4860A); color: white; font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 900; cursor: pointer; box-shadow: 0 4px 16px rgba(123,94,167,0.35); }
   .addr-confirm:active { opacity: 0.88; }
 
-  .cart-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    border-bottom: 1px solid #EDE8F5;
-  }
-  .cart-item-thumb {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--purple-light);
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-  }
+  .cart-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid #EDE8F5; }
+  .cart-item-thumb { width: 44px; height: 44px; border-radius: 10px; background: var(--purple-light); overflow: hidden; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 24px; }
   .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
   .cart-item-info { flex: 1; min-width: 0; }
   .cart-item-name { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -604,56 +157,18 @@
   .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
   .cart-item-price { font-size: 14px; font-weight: 800; color: var(--purple-dark); white-space: nowrap; }
   .cart-qty-row { display: flex; align-items: center; gap: 6px; }
-  .cart-qty-btn {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    border: 2px solid #E8E0F5;
-    background: white;
-    font-size: 16px; font-weight: 900;
-    line-height: 1;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    transition: all 0.15s;
-    color: var(--purple-dark);
-  }
+  .cart-qty-btn { width: 28px; height: 28px; border-radius: 8px; border: 2px solid #E8E0F5; background: white; font-size: 16px; font-weight: 900; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.15s; color: var(--purple-dark); }
   .cart-qty-btn:active { background: var(--purple-light); border-color: var(--purple); }
   .cart-qty-btn.remove { border-color: #FFD6CC; color: var(--orange); }
   .cart-qty-btn.remove:active { background: #FFF0EC; }
   .cart-qty-num { font-size: 15px; font-weight: 900; color: var(--text); min-width: 18px; text-align: center; }
-  .cart-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    font-size: 16px;
-    font-weight: 900;
-    background: var(--purple-pale);
-    margin: 8px 16px;
-    border-radius: 14px;
-  }
+  .cart-total { display: flex; justify-content: space-between; align-items: center; padding: 16px; font-size: 16px; font-weight: 900; background: var(--purple-pale); margin: 8px 16px; border-radius: 14px; }
   .cart-empty { text-align: center; padding: 40px 16px; color: var(--text-soft); font-size: 15px; }
   .cart-empty-icon { font-size: 50px; margin-bottom: 12px; }
 
-  .toast {
-    position: fixed;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(-80px);
-    background: var(--orange);
-    color: white;
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    z-index: 999;
-    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    white-space: nowrap;
-    box-shadow: 0 4px 20px rgba(106,77,155,0.35);
-  }
+  .toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-80px); background: var(--orange); color: white; padding: 12px 20px; border-radius: 50px; font-size: 14px; font-weight: 700; z-index: 999; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); white-space: nowrap; box-shadow: 0 4px 20px rgba(106,77,155,0.35); }
   .toast.show { transform: translateX(-50%) translateY(0); }
-
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+  input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
 </style>
 </head>
 <body>
@@ -707,18 +222,10 @@
         <div class="pkg-options" id="pkgOptions"></div>
       </div>
 
+      <!-- TYPE BLOCK — JS tomonidan to'ldiriladi -->
       <div id="typeBlock">
         <div class="form-type-title" id="formTypeTitle">Shaklini tanlang:</div>
-        <div class="type-options">
-          <button class="type-btn active" id="typePowder" onclick="selectType('powder')">
-            <span class="type-icon">🧪</span>
-            <span id="typePowderLabel">Poroshokli</span>
-          </button>
-          <button class="type-btn" id="typeChew" onclick="selectType('chew')">
-            <span class="type-icon">🍬</span>
-            <span id="typeChewLabel">Chaynaladigan</span>
-          </button>
-        </div>
+        <div class="type-options" id="typeOptions"></div>
       </div>
     </div>
     <div class="modal-actions">
@@ -771,6 +278,14 @@
 const tg = window.Telegram?.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
 
+// ─── BARCHA TURLAR — icon, uz, ru ───
+const TYPE_META = {
+  powder:  { icon: '🧪', uz: 'Poroshokli',    ru: 'Порошковый'  },
+  chew:    { icon: '🍬', uz: 'Chaynaladigan', ru: 'Жевательный' },
+  liquid:  { icon: '💧', uz: 'Suyuq',         ru: 'Жидкий'      },
+  capsule: { icon: '💊', uz: 'Kapsula',        ru: 'Капсула'     },
+};
+
 const translations = {
   uz: {
     allVit: 'Barcha vitaminlar',
@@ -778,10 +293,8 @@ const translations = {
     cartTitle: '🛒 Savat',
     formType: 'Shaklini tanlang:',
     pkgTitle: 'Miqdorni tanlang:',
-    pkgUnit: 'dona',       // ← unit ko'rsatilmasa shu ishlatiladi
+    pkgUnit: 'dona',
     pkgBestValue: '🔥 Foydali',
-    powder: 'Poroshokli',
-    chew: 'Chaynaladigan',
     addCart: '🛒 Savatga',
     orderNow: '⚡ Hozir buyurtma',
     total: 'Jami:',
@@ -800,7 +313,6 @@ const translations = {
     addrErrorPhone: "⚠️ Telefon raqamni kiriting!",
     zoomHint: "🔍 Rasm bosing — zoom",
     fromPrice: "dan boshlab",
-    cartPkg: "dona",
     brandTitle: "🏷️ Brendni tanlang:",
   },
   ru: {
@@ -811,8 +323,6 @@ const translations = {
     pkgTitle: 'Выберите количество:',
     pkgUnit: 'шт',
     pkgBestValue: '🔥 Выгодно',
-    powder: 'Порошковый',
-    chew: 'Жевательный',
     addCart: '🛒 В корзину',
     orderNow: '⚡ Заказать сейчас',
     total: 'Итого:',
@@ -831,7 +341,6 @@ const translations = {
     addrErrorPhone: "⚠️ Введите номер телефона!",
     zoomHint: "🔍 Нажмите на фото — zoom",
     fromPrice: "от",
-    cartPkg: "шт",
     brandTitle: "🏷️ Выберите бренд:",
   }
 };
@@ -855,412 +364,290 @@ const categories = [
   { key: 'turkiya',   uz: 'Turkiya vitaminlari',   ru: 'Турецкие витамины'    },
 ];
 
-// ─── PRODUCTS DATA ───
-// unit: 'g' | 'ml' | 'dona' | ... — ko'rsatilmasa 'dona' ishlatiladi
+// ─── PRODUCTS ───
+// types: [] — bo'sh = tur tanlash yo'q
+// types: ['powder','liquid'] — faqat shu 2 ta chiqadi
+// types: ['powder','chew','liquid','capsule'] — hammasi
 const products = [
   {
-    id:1, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Gele', sub:''},
-    ru:{name:'Коллаген геле', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:297000, bestValue:true } ],
+    id:1, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Gele', sub:''}, ru:{name:'Коллаген геле', sub:''},
+    brands:[], packages:[{qty:1,price:297000,bestValue:true}],
     imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg', badge:null
   },
   {
-    id:2, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Powder', sub:''},
-    ru:{name:'Коллаген порошок', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:235000, bestValue:true } ],
+    id:2, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Powder', sub:''}, ru:{name:'Коллаген порошок', sub:''},
+    brands:[], packages:[{qty:1,price:235000,bestValue:true}],
     imageUz:'https://iili.io/CH8jiOl.jpg', imageRu:'https://iili.io/CH8jsb2.jpg', badge:null
   },
   {
-    id:3, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari + Probiotiklar', sub:''},
-    ru:{name:'Коллаген Пептиды + Пробиотики', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:628000, bestValue:true } ],
+    id:3, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari + Probiotiklar', sub:''}, ru:{name:'Коллаген Пептиды + Пробиотики', sub:''},
+    brands:[], packages:[{qty:1,price:628000,bestValue:true}],
     imageUz:'https://iili.io/CH8vCAb.jpg', imageRu:'https://iili.io/CH8voDx.jpg', badge:null
   },
   {
-    id:4, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:''},
-    ru:{name:'Verisol Kollagen + Biotin + Antioxidants', sub:''},
-    brands: [],
-    packages: [
-      { qty:120,unit:'dona',  price:195000 },
-      { qty:345, unit:'dona',  price:445000, bestValue:true },
-    ],
+    id:4, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:''}, ru:{name:'Verisol Kollagen + Biotin + Antioxidants', sub:''},
+    brands:[],
+    packages:[{qty:120,unit:'dona',price:195000},{qty:345,unit:'dona',price:445000,bestValue:true}],
     imageUz:'https://iili.io/CH84Uqx.jpg', imageRu:'https://iili.io/CH846dB.jpg', badge:null
   },
   {
-    id:5, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Dengiz Kollageni Marine Collagen', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:340000 } ],
+    id:5, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Dengiz Kollageni Marine Collagen', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:340000}],
     imageUz:'https://iili.io/CH8QEX9.jpg', imageRu:null, badge:null
   },
   {
-    id:6, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:355000 } ],
+    id:6, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
+    brands:[], packages:[{qty:1,price:355000}],
     imageUz:'https://iili.io/CH8p5ge.jpg', imageRu:'https://iili.io/CH8pcej.jpg', badge:null
   },
   {
-    id:7, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Hyaluronic Acid Complex', sub:''},
-    ru:{name:'Collagen Hyaluronic Acid Complex', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:348000 } ],
+    id:7, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Hyaluronic Acid Complex', sub:''}, ru:{name:'Collagen Hyaluronic Acid Complex', sub:''},
+    brands:[], packages:[{qty:1,price:348000}],
     imageUz:'https://iili.io/CHSHAqN.jpg', imageRu:'https://iili.io/CHSHR1I.jpg', badge:null
   },
   {
-    id:8, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Dengiz Kollageni CollagenUp', sub:''},
-    ru:{name:'Морской коллаген CollagenUp', sub:''},
-    brands: [],
-    packages: [
-      { qty:206, unit:'g', price:255000 },
-      { qty:464, unit:'g', price:528000, bestValue:true },
-    ],
+    id:8, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Dengiz Kollageni CollagenUp', sub:''}, ru:{name:'Морской коллаген CollagenUp', sub:''},
+    brands:[],
+    packages:[{qty:206,unit:'g',price:255000},{qty:464,unit:'g',price:528000,bestValue:true}],
     imageUz:'https://iili.io/CHS2omu.jpg', imageRu:'https://iili.io/CHS2TLx.jpg', badge:null
   },
   {
-    id:9, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Multikollagen Kompleksi', sub:''},
-    ru:{name:'Мультиколлаген Комплекс', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:478000 } ],
+    id:9, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Multikollagen Kompleksi', sub:''}, ru:{name:'Мультиколлаген Комплекс', sub:''},
+    brands:[], packages:[{qty:1,price:478000}],
     imageUz:'https://iili.io/CHUerEN.jpg', imageRu:'https://iili.io/CHUeiYX.jpg', badge:null
   },
   {
-    id:10, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Dengiz Kollagen Kompleksi', sub:''},
-    ru:{name:'Морской Коллаген Комплекс', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:478000 } ],
+    id:10, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Dengiz Kollagen Kompleksi', sub:''}, ru:{name:'Морской Коллаген Комплекс', sub:''},
+    brands:[], packages:[{qty:1,price:478000}],
     imageUz:'https://iili.io/CHUSiP4.jpg', imageRu:'https://iili.io/CHUSQl2.jpg', badge:null
   },
   {
-    id:11, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:665000 } ],
+    id:11, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
+    brands:[], packages:[{qty:1,price:665000}],
     imageUz:'https://iili.io/CHUraMG.jpg', imageRu:'https://iili.io/CHUrcPf.jpg', badge:null
   },
   {
-    id:12, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды', sub:''},
-    brands: [],
-    packages: [
-      { qty:284, unit:'g', price:440000 },
-      { qty:680, unit:'g', price:650000, bestValue:true },
-    ],
+    id:12, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
+    brands:[],
+    packages:[{qty:284,unit:'g',price:440000},{qty:680,unit:'g',price:650000,bestValue:true}],
     imageUz:'https://iili.io/CHU6mnn.jpg', imageRu:'https://iili.io/CHU6y6G.jpg', badge:null
   },
   {
-    id:13, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:478000 } ],
+    id:13, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
+    brands:[], packages:[{qty:1,price:478000}],
     imageUz:'https://iili.io/CHg2fdN.jpg', imageRu:'https://iili.io/CHg2Fgp.jpg', badge:null
   },
   {
-    id:14, emoji:'', cat:'kollagen', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''},
-    ru:{name:'Коллаген Пептиды', sub:''},
-    brands: [],
-    packages: [
-      { qty:383, unit:'g', price:498000 },
-      { qty:761, unit:'g', price:760000, bestValue:true },
-      ],
+    id:14, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
+    brands:[],
+    packages:[{qty:383,unit:'g',price:498000},{qty:761,unit:'g',price:760000,bestValue:true}],
     imageUz:'https://iili.io/CHgKkQe.jpg', imageRu:'https://iili.io/CHgKhYl.jpg', badge:null
   },
   {
-    id:15, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Omega-3 Fish Oil', sub:''},
-    ru:{name:'Омега-3 Fish Oil', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:530000 } ],
+    id:15, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{name:'Omega-3 Fish Oil', sub:''}, ru:{name:'Омега-3 Fish Oil', sub:''},
+    brands:[], packages:[{qty:1,price:530000}],
     imageUz:'https://iili.io/CHgxhPt.jpg', imageRu:'https://iili.io/CHgxwKX.jpg', badge:null
   },
   {
-    id:16, emoji:'', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'now Omega-3 Fish Oil', sub:''},
-    ru:{name:'now Омега-3 Fish Oil', sub:''},
-    brands: [],
-    packages: [
-      { qty:100, unit:'kaps', price:175000 },
-      { qty:200, unit:'kaps', price:320000 },
-      { qty:500, unit:'kaps', price:598000, bestValue:true },
-      ],
+    id:16, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'now Omega-3 Fish Oil', sub:''}, ru:{name:'now Омега-3 Fish Oil', sub:''},
+    brands:[],
+    packages:[{qty:100,unit:'kaps',price:175000},{qty:200,unit:'kaps',price:320000},{qty:500,unit:'kaps',price:598000,bestValue:true}],
     imageUz:'https://iili.io/CHg5ppe.jpg', imageRu:'https://iili.io/CHg7JQj.jpg', badge:null
   },
   {
-    id:17, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Maximum Omega 2000', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:213000 } ],
+    id:17, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Maximum Omega 2000', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:213000}],
     imageUz:'https://iili.io/CJHpsVa.jpg', imageRu:null, badge:null
   },
   {
-    id:18, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega 3 Fish Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:325000 } ],
+    id:18, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Omega 3 Fish Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:325000}],
     imageUz:'https://iili.io/CJJ9w4j.jpg', imageRu:null, badge:null
   },
   {
-    id:19, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'1300 mg Omega 3-6-9', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:385000 } ],
+    id:19, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'1300 mg Omega 3-6-9', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:385000}],
     imageUz:'https://iili.io/CJJJkzP.jpg', imageRu:null, badge:null
   },
   {
-    id:20, emoji:'', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega 3 950 mg', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:50,unit:'dona', price:395000 },
-              { qty:100,unit:'dona', price:615000,bestValue:true}],
+    id:20, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'Omega 3 950 mg', sub:''}, ru:{name:'', sub:''},
+    brands:[],
+    packages:[{qty:50,unit:'dona',price:395000},{qty:100,unit:'dona',price:615000,bestValue:true}],
     imageUz:'https://iili.io/CJJ26DN.jpg', imageRu:null, badge:null
   },
-
   {
-    id:21, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Ultra Omega 3 Fish Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:330000 } ],
+    id:21, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'now Ultra Omega 3 Fish Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:330000}],
     imageUz:'https://iili.io/CJJFo2s.jpg', imageRu:null, badge:null
   },
-
   {
-    id:22, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Omega 3-6-9 1000mg', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:225000 } ],
+    id:22, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'now Omega 3-6-9 1000mg', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:225000}],
     imageUz:'https://iili.io/CJJF6Gt.jpg', imageRu:null, badge:null
   },
-
   {
-    id:23, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega-3 Mini Gels Fish Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:275000 } ],
+    id:23, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Omega-3 Mini Gels Fish Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:275000}],
     imageUz:'https://iili.io/CJJK0Pt.jpg', imageRu:null, badge:null
   },
-{
-    id:24, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nordic Ultimate Omega', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1, price:355000 } ],
+  {
+    id:24, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'nordic Ultimate Omega', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:355000}],
     imageUz:'https://iili.io/CJJRFqb.jpg', imageRu:null, badge:null
   },
-{
-    id:25, emoji:'', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Gold Omega 3 Premium Fish Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:100,unit:'dona',price:215000 }, 
-              { qty:240,unit:'dona', price:389000,bestValue:true }],
+  {
+    id:25, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'Gold Omega 3 Premium Fish Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[],
+    packages:[{qty:100,unit:'dona',price:215000},{qty:240,unit:'dona',price:389000,bestValue:true}],
     imageUz:'https://iili.io/CJJ7lWX.jpg', imageRu:null, badge:null
   },
   {
-    id:26, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Mollers Omega 3', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:485000 } 
-              ],
+    id:26, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Mollers Omega 3', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:485000}],
     imageUz:'https://iili.io/CJJYkTN.jpg', imageRu:null, badge:null
   },
-   {
-    id:27, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Mollers Cod Liver Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:485000 } 
-              ],
+  {
+    id:27, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Mollers Cod Liver Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:485000}],
     imageUz:'https://iili.io/CJJaG94.jpg', imageRu:null, badge:null
   },
   {
-    id:28, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids Fish Oil', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:355000 } 
-              ],
+    id:28, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Carlson Kids Fish Oil', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:355000}],
     imageUz:'https://iili.io/CJJl1Tl.jpg', imageRu:null, badge:null
   },
   {
-    id:29, emoji:'', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids DHA', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:60, unit:'dona',price:185000 }, 
-             { qty:120, unit:'dona',price:298000, bestValue:true } ],
+    id:29, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'Carlson Kids DHA', sub:''}, ru:{name:'', sub:''},
+    brands:[],
+    packages:[{qty:60,unit:'dona',price:185000},{qty:120,unit:'dona',price:298000,bestValue:true}],
     imageUz:'https://iili.io/CJJ1eLB.jpg', imageRu:null, badge:null
   },
   {
-    id:30, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Maxmedix Omega3-6-9 Gummies for kids', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:355000 } 
-              ],
+    id:30, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Maxmedix Omega3-6-9 Gummies for kids', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:355000}],
     imageUz:'https://iili.io/CJJGxcX.jpg', imageRu:null, badge:null
   },
   {
-    id:31, emoji:'', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Carlson Super Omega 3', sub:''},
-    ru:{name:'Carlson Super Omega 3', sub:''},
-    brands: [],
-    packages: [ { qty:50,unit:'dona',price:210000 },
-             { qty:130,unit:'dona',price:425000, bestValue:true }  ],
+    id:31, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
+    uz:{name:'Carlson Super Omega 3', sub:''}, ru:{name:'Carlson Super Omega 3', sub:''},
+    brands:[],
+    packages:[{qty:50,unit:'dona',price:210000},{qty:130,unit:'dona',price:425000,bestValue:true}],
     imageUz:'https://iili.io/CJJV2QR.jpg', imageRu:'https://iili.io/CJJVi8X.jpg', badge:null
   },
   {
-    id:32, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nordic Daily Omega Kids', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:155000 } 
-               ],
+    id:32, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'nordic Daily Omega Kids', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:155000}],
     imageUz:'https://iili.io/CJJhtta.jpg', imageRu:null, badge:null
   },
   {
-    id:33, emoji:'', cat:'omega', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Shiffa Nome Omega 3', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:197000 } 
-               ],
+    id:33, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Shiffa Nome Omega 3', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:197000}],
     imageUz:'https://iili.io/CJJjhxa.jpg', imageRu:null, badge:null
   },
   {
-    id:34, emoji:'', cat:'xotira', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Added Attention', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:385000 } 
-               ],
+    id:34, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Added Attention', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:385000}],
     imageUz:'https://iili.io/CJKVOXe.jpg', imageRu:null, badge:null
   },
   {
-    id:35, emoji:'', cat:'xotira', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Organik Kids Focus Attention', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:240000 } 
-               ],
+    id:35, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Organik Kids Focus Attention', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:240000}],
     imageUz:'https://iili.io/CJKh3gf.jpg', imageRu:null, badge:null
   },
-{
-    id:36, emoji:'', cat:'xotira', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Attentive Child', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:1,price:220000 } 
-               ],
+  {
+    id:36, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Attentive Child', sub:''}, ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1,price:220000}],
     imageUz:'https://iili.io/CJK8JSe.jpg', imageRu:null, badge:null
   },
-{
-    id:37, emoji:'', cat:'xotira', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Sunflower Lecithin Liquid And Powder', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:473,unit:'ml',price:385000 },
-               { qty:454,unit:'g',price:385000 }],
-    imageUz:'https://iili.io/CJKL9hF.jpg', imageRu:null, badge:null
-  },
-{
-    id:38, emoji:'', cat:'xotira', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Sunflower Lecithin Liquid And Powder', sub:''},
-    ru:{name:'', sub:''},
-    brands: [],
-    packages: [ { qty:473,unit:'ml',price:385000 },
-               { qty:454,unit:'g',price:385000 }],
-    imageUz:'https://iili.io/CJKL9hF.jpg', imageRu:null, badge:null
-  },
-
-
-
-
-  
   {
-    id:100, emoji:'☀️', cat:'immunitet', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Vitamin D3', sub:'Quyosh vitamini'},
-    ru:{name:'Витамин D3', sub:'Солнечный витамин'},
-    brands: [],
-    packages: [ { qty:60, price:62000 } ],
+    id:37, emoji:'', cat:'xotira', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'now Sunflower Lecithin Liquid', sub:''}, ru:{name:'', sub:''},
+    brands:[],
+    packages:[{qty:473,unit:'ml',price:385000},{qty:454,unit:'g',price:385000}],
+    imageUz:'https://iili.io/CJKL9hF.jpg', imageRu:null, badge:null
+  },
+  {
+    id:38, emoji:'', cat:'xotira', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'now Sunflower Lecithin Powder', sub:''}, ru:{name:'', sub:''},
+    brands:[],
+    packages:[{qty:473,unit:'ml',price:385000},{qty:454,unit:'g',price:385000}],
+    imageUz:'https://iili.io/CJKL9hF.jpg', imageRu:null, badge:null
+  },
+  {
+    id:100, emoji:'☀️', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Vitamin D3', sub:'Quyosh vitamini'}, ru:{name:'Витамин D3', sub:'Солнечный витамин'},
+    brands:[], packages:[{qty:60,price:62000}],
     imageUz:null, imageRu:null, badge:null
   },
   {
-    id:200, emoji:'🦴', cat:'suyak', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:true,
-    uz:{name:'Kalsiy + D3', sub:'Suyak mustahkamlovchi'},
-    ru:{name:'Кальций + D3', sub:'Укрепление костей'},
-    brands: [
-      { id:'natval', nameUz:"Nature's Valley", nameRu:"Nature's Valley", logo:'🟤', country:'🇺🇸 USA' },
-      { id:'vitrum', nameUz:'Vitrum',          nameRu:'Витрум',          logo:'🔴', country:'🇩🇪 DE'  },
+    id:200, emoji:'🦴', cat:'suyak', types:[], hasPackages:true, hasImageRu:false, hasBrands:true,
+    uz:{name:'Kalsiy + D3', sub:'Suyak mustahkamlovchi'}, ru:{name:'Кальций + D3', sub:'Укрепление костей'},
+    brands:[
+      {id:'natval', nameUz:"Nature's Valley", nameRu:"Nature's Valley", logo:'🟤', country:'🇺🇸 USA'},
+      {id:'vitrum', nameUz:'Vitrum', nameRu:'Витрум', logo:'🔴', country:'🇩🇪 DE'},
     ],
-    packages: [
-      { qty:50,  price:38000 },
-      { qty:100, price:68000, bestValue:true },
-    ],
+    packages:[{qty:50,price:38000},{qty:100,price:68000,bestValue:true}],
     imageUz:null, imageRu:null, badge:null
   },
   {
-    id:300, emoji:'💊', cat:'hammasi', hasTypes:true, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Multivitamin', sub:'Kunlik kompleks'},
-    ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
-    brands: [],
-    packages: [
-      { qty:30, price:55000 },
-      { qty:60, price:89000 },
-      { qty:90, price:125000, bestValue:true },
-    ],
+    id:300, emoji:'💊', cat:'hammasi', types:['powder','chew'], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'Multivitamin', sub:'Kunlik kompleks'}, ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
+    brands:[],
+    packages:[{qty:30,price:55000},{qty:60,price:89000},{qty:90,price:125000,bestValue:true}],
     imageUz:null, imageRu:null, badge:'YANGI'
   },
   {
-    id:400, emoji:'💆', cat:'kosmetika', hasTypes:false, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Biotin', sub:'Soch va tirnoq'},
-    ru:{name:'Биотин', sub:'Волосы и ногти'},
-    brands: [],
-    packages: [ { qty:60, price:52000 } ],
+    id:400, emoji:'💆', cat:'kosmetika', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Biotin', sub:'Soch va tirnoq'}, ru:{name:'Биотин', sub:'Волосы и ногти'},
+    brands:[], packages:[{qty:60,price:52000}],
     imageUz:null, imageRu:null, badge:null
   },
   {
-    id:600, emoji:'❤️', cat:'omega', hasTypes:false, hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega-3', sub:"Yurak sog'ligi"},
-    ru:{name:'Омега-3', sub:'Здоровье сердца'},
-    brands: [],
-    packages: [
-      { qty:30,  price:55000 },
-      { qty:60,  price:95000 },
-      { qty:120, price:175000, bestValue:true },
-    ],
+    id:600, emoji:'❤️', cat:'omega', types:['capsule','liquid'], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{name:'Omega-3', sub:"Yurak sog'ligi"}, ru:{name:'Омега-3', sub:'Здоровье сердца'},
+    brands:[],
+    packages:[{qty:30,price:55000},{qty:60,price:95000},{qty:120,price:175000,bestValue:true}],
     imageUz:null, imageRu:null, badge:null
   },
   {
-    id:700, emoji:'🧸', cat:'bolalar', hasTypes:true, hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'},
-    ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
-    brands: [],
-    packages: [ { qty:60, price:43000 } ],
+    id:700, emoji:'🧸', cat:'bolalar', types:['chew','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'}, ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
+    brands:[], packages:[{qty:60,price:43000}],
     imageUz:null, imageRu:null, badge:'MASHHUR'
   },
 ];
@@ -1269,19 +656,17 @@ let lang = 'uz';
 let selectedCat = 'hammasi';
 let currentProduct = null;
 let imgLang = 'uz';
-let selectedType = 'powder';
+let selectedType = null;
 let selectedPkgIndex = 0;
 let selectedBrandIndex = 0;
 let cart = [];
 let pendingOrderItems = null;
 
-// ─── UTIL: paket birligini oladi ───
-// unit yozilgan bo'lsa shu qaytadi, yo'q bo'lsa tarjimon'dan oladi
 function pkgUnit(pk) {
-  if (!pk.unit || pk.unit === '') return t('pkgUnit');  // dona / шт
-  // g, ml, kaps — shundayligicha
+  if (!pk.unit || pk.unit === '') return t('pkgUnit');
   return pk.unit;
 }
+function t(key) { return translations[lang][key]; }
 
 function setLang(l) {
   lang = l;
@@ -1292,7 +677,6 @@ function setLang(l) {
   renderProducts();
   updateStaticText();
 }
-function t(key) { return translations[lang][key]; }
 function updateStaticText() {
   document.getElementById('orderBtn').textContent = t('orderBtn');
   document.getElementById('cartTitle').textContent = t('cartTitle');
@@ -1305,11 +689,7 @@ function renderCategories() {
     `<button class="cat-btn ${selectedCat === c.key ? 'active' : ''}" onclick="selectCat('${c.key}')">${c[lang]}</button>`
   ).join('');
 }
-function selectCat(key) {
-  selectedCat = key;
-  renderCategories();
-  renderProducts();
-}
+function selectCat(key) { selectedCat = key; renderCategories(); renderProducts(); }
 
 function getMinPrice(p) { return Math.min(...p.packages.map(pk => pk.price)); }
 function renderProducts() {
@@ -1346,11 +726,9 @@ function renderModalImage(p, il) {
   wrap.innerHTML = '';
   wrap.appendChild(pills);
   wrap.appendChild(hint);
-
   let url = il === 'ru' ? (p.hasImageRu ? p.imageRu : null) : p.imageUz;
   const ruPill = document.getElementById('imgLangRu');
   if (ruPill) ruPill.style.display = p.hasImageRu ? '' : 'none';
-
   if (url) {
     const img = document.createElement('img');
     img.src = url; img.alt = p[il].name; img.id = 'modalImg';
@@ -1386,7 +764,6 @@ function renderBrandOptions(p) {
 }
 function selectBrand(i) { selectedBrandIndex = i; renderBrandOptions(currentProduct); }
 
-// ─── PACKAGE SELECTOR — unit qo'llab-quvvatlanadi ───
 function renderPkgOptions(p) {
   document.getElementById('pkgOptions').innerHTML = p.packages.map((pk, i) => `
     <button class="pkg-btn ${i === selectedPkgIndex ? 'active' : ''} ${pk.bestValue ? 'best-value' : ''}"
@@ -1395,7 +772,6 @@ function renderPkgOptions(p) {
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
     </button>`).join('');
 }
-
 function selectPkg(i) { selectedPkgIndex = i; renderPkgOptions(currentProduct); updateModalPrice(); }
 
 function updateModalPrice() {
@@ -1410,10 +786,34 @@ function updateModalPrice() {
   document.getElementById('modalPricePer').textContent = '';
 }
 
+// ─── TYPE RENDER — faqat mavjud turlarni chiqaradi ───
+function renderTypeOptions(p) {
+  const typeBlock = document.getElementById('typeBlock');
+  const typeOptions = document.getElementById('typeOptions');
+  if (!p.types || p.types.length === 0) {
+    typeBlock.style.display = 'none';
+    selectedType = null;
+    return;
+  }
+  typeBlock.style.display = '';
+  document.getElementById('formTypeTitle').textContent = t('formType');
+  typeOptions.innerHTML = p.types.map(key => {
+    const meta = TYPE_META[key];
+    return `<button class="type-btn ${selectedType === key ? 'active' : ''}" onclick="selectType('${key}')">
+      <span class="type-icon">${meta.icon}</span>
+      ${lang === 'ru' ? meta.ru : meta.uz}
+    </button>`;
+  }).join('');
+}
+function selectType(type) {
+  selectedType = type;
+  renderTypeOptions(currentProduct);
+}
+
 function openDetail(id) {
   currentProduct = products.find(p => p.id === id);
   imgLang = lang;
-  selectedType = currentProduct.hasTypes ? 'powder' : 'none';
+  selectedType = currentProduct.types && currentProduct.types.length > 0 ? currentProduct.types[0] : null;
   selectedPkgIndex = 0; selectedBrandIndex = 0;
   populateModal(currentProduct);
   document.getElementById('detailModal').classList.add('open');
@@ -1445,23 +845,10 @@ function populateModal(p) {
   const hint = document.getElementById('zoomHint');
   if (hint) hint.textContent = t('zoomHint');
 
-  const typeBlock = document.getElementById('typeBlock');
-  if (p.hasTypes) {
-    typeBlock.style.display = '';
-    document.getElementById('formTypeTitle').textContent = t('formType');
-    document.getElementById('typePowderLabel').textContent = t('powder');
-    document.getElementById('typeChewLabel').textContent = t('chew');
-    document.getElementById('typePowder').classList.toggle('active', selectedType === 'powder');
-    document.getElementById('typeChew').classList.toggle('active', selectedType === 'chew');
-  } else { typeBlock.style.display = 'none'; selectedType = 'none'; }
+  renderTypeOptions(p);
 }
 
 function setImgLang(l) { imgLang = l; if (currentProduct) populateModal(currentProduct); }
-function selectType(type) {
-  selectedType = type;
-  document.getElementById('typePowder').classList.toggle('active', type === 'powder');
-  document.getElementById('typeChew').classList.toggle('active', type === 'chew');
-}
 
 function getSelectedBrand(p, brandIndex) {
   if (!p.hasBrands || !p.brands.length) return null;
@@ -1472,7 +859,8 @@ function quickAdd(e, id) {
   e.stopPropagation();
   const p = products.find(x => x.id === id);
   const pkg = p.packages[0];
-  addItem(p, p.hasTypes ? 'powder' : 'none', 0, pkg, getSelectedBrand(p, 0), 0);
+  const type = p.types && p.types.length > 0 ? p.types[0] : null;
+  addItem(p, type, 0, pkg, getSelectedBrand(p, 0), 0);
   showToast(t('toastAdded'));
 }
 function addToCart() {
@@ -1496,6 +884,11 @@ function updateCartBadge() {
   badge.style.display = total > 0 ? 'flex' : 'none';
 }
 
+function typeLabel(type) {
+  if (!type || !TYPE_META[type]) return '';
+  return lang === 'ru' ? TYPE_META[type].ru : TYPE_META[type].uz;
+}
+
 function openCart() { renderCart(); document.getElementById('cartModal').classList.add('open'); }
 function renderCart() {
   const container = document.getElementById('cartItems');
@@ -1507,17 +900,13 @@ function renderCart() {
     container.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">🛒</div>${t('emptyCart')}</div>`;
     totalEl.style.display = 'none'; orderBtn.style.display = 'none'; return;
   }
-  const typeLabel = type => type === 'powder' ? t('powder') : type === 'chew' ? t('chew') : '';
   container.innerHTML = cart.map(item => {
     const imgUrl = lang === 'ru' ? item.product.imageRu : item.product.imageUz;
     const thumb = imgUrl ? `<img src="${imgUrl}" alt="${item.product[lang].name}">` : item.product.emoji;
-    // ── unit savatchada ham to'g'ri chiqadi ──
-    const pkgLabel = item.product.hasPackages
-      ? `📦 ${item.pkg.qty} ${pkgUnit(item.pkg)}`
-      : '';
-    const typePart  = typeLabel(item.type) ? ` · ${typeLabel(item.type)}` : '';
+    const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${pkgUnit(item.pkg)}` : '';
+    const typePart = typeLabel(item.type) ? ` · ${TYPE_META[item.type].icon} ${typeLabel(item.type)}` : '';
     const brandPart = item.brand ? ` · ${item.brand.logo} ${lang === 'ru' ? item.brand.nameRu : item.brand.nameUz}` : '';
-    const subInfo   = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
+    const subInfo = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
     return `
     <div class="cart-item">
       <div class="cart-item-thumb">${thumb}</div>
@@ -1586,31 +975,29 @@ function confirmOrder() {
 
 function buildOrderPayload(items, location, phone) {
   const user = tg?.initDataUnsafe?.user;
-  const typeLabel = (type, l) => {
-    if (type === 'powder') return l === 'uz' ? 'Poroshokli' : 'Порошковый';
-    if (type === 'chew')   return l === 'uz' ? 'Chaynaladigan' : 'Жевательный';
-    return '';
-  };
   return {
     user: { id: user?.id||null, username: user?.username||null, firstName: user?.first_name||null, phone },
     delivery: { location, phone },
-    items: items.map(i => ({
-      id: i.product.id,
-      nameUz: i.product.uz.name,
-      nameRu: i.product.ru.name,
-      qty: i.qty,
-      packageQty: i.pkg.qty,
-      packageUnit: pkgUnit(i.pkg),   // ← g / ml / dona — botga ham boradi
-      type: i.type,
-      typeUz: typeLabel(i.type, 'uz'),
-      typeRu: typeLabel(i.type, 'ru'),
-      pricePerPkg: i.pkg.price,
-      subtotal: i.pkg.price * i.qty,
-      imageUz: i.product.imageUz || null,
-      imageRu: i.product.imageRu || null,
-      emoji: i.product.emoji,
-      brand: i.brand ? { id: i.brand.id, nameUz: i.brand.nameUz, nameRu: i.brand.nameRu, country: i.brand.country } : null,
-    })),
+    items: items.map(i => {
+      const tm = i.type && TYPE_META[i.type] ? TYPE_META[i.type] : null;
+      return {
+        id: i.product.id,
+        nameUz: i.product.uz.name,
+        nameRu: i.product.ru.name,
+        qty: i.qty,
+        packageQty: i.pkg.qty,
+        packageUnit: pkgUnit(i.pkg),
+        type: i.type,
+        typeUz: tm ? tm.uz : '',
+        typeRu: tm ? tm.ru : '',
+        pricePerPkg: i.pkg.price,
+        subtotal: i.pkg.price * i.qty,
+        imageUz: i.product.imageUz || null,
+        imageRu: i.product.imageRu || null,
+        emoji: i.product.emoji,
+        brand: i.brand ? { id: i.brand.id, nameUz: i.brand.nameUz, nameRu: i.brand.nameRu, country: i.brand.country } : null,
+      };
+    }),
     total: items.reduce((s, i) => s + i.pkg.price * i.qty, 0),
     lang,
   };
