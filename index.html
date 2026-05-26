@@ -1,3 +1,4 @@
+cat > /mnt/user-data/outputs/Vitamino_2022.html << 'ENDOFFILE'
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -112,7 +113,6 @@
   .pkg-price { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-top: 2px; }
   .pkg-btn.active .pkg-price { color: var(--purple); }
 
-  /* TYPE BLOCK */
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
   .type-options { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
   .type-btn { flex: 1; min-width: 72px; padding: 10px 8px; border-radius: 14px; border: 2px solid #E8E0F5; background: white; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; text-align: center; color: var(--text-soft); }
@@ -277,7 +277,7 @@ const TYPE_META = {
   chew:    { icon: '🍬', uz: 'Chaynaladigan', ru: 'Жевательный' },
   liquid:  { icon: '💧', uz: 'Suyuq',         ru: 'Жидкий'      },
   capsule: { icon: '💊', uz: 'Kapsula',        ru: 'Капсула'     },
-  tablet:  { icon: '⚪️', uz: 'Tabletka',        ru: 'Таблетка'     },
+  tablet:  { icon: '⚪️', uz: 'Tabletka',       ru: 'Таблетка'    },
 };
 
 const translations = {
@@ -668,7 +668,6 @@ const products = [
     imageUz:'https://iili.io/Cd3SK9p.jpg', imageRu:null, badge:null
   },
   {
-    // ── ID 55: har bir brand o'z narxiga ega ──
     id:55, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
     uz:{name:'Ginkgo Biloba', sub:''}, ru:{name:'', sub:''},
     brands:[
@@ -720,7 +719,7 @@ const products = [
     brands:[], packages:[{qty:1,price:200000}],
     imageUz:'https://iili.io/CdKAWBa.jpg', imageRu:null, badge:null
   },
-   {
+  {
     id:63, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Natures Way Probiotic Powder', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:385000}],
@@ -768,25 +767,25 @@ const products = [
     brands:[], packages:[{qty:1,price:240000}],
     imageUz:'https://iili.io/CdKSIUJ.jpg', imageRu:'https://iili.io/CdKUb4e.jpg', badge:null
   },
-   {
+  {
     id:71, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'21st century PreNatural with Folic Acid', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:175000}],
     imageUz:'https://iili.io/CdKZIAF.jpg', imageRu:null, badge:null
   },
-   {
+  {
     id:72, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Solgar Prenatal Nutrients', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:385000}],
     imageUz:'https://iili.io/CdKDTCJ.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:73, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'GummiKing Calcium + Vitamin D', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:225000}],
     imageUz:'https://iili.io/CdqtjLu.jpg', imageRu:'https://iili.io/CdqDnj9.jpg', badge:null
   },
-{
+  {
     id:74, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Mollers Cod Liver Oil', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:485000}],
@@ -804,7 +803,7 @@ const products = [
     brands:[], packages:[{qty:1,price:185000}],
     imageUz:'https://iili.io/CdBH8P9.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:77, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Maxmedix Omega3-6-9', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:355000}],
@@ -846,7 +845,7 @@ const products = [
     brands:[], packages:[{qty:1,price:198000}],
     imageUz:'https://iili.io/CdBGvFp.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:84, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Swiss kids Probiotic', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:135000}],
@@ -882,7 +881,7 @@ const products = [
     brands:[], packages:[{qty:1,price:295000}],
     imageUz:'https://iili.io/CdB4LsR.jpg', imageRu:null, badge:null
   },
-   {
+  {
     id:90, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Natures Way Kids Growing Bones & Muscles Gummy', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:285000}],
@@ -894,7 +893,7 @@ const products = [
     brands:[], packages:[{qty:1,price:420000}],
     imageUz:'https://iili.io/CdCxX6b.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:92, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Swiss Calcium Forte', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:185000}],
@@ -936,7 +935,7 @@ const products = [
     brands:[], packages:[{qty:1,price:195000}],
     imageUz:'https://iili.io/CdCcW37.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:99, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Carlson kids chewable Melatonin', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:150000}],
@@ -984,7 +983,7 @@ const products = [
     brands:[], packages:[{qty:1,price:480000}],
     imageUz:'https://iili.io/CdxAPzx.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:107, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'ChildLife Multi Vitamin & Mineral', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:300000}],
@@ -993,8 +992,7 @@ const products = [
   {
     id:108, emoji:'', cat:'bolalar', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{name:'Solaray Kids Vitamins & Minerals', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:60,unit:'dona',price:150000},
-                        {qty:120,unit:'dona',price:285000}],
+    brands:[], packages:[{qty:60,unit:'dona',price:150000},{qty:120,unit:'dona',price:285000}],
     imageUz:'https://iili.io/Cdx0jPj.jpg', imageRu:null, badge:null
   },
   {
@@ -1005,11 +1003,11 @@ const products = [
   },
   {
     id:110, emoji:'', cat:'bolalar', types:['tablet','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Argivit Classic', sub:''}, ru:{name:'', sub:''},
+    uz:{name:'Argivit Classic', sub:''},
+    ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:215000}],
     imageUz:'https://iili.io/CdxUZdB.jpg', imageRu:null, badge:null
   },
-
 
   {
     id:1000, emoji:'☀️', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
@@ -1078,7 +1076,6 @@ function renderCategories() {
 function selectCat(key) { selectedCat = key; renderCategories(); renderProducts(); }
 
 function getMinPrice(p) {
-  // Agar brand narxlari bo'lsa, eng kam brand narxini ol
   if (p.hasBrands && p.brands.length > 0) {
     const brandPrices = p.brands.filter(b => b.price != null).map(b => b.price);
     if (brandPrices.length > 0) return Math.min(...brandPrices);
@@ -1117,19 +1114,12 @@ function renderModalImage(p, il) {
   const wrap = document.getElementById('modalImageWrap');
   const pills = document.getElementById('imgLangPills');
   const hint = document.getElementById('zoomHint');
-
-  // Avvalgi img/emoji elementlarini o'chir (pills va hint qoldirish)
   Array.from(wrap.children).forEach(child => {
     if (child !== pills && child !== hint) child.remove();
   });
-
-  // Ruscha pill: faqat ruscha rasm bor mahsulotda ko'rinsin
   const ruPill = document.getElementById('imgLangRu');
   if (ruPill) ruPill.style.display = p.hasImageRu ? '' : 'none';
-
-  // Agar ruscha tanlanib, ruscha rasm yo'q bo'lsa — uzbga qayt
   let url = il === 'ru' ? (p.hasImageRu ? p.imageRu : p.imageUz) : p.imageUz;
-
   if (url) {
     const img = document.createElement('img');
     img.src = url; img.alt = p.uz.name; img.id = 'modalImg';
@@ -1168,7 +1158,6 @@ function renderBrandOptions(p) {
     </button>`).join('');
 }
 
-// ── Brand tanlaganda narx yangilanadi ──
 function selectBrand(i) {
   selectedBrandIndex = i;
   renderBrandOptions(currentProduct);
@@ -1230,7 +1219,6 @@ function openDetail(id) {
   selectedType = currentProduct.types && currentProduct.types.length > 0 ? currentProduct.types[0] : null;
   selectedPkgIndex = 0;
   selectedBrandIndex = 0;
-  // Brand narxini packages[0] ga yuklash
   if (currentProduct.hasBrands && currentProduct.brands.length > 0 && currentProduct.brands[0].price != null) {
     currentProduct.packages[0].price = currentProduct.brands[0].price;
   }
@@ -1241,30 +1229,25 @@ function openDetail(id) {
 function populateModal(p) {
   renderModalImage(p, imgLang);
   document.getElementById('modalName').textContent = p.uz.name;
-
   const brandBlock = document.getElementById('brandBlock');
   if (p.hasBrands && p.brands.length > 0) {
     brandBlock.style.display = '';
     document.getElementById('brandTitle').textContent = t('brandTitle');
     renderBrandOptions(p);
   } else { brandBlock.style.display = 'none'; }
-
   const pkgBlock = document.getElementById('pkgBlock');
   if (p.hasPackages) {
     pkgBlock.style.display = '';
     document.getElementById('pkgTitle').textContent = t('pkgTitle');
     renderPkgOptions(p);
   } else { pkgBlock.style.display = 'none'; }
-
   updateModalPrice();
-
   document.getElementById('btnAddCart').textContent = t('addCart');
   document.getElementById('btnOrderNow').textContent = t('orderNow');
   document.getElementById('imgLangUz').classList.toggle('active', imgLang === 'uz');
   document.getElementById('imgLangRu').classList.toggle('active', imgLang === 'ru');
   const hint = document.getElementById('zoomHint');
   if (hint) hint.textContent = t('zoomHint');
-
   renderTypeOptions(p);
 }
 
