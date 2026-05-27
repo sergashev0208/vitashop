@@ -16,6 +16,7 @@
     --purple-light: #EDE8F5;
     --purple-pale: #F5F2FB;
     --orange: #F4860A;
+    --green: #27ae60;
     --gray: #F7F4FB;
     --text: #2C1A4E;
     --text-soft: #8B76A9;
@@ -65,6 +66,7 @@
   .card-sub { font-size: 11px; color: var(--text-soft); margin-bottom: 8px; }
   .card-price { font-size: 15px; font-weight: 900; color: var(--purple-dark); }
   .card-price-from { font-size: 10px; font-weight: 600; color: var(--text-soft); display: block; margin-bottom: 1px; }
+  .card-price-usd { font-size: 12px; font-weight: 700; color: var(--green); margin-left: 4px; }
   .card-add { position: absolute; bottom: 12px; right: 10px; width: 28px; height: 28px; background: var(--purple); border-radius: 50%; border: none; color: white; font-size: 18px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(123,94,167,0.4); transition: background 0.2s, transform 0.15s; }
   .card-add:active { transform: scale(0.9); background: var(--purple-dark); }
   .badge { position: absolute; top: 8px; left: 8px; background: linear-gradient(135deg, #F9A84D, #F4860A); color: white; font-size: 10px; font-weight: 800; border-radius: 8px; padding: 2px 7px; z-index: 2; }
@@ -100,6 +102,7 @@
   .modal-price-wrap { display: flex; align-items: baseline; gap: 8px; margin-bottom: 16px; }
   .modal-price { font-size: 22px; font-weight: 900; color: var(--purple-dark); transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1); }
   .modal-price.price-changed { transform: scale(1.08); color: var(--orange); }
+  .modal-price-usd { font-size: 16px; font-weight: 800; color: var(--green); }
   .modal-price-per { font-size: 12px; color: var(--text-soft); font-weight: 600; }
 
   .pkg-section { margin-bottom: 18px; }
@@ -112,6 +115,7 @@
   .pkg-btn.active .pkg-qty { color: var(--purple-dark); }
   .pkg-price { font-size: 12px; font-weight: 700; color: var(--text-soft); display: block; margin-top: 2px; }
   .pkg-btn.active .pkg-price { color: var(--purple); }
+  .pkg-price-usd { font-size: 11px; font-weight: 700; color: var(--green); display: block; margin-top: 1px; }
 
   .form-type-title { font-size: 14px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
   .type-options { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
@@ -204,6 +208,7 @@
       <div class="modal-name" id="modalName"></div>
       <div class="modal-price-wrap">
         <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-price-usd" id="modalPriceUsd"></div>
         <div class="modal-price-per" id="modalPricePer"></div>
       </div>
 
@@ -332,12 +337,14 @@ const categories = [
   { key: 'turkiya',   uz: 'Turkiya vitaminlari'    },
 ];
 
+// priceUsd — ixtiyoriy maydon. Qo'shmoqchi bo'lsangiz packagega qo'shing:
+// packages:[{qty:1, price:297000, priceUsd:23}]
 const products = [
-  // kollagen👇
+  // kollagen
   {
     id:1, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Kollagen Gele', sub:''}, ru:{name:'Коллаген геле', sub:''},
-    brands:[], packages:[{qty:1,price:297000,bestValue:true}],
+    brands:[], packages:[{qty:1,price:297000,priceUsd:23,bestValue:true}],
     imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg', badge:null
   },
   {
@@ -422,7 +429,7 @@ const products = [
     packages:[{qty:383,unit:'g',price:498000},{qty:761,unit:'g',price:760000,bestValue:true}],
     imageUz:'https://iili.io/CHgKkQe.jpg', imageRu:'https://iili.io/CHgKhYl.jpg', badge:null
   },
-  // omega👇
+  // omega
   {
     id:15, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'Omega-3 Fish Oil', sub:''}, ru:{name:'Омега-3 Fish Oil', sub:''},
@@ -542,7 +549,7 @@ const products = [
     brands:[], packages:[{qty:1,price:197000}],
     imageUz:'https://iili.io/CJJjhxa.jpg', imageRu:null, badge:null
   },
-  // xotira👇
+  // xotira
   {
     id:34, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Added Attention', sub:''}, ru:{name:'', sub:''},
@@ -680,7 +687,7 @@ const products = [
     packages:[{qty:1, price:145000}],
     imageUz:'https://iili.io/Cd3DAB4.jpg', imageRu:null, badge:null
   },
-  // onabola👇
+  // ona-bola
   {
     id:56, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Baby Liquid Vitamin D3 For babies', sub:''}, ru:{name:'', sub:''},
@@ -783,7 +790,7 @@ const products = [
     brands:[], packages:[{qty:1,price:385000}],
     imageUz:'https://iili.io/CdKDTCJ.jpg', imageRu:null, badge:null
   },
-  // bolalar👇
+  // bolalar
   {
     id:73, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{name:'GummiKing Calcium + Vitamin D', sub:''}, ru:{name:'', sub:''},
@@ -1025,21 +1032,23 @@ const products = [
     brands:[], packages:[{qty:1,price:300000}],
     imageUz:'https://iili.io/Cdw6ETg.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:113, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'ChildLife Echinacea', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:155000}],
     imageUz:'https://iili.io/CdwP391.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:114, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
     uz:{name:'Black Walnut', sub:''}, ru:{name:'', sub:''},
-    brands:[{id:'nature', nameUz:"Natures way", nameRu:"Natures way", logo:'', country:'', price:null},
-      {id:'nature', nameUz:'Natures Answer',           nameRu:'Natures Answer',          logo:'', country:'',  price:null},], 
-  packages:[{qty:1,price:200000}],
+    brands:[
+      {id:'nature',  nameUz:"Natures way",    nameRu:"Natures way",    logo:'', country:'', price:null},
+      {id:'nature2', nameUz:'Natures Answer', nameRu:'Natures Answer', logo:'', country:'', price:null},
+    ],
+    packages:[{qty:1,price:200000}],
     imageUz:'https://iili.io/CdwtZgf.jpg', imageRu:null, badge:null
   },
-{
+  {
     id:115, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'now Echinacea Extract', sub:''}, ru:{name:'', sub:''},
     brands:[], packages:[{qty:1,price:235000}],
@@ -1117,18 +1126,13 @@ const products = [
     brands:[], packages:[{qty:1,price:200000}],
     imageUz:'https://iili.io/Cd3MeYg.jpg', imageRu:null, badge:null
   },
-  // Aksiya💸
+  // Aksiya
   {
     id:128, emoji:'', cat:'aksiya', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Solaray L-Lysine 500 mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:10}],
+    brands:[], packages:[{qty:1,priceUsd:10}],
     imageUz:'https://iili.io/CdLfo8B.jpg', imageRu:null, badge:null
   },
-
-
-
-
-  
   {
     id:1000, emoji:'☀️', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{name:'Vitamin D3', sub:'Quyosh vitamini'}, ru:{name:'Витамин D3', sub:'Солнечный витамин'},
@@ -1203,6 +1207,13 @@ function getMinPrice(p) {
   return Math.min(...p.packages.map(pk => pk.price));
 }
 
+// Kartada ko'rsatiladigan minimal dollar narxi
+function getMinPriceUsd(p) {
+  const prices = p.packages.map(pk => pk.priceUsd).filter(v => v != null);
+  if (prices.length === 0) return null;
+  return Math.min(...prices);
+}
+
 function renderProducts() {
   const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
@@ -1212,6 +1223,7 @@ function renderProducts() {
       ? `<img src="${imgUrl}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;">`
       : `<span class="card-img-emoji">${p.emoji}</span>`;
     const minPrice = getMinPrice(p);
+    const minPriceUsd = getMinPriceUsd(p);
     const showFrom = (p.hasPackages && p.packages.length > 1) || (p.hasBrands && p.brands.length > 1);
     return `
     <div class="card" onclick="openDetail(${p.id})">
@@ -1223,6 +1235,7 @@ function renderProducts() {
         <div class="card-price">
           ${showFrom ? `<span class="card-price-from">${t('fromPrice')}</span>` : ''}
           ${minPrice.toLocaleString()} ${t('currency')}
+          ${minPriceUsd != null ? `<span class="card-price-usd">/ $${minPriceUsd}</span>` : ''}
         </div>
       </div>
       <button class="card-add" onclick="quickAdd(event,${p.id})">+</button>
@@ -1294,6 +1307,7 @@ function renderPkgOptions(p) {
       data-label="${t('pkgBestValue')}" onclick="selectPkg(${i})">
       <span class="pkg-qty">${pk.qty} ${pkgUnit(pk)}</span>
       <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
+      ${pk.priceUsd != null ? `<span class="pkg-price-usd">$${pk.priceUsd}</span>` : ''}
     </button>`).join('');
 }
 function selectPkg(i) { selectedPkgIndex = i; renderPkgOptions(currentProduct); updateModalPrice(); }
@@ -1302,7 +1316,19 @@ function updateModalPrice() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
   const priceEl = document.getElementById('modalPrice');
+  const usdEl = document.getElementById('modalPriceUsd');
+
   priceEl.textContent = `${pkg.price.toLocaleString()} ${t('currency')}`;
+
+  // Dollar narxini ko'rsatish
+  if (pkg.priceUsd != null) {
+    usdEl.textContent = `/ $${pkg.priceUsd}`;
+    usdEl.style.display = '';
+  } else {
+    usdEl.textContent = '';
+    usdEl.style.display = 'none';
+  }
+
   priceEl.classList.remove('price-changed');
   void priceEl.offsetWidth;
   priceEl.classList.add('price-changed');
@@ -1430,6 +1456,8 @@ function renderCart() {
     const typePart = typeLabel(item.type) ? ` · ${TYPE_META[item.type].icon} ${typeLabel(item.type)}` : '';
     const brandPart = item.brand ? ` · ${item.brand.logo} ${item.brand.nameUz}` : '';
     const subInfo = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
+    const usdPart = item.pkg.priceUsd != null
+      ? `<span style="font-size:11px;color:#27ae60;font-weight:700;">$${item.pkg.priceUsd * item.qty}</span>` : '';
     return `
     <div class="cart-item">
       <div class="cart-item-thumb">${thumb}</div>
@@ -1438,7 +1466,10 @@ function renderCart() {
         ${subInfo ? `<div class="cart-item-type">${subInfo}</div>` : ''}
       </div>
       <div class="cart-item-right">
-        <div class="cart-item-price">${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}</div>
+        <div class="cart-item-price">
+          ${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}
+          ${usdPart}
+        </div>
         <div class="cart-qty-row">
           <button class="cart-qty-btn remove" onclick="changeQty('${item.key}', -1)">−</button>
           <span class="cart-qty-num">${item.qty}</span>
@@ -1448,7 +1479,11 @@ function renderCart() {
     </div>`;
   }).join('');
   const total = cart.reduce((s, i) => s + i.pkg.price * i.qty, 0);
-  document.getElementById('totalPrice').textContent = `${total.toLocaleString()} ${t('currency')}`;
+  const totalUsd = cart.reduce((s, i) => s + (i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : 0), 0);
+  const hasUsd = cart.some(i => i.pkg.priceUsd != null);
+  document.getElementById('totalPrice').innerHTML =
+    `${total.toLocaleString()} ${t('currency')}` +
+    (hasUsd ? ` <span style="color:#27ae60;font-size:14px;">/ $${totalUsd}</span>` : '');
   totalEl.style.display = 'flex'; orderBtn.style.display = 'block';
 }
 function changeQty(key, delta) {
@@ -1514,7 +1549,9 @@ function buildOrderPayload(items, location, phone) {
         typeUz: tm ? tm.uz : '',
         typeRu: tm ? tm.ru : '',
         pricePerPkg: i.pkg.price,
+        priceUsd: i.pkg.priceUsd || null,
         subtotal: i.pkg.price * i.qty,
+        subtotalUsd: i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : null,
         imageUz: i.product.imageUz || null,
         imageRu: i.product.imageRu || null,
         emoji: i.product.emoji,
@@ -1522,6 +1559,7 @@ function buildOrderPayload(items, location, phone) {
       };
     }),
     total: items.reduce((s, i) => s + i.pkg.price * i.qty, 0),
+    totalUsd: items.reduce((s, i) => s + (i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : 0), 0),
     lang: 'uz',
   };
 }
@@ -1543,3 +1581,8 @@ renderProducts();
 </script>
 </body>
 </html>
+
+
+
+
+
