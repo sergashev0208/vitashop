@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -337,844 +336,152 @@ const categories = [
   { key: 'turkiya',   uz: 'Turkiya vitaminlari'    },
 ];
 
-// priceUsd — ixtiyoriy maydon. Qo'shmoqchi bo'lsangiz packagega qo'shing:
-// packages:[{qty:1, price:297000, priceUsd:23}]
 const products = [
   // kollagen
-  {
-    id:1, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Gele', sub:''}, ru:{name:'Коллаген геле', sub:''},
-    brands:[], packages:[{qty:1,price:297000,priceUsd:23,bestValue:true}],
-    imageUz:'https://iili.io/CHC7lgj.jpg', imageRu:'https://iili.io/CHeyRNp.jpg', badge:null
-  },
-  {
-    id:2, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Powder', sub:''}, ru:{name:'Коллаген порошок', sub:''},
-    brands:[], packages:[{qty:1,price:235000,bestValue:true}],
-    imageUz:'https://iili.io/CH8jiOl.jpg', imageRu:'https://iili.io/CH8jsb2.jpg', badge:null
-  },
-  {
-    id:3, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari + Probiotiklar', sub:''}, ru:{name:'Коллаген Пептиды + Пробиотики', sub:''},
-    brands:[], packages:[{qty:1,price:628000,bestValue:true}],
-    imageUz:'https://iili.io/CH8vCAb.jpg', imageRu:'https://iili.io/CH8voDx.jpg', badge:null
-  },
-  {
-    id:4, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:''}, ru:{name:'Verisol Kollagen + Biotin + Antioxidants', sub:''},
-    brands:[],
-    packages:[{qty:120,unit:'dona',price:195000},{qty:345,unit:'dona',price:445000,bestValue:true}],
-    imageUz:'https://iili.io/CH84Uqx.jpg', imageRu:'https://iili.io/CH846dB.jpg', badge:null
-  },
-  {
-    id:5, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Dengiz Kollageni Marine Collagen', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:340000}],
-    imageUz:'https://iili.io/CH8QEX9.jpg', imageRu:null, badge:null
-  },
-  {
-    id:6, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CH8p5ge.jpg', imageRu:'https://iili.io/CH8pcej.jpg', badge:null
-  },
-  {
-    id:7, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Hyaluronic Acid Complex', sub:''}, ru:{name:'Collagen Hyaluronic Acid Complex', sub:''},
-    brands:[], packages:[{qty:1,price:348000}],
-    imageUz:'https://iili.io/CHSHAqN.jpg', imageRu:'https://iili.io/CHSHR1I.jpg', badge:null
-  },
-  {
-    id:8, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Dengiz Kollageni CollagenUp', sub:''}, ru:{name:'Морской коллаген CollagenUp', sub:''},
-    brands:[],
-    packages:[{qty:206,unit:'g',price:255000},{qty:464,unit:'g',price:528000,bestValue:true}],
-    imageUz:'https://iili.io/CHS2omu.jpg', imageRu:'https://iili.io/CHS2TLx.jpg', badge:null
-  },
-  {
-    id:9, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Multikollagen Kompleksi', sub:''}, ru:{name:'Мультиколлаген Комплекс', sub:''},
-    brands:[], packages:[{qty:1,price:478000}],
-    imageUz:'https://iili.io/CHUerEN.jpg', imageRu:'https://iili.io/CHUeiYX.jpg', badge:null
-  },
-  {
-    id:10, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Dengiz Kollagen Kompleksi', sub:''}, ru:{name:'Морской Коллаген Комплекс', sub:''},
-    brands:[], packages:[{qty:1,price:478000}],
-    imageUz:'https://iili.io/CHUSiP4.jpg', imageRu:'https://iili.io/CHUSQl2.jpg', badge:null
-  },
-  {
-    id:11, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
-    brands:[], packages:[{qty:1,price:665000}],
-    imageUz:'https://iili.io/CHUraMG.jpg', imageRu:'https://iili.io/CHUrcPf.jpg', badge:null
-  },
-  {
-    id:12, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
-    brands:[],
-    packages:[{qty:284,unit:'g',price:440000},{qty:680,unit:'g',price:650000,bestValue:true}],
-    imageUz:'https://iili.io/CHU6mnn.jpg', imageRu:'https://iili.io/CHU6y6G.jpg', badge:null
-  },
-  {
-    id:13, emoji:'', cat:'kollagen', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
-    brands:[], packages:[{qty:1,price:478000}],
-    imageUz:'https://iili.io/CHg2fdN.jpg', imageRu:'https://iili.io/CHg2Fgp.jpg', badge:null
-  },
-  {
-    id:14, emoji:'', cat:'kollagen', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Kollagen Peptidlari', sub:''}, ru:{name:'Коллаген Пептиды', sub:''},
-    brands:[],
-    packages:[{qty:383,unit:'g',price:498000},{qty:761,unit:'g',price:760000,bestValue:true}],
-    imageUz:'https://iili.io/CHgKkQe.jpg', imageRu:'https://iili.io/CHgKhYl.jpg', badge:null
-  },
+  {id:1,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Gele',sub:''},ru:{name:'Коллаген геле',sub:''},brands:[],packages:[{qty:1,price:297000,priceUsd:23,bestValue:true}],imageUz:'https://iili.io/CHC7lgj.jpg',imageRu:'https://iili.io/CHeyRNp.jpg',badge:null},
+  {id:2,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Powder',sub:''},ru:{name:'Коллаген порошок',sub:''},brands:[],packages:[{qty:1,price:235000,bestValue:true}],imageUz:'https://iili.io/CH8jiOl.jpg',imageRu:'https://iili.io/CH8jsb2.jpg',badge:null},
+  {id:3,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari + Probiotiklar',sub:''},ru:{name:'Коллаген Пептиды + Пробиотики',sub:''},brands:[],packages:[{qty:1,price:628000,bestValue:true}],imageUz:'https://iili.io/CH8vCAb.jpg',imageRu:'https://iili.io/CH8voDx.jpg',badge:null},
+  {id:4,emoji:'',cat:'kollagen',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'Verisol Kollagen + Biotin + Antioksidantlar',sub:''},ru:{name:'Verisol Kollagen + Biotin + Antioxidants',sub:''},brands:[],packages:[{qty:120,unit:'dona',price:195000},{qty:345,unit:'dona',price:445000,bestValue:true}],imageUz:'https://iili.io/CH84Uqx.jpg',imageRu:'https://iili.io/CH846dB.jpg',badge:null},
+  {id:5,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Dengiz Kollageni Marine Collagen',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:340000}],imageUz:'https://iili.io/CH8QEX9.jpg',imageRu:null,badge:null},
+  {id:6,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari',sub:''},ru:{name:'Коллаген Пептиды',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CH8p5ge.jpg',imageRu:'https://iili.io/CH8pcej.jpg',badge:null},
+  {id:7,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Hyaluronic Acid Complex',sub:''},ru:{name:'Collagen Hyaluronic Acid Complex',sub:''},brands:[],packages:[{qty:1,price:348000}],imageUz:'https://iili.io/CHSHAqN.jpg',imageRu:'https://iili.io/CHSHR1I.jpg',badge:null},
+  {id:8,emoji:'',cat:'kollagen',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'Dengiz Kollageni CollagenUp',sub:''},ru:{name:'Морской коллаген CollagenUp',sub:''},brands:[],packages:[{qty:206,unit:'g',price:255000},{qty:464,unit:'g',price:528000,bestValue:true}],imageUz:'https://iili.io/CHS2omu.jpg',imageRu:'https://iili.io/CHS2TLx.jpg',badge:null},
+  {id:9,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Multikollagen Kompleksi',sub:''},ru:{name:'Мультиколлаген Комплекс',sub:''},brands:[],packages:[{qty:1,price:478000}],imageUz:'https://iili.io/CHUerEN.jpg',imageRu:'https://iili.io/CHUeiYX.jpg',badge:null},
+  {id:10,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Dengiz Kollagen Kompleksi',sub:''},ru:{name:'Морской Коллаген Комплекс',sub:''},brands:[],packages:[{qty:1,price:478000}],imageUz:'https://iili.io/CHUSiP4.jpg',imageRu:'https://iili.io/CHUSQl2.jpg',badge:null},
+  {id:11,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari',sub:''},ru:{name:'Коллаген Пептиды',sub:''},brands:[],packages:[{qty:1,price:665000}],imageUz:'https://iili.io/CHUraMG.jpg',imageRu:'https://iili.io/CHUrcPf.jpg',badge:null},
+  {id:12,emoji:'',cat:'kollagen',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari',sub:''},ru:{name:'Коллаген Пептиды',sub:''},brands:[],packages:[{qty:284,unit:'g',price:440000},{qty:680,unit:'g',price:650000,bestValue:true}],imageUz:'https://iili.io/CHU6mnn.jpg',imageRu:'https://iili.io/CHU6y6G.jpg',badge:null},
+  {id:13,emoji:'',cat:'kollagen',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari',sub:''},ru:{name:'Коллаген Пептиды',sub:''},brands:[],packages:[{qty:1,price:478000}],imageUz:'https://iili.io/CHg2fdN.jpg',imageRu:'https://iili.io/CHg2Fgp.jpg',badge:null},
+  {id:14,emoji:'',cat:'kollagen',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'Kollagen Peptidlari',sub:''},ru:{name:'Коллаген Пептиды',sub:''},brands:[],packages:[{qty:383,unit:'g',price:498000},{qty:761,unit:'g',price:760000,bestValue:true}],imageUz:'https://iili.io/CHgKkQe.jpg',imageRu:'https://iili.io/CHgKhYl.jpg',badge:null},
   // omega
-  {
-    id:15, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Omega-3 Fish Oil', sub:''}, ru:{name:'Омега-3 Fish Oil', sub:''},
-    brands:[], packages:[{qty:1,price:530000}],
-    imageUz:'https://iili.io/CHgxhPt.jpg', imageRu:'https://iili.io/CHgxwKX.jpg', badge:null
-  },
-  {
-    id:16, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'now Omega-3 Fish Oil', sub:''}, ru:{name:'now Омега-3 Fish Oil', sub:''},
-    brands:[],
-    packages:[{qty:100,unit:'kaps',price:175000},{qty:200,unit:'kaps',price:320000},{qty:500,unit:'kaps',price:598000,bestValue:true}],
-    imageUz:'https://iili.io/CHg5ppe.jpg', imageRu:'https://iili.io/CHg7JQj.jpg', badge:null
-  },
-  {
-    id:17, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Maximum Omega 2000', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:213000}],
-    imageUz:'https://iili.io/CJHpsVa.jpg', imageRu:null, badge:null
-  },
-  {
-    id:18, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega 3 Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:325000}],
-    imageUz:'https://iili.io/CJJ9w4j.jpg', imageRu:null, badge:null
-  },
-  {
-    id:19, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'1300 mg Omega 3-6-9', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CJJJkzP.jpg', imageRu:null, badge:null
-  },
-  {
-    id:20, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega 3 950 mg', sub:''}, ru:{name:'', sub:''},
-    brands:[],
-    packages:[{qty:50,unit:'dona',price:395000},{qty:100,unit:'dona',price:615000,bestValue:true}],
-    imageUz:'https://iili.io/CJJ26DN.jpg', imageRu:null, badge:null
-  },
-  {
-    id:21, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Ultra Omega 3 Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:330000}],
-    imageUz:'https://iili.io/CJJFo2s.jpg', imageRu:null, badge:null
-  },
-  {
-    id:22, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Omega 3-6-9 1000mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:225000}],
-    imageUz:'https://iili.io/CJJF6Gt.jpg', imageRu:null, badge:null
-  },
-  {
-    id:23, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega-3 Mini Gels Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:275000}],
-    imageUz:'https://iili.io/CJJK0Pt.jpg', imageRu:null, badge:null
-  },
-  {
-    id:24, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nordic Ultimate Omega', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CJJRFqb.jpg', imageRu:null, badge:null
-  },
-  {
-    id:25, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Gold Omega 3 Premium Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[],
-    packages:[{qty:100,unit:'dona',price:215000},{qty:240,unit:'dona',price:389000,bestValue:true}],
-    imageUz:'https://iili.io/CJJ7lWX.jpg', imageRu:null, badge:null
-  },
-  {
-    id:26, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Mollers Omega 3', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:485000}],
-    imageUz:'https://iili.io/CJJYkTN.jpg', imageRu:null, badge:null
-  },
-  {
-    id:27, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Mollers Cod Liver Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:485000}],
-    imageUz:'https://iili.io/CJJaG94.jpg', imageRu:null, badge:null
-  },
-  {
-    id:28, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CJJl1Tl.jpg', imageRu:null, badge:null
-  },
-  {
-    id:29, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids DHA', sub:''}, ru:{name:'', sub:''},
-    brands:[],
-    packages:[{qty:60,unit:'dona',price:185000},{qty:120,unit:'dona',price:298000,bestValue:true}],
-    imageUz:'https://iili.io/CJJ1eLB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:30, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Maxmedix Omega3-6-9 Gummies for kids', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CJJGxcX.jpg', imageRu:null, badge:null
-  },
-  {
-    id:31, emoji:'', cat:'omega', types:[], hasPackages:true, hasImageRu:true, hasBrands:false,
-    uz:{name:'Carlson Super Omega 3', sub:''}, ru:{name:'Carlson Super Omega 3', sub:''},
-    brands:[],
-    packages:[{qty:50,unit:'dona',price:210000},{qty:130,unit:'dona',price:425000,bestValue:true}],
-    imageUz:'https://iili.io/CJJV2QR.jpg', imageRu:'https://iili.io/CJJVi8X.jpg', badge:null
-  },
-  {
-    id:32, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nordic Daily Omega Kids', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:155000}],
-    imageUz:'https://iili.io/CJJhtta.jpg', imageRu:null, badge:null
-  },
-  {
-    id:33, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Shiffa Nome Omega 3', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:197000}],
-    imageUz:'https://iili.io/CJJjhxa.jpg', imageRu:null, badge:null
-  },
+  {id:15,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Omega-3 Fish Oil',sub:''},ru:{name:'Омега-3 Fish Oil',sub:''},brands:[],packages:[{qty:1,price:530000}],imageUz:'https://iili.io/CHgxhPt.jpg',imageRu:'https://iili.io/CHgxwKX.jpg',badge:null},
+  {id:16,emoji:'',cat:'omega',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'now Omega-3 Fish Oil',sub:''},ru:{name:'now Омега-3 Fish Oil',sub:''},brands:[],packages:[{qty:100,unit:'kaps',price:175000},{qty:200,unit:'kaps',price:320000},{qty:500,unit:'kaps',price:598000,bestValue:true}],imageUz:'https://iili.io/CHg5ppe.jpg',imageRu:'https://iili.io/CHg7JQj.jpg',badge:null},
+  {id:17,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Maximum Omega 2000',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:213000}],imageUz:'https://iili.io/CJHpsVa.jpg',imageRu:null,badge:null},
+  {id:18,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Omega 3 Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:325000}],imageUz:'https://iili.io/CJJ9w4j.jpg',imageRu:null,badge:null},
+  {id:19,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'1300 mg Omega 3-6-9',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CJJJkzP.jpg',imageRu:null,badge:null},
+  {id:20,emoji:'',cat:'omega',types:[],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Omega 3 950 mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:50,unit:'dona',price:395000},{qty:100,unit:'dona',price:615000,bestValue:true}],imageUz:'https://iili.io/CJJ26DN.jpg',imageRu:null,badge:null},
+  {id:21,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Ultra Omega 3 Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:330000}],imageUz:'https://iili.io/CJJFo2s.jpg',imageRu:null,badge:null},
+  {id:22,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Omega 3-6-9 1000mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:225000}],imageUz:'https://iili.io/CJJF6Gt.jpg',imageRu:null,badge:null},
+  {id:23,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Omega-3 Mini Gels Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:275000}],imageUz:'https://iili.io/CJJK0Pt.jpg',imageRu:null,badge:null},
+  {id:24,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'nordic Ultimate Omega',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CJJRFqb.jpg',imageRu:null,badge:null},
+  {id:25,emoji:'',cat:'omega',types:[],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Gold Omega 3 Premium Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:100,unit:'dona',price:215000},{qty:240,unit:'dona',price:389000,bestValue:true}],imageUz:'https://iili.io/CJJ7lWX.jpg',imageRu:null,badge:null},
+  {id:26,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Mollers Omega 3',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:485000}],imageUz:'https://iili.io/CJJYkTN.jpg',imageRu:null,badge:null},
+  {id:27,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Mollers Cod Liver Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:485000}],imageUz:'https://iili.io/CJJaG94.jpg',imageRu:null,badge:null},
+  {id:28,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Kids Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CJJl1Tl.jpg',imageRu:null,badge:null},
+  {id:29,emoji:'',cat:'omega',types:[],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Kids DHA',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:60,unit:'dona',price:185000},{qty:120,unit:'dona',price:298000,bestValue:true}],imageUz:'https://iili.io/CJJ1eLB.jpg',imageRu:null,badge:null},
+  {id:30,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Maxmedix Omega3-6-9 Gummies for kids',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CJJGxcX.jpg',imageRu:null,badge:null},
+  {id:31,emoji:'',cat:'omega',types:[],hasPackages:true,hasImageRu:true,hasBrands:false,uz:{name:'Carlson Super Omega 3',sub:''},ru:{name:'Carlson Super Omega 3',sub:''},brands:[],packages:[{qty:50,unit:'dona',price:210000},{qty:130,unit:'dona',price:425000,bestValue:true}],imageUz:'https://iili.io/CJJV2QR.jpg',imageRu:'https://iili.io/CJJVi8X.jpg',badge:null},
+  {id:32,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'nordic Daily Omega Kids',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:155000}],imageUz:'https://iili.io/CJJhtta.jpg',imageRu:null,badge:null},
+  {id:33,emoji:'',cat:'omega',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Shiffa Nome Omega 3',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:197000}],imageUz:'https://iili.io/CJJjhxa.jpg',imageRu:null,badge:null},
   // xotira
-  {
-    id:34, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Added Attention', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CJKVOXe.jpg', imageRu:null, badge:null
-  },
-  {
-    id:35, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Organik Kids Focus Attention', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:240000}],
-    imageUz:'https://iili.io/CJKh3gf.jpg', imageRu:null, badge:null
-  },
-  {
-    id:36, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Attentive Child', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:220000}],
-    imageUz:'https://iili.io/CJK8JSe.jpg', imageRu:null, badge:null
-  },
-  {
-    id:37, emoji:'', cat:'xotira', types:['powder','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Sunflower Lecithin Powder', sub:''}, ru:{name:'', sub:''},
-    brands:[],
-    packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CJKL9hF.jpg', imageRu:null, badge:null
-  },
-  {
-    id:38, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Sunflower Lecithin 1200mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/Cd3zJn4.jpg', imageRu:null, badge:null
-  },
-  {
-    id:39, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Non-GMO Lecithin 1200mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/Cd3IkkF.jpg', imageRu:null, badge:null
-  },
-  {
-    id:40, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Kelp', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:155000}],
-    imageUz:'https://iili.io/Cd3TS87.jpg', imageRu:null, badge:null
-  },
-  {
-    id:41, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'lifeflo Liquid Iodine Plus', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:145000}],
-    imageUz:'https://iili.io/Cd3APrQ.jpg', imageRu:null, badge:null
-  },
-  {
-    id:42, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Life Extension Sea-Iodine 1000 mcg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:145000}],
-    imageUz:'https://iili.io/Cd3R4wX.jpg', imageRu:null, badge:null
-  },
-  {
-    id:43, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Solaray Kelp 550 mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:175000}],
-    imageUz:'https://iili.io/Cd35aRI.jpg', imageRu:null, badge:null
-  },
-  {
-    id:44, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nbtlife iyotic DAMLA', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:175000}],
-    imageUz:'https://iili.io/Cd37gQn.jpg', imageRu:null, badge:null
-  },
-  {
-    id:45, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Natures way KELP', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:245000}],
-    imageUz:'https://iili.io/Cd3YvFj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:46, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Liquid Vitamin B-Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:279000}],
-    imageUz:'https://iili.io/Cd3apgj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:47, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Sports Research B-Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:330000}],
-    imageUz:'https://iili.io/Cd3lvFs.jpg', imageRu:null, badge:null
-  },
-  {
-    id:48, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Life Extension Bioactive Complete B-Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/Cd31qB9.jpg', imageRu:null, badge:null
-  },
-  {
-    id:49, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Country Life Coenzyme B-Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:435000}],
-    imageUz:'https://iili.io/Cd3EeP1.jpg', imageRu:null, badge:null
-  },
-  {
-    id:50, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'California GOLD Nutrition Adult Gummies B Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:200000}],
-    imageUz:'https://iili.io/Cd3MeYg.jpg', imageRu:null, badge:null
-  },
-  {
-    id:51, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss Genius Kids', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:185000}],
-    imageUz:'https://iili.io/Cd3WVqB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:52, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss Mag Focus', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:198000}],
-    imageUz:'https://iili.io/Cd3X7Bp.jpg', imageRu:null, badge:null
-  },
-  {
-    id:53, emoji:'', cat:'xotira', types:['powder','capsule'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Life Extension Neuro-Mag', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:430000}],
-    imageUz:'https://iili.io/Cd3NLiv.jpg', imageRu:null, badge:null
-  },
-  {
-    id:54, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Buried Treasure Magtein L-Threonate 2000mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/Cd3SK9p.jpg', imageRu:null, badge:null
-  },
-  {
-    id:55, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
-    uz:{name:'Ginkgo Biloba', sub:''}, ru:{name:'', sub:''},
-    brands:[
-      {id:'now',          nameUz:'now',          nameRu:'now',          logo:'', country:'', price:145000},
-      {id:'masonnatural', nameUz:'Mason Natural', nameRu:'Mason Natural', logo:'', country:'', price:135000},
-    ],
-    packages:[{qty:1, price:145000}],
-    imageUz:'https://iili.io/Cd3DAB4.jpg', imageRu:null, badge:null
-  },
+  {id:34,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Added Attention',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CJKVOXe.jpg',imageRu:null,badge:null},
+  {id:35,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Organik Kids Focus Attention',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:240000}],imageUz:'https://iili.io/CJKh3gf.jpg',imageRu:null,badge:null},
+  {id:36,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Attentive Child',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:220000}],imageUz:'https://iili.io/CJK8JSe.jpg',imageRu:null,badge:null},
+  {id:37,emoji:'',cat:'xotira',types:['powder','liquid'],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Sunflower Lecithin Powder',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CJKL9hF.jpg',imageRu:null,badge:null},
+  {id:38,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Sunflower Lecithin 1200mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/Cd3zJn4.jpg',imageRu:null,badge:null},
+  {id:39,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Non-GMO Lecithin 1200mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/Cd3IkkF.jpg',imageRu:null,badge:null},
+  {id:40,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Kelp',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:155000}],imageUz:'https://iili.io/Cd3TS87.jpg',imageRu:null,badge:null},
+  {id:41,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'lifeflo Liquid Iodine Plus',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:145000}],imageUz:'https://iili.io/Cd3APrQ.jpg',imageRu:null,badge:null},
+  {id:42,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Life Extension Sea-Iodine 1000 mcg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:145000}],imageUz:'https://iili.io/Cd3R4wX.jpg',imageRu:null,badge:null},
+  {id:43,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Solaray Kelp 550 mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:175000}],imageUz:'https://iili.io/Cd35aRI.jpg',imageRu:null,badge:null},
+  {id:44,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'nbtlife iyotic DAMLA',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:175000}],imageUz:'https://iili.io/Cd37gQn.jpg',imageRu:null,badge:null},
+  {id:45,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Natures way KELP',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:245000}],imageUz:'https://iili.io/Cd3YvFj.jpg',imageRu:null,badge:null},
+  {id:46,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Liquid Vitamin B-Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:279000}],imageUz:'https://iili.io/Cd3apgj.jpg',imageRu:null,badge:null},
+  {id:47,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Sports Research B-Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:330000}],imageUz:'https://iili.io/Cd3lvFs.jpg',imageRu:null,badge:null},
+  {id:48,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Life Extension Bioactive Complete B-Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/Cd31qB9.jpg',imageRu:null,badge:null},
+  {id:49,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Country Life Coenzyme B-Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:435000}],imageUz:'https://iili.io/Cd3EeP1.jpg',imageRu:null,badge:null},
+  {id:50,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'California GOLD Nutrition Adult Gummies B Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:200000}],imageUz:'https://iili.io/Cd3MeYg.jpg',imageRu:null,badge:null},
+  {id:51,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss Genius Kids',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:185000}],imageUz:'https://iili.io/Cd3WVqB.jpg',imageRu:null,badge:null},
+  {id:52,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss Mag Focus',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:198000}],imageUz:'https://iili.io/Cd3X7Bp.jpg',imageRu:null,badge:null},
+  {id:53,emoji:'',cat:'xotira',types:['powder','capsule'],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Life Extension Neuro-Mag',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:430000}],imageUz:'https://iili.io/Cd3NLiv.jpg',imageRu:null,badge:null},
+  {id:54,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Buried Treasure Magtein L-Threonate 2000mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/Cd3SK9p.jpg',imageRu:null,badge:null},
+  {id:55,emoji:'',cat:'xotira',types:[],hasPackages:false,hasImageRu:false,hasBrands:true,uz:{name:'Ginkgo Biloba',sub:''},ru:{name:'',sub:''},brands:[{id:'now',nameUz:'now',nameRu:'now',logo:'',country:'',price:145000},{id:'masonnatural',nameUz:'Mason Natural',nameRu:'Mason Natural',logo:'',country:'',price:135000}],packages:[{qty:1,price:145000}],imageUz:'https://iili.io/Cd3DAB4.jpg',imageRu:null,badge:null},
   // ona-bola
-  {
-    id:56, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Baby Liquid Vitamin D3 For babies', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:135000}],
-    imageUz:'https://iili.io/CdKK3iP.jpg', imageRu:null, badge:null
-  },
-  {
-    id:57, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Nordic babys vitamin D3 Liquid', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdKq2F1.jpg', imageRu:null, badge:null
-  },
-  {
-    id:58, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Babys Super Daily D3', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:185000}],
-    imageUz:'https://iili.io/CdKBWqN.jpg', imageRu:null, badge:null
-  },
-  {
-    id:59, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Pregnacare new mum', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CdKnoox.jpg', imageRu:null, badge:null
-  },
-  {
-    id:60, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Pregnacare him & her conception', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:415000}],
-    imageUz:'https://iili.io/CdKxfQj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:61, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Pregnacare breast-feeding', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CdKIthg.jpg', imageRu:null, badge:null
-  },
-  {
-    id:62, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'mommys BLISS Baby gas relief drops', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:200000}],
-    imageUz:'https://iili.io/CdKAWBa.jpg', imageRu:null, badge:null
-  },
-  {
-    id:63, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Natures Way Probiotic Powder', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CdK7HmB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:64, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Cold Relief COLD CALM BABY', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:250000}],
-    imageUz:'https://iili.io/CdKapdG.jpg', imageRu:null, badge:null
-  },
-  {
-    id:65, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Kids Kaze', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/CdK1y67.jpg', imageRu:null, badge:null
-  },
-  {
-    id:66, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Vitamin D3', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:145000}],
-    imageUz:'https://iili.io/CdKVURn.jpg', imageRu:null, badge:null
-  },
-  {
-    id:67, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Nordic babys DHA', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:250000}],
-    imageUz:'https://iili.io/CdKX46l.jpg', imageRu:null, badge:null
-  },
-  {
-    id:68, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'mommys BLISS gripe water original', sub:''}, ru:{name:'mommys BLISS gripe water original', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdKjozu.jpg', imageRu:'https://iili.io/CdKNxKx.jpg', badge:null
-  },
-  {
-    id:69, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss Kids ProBioTic', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:135000}],
-    imageUz:'https://iili.io/CdKvxX1.jpg', imageRu:null, badge:null
-  },
-  {
-    id:70, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'mommys Bliss Organic baby bedtime drops', sub:''}, ru:{name:'mommys Bliss Organic baby bedtime drops', sub:''},
-    brands:[], packages:[{qty:1,price:240000}],
-    imageUz:'https://iili.io/CdKSIUJ.jpg', imageRu:'https://iili.io/CdKUb4e.jpg', badge:null
-  },
-  {
-    id:71, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'21st century PreNatural with Folic Acid', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:175000}],
-    imageUz:'https://iili.io/CdKZIAF.jpg', imageRu:null, badge:null
-  },
-  {
-    id:72, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Solgar Prenatal Nutrients', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:385000}],
-    imageUz:'https://iili.io/CdKDTCJ.jpg', imageRu:null, badge:null
-  },
+  {id:56,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Baby Liquid Vitamin D3 For babies',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:135000}],imageUz:'https://iili.io/CdKK3iP.jpg',imageRu:null,badge:null},
+  {id:57,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Nordic babys vitamin D3 Liquid',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdKq2F1.jpg',imageRu:null,badge:null},
+  {id:58,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Babys Super Daily D3',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:185000}],imageUz:'https://iili.io/CdKBWqN.jpg',imageRu:null,badge:null},
+  {id:59,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Pregnacare new mum',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CdKnoox.jpg',imageRu:null,badge:null},
+  {id:60,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Pregnacare him & her conception',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:415000}],imageUz:'https://iili.io/CdKxfQj.jpg',imageRu:null,badge:null},
+  {id:61,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Pregnacare breast-feeding',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CdKIthg.jpg',imageRu:null,badge:null},
+  {id:62,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:"mommys BLISS Baby gas relief drops",sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:200000}],imageUz:'https://iili.io/CdKAWBa.jpg',imageRu:null,badge:null},
+  {id:63,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Natures Way Probiotic Powder',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CdK7HmB.jpg',imageRu:null,badge:null},
+  {id:64,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Cold Relief COLD CALM BABY',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:250000}],imageUz:'https://iili.io/CdKapdG.jpg',imageRu:null,badge:null},
+  {id:65,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Kids Kaze',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/CdK1y67.jpg',imageRu:null,badge:null},
+  {id:66,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Vitamin D3',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:145000}],imageUz:'https://iili.io/CdKVURn.jpg',imageRu:null,badge:null},
+  {id:67,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Nordic babys DHA',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:250000}],imageUz:'https://iili.io/CdKX46l.jpg',imageRu:null,badge:null},
+  {id:68,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:"mommys BLISS gripe water original",sub:''},ru:{name:"mommys BLISS gripe water original",sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdKjozu.jpg',imageRu:'https://iili.io/CdKNxKx.jpg',badge:null},
+  {id:69,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss Kids ProBioTic',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:135000}],imageUz:'https://iili.io/CdKvxX1.jpg',imageRu:null,badge:null},
+  {id:70,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'mommys Bliss Organic baby bedtime drops',sub:''},ru:{name:'mommys Bliss Organic baby bedtime drops',sub:''},brands:[],packages:[{qty:1,price:240000}],imageUz:'https://iili.io/CdKSIUJ.jpg',imageRu:'https://iili.io/CdKUb4e.jpg',badge:null},
+  {id:71,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'21st century PreNatural with Folic Acid',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:175000}],imageUz:'https://iili.io/CdKZIAF.jpg',imageRu:null,badge:null},
+  {id:72,emoji:'',cat:'ona-bola',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Solgar Prenatal Nutrients',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:385000}],imageUz:'https://iili.io/CdKDTCJ.jpg',imageRu:null,badge:null},
   // bolalar
+  {id:73,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'GummiKing Calcium + Vitamin D',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:225000}],imageUz:'https://iili.io/CdqtjLu.jpg',imageRu:'https://iili.io/CdqDnj9.jpg',badge:null},
+  {id:74,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Mollers Cod Liver Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:485000}],imageUz:'https://iili.io/CdqmAmB.jpg',imageRu:null,badge:null},
+  {id:75,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson kids Fish Oil',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CdqysJj.jpg',imageRu:null,badge:null},
+  {id:76,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Chewable DHA',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:185000}],imageUz:'https://iili.io/CdBH8P9.jpg',imageRu:null,badge:null},
+  {id:77,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Maxmedix Omega3-6-9',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:355000}],imageUz:'https://iili.io/CdBfUXf.jpg',imageRu:null,badge:null},
+  {id:78,emoji:'',cat:'bolalar',types:['powder','chew'],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Magnesium Kidz Animal Parade',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdBoTPf.jpg',imageRu:null,badge:null},
+  {id:79,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'BigFriends Magnesium Citrate',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/CdBAsb2.jpg',imageRu:null,badge:null},
+  {id:80,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Stress-Relax Magnesium Bisglycinate',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:375000}],imageUz:'https://iili.io/CdB7CAv.jpg',imageRu:null,badge:null},
+  {id:81,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Magnesium Glycinate Gummies',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:298000}],imageUz:'https://iili.io/CdBcWlt.jpg',imageRu:null,badge:null},
+  {id:82,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'KAL Magnesium Powder',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdB1oDG.jpg',imageRu:null,badge:null},
+  {id:83,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:"mommys BLISS kids sleep",sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:198000}],imageUz:'https://iili.io/CdBGvFp.jpg',imageRu:null,badge:null},
+  {id:84,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss kids Probiotic',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:135000}],imageUz:'https://iili.io/CdKvxX1.jpg',imageRu:null,badge:null},
+  {id:85,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Kids Vitamin D3 Gummies',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdBhSTP.jpg',imageRu:null,badge:null},
+  {id:86,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson Kids Super Daily D3+K2',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:335000}],imageUz:'https://iili.io/CdBNyn1.jpg',imageRu:null,badge:null},
+  {id:87,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'BABY Liquid Vitamin D3 for Babies',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:135000}],imageUz:'https://iili.io/CdKK3iP.jpg',imageRu:null,badge:null},
+  {id:88,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:true,hasBrands:false,uz:{name:'Calcium Magnesium Citrate & Vitamin D3',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:390000}],imageUz:'https://iili.io/CdBSqCB.jpg',imageRu:'https://iili.io/CdBgvhx.jpg',badge:null},
+  {id:89,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Liquid Calcium with Magnesium',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:295000}],imageUz:'https://iili.io/CdB4LsR.jpg',imageRu:null,badge:null},
+  {id:90,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Natures Way Kids Growing Bones & Muscles Gummy',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:285000}],imageUz:'https://iili.io/CdCCbou.jpg',imageRu:null,badge:null},
+  {id:91,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Bone Health',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:420000}],imageUz:'https://iili.io/CdCxX6b.jpg',imageRu:null,badge:null},
+  {id:92,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss Calcium Forte',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:185000}],imageUz:'https://iili.io/CdCzmmB.jpg',imageRu:null,badge:null},
+  {id:93,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'BioMagic Yod (Йод)',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:220000}],imageUz:'https://iili.io/CdCAYpR.jpg',imageRu:null,badge:null},
+  {id:94,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Vitamin D & C',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:140000}],imageUz:'https://iili.io/CdCRjKF.jpg',imageRu:null,badge:null},
+  {id:95,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Daily Omega Kids',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:155000}],imageUz:'https://iili.io/CdC5RbR.jpg',imageRu:null,badge:null},
+  {id:96,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Power Teen',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:340000}],imageUz:'https://iili.io/CdC74vs.jpg',imageRu:null,badge:null},
+  {id:97,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson kids chewable Zinc',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:140000}],imageUz:'https://iili.io/CdCaBWl.jpg',imageRu:null,badge:null},
+  {id:98,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Zinc',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/CdCcW37.jpg',imageRu:null,badge:null},
+  {id:99,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson kids chewable Melatonin',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:150000}],imageUz:'https://iili.io/CdClvNs.jpg',imageRu:null,badge:null},
+  {id:100,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Natrol Kids sleep Melatonin 1mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdC1mFV.jpg',imageRu:null,badge:null},
+  {id:101,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:"mommys BLISS Bedtime drops",sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:240000}],imageUz:'https://iili.io/CdKSIUJ.jpg',imageRu:null,badge:null},
+  {id:102,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'YumVSkids Iron with Vitamin C',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:295000}],imageUz:'https://iili.io/CdCVENt.jpg',imageRu:null,badge:null},
+  {id:103,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Swiss Iron Herbs Liquid',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:165000}],imageUz:'https://iili.io/CdCXljt.jpg',imageRu:null,badge:null},
+  {id:104,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson kids chewable Iron',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:135000}],imageUz:'https://iili.io/CdCj82j.jpg',imageRu:null,badge:null},
+  {id:105,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'21st Century Zoo Friends Multi Vitamin',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:169000}],imageUz:'https://iili.io/CdxqY4j.jpg',imageRu:null,badge:null},
+  {id:106,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'smarty pants kids complete',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:480000}],imageUz:'https://iili.io/CdxAPzx.jpg',imageRu:null,badge:null},
+  {id:107,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Multi Vitamin & Mineral',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:300000}],imageUz:'https://iili.io/CdxYjY7.jpg',imageRu:null,badge:null},
+  {id:108,emoji:'',cat:'bolalar',types:[],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Solaray Kids Vitamins & Minerals',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:60,unit:'dona',price:150000},{qty:120,unit:'dona',price:285000}],imageUz:'https://iili.io/Cdx0jPj.jpg',imageRu:null,badge:null},
+  {id:109,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Flintstones +extra Iron',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:365000}],imageUz:'https://iili.io/CdxEcpS.jpg',imageRu:null,badge:null},
+  {id:110,emoji:'',cat:'bolalar',types:['tablet','liquid'],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Argivit Classic',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:215000}],imageUz:'https://iili.io/CdxUZdB.jpg',imageRu:null,badge:null},
+  {id:111,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Argivit Smart',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/Cdw4Ozb.jpg',imageRu:null,badge:null},
+  {id:112,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Solgar Kangavites',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:300000}],imageUz:'https://iili.io/Cdw6ETg.jpg',imageRu:null,badge:null},
+  {id:113,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Echinacea',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:155000}],imageUz:'https://iili.io/CdwP391.jpg',imageRu:null,badge:null},
+  {id:114,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:true,uz:{name:'Black Walnut',sub:''},ru:{name:'',sub:''},brands:[{id:'nature',nameUz:"Natures way",nameRu:"Natures way",logo:'',country:'',price:null},{id:'nature2',nameUz:'Natures Answer',nameRu:'Natures Answer',logo:'',country:'',price:null}],packages:[{qty:1,price:200000}],imageUz:'https://iili.io/CdwtZgf.jpg',imageRu:null,badge:null},
+  {id:115,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'now Echinacea Extract',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdwbStI.jpg',imageRu:null,badge:null},
+  {id:116,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Sanbucol Kids + Vitamin C',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:298000}],imageUz:'https://iili.io/Cdwp77j.jpg',imageRu:null,badge:null},
+  {id:117,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Nordic kids Vitamin C gummies',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:240000}],imageUz:'https://iili.io/Cdwyicg.jpg',imageRu:null,badge:null},
+  {id:118,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Carlson kids chewable Vitamin C',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:195000}],imageUz:'https://iili.io/CdNHU41.jpg',imageRu:null,badge:null},
+  {id:119,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Liquid Vitamin C',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:185000}],imageUz:'https://iili.io/CdNJDDx.jpg',imageRu:null,badge:null},
+  {id:120,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Animal Parade Probiotic',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:235000}],imageUz:'https://iili.io/CdN2Cmb.jpg',imageRu:null,badge:null},
+  {id:121,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'NutriBiotic Sodium Ascorbate',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:285000}],imageUz:'https://iili.io/CdN37P2.jpg',imageRu:null,badge:null},
+  {id:122,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'NaturesPlus Liquid Vitamin C 1000mg',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:285000}],imageUz:'https://iili.io/CdNFiLx.jpg',imageRu:null,badge:null},
+  {id:123,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'ChildLife Liquid Iron',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:200000}],imageUz:'https://iili.io/CdNKsun.jpg',imageRu:null,badge:null},
+  {id:124,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'lifeflo liquid iodine plus',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:145000}],imageUz:'https://iili.io/Cd3APrQ.jpg',imageRu:null,badge:null},
+  {id:125,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'nbtlife iyotic damla',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:175000}],imageUz:'https://iili.io/Cd37gQn.jpg',imageRu:null,badge:null},
+  {id:126,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Liquid Vitamin B-Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:279000}],imageUz:'https://iili.io/Cd3apgj.jpg',imageRu:null,badge:null},
+  {id:127,emoji:'',cat:'bolalar',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Gold adult gummies B Complex',sub:''},ru:{name:'',sub:''},brands:[],packages:[{qty:1,price:200000}],imageUz:'https://iili.io/Cd3MeYg.jpg',imageRu:null,badge:null},
+  // ✅ Aksiya — FAQAT priceUsd bor, price yo'q
   {
-    id:73, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'GummiKing Calcium + Vitamin D', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:225000}],
-    imageUz:'https://iili.io/CdqtjLu.jpg', imageRu:'https://iili.io/CdqDnj9.jpg', badge:null
+    id:128, emoji:'🏷️', cat:'aksiya', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{name:'Solaray L-Lysine 500 mg', sub:''},ru:{name:'', sub:''},
+    brands:[], packages:[{qty:1, priceUsd:10}],
+    imageUz:'https://iili.io/CdLfo8B.jpg', imageRu:null, badge:'AKSIYA'
   },
-  {
-    id:74, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Mollers Cod Liver Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:485000}],
-    imageUz:'https://iili.io/CdqmAmB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:75, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson kids Fish Oil', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CdqysJj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:76, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Chewable DHA', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:185000}],
-    imageUz:'https://iili.io/CdBH8P9.jpg', imageRu:null, badge:null
-  },
-  {
-    id:77, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Maxmedix Omega3-6-9', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:355000}],
-    imageUz:'https://iili.io/CdBfUXf.jpg', imageRu:null, badge:null
-  },
-  {
-    id:78, emoji:'', cat:'bolalar', types:['powder','chew'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Magnesium Kidz Animal Parade', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdBoTPf.jpg', imageRu:null, badge:null
-  },
-  {
-    id:79, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'BigFriends Magnesium Citrate', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/CdBAsb2.jpg', imageRu:null, badge:null
-  },
-  {
-    id:80, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Stress-Relax Magnesium Bisglycinate', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:375000}],
-    imageUz:'https://iili.io/CdB7CAv.jpg', imageRu:null, badge:null
-  },
-  {
-    id:81, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Magnesium Glycinate Gummies', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:298000}],
-    imageUz:'https://iili.io/CdBcWlt.jpg', imageRu:null, badge:null
-  },
-  {
-    id:82, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'KAL Magnesium Powder', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdB1oDG.jpg', imageRu:null, badge:null
-  },
-  {
-    id:83, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'mommys BLISS kids sleep', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:198000}],
-    imageUz:'https://iili.io/CdBGvFp.jpg', imageRu:null, badge:null
-  },
-  {
-    id:84, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss kids Probiotic', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:135000}],
-    imageUz:'https://iili.io/CdKvxX1.jpg', imageRu:null, badge:null
-  },
-  {
-    id:85, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids Vitamin D3 Gummies', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdBhSTP.jpg', imageRu:null, badge:null
-  },
-  {
-    id:86, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson Kids Super Daily D3+K2', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:335000}],
-    imageUz:'https://iili.io/CdBNyn1.jpg', imageRu:null, badge:null
-  },
-  {
-    id:87, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'BABY Liquid Vitamin D3 for Babies', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:135000}],
-    imageUz:'https://iili.io/CdKK3iP.jpg', imageRu:null, badge:null
-  },
-  {
-    id:88, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{name:'Calcium Magnesium Citrate & Vitamin D3', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:390000}],
-    imageUz:'https://iili.io/CdBSqCB.jpg', imageRu:'https://iili.io/CdBgvhx.jpg', badge:null
-  },
-  {
-    id:89, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Liquid Calcium with Magnesium', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:295000}],
-    imageUz:'https://iili.io/CdB4LsR.jpg', imageRu:null, badge:null
-  },
-  {
-    id:90, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Natures Way Kids Growing Bones & Muscles Gummy', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:285000}],
-    imageUz:'https://iili.io/CdCCbou.jpg', imageRu:null, badge:null
-  },
-  {
-    id:91, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Bone Health', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:420000}],
-    imageUz:'https://iili.io/CdCxX6b.jpg', imageRu:null, badge:null
-  },
-  {
-    id:92, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss Calcium Forte', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:185000}],
-    imageUz:'https://iili.io/CdCzmmB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:93, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'BioMagic Yod (Йод)', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:220000}],
-    imageUz:'https://iili.io/CdCAYpR.jpg', imageRu:null, badge:null
-  },
-  {
-    id:94, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Vitamin D & C', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:140000}],
-    imageUz:'https://iili.io/CdCRjKF.jpg', imageRu:null, badge:null
-  },
-  {
-    id:95, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Daily Omega Kids', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:155000}],
-    imageUz:'https://iili.io/CdC5RbR.jpg', imageRu:null, badge:null
-  },
-  {
-    id:96, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Power Teen', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:340000}],
-    imageUz:'https://iili.io/CdC74vs.jpg', imageRu:null, badge:null
-  },
-  {
-    id:97, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson kids chewable Zinc', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:140000}],
-    imageUz:'https://iili.io/CdCaBWl.jpg', imageRu:null, badge:null
-  },
-  {
-    id:98, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Zinc', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/CdCcW37.jpg', imageRu:null, badge:null
-  },
-  {
-    id:99, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson kids chewable Melatonin', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:150000}],
-    imageUz:'https://iili.io/CdClvNs.jpg', imageRu:null, badge:null
-  },
-  {
-    id:100, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Natrol Kids sleep Melatonin 1mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdC1mFV.jpg', imageRu:null, badge:null
-  },
-  {
-    id:101, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'mommys BLISS Bedtime drops', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:240000}],
-    imageUz:'https://iili.io/CdKSIUJ.jpg', imageRu:null, badge:null
-  },
-  {
-    id:102, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'YumVSkids Iron with Vitamin C', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:295000}],
-    imageUz:'https://iili.io/CdCVENt.jpg', imageRu:null, badge:null
-  },
-  {
-    id:103, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Swiss Iron Herbs Liquid', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:165000}],
-    imageUz:'https://iili.io/CdCXljt.jpg', imageRu:null, badge:null
-  },
-  {
-    id:104, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson kids chewable Iron', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:135000}],
-    imageUz:'https://iili.io/CdCj82j.jpg', imageRu:null, badge:null
-  },
-  {
-    id:105, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'21st Century Zoo Friends Multi Vitamin', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:169000}],
-    imageUz:'https://iili.io/CdxqY4j.jpg', imageRu:null, badge:null
-  },
-  {
-    id:106, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'smarty pants kids complete', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:480000}],
-    imageUz:'https://iili.io/CdxAPzx.jpg', imageRu:null, badge:null
-  },
-  {
-    id:107, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Multi Vitamin & Mineral', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:300000}],
-    imageUz:'https://iili.io/CdxYjY7.jpg', imageRu:null, badge:null
-  },
-  {
-    id:108, emoji:'', cat:'bolalar', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Solaray Kids Vitamins & Minerals', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:60,unit:'dona',price:150000},{qty:120,unit:'dona',price:285000}],
-    imageUz:'https://iili.io/Cdx0jPj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:109, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Flintstones +extra Iron', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:365000}],
-    imageUz:'https://iili.io/CdxEcpS.jpg', imageRu:null, badge:null
-  },
-  {
-    id:110, emoji:'', cat:'bolalar', types:['tablet','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Argivit Classic', sub:''},
-    ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:215000}],
-    imageUz:'https://iili.io/CdxUZdB.jpg', imageRu:null, badge:null
-  },
-  {
-    id:111, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Argivit Smart', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/Cdw4Ozb.jpg', imageRu:null, badge:null
-  },
-  {
-    id:112, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Solgar Kangavites', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:300000}],
-    imageUz:'https://iili.io/Cdw6ETg.jpg', imageRu:null, badge:null
-  },
-  {
-    id:113, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Echinacea', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:155000}],
-    imageUz:'https://iili.io/CdwP391.jpg', imageRu:null, badge:null
-  },
-  {
-    id:114, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
-    uz:{name:'Black Walnut', sub:''}, ru:{name:'', sub:''},
-    brands:[
-      {id:'nature',  nameUz:"Natures way",    nameRu:"Natures way",    logo:'', country:'', price:null},
-      {id:'nature2', nameUz:'Natures Answer', nameRu:'Natures Answer', logo:'', country:'', price:null},
-    ],
-    packages:[{qty:1,price:200000}],
-    imageUz:'https://iili.io/CdwtZgf.jpg', imageRu:null, badge:null
-  },
-  {
-    id:115, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'now Echinacea Extract', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdwbStI.jpg', imageRu:null, badge:null
-  },
-  {
-    id:116, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Sanbucol Kids + Vitamin C', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:298000}],
-    imageUz:'https://iili.io/Cdwp77j.jpg', imageRu:null, badge:null
-  },
-  {
-    id:117, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Nordic kids Vitamin C gummies', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:240000}],
-    imageUz:'https://iili.io/Cdwyicg.jpg', imageRu:null, badge:null
-  },
-  {
-    id:118, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Carlson kids chewable Vitamin C', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:195000}],
-    imageUz:'https://iili.io/CdNHU41.jpg', imageRu:null, badge:null
-  },
-  {
-    id:119, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Liquid Vitamin C', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:185000}],
-    imageUz:'https://iili.io/CdNJDDx.jpg', imageRu:null, badge:null
-  },
-  {
-    id:120, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Animal Parade Probiotic', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:235000}],
-    imageUz:'https://iili.io/CdN2Cmb.jpg', imageRu:null, badge:null
-  },
-  {
-    id:121, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'NutriBiotic Sodium Ascorbate', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:285000}],
-    imageUz:'https://iili.io/CdN37P2.jpg', imageRu:null, badge:null
-  },
-  {
-    id:122, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'NaturesPlus Liquid Vitamin C 1000mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:285000}],
-    imageUz:'https://iili.io/CdNFiLx.jpg', imageRu:null, badge:null
-  },
-  {
-    id:123, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'ChildLife Liquid Iron', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:200000}],
-    imageUz:'https://iili.io/CdNKsun.jpg', imageRu:null, badge:null
-  },
-  {
-    id:124, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'lifeflo liquid iodine plus', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:145000}],
-    imageUz:'https://iili.io/Cd3APrQ.jpg', imageRu:null, badge:null
-  },
-  {
-    id:125, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'nbtlife iyotic damla', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:175000}],
-    imageUz:'https://iili.io/Cd37gQn.jpg', imageRu:null, badge:null
-  },
-  {
-    id:126, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Liquid Vitamin B-Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:279000}],
-    imageUz:'https://iili.io/Cd3apgj.jpg', imageRu:null, badge:null
-  },
-  {
-    id:127, emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Gold adult gummies B Complex', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,price:200000}],
-    imageUz:'https://iili.io/Cd3MeYg.jpg', imageRu:null, badge:null
-  },
-  // Aksiya
-  {
-    id:128, emoji:'', cat:'aksiya', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Solaray L-Lysine 500 mg', sub:''}, ru:{name:'', sub:''},
-    brands:[], packages:[{qty:1,priceUsd:10}],
-    imageUz:'https://iili.io/CdLfo8B.jpg', imageRu:null, badge:null
-  },
-  {
-    id:1000, emoji:'☀️', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Vitamin D3', sub:'Quyosh vitamini'}, ru:{name:'Витамин D3', sub:'Солнечный витамин'},
-    brands:[], packages:[{qty:60,price:62000}],
-    imageUz:null, imageRu:null, badge:null
-  },
-  {
-    id:200, emoji:'🦴', cat:'suyak', types:[], hasPackages:true, hasImageRu:false, hasBrands:true,
-    uz:{name:'Kalsiy + D3', sub:'Suyak mustahkamlovchi'}, ru:{name:'Кальций + D3', sub:'Укрепление костей'},
-    brands:[
-      {id:'natval', nameUz:"Nature's Valley", nameRu:"Nature's Valley", logo:'🟤', country:'🇺🇸 USA', price:null},
-      {id:'vitrum', nameUz:'Vitrum',           nameRu:'Витрум',          logo:'🔴', country:'🇩🇪 DE',  price:null},
-    ],
-    packages:[{qty:50,price:38000},{qty:100,price:68000,bestValue:true}],
-    imageUz:null, imageRu:null, badge:null
-  },
-  {
-    id:300, emoji:'💊', cat:'hammasi', types:['powder','chew'], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Multivitamin', sub:'Kunlik kompleks'}, ru:{name:'Мультивитамин', sub:'Ежедневный комплекс'},
-    brands:[],
-    packages:[{qty:30,price:55000},{qty:60,price:89000},{qty:90,price:125000,bestValue:true}],
-    imageUz:null, imageRu:null, badge:'YANGI'
-  },
-  {
-    id:400, emoji:'💊', cat:'kosmetika', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Biotin', sub:'Soch va tirnoq'}, ru:{name:'Биотин', sub:'Волосы и ногти'},
-    brands:[], packages:[{qty:60,price:52000}],
-    imageUz:null, imageRu:null, badge:null
-  },
-  {
-    id:600, emoji:'❤️', cat:'omega', types:['capsule','liquid'], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{name:'Omega-3', sub:"Yurak sog'ligi"}, ru:{name:'Омега-3', sub:'Здоровье сердца'},
-    brands:[],
-    packages:[{qty:30,price:55000},{qty:60,price:95000},{qty:120,price:175000,bestValue:true}],
-    imageUz:null, imageRu:null, badge:null
-  },
-  {
-    id:700, emoji:'🧸', cat:'bolalar', types:['chew','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{name:'Bolalar vitamini', sub:'Multivitamin 3-12 yosh'}, ru:{name:'Детские витамины', sub:'Мультивитамин 3-12 лет'},
-    brands:[], packages:[{qty:60,price:43000}],
-    imageUz:null, imageRu:null, badge:'MASHHUR'
-  },
+  {id:1000,emoji:'☀️',cat:'immunitet',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Vitamin D3',sub:'Quyosh vitamini'},ru:{name:'Витамин D3',sub:'Солнечный витамин'},brands:[],packages:[{qty:60,price:62000}],imageUz:null,imageRu:null,badge:null},
+  {id:200,emoji:'🦴',cat:'suyak',types:[],hasPackages:true,hasImageRu:false,hasBrands:true,uz:{name:'Kalsiy + D3',sub:'Suyak mustahkamlovchi'},ru:{name:'Кальций + D3',sub:'Укрепление костей'},brands:[{id:'natval',nameUz:"Nature's Valley",nameRu:"Nature's Valley",logo:'🟤',country:'🇺🇸 USA',price:null},{id:'vitrum',nameUz:'Vitrum',nameRu:'Витрум',logo:'🔴',country:'🇩🇪 DE',price:null}],packages:[{qty:50,price:38000},{qty:100,price:68000,bestValue:true}],imageUz:null,imageRu:null,badge:null},
+  {id:300,emoji:'💊',cat:'hammasi',types:['powder','chew'],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Multivitamin',sub:'Kunlik kompleks'},ru:{name:'Мультивитамин',sub:'Ежедневный комплекс'},brands:[],packages:[{qty:30,price:55000},{qty:60,price:89000},{qty:90,price:125000,bestValue:true}],imageUz:null,imageRu:null,badge:'YANGI'},
+  {id:400,emoji:'💊',cat:'kosmetika',types:[],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Biotin',sub:'Soch va tirnoq'},ru:{name:'Биотин',sub:'Волосы и ногти'},brands:[],packages:[{qty:60,price:52000}],imageUz:null,imageRu:null,badge:null},
+  {id:600,emoji:'❤️',cat:'omega',types:['capsule','liquid'],hasPackages:true,hasImageRu:false,hasBrands:false,uz:{name:'Omega-3',sub:"Yurak sog'ligi"},ru:{name:'Омега-3',sub:'Здоровье сердца'},brands:[],packages:[{qty:30,price:55000},{qty:60,price:95000},{qty:120,price:175000,bestValue:true}],imageUz:null,imageRu:null,badge:null},
+  {id:700,emoji:'🧸',cat:'bolalar',types:['chew','liquid'],hasPackages:false,hasImageRu:false,hasBrands:false,uz:{name:'Bolalar vitamini',sub:'Multivitamin 3-12 yosh'},ru:{name:'Детские витамины',sub:'Мультивитамин 3-12 лет'},brands:[],packages:[{qty:60,price:43000}],imageUz:null,imageRu:null,badge:'MASHHUR'},
 ];
 
 let selectedCat = 'hammasi';
@@ -1199,21 +506,23 @@ function renderCategories() {
 }
 function selectCat(key) { selectedCat = key; renderCategories(); renderProducts(); }
 
+// ✅ FIX 1: price null bo'lsa null qaytaradi (NaN emas)
 function getMinPrice(p) {
   if (p.hasBrands && p.brands.length > 0) {
     const brandPrices = p.brands.filter(b => b.price != null).map(b => b.price);
     if (brandPrices.length > 0) return Math.min(...brandPrices);
   }
-  return Math.min(...p.packages.map(pk => pk.price));
+  const prices = p.packages.map(pk => pk.price).filter(v => v != null);
+  return prices.length > 0 ? Math.min(...prices) : null;
 }
 
-// Kartada ko'rsatiladigan minimal dollar narxi
 function getMinPriceUsd(p) {
   const prices = p.packages.map(pk => pk.priceUsd).filter(v => v != null);
   if (prices.length === 0) return null;
   return Math.min(...prices);
 }
 
+// ✅ FIX 2: kartada null price handle
 function renderProducts() {
   const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
@@ -1234,8 +543,8 @@ function renderProducts() {
         <div class="card-sub">${info.sub}</div>
         <div class="card-price">
           ${showFrom ? `<span class="card-price-from">${t('fromPrice')}</span>` : ''}
-          ${minPrice.toLocaleString()} ${t('currency')}
-          ${minPriceUsd != null ? `<span class="card-price-usd">/ $${minPriceUsd}</span>` : ''}
+          ${minPrice != null ? `${minPrice.toLocaleString()} ${t('currency')}` : ''}
+          ${minPriceUsd != null ? `<span class="card-price-usd">${minPrice != null ? '/ ' : ''}$${minPriceUsd}</span>` : ''}
         </div>
       </div>
       <button class="card-add" onclick="quickAdd(event,${p.id})">+</button>
@@ -1301,28 +610,31 @@ function selectBrand(i) {
   updateModalPrice();
 }
 
+// ✅ FIX 3: paket narxi null bo'lsa bo'sh ko'rsatiladi
 function renderPkgOptions(p) {
   document.getElementById('pkgOptions').innerHTML = p.packages.map((pk, i) => `
     <button class="pkg-btn ${i === selectedPkgIndex ? 'active' : ''} ${pk.bestValue ? 'best-value' : ''}"
       data-label="${t('pkgBestValue')}" onclick="selectPkg(${i})">
       <span class="pkg-qty">${pk.qty} ${pkgUnit(pk)}</span>
-      <span class="pkg-price">${pk.price.toLocaleString()} ${t('currency')}</span>
+      <span class="pkg-price">${pk.price != null ? `${pk.price.toLocaleString()} ${t('currency')}` : ''}</span>
       ${pk.priceUsd != null ? `<span class="pkg-price-usd">$${pk.priceUsd}</span>` : ''}
     </button>`).join('');
 }
 function selectPkg(i) { selectedPkgIndex = i; renderPkgOptions(currentProduct); updateModalPrice(); }
 
+// ✅ FIX 4: modal narxi null bo'lsa bo'sh, faqat USD ko'rinadi
 function updateModalPrice() {
   if (!currentProduct) return;
   const pkg = currentProduct.packages[selectedPkgIndex];
   const priceEl = document.getElementById('modalPrice');
   const usdEl = document.getElementById('modalPriceUsd');
 
-  priceEl.textContent = `${pkg.price.toLocaleString()} ${t('currency')}`;
+  priceEl.textContent = pkg.price != null
+    ? `${pkg.price.toLocaleString()} ${t('currency')}`
+    : '';
 
-  // Dollar narxini ko'rsatish
   if (pkg.priceUsd != null) {
-    usdEl.textContent = `/ $${pkg.priceUsd}`;
+    usdEl.textContent = `$${pkg.priceUsd}`;
     usdEl.style.display = '';
   } else {
     usdEl.textContent = '';
@@ -1439,6 +751,8 @@ function typeLabel(type) {
 }
 
 function openCart() { renderCart(); document.getElementById('cartModal').classList.add('open'); }
+
+// ✅ FIX 5: cart item narxi va total — null price handle
 function renderCart() {
   const container = document.getElementById('cartItems');
   const totalEl = document.getElementById('cartTotal');
@@ -1467,7 +781,7 @@ function renderCart() {
       </div>
       <div class="cart-item-right">
         <div class="cart-item-price">
-          ${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}
+          ${item.pkg.price != null ? `${(item.pkg.price * item.qty).toLocaleString()} ${t('currency')}` : ''}
           ${usdPart}
         </div>
         <div class="cart-qty-row">
@@ -1478,11 +792,13 @@ function renderCart() {
       </div>
     </div>`;
   }).join('');
-  const total = cart.reduce((s, i) => s + i.pkg.price * i.qty, 0);
+  // ✅ FIX 5b: total null price ni o'tkazib yuboradi
+  const total = cart.reduce((s, i) => s + (i.pkg.price != null ? i.pkg.price * i.qty : 0), 0);
   const totalUsd = cart.reduce((s, i) => s + (i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : 0), 0);
   const hasUsd = cart.some(i => i.pkg.priceUsd != null);
+  const hasSom = total > 0;
   document.getElementById('totalPrice').innerHTML =
-    `${total.toLocaleString()} ${t('currency')}` +
+    (hasSom ? `${total.toLocaleString()} ${t('currency')}` : '') +
     (hasUsd ? ` <span style="color:#27ae60;font-size:14px;">/ $${totalUsd}</span>` : '');
   totalEl.style.display = 'flex'; orderBtn.style.display = 'block';
 }
@@ -1531,6 +847,7 @@ function confirmOrder() {
   showToast(t('toastOrdering'));
 }
 
+// ✅ FIX 6: buildOrderPayload — subtotal null price uchun 0
 function buildOrderPayload(items, location, phone) {
   const user = tg?.initDataUnsafe?.user;
   return {
@@ -1548,9 +865,9 @@ function buildOrderPayload(items, location, phone) {
         type: i.type,
         typeUz: tm ? tm.uz : '',
         typeRu: tm ? tm.ru : '',
-        pricePerPkg: i.pkg.price,
-        priceUsd: i.pkg.priceUsd || null,
-        subtotal: i.pkg.price * i.qty,
+        pricePerPkg: i.pkg.price != null ? i.pkg.price : null,
+        priceUsd: i.pkg.priceUsd != null ? i.pkg.priceUsd : null,
+        subtotal: i.pkg.price != null ? i.pkg.price * i.qty : 0,
         subtotalUsd: i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : null,
         imageUz: i.product.imageUz || null,
         imageRu: i.product.imageRu || null,
@@ -1558,7 +875,7 @@ function buildOrderPayload(items, location, phone) {
         brand: i.brand ? { id: i.brand.id, nameUz: i.brand.nameUz, nameRu: i.brand.nameRu, country: i.brand.country } : null,
       };
     }),
-    total: items.reduce((s, i) => s + i.pkg.price * i.qty, 0),
+    total: items.reduce((s, i) => s + (i.pkg.price != null ? i.pkg.price * i.qty : 0), 0),
     totalUsd: items.reduce((s, i) => s + (i.pkg.priceUsd != null ? i.pkg.priceUsd * i.qty : 0), 0),
     lang: 'uz',
   };
@@ -1581,8 +898,3 @@ renderProducts();
 </script>
 </body>
 </html>
-
-
-
-
-
