@@ -285,11 +285,11 @@ const TYPE_META = {
 };
 
 // ── IMAGE PROXY ───────────────────────────────────────────────────────────
-// wsrv.nl CDN orqali barcha rasmlar mobil qurilmalarda ham ishlaydi
+// w=800 va q=95 — aniq, yuqori sifatli rasmlar
 function proxyImg(url) {
   if (!url) return null;
   if (url.includes('wsrv.nl')) return url;
-  return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=400&output=webp';
+  return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=800&q=95&output=webp';
 }
 // ─────────────────────────────────────────────────────────────────────────
 
@@ -445,12 +445,6 @@ const products = [
     imageUz:'https://i.ibb.co/V0QCFDfj/383-498-000-761-760-000.jpg', imageRu:'https://i.ibb.co/bgNMCqNT/img-27.jpg', badge:null },
 
   // ── OMEGA ─────────────────────────────────────────────────────────────────
-
-
-
-
-  
-
   { id:15, emoji:'', cat:'omega', types:[], hasPackages:false, hasImageRu:true,  hasBrands:false,
     uz:{ name:'Omega-3 Fish Oil',                           sub:'' },
     ru:{ name:'Омега-3 Fish Oil',                           sub:'' },
@@ -582,12 +576,6 @@ const products = [
     imageUz:'https://i.ibb.co/QLFVj54/img-49.jpg', imageRu:null, badge:null },
 
   // ── XOTIRA ────────────────────────────────────────────────────────────────
-
-
-
-
-  
-
   { id:34, emoji:'', cat:'xotira', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Added Attention',                            sub:'' },
     ru:{ name:'',                                           sub:'' },
@@ -725,12 +713,6 @@ const products = [
     imageUz:'https://i.ibb.co/Fkw2x9xy/img-71.jpg', imageRu:null, badge:null },
 
   // ── ONA VA BOLA ───────────────────────────────────────────────────────────
-
-
-
-
-  
-
   { id:56, emoji:'', cat:'ona-bola', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Baby Liquid Vitamin D3 For babies',          sub:'' },
     ru:{ name:'',                                           sub:'' },
@@ -834,12 +816,6 @@ const products = [
     imageUz:'https://i.ibb.co/3D6KnWP/img-88.jpg', imageRu:null, badge:null },
 
   // ── BOLALAR ───────────────────────────────────────────────────────────────
-
-
-
-
-  
-
   { id:73,  emoji:'', cat:'bolalar', types:[], hasPackages:false, hasImageRu:true,  hasBrands:false,
     uz:{ name:'GummiKing Calcium + Vitamin D',              sub:'' },
     ru:{ name:'',                                           sub:'' },
@@ -1178,12 +1154,6 @@ const products = [
     imageUz:'https://i.ibb.co/Y7Y2ZMkv/img-66.jpg', imageRu:null, badge:null },
 
   // ── AKSIYA ────────────────────────────────────────────────────────────────
-
-
-
-
-  
-
   { id:128, emoji:'🏷️', cat:'aksiya', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Solaray L-Lysine 500 mg',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
@@ -1510,26 +1480,20 @@ const products = [
     brands:[], packages:[{ qty:1, priceUsd:10 }],
     imageUz:'https://i.ibb.co/PvkzD3zW/67033d5bdc2e.jpg', imageRu:'https://i.ibb.co/G3Gbyt4L/f02c2ee2e5a2.jpg', badge:'AKSIYA' },
 
-  // ── BESTSELLER ──────────────────────────────────────────────────────────────────
-
-
-
-
-  
-
+  // ── BESTSELLER ────────────────────────────────────────────────────────────
   { id:181, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{ name:'Kollagen C',                                 sub:'' },
     ru:{ name:'Коллаген С',                                 sub:'' },
     brands:[], packages:[{ qty:1, price:297000 }],
     imageUz:'https://i.ibb.co/0j9xx1cC/297-000.jpg', imageRu:'https://i.ibb.co/HT49dJvy/img-2.jpg', badge:null },
-  
- { id:182,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true,  hasBrands:false,
+
+  { id:182, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true,  hasBrands:false,
     uz:{ name:'Kollagen Powder',                            sub:'' },
     ru:{ name:'Коллаген порошок',                           sub:'' },
     brands:[], packages:[{ qty:1, price:235000, bestValue:true }],
     imageUz:'https://iili.io/CFctL6g.jpg', imageRu:'https://i.ibb.co/qZqgfbv/img-4.jpg', badge:null },
 
-  { id:183,  emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:true,  hasBrands:false,
+  { id:183, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:true,  hasBrands:false,
     uz:{ name:'Verisol Kollagen + Biotin + Antioksidantlar', sub:'' },
     ru:{ name:'Verisol Kollagen + Biotin + Antioxidants',   sub:'' },
     brands:[], packages:[
@@ -1538,7 +1502,7 @@ const products = [
     ],
     imageUz:'https://iili.io/CFcbs2a.jpg', imageRu:'https://i.ibb.co/hRpyXdQv/img-8.jpg', badge:null },
 
-{ id:184,  emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:true,  hasBrands:false,
+  { id:184, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:true,  hasBrands:false,
     uz:{ name:'Dengiz Kollageni CollagenUp',                sub:'' },
     ru:{ name:'Морской коллаген CollagenUp',                sub:'' },
     brands:[], packages:[
@@ -1553,7 +1517,7 @@ const products = [
     brands:[], packages:[{ qty:1, price:325000 }],
     imageUz:'https://i.ibb.co/5XVkmsnN/img-33.jpg', imageRu:null, badge:null },
 
- { id:186, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
+  { id:186, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson Kids DHA',                           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[
@@ -1563,19 +1527,19 @@ const products = [
     imageUz:'https://i.ibb.co/M5p235ZN/img-44.jpg', imageRu:null, badge:null },
 
   { id:187, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray Magnesium Glycinate 350mg',                           sub:'' },
+    uz:{ name:'Solaray Magnesium Glycinate 350mg',          sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:245000 }],
     imageUz:'https://i.ibb.co/27PTt2GB/74f6e0bda772.jpg', imageRu:null, badge:null },
 
   { id:188, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'KAL Magnesium Malate 400mg',                           sub:'' },
+    uz:{ name:'KAL Magnesium Malate 400mg',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:250000 }],
     imageUz:'https://i.ibb.co/yBWm5Dwn/7ea6217946b1.jpg', imageRu:null, badge:null },
 
   { id:189, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solgar Magnesium with Vitamin B6',                           sub:'' },
+    uz:{ name:'Solgar Magnesium with Vitamin B6',           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/n8RKh2hF/08880e8d0b62.jpg', imageRu:null, badge:null },
@@ -1587,31 +1551,31 @@ const products = [
     imageUz:'https://i.ibb.co/vx0f2n7k/7d53d27887e4.jpg', imageRu:null, badge:null },
 
   { id:191, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Swiss Mag - 5X',                           sub:'' },
+    uz:{ name:'Swiss Mag - 5X',                             sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/KpvszYXH/373e1c8385bb.jpg', imageRu:null, badge:null },
 
   { id:192, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'BigFriends Magnesium Citrate',                           sub:'' },
+    uz:{ name:'BigFriends Magnesium Citrate',               sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/4ZR44fMf/c5f14c5c0c37.jpg', imageRu:null, badge:null },
-  
-  { id:193,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+
+  { id:193, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:"mommys BLISS kids sleep",                    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:198000 }],
     imageUz:'https://i.ibb.co/k6HcMFqQ/c57aaf1bc439.jpg', imageRu:null, badge:null },
-  
-  { id:194,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:"Vitamin K2 + D3 2 in 1 Formula 10.000 IU",                    sub:'' },
+
+  { id:194, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:"Vitamin K2 + D3 2 in 1 Formula 10.000 IU",  sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:285000 }],
     imageUz:'https://i.ibb.co/PG8hSqhx/438300b184ad.jpg', imageRu:null, badge:null },
 
-  { id:195,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:"Vitamin K2 + D3 2 in 1 Support 5.000 IU",                    sub:'' },
+  { id:195, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:"Vitamin K2 + D3 2 in 1 Support 5.000 IU",   sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/JRKMR4Bj/60165fb268c7.jpg', imageRu:null, badge:null },
@@ -1621,27 +1585,29 @@ const products = [
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:148000 }],
     imageUz:'https://i.ibb.co/PvkzD3zW/67033d5bdc2e.jpg', imageRu:'https://i.ibb.co/G3Gbyt4L/f02c2ee2e5a2.jpg', badge:null },
-  
+
   { id:197, emoji:'', cat:'best', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray Vitamin D3 + K2',                      sub:'' },
+    uz:{ name:'Solaray Vitamin D3 + K2',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
-    brands:[], packages:[{ qty:60,unit:'dona', price:215000 },
-                        { qty:120,unit:'dona', price:345000 }],
+    brands:[], packages:[
+      { qty:60,  unit:'dona', price:215000 },
+      { qty:120, unit:'dona', price:345000 },
+    ],
     imageUz:'https://i.ibb.co/0VJX8myX/b0e42ccf868f.jpg', imageRu:null, badge:null },
 
-{ id:198, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Carlson kids Super Daily D3 + K2 liquid',                      sub:'' },
+  { id:198, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Carlson kids Super Daily D3 + K2 liquid',    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:335000 }],
     imageUz:'https://i.ibb.co/7JHLBN6T/ab65d4149e87.jpg', imageRu:null, badge:null },
 
   { id:199, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Nordic Daily Omega kids',                      sub:'' },
+    uz:{ name:'Nordic Daily Omega kids',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:155000 }],
     imageUz:'https://i.ibb.co/3m8fJ03C/img-48.jpg', imageRu:null, badge:null },
 
-  { id:200,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:200, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson kids chewable Zinc',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:140000 }],
@@ -1653,7 +1619,7 @@ const products = [
     brands:[], packages:[{ qty:1, price:169000 }],
     imageUz:'https://i.ibb.co/W4ngCrBZ/img-121.jpg', imageRu:null, badge:null },
 
-   { id:202, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
+  { id:202, emoji:'', cat:'best', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
     uz:{ name:'Solaray Kids Vitamins & Minerals',           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[
@@ -1662,14 +1628,14 @@ const products = [
     ],
     imageUz:'https://i.ibb.co/277L2Jh8/img-124.jpg', imageRu:null, badge:null },
 
-{ id:203, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:203, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'lifeflo Liquid Iodine Plus',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/G3W8QkNL/img-57.jpg', imageRu:null, badge:null },
 
   { id:204, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray Magnesium Citrate 400 mg',                 sub:'' },
+    uz:{ name:'Solaray Magnesium Citrate 400 mg',           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/4n8dyFh5/b25650518a22.jpg', imageRu:null, badge:null },
@@ -1683,8 +1649,10 @@ const products = [
   { id:206, emoji:'', cat:'best', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{ name:'GOLD Vitamin D3 5000 IU',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
-    brands:[], packages:[{ qty:90,unit:'dona', price:135000 },
-                        { qty:360,unit:'dona', price:335000 }],
+    brands:[], packages:[
+      { qty:90,  unit:'dona', price:135000 },
+      { qty:360, unit:'dona', price:335000 },
+    ],
     imageUz:'https://i.ibb.co/HT8KKDFg/7c87dc92f401.jpg', imageRu:null, badge:null },
 
   { id:207, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
@@ -1699,13 +1667,13 @@ const products = [
     brands:[], packages:[{ qty:1, price:135000 }],
     imageUz:'https://i.ibb.co/ZzJdcmSt/f63d7511e7fa.jpg', imageRu:null, badge:null },
 
-{ id:209, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:209, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'ChildLife Vitamin D3',                       sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/MDSybYK3/img-82.jpg', imageRu:null, badge:null },
 
-{ id:210, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
+  { id:210, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:true,
     uz:{ name:'Ginkgo Biloba',                              sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[
@@ -1715,13 +1683,13 @@ const products = [
     packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/Fkw2x9xy/img-71.jpg', imageRu:null, badge:null },
 
-  { id:211,  emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:211, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Swiss Calcium Forte',                        sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:185000 }],
     imageUz:'https://i.ibb.co/QF7pygmL/img-108.jpg', imageRu:null, badge:null },
 
-   { id:212, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:212, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Maxmedix Omega3-6-9 Gummies for kids',       sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:355000 }],
@@ -1733,13 +1701,13 @@ const products = [
     brands:[], packages:[{ qty:1, price:235000 }],
     imageUz:'https://i.ibb.co/tMZvG7px/img-116.jpg', imageRu:null, badge:null },
 
-{ id:214, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:214, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson kids chewable Iron',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:135000 }],
     imageUz:'https://i.ibb.co/Fb4VW90X/img-120.jpg', imageRu:null, badge:null },
 
- { id:215, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:215, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson kids chewable Vitamin C',            sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
@@ -1751,41 +1719,38 @@ const products = [
     brands:[], packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/Y7D2pfhT/403b17293308.jpg', imageRu:null, badge:null },
 
- { id:217, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+  { id:217, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
     uz:{ name:'21st century Calcium Magnesium Zinc + D3',   sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:135000 }],
     imageUz:'https://i.ibb.co/dsBrxgNS/35ad426f9ce0.jpg', imageRu:'https://i.ibb.co/dsBrxgNS/35ad426f9ce0.jpg', badge:null },
 
- { id:218, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{ name:'Solgar Calcium Magnesium plus Zinc',   sub:'' },
+  { id:218, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{ name:'Solgar Calcium Magnesium plus Zinc',         sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:265000 }],
     imageUz:'https://i.ibb.co/qYNVR3BS/ff57b9fa6e3f.jpg', imageRu:'https://i.ibb.co/B5ksd0j1/9159728b4c6d.jpg', badge:null },
 
-{ id:219, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
-    uz:{ name:'Kirkland Calcium Citrate Magnesium and Zinc',   sub:'' },
+  { id:219, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:true, hasBrands:false,
+    uz:{ name:'Kirkland Calcium Citrate Magnesium and Zinc', sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:420000 }],
     imageUz:'https://i.ibb.co/6cYskfdm/a43e01dea5e6.jpg', imageRu:'https://i.ibb.co/WWSfngQn/58225f7a517f.jpg', badge:null },
 
-{ id:220, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Natures Way Chlorofresh liquid Chlorophyll',            sub:'' },
+  { id:220, emoji:'', cat:'best', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Natures Way Chlorofresh liquid Chlorophyll',  sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:285000 }],
     imageUz:'https://i.ibb.co/RkWGz9Fk/cd9a01431eda.jpg', imageRu:null, badge:null },
 
-
-
-
   // ── IMMUNITET ─────────────────────────────────────────────────────────────
- { id:221, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:221, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Nordic Daily Omega Kids',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:155000 }],
     imageUz:'https://i.ibb.co/3m8fJ03C/img-48.jpg', imageRu:null, badge:null },
 
-  { id:222,  emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:222, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson Kids Vitamin D3 Gummies',            sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:235000 }],
@@ -1794,19 +1759,23 @@ const products = [
   { id:223, emoji:'', cat:'immunitet', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{ name:'GOLD Vitamin D3 5000 IU',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
-    brands:[], packages:[{ qty:90,unit:'dona', price:135000 },
-                        { qty:360,unit:'dona', price:335000 }],
+    brands:[], packages:[
+      { qty:90,  unit:'dona', price:135000 },
+      { qty:360, unit:'dona', price:335000 },
+    ],
     imageUz:'https://i.ibb.co/HT8KKDFg/7c87dc92f401.jpg', imageRu:null, badge:null },
 
   { id:224, emoji:'', cat:'immunitet', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray Vitamin D3 + K2',                      sub:'' },
+    uz:{ name:'Solaray Vitamin D3 + K2',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
-    brands:[], packages:[{ qty:60,unit:'dona', price:215000 },
-                        { qty:120,unit:'dona', price:345000 }],
+    brands:[], packages:[
+      { qty:60,  unit:'dona', price:215000 },
+      { qty:120, unit:'dona', price:345000 },
+    ],
     imageUz:'https://i.ibb.co/0VJX8myX/b0e42ccf868f.jpg', imageRu:null, badge:null },
 
-{ id:225, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Carlson kids Super Daily D3 + K2 liquid',                      sub:'' },
+  { id:225, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Carlson kids Super Daily D3 + K2 liquid',    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:335000 }],
     imageUz:'https://i.ibb.co/7JHLBN6T/ab65d4149e87.jpg', imageRu:null, badge:null },
@@ -1817,7 +1786,7 @@ const products = [
     brands:[], packages:[{ qty:1, price:185000 }],
     imageUz:'https://i.ibb.co/MDbggyBY/img-74.jpg', imageRu:null, badge:null },
 
-{ id:227, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:227, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Cold Relief COLD CALM BABY',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:250000 }],
@@ -1829,49 +1798,49 @@ const products = [
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/7dz8rmPQ/img-81.jpg', imageRu:null, badge:null },
 
-{ id:229, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:229, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Nordic babys DHA',                           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:250000 }],
     imageUz:'https://i.ibb.co/JWHdq7M7/img-83.jpg', imageRu:null, badge:null },
 
- { id:230,  emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:230, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Vitamin D & C',                              sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:140000 }],
     imageUz:'https://i.ibb.co/pvQdMTgv/img-110.jpg', imageRu:null, badge:null },
 
-{ id:231,  emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:231, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Power Teen',                                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:340000 }],
     imageUz:'https://i.ibb.co/v423zgC6/img-112.jpg', imageRu:null, badge:null },
 
-  { id:232,  emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:232, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson kids chewable Zinc',                 sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:140000 }],
     imageUz:'https://i.ibb.co/C5fHJKw4/img-113.jpg', imageRu:null, badge:null },
 
-  { id:233,  emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:233, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'ChildLife Zinc',                             sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/d0LkK3cv/img-114.jpg', imageRu:null, badge:null },
 
- { id:234, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:234, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Sambucol Kids + Vitamin C',                  sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:298000 }],
     imageUz:'https://i.ibb.co/DfdNN4K5/img-132.jpg', imageRu:null, badge:null },
 
-   { id:235, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:235, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Animal Parade Probiotic',                    sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:235000 }],
     imageUz:'https://i.ibb.co/8ndG97Zq/img-136.jpg', imageRu:null, badge:null },
 
-{ id:236, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:236, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'NaturesPlus Liquid Vitamin C 1000mg',        sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
@@ -1883,13 +1852,13 @@ const products = [
     brands:[], packages:[{ qty:1, price:148000 }],
     imageUz:'https://i.ibb.co/PvkzD3zW/67033d5bdc2e.jpg', imageRu:'https://i.ibb.co/G3Gbyt4L/f02c2ee2e5a2.jpg', badge:null },
 
-   { id:238, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:238, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'21st Century Zoo Friends Multi Vitamin',     sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:169000 }],
     imageUz:'https://i.ibb.co/W4ngCrBZ/img-121.jpg', imageRu:null, badge:null },
 
-    { id:239, emoji:'', cat:'immunitet', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
+  { id:239, emoji:'', cat:'immunitet', types:[], hasPackages:true,  hasImageRu:false, hasBrands:false,
     uz:{ name:'Solaray Kids Vitamins & Minerals',           sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[
@@ -1898,78 +1867,76 @@ const products = [
     ],
     imageUz:'https://i.ibb.co/277L2Jh8/img-124.jpg', imageRu:null, badge:null },
 
- { id:240, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:240, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Maxmedix Omega3-6-9 Gummies for kids',       sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:355000 }],
     imageUz:'https://i.ibb.co/ZzwNxzLD/img-45.jpg', imageRu:null, badge:null },
 
-{ id:241, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:241, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson kids chewable Vitamin C',            sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/j9cr4BLB/img-134.jpg', imageRu:null, badge:null },
 
-{ id:242, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solgar Zinc Picolinate 22 mg',            sub:'' },
+  { id:242, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Solgar Zinc Picolinate 22 mg',               sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:185000 }],
     imageUz:'https://i.ibb.co/8gQ9XPCJ/8a9fda2b3ef3.jpg', imageRu:null, badge:null },
 
   { id:243, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray Vitamin C & Bioflavonoids',            sub:'' },
+    uz:{ name:'Solaray Vitamin C & Bioflavonoids',          sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:185000 }],
     imageUz:'https://i.ibb.co/rRSkJ5b9/97493e9fd6db.jpg', imageRu:null, badge:null },
 
-{ id:244, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:244, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Solaray Zinc Citrate',                       sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:145000 }],
     imageUz:'https://i.ibb.co/zTYC068K/img-148.jpg', imageRu:null, badge:null },
 
-{ id:245, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Solaray L-Lysine Monolaurin',                       sub:'' },
+  { id:245, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Solaray L-Lysine Monolaurin',                sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:195000 }],
     imageUz:'https://i.ibb.co/BKwXgvCh/087501dbf0f9.jpg', imageRu:null, badge:null },
 
-{ id:246, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:246, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Carlson Zinc',                               sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:145000 }],
-    imageUz:'https://i.ibb.co/BWMwCZp/img-166.jpg', imageRu:null, badge:null},
+    imageUz:'https://i.ibb.co/BWMwCZp/img-166.jpg', imageRu:null, badge:null },
 
-{ id:247, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Natures Way Probiotic',                               sub:'' },
+  { id:247, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Natures Way Probiotic',                      sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:295000 }],
-    imageUz:'https://i.ibb.co/mF4ZyXX5/60129858ace1.jpg', imageRu:null, badge:null},
+    imageUz:'https://i.ibb.co/mF4ZyXX5/60129858ace1.jpg', imageRu:null, badge:null },
 
-{ id:248, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+  { id:248, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'now Zinc',                                   sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:135000 }],
     imageUz:'https://i.ibb.co/pjRQR6Nw/img-155.jpg', imageRu:null, badge:null },
 
-{ id:249, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
-    uz:{ name:'MRM Womens Probiotic',                                   sub:'' },
+  { id:249, emoji:'', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
+    uz:{ name:'MRM Womens Probiotic',                       sub:'' },
     ru:{ name:'',                                           sub:'' },
     brands:[], packages:[{ qty:1, price:400000 }],
     imageUz:'https://i.ibb.co/pjbJsT1j/ee3ba7a48e4b.jpg', imageRu:null, badge:null },
 
-{ id:250, emoji:'', cat:'immunitet', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
-    uz:{ name:'Gold LactoBif 100 mln and 5 mln',                                   sub:'' },
+  { id:250, emoji:'', cat:'immunitet', types:[], hasPackages:true, hasImageRu:false, hasBrands:false,
+    uz:{ name:'Gold LactoBif 100 mln and 5 mln',           sub:'' },
     ru:{ name:'',                                           sub:'' },
-    brands:[], packages:[{ qty:5,unit:'', price:240000 },
-                        { qty:100,unit:'', price:760000 }],
+    brands:[], packages:[
+      { qty:5,   unit:'', price:240000 },
+      { qty:100, unit:'', price:760000 },
+    ],
     imageUz:'https://i.ibb.co/tMqS32kZ/745b58449370.jpg', imageRu:null, badge:null },
 
-
-  
-  
   // ── SUYAK ─────────────────────────────────────────────────────────────────
-
   { id:2000, emoji:'🦴', cat:'suyak', types:[], hasPackages:true, hasImageRu:false, hasBrands:true,
     uz:{ name:'Kalsiy + D3',                                sub:'Suyak mustahkamlovchi' },
     ru:{ name:'Кальций + D3',                               sub:'Укрепление костей' },
@@ -1983,8 +1950,7 @@ const products = [
     ],
     imageUz:null, imageRu:null, badge:null },
 
-  // ── HAMMASI (umumiy) ──────────────────────────────────────────────────────
-
+  // ── HAMMASI ───────────────────────────────────────────────────────────────
   { id:300, emoji:'💊', cat:'hammasi', types:['powder','chew'], hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{ name:'Multivitamin',                               sub:'Kunlik kompleks' },
     ru:{ name:'Мультивитамин',                              sub:'Ежедневный комплекс' },
@@ -1996,7 +1962,6 @@ const products = [
     imageUz:null, imageRu:null, badge:'YANGI' },
 
   // ── KOSMETIKA ─────────────────────────────────────────────────────────────
-
   { id:400, emoji:'💊', cat:'kosmetika', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Biotin',                                     sub:'Soch va tirnoq' },
     ru:{ name:'Биотин',                                     sub:'Волосы и ногти' },
@@ -2004,7 +1969,6 @@ const products = [
     imageUz:null, imageRu:null, badge:null },
 
   // ── OMEGA (qo'shimcha) ────────────────────────────────────────────────────
-
   { id:600, emoji:'❤️', cat:'omega', types:['capsule','liquid'], hasPackages:true, hasImageRu:false, hasBrands:false,
     uz:{ name:'Omega-3',                                    sub:"Yurak sog'ligi" },
     ru:{ name:'Омега-3',                                    sub:'Здоровье сердца' },
@@ -2016,13 +1980,11 @@ const products = [
     imageUz:null, imageRu:null, badge:null },
 
   // ── BOLALAR (qo'shimcha) ──────────────────────────────────────────────────
-
   { id:700, emoji:'🧸', cat:'bolalar', types:['chew','liquid'], hasPackages:false, hasImageRu:false, hasBrands:false,
     uz:{ name:'Bolalar vitamini',                           sub:'Multivitamin 3-12 yosh' },
     ru:{ name:'Детские витамины',                           sub:'Мультивитамин 3-12 лет' },
     brands:[], packages:[{ qty:60, price:43000 }],
     imageUz:null, imageRu:null, badge:'MASHHUR' },
-
 ];
 
 let selectedCat = 'hammasi';
@@ -2034,10 +1996,13 @@ let selectedBrandIndex = 0;
 let cart = [];
 let pendingOrderItems = null;
 
+// ── unit:'': bo'sh bo'lsa hech narsa qo'shilmaydi, faqat raqam ko'rinadi
 function pkgUnit(pk) {
-  if (!pk.unit || pk.unit === '') return translations.uz.pkgUnit;
+  if (pk.unit === undefined || pk.unit === null) return translations.uz.pkgUnit; // 'dona'
+  if (pk.unit === '') return '';   // bo'sh: faqat son ko'rinadi
   return pk.unit;
 }
+
 function t(key) { return translations.uz[key]; }
 
 function renderCategories() {
@@ -2066,7 +2031,6 @@ function renderProducts() {
   const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
     const info = p.uz;
-    // proxyImg orqali rasm URL ni barcha qurilmalarda ishlaydigan qilamiz
     const imgUrl = proxyImg(p.imageUz);
     const imgTag = imgUrl
       ? `<img src="${imgUrl}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\\'card-img-emoji\\'>${p.emoji||'💊'}</span>'">`
@@ -2101,7 +2065,6 @@ function renderModalImage(p, il) {
   });
   const ruPill = document.getElementById('imgLangRu');
   if (ruPill) ruPill.style.display = p.hasImageRu ? '' : 'none';
-  // proxyImg orqali modal rasmi ham mobilda ishlaydi
   let rawUrl = il === 'ru' ? (p.hasImageRu ? p.imageRu : p.imageUz) : p.imageUz;
   let url = proxyImg(rawUrl);
   if (url) {
@@ -2153,13 +2116,17 @@ function selectBrand(i) {
 }
 
 function renderPkgOptions(p) {
-  document.getElementById('pkgOptions').innerHTML = p.packages.map((pk, i) => `
+  document.getElementById('pkgOptions').innerHTML = p.packages.map((pk, i) => {
+    const unit = pkgUnit(pk);
+    const qtyLabel = unit ? `${pk.qty} ${unit}` : `${pk.qty}`;
+    return `
     <button class="pkg-btn ${i === selectedPkgIndex ? 'active' : ''} ${pk.bestValue ? 'best-value' : ''}"
       data-label="${t('pkgBestValue')}" onclick="selectPkg(${i})">
-      <span class="pkg-qty">${pk.qty} ${pkgUnit(pk)}</span>
+      <span class="pkg-qty">${qtyLabel}</span>
       <span class="pkg-price">${pk.price != null ? `${pk.price.toLocaleString()} ${t('currency')}` : ''}</span>
       ${pk.priceUsd != null ? `<span class="pkg-price-usd">$${pk.priceUsd}</span>` : ''}
-    </button>`).join('');
+    </button>`;
+  }).join('');
 }
 function selectPkg(i) { selectedPkgIndex = i; renderPkgOptions(currentProduct); updateModalPrice(); }
 
@@ -2303,10 +2270,11 @@ function renderCart() {
     totalEl.style.display = 'none'; orderBtn.style.display = 'none'; return;
   }
   container.innerHTML = cart.map(item => {
-    // proxyImg savatdagi rasmlarda ham ishlaydi
     const imgUrl = proxyImg(item.product.imageUz);
     const thumb = imgUrl ? `<img src="${imgUrl}" alt="${item.product.uz.name}">` : item.product.emoji||'💊';
-    const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${pkgUnit(item.pkg)}` : '';
+    const unit = pkgUnit(item.pkg);
+    const qtyLabel = unit ? `${item.pkg.qty} ${unit}` : `${item.pkg.qty}`;
+    const pkgLabel = item.product.hasPackages ? `📦 ${qtyLabel}` : '';
     const typePart = typeLabel(item.type) ? ` · ${TYPE_META[item.type].icon} ${typeLabel(item.type)}` : '';
     const brandPart = item.brand ? ` · ${item.brand.logo} ${item.brand.nameUz}` : '';
     const subInfo = [pkgLabel, typePart, brandPart].filter(Boolean).join('');
@@ -2393,13 +2361,14 @@ function buildOrderPayload(items, location, phone) {
     delivery: { location, phone },
     items: items.map(i => {
       const tm = i.type && TYPE_META[i.type] ? TYPE_META[i.type] : null;
+      const unit = pkgUnit(i.pkg);
       return {
         id:           i.product.id,
         nameUz:       i.product.uz.name,
         nameRu:       i.product.ru.name,
         qty:          i.qty,
         packageQty:   i.pkg.qty,
-        packageUnit:  pkgUnit(i.pkg),
+        packageUnit:  unit,
         type:         i.type,
         typeUz:       tm ? tm.uz : '',
         typeRu:       tm ? tm.ru : '',
