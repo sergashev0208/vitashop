@@ -284,6 +284,15 @@ const TYPE_META = {
   tablet:  { icon: '⚪️', uz: 'Tabletka',       ru: 'Таблетка'    },
 };
 
+// ── IMAGE PROXY ───────────────────────────────────────────────────────────
+// wsrv.nl CDN orqali barcha rasmlar mobil qurilmalarda ham ishlaydi
+function proxyImg(url) {
+  if (!url) return null;
+  if (url.includes('wsrv.nl')) return url;
+  return 'https://wsrv.nl/?url=' + encodeURIComponent(url) + '&w=400&output=webp';
+}
+// ─────────────────────────────────────────────────────────────────────────
+
 const translations = {
   uz: {
     allVit:              'Barcha vitaminlar',
@@ -1482,28 +1491,8 @@ const products = [
     uz:{ name:'Kollagen C',                                 sub:'' },
     ru:{ name:'Коллаген С',                                 sub:'' },
     brands:[], packages:[{ qty:1, price:297000 }],
-imageUz:'https://iili.io/C2PomFI.jpg', imageRu:'https://iili.io/C2PI2El.jpg', badge:'AKSIYA' },
-  
+    imageUz:'https://iili.io/C2PomFI.jpg', imageRu:'https://iili.io/C2PI2El.jpg', badge:'AKSIYA' },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   // ── IMMUNITET ─────────────────────────────────────────────────────────────
 
   { id:1000, emoji:'☀️', cat:'immunitet', types:[], hasPackages:false, hasImageRu:false, hasBrands:false,
@@ -1610,10 +1599,11 @@ function renderProducts() {
   const filtered = selectedCat === 'hammasi' ? products : products.filter(p => p.cat === selectedCat);
   document.getElementById('grid').innerHTML = filtered.map(p => {
     const info = p.uz;
-    const imgUrl = p.imageUz;
+    // proxyImg orqali rasm URL ni barcha qurilmalarda ishlaydigan qilamiz
+    const imgUrl = proxyImg(p.imageUz);
     const imgTag = imgUrl
-      ? `<img src="${imgUrl}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;">`
-      : `<span class="card-img-emoji">${p.emoji}</span>`;
+      ? `<img src="${imgUrl}" alt="${info.name}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\\'card-img-emoji\\'>${p.emoji||'💊'}</span>'">`
+      : `<span class="card-img-emoji">${p.emoji||'💊'}</span>`;
     const minPrice = getMinPrice(p);
     const minPriceUsd = getMinPriceUsd(p);
     const showFrom = (p.hasPackages && p.packages.length > 1) || (p.hasBrands && p.brands.length > 1);
@@ -1644,14 +1634,16 @@ function renderModalImage(p, il) {
   });
   const ruPill = document.getElementById('imgLangRu');
   if (ruPill) ruPill.style.display = p.hasImageRu ? '' : 'none';
-  let url = il === 'ru' ? (p.hasImageRu ? p.imageRu : p.imageUz) : p.imageUz;
+  // proxyImg orqali modal rasmi ham mobilda ishlaydi
+  let rawUrl = il === 'ru' ? (p.hasImageRu ? p.imageRu : p.imageUz) : p.imageUz;
+  let url = proxyImg(rawUrl);
   if (url) {
     const img = document.createElement('img');
     img.src = url; img.alt = p.uz.name; img.id = 'modalImg';
     img.onerror = () => {
       img.remove();
       const em = document.createElement('div');
-      em.className = 'modal-image-emoji'; em.textContent = p.emoji;
+      em.className = 'modal-image-emoji'; em.textContent = p.emoji||'💊';
       wrap.insertBefore(em, pills);
       hint.style.display = 'none';
     };
@@ -1659,7 +1651,7 @@ function renderModalImage(p, il) {
     hint.style.display = '';
   } else {
     const em = document.createElement('div');
-    em.className = 'modal-image-emoji'; em.textContent = p.emoji;
+    em.className = 'modal-image-emoji'; em.textContent = p.emoji||'💊';
     wrap.insertBefore(em, pills);
     hint.style.display = 'none';
   }
@@ -1844,8 +1836,9 @@ function renderCart() {
     totalEl.style.display = 'none'; orderBtn.style.display = 'none'; return;
   }
   container.innerHTML = cart.map(item => {
-    const imgUrl = item.product.imageUz;
-    const thumb = imgUrl ? `<img src="${imgUrl}" alt="${item.product.uz.name}">` : item.product.emoji;
+    // proxyImg savatdagi rasmlarda ham ishlaydi
+    const imgUrl = proxyImg(item.product.imageUz);
+    const thumb = imgUrl ? `<img src="${imgUrl}" alt="${item.product.uz.name}">` : item.product.emoji||'💊';
     const pkgLabel = item.product.hasPackages ? `📦 ${item.pkg.qty} ${pkgUnit(item.pkg)}` : '';
     const typePart = typeLabel(item.type) ? ` · ${TYPE_META[item.type].icon} ${typeLabel(item.type)}` : '';
     const brandPart = item.brand ? ` · ${item.brand.logo} ${item.brand.nameUz}` : '';
